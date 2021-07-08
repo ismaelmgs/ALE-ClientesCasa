@@ -24,6 +24,7 @@ namespace ClientesCasa.Views.Gastos
         #region EVENTOS
         protected void Page_Load(object sender, EventArgs e)
         {
+            //se inicia el presentador
             oPresenter = new Mantenimiento_Presenter(this, new DBMantenimiento());
 
             if (!IsPostBack)
