@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClientesCasa.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ClientesCasa_wsSiteLine_ws_SyteLine" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc</Value>
+    </Setting>
+    <Setting Name="ClientesCasa_wsNomina_ws_catalogosToken" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://abaco.isinom.net/WS_ISI/ws_catalogosToken.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

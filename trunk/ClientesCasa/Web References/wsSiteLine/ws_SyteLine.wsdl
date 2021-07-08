@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ws_SyteLine" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ws_SyteLine" />
+      <xsd:import schemaLocation="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ws_SyteLine.Objetos" />
+      <xsd:import schemaLocation="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Iws_SyteLine_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetCodigoUnidad_Uno_Vendedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodigoUnidad_Uno_Vendedor" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetCodigoUnidad_Uno_Vendedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodigoUnidad_Uno_VendedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetCuentasContables_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuentasContables" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetCuentasContables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuentasContablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetCuentasContablesServicios_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuentasContablesServicios" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetCuentasContablesServicios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuentasContablesServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetFacturantes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacturantes" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetFacturantes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacturantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ValidaFacturante_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaFacturante" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ValidaFacturante_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaFacturanteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetNumFactura_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumFactura" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetNumFactura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SaveArinV_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveArinV" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SaveArinV_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveArinVResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SaveArinVD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveArinVD" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SaveArinVD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveArinVDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SaveConceptoFacFinanciera_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveConceptoFacFinanciera" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SaveConceptoFacFinanciera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveConceptoFacFinancieraResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaFacturacionMXN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaFacturacionMXN" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaFacturacionMXN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaFacturacionMXNResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaFacturacionDLLS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaFacturacionDLLS" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaFacturacionDLLS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaFacturacionDLLSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoDLLS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenNoAcumuladoDLLS" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoDLLS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenNoAcumuladoDLLSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoMXN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenNoAcumuladoMXN" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoMXN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenNoAcumuladoMXNResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenAcumuladoDLLS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenAcumuladoDLLS" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenAcumuladoDLLS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenAcumuladoDLLSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenAcumuladoMXN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenAcumuladoMXN" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetEstadoCuentaResumenAcumuladoMXN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstadoCuentaResumenAcumuladoMXNResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ValidaEstatusCancelacionFactura_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaEstatusCancelacionFactura" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ValidaEstatusCancelacionFactura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaEstatusCancelacionFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetMovimientosAnterioresEdoCuenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovimientosAnterioresEdoCuenta" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetMovimientosAnterioresEdoCuenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovimientosAnterioresEdoCuentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_RecuperaTipoCambio_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperaTipoCambio" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_RecuperaTipoCambio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperaTipoCambioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_RecuperaTipoCambioFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperaTipoCambioFecha" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_RecuperaTipoCambioFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperaTipoCambioFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetFacturasTabulado_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacturasTabulado" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetFacturasTabulado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacturasTabuladoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GeneraSolicitudVuelo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeneraSolicitudVuelo" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GeneraSolicitudVuelo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeneraSolicitudVueloResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GeneraPiernas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeneraPiernas" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GeneraPiernas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeneraPiernasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_CancelaSolicitudVuelo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelaSolicitudVuelo" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_CancelaSolicitudVuelo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelaSolicitudVueloResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaSolicitudVuelo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaSolicitudVuelo" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaSolicitudVuelo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaSolicitudVueloResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_EliminaPiernas_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPiernas" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_EliminaPiernas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPiernasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ActualizaPiernas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaPiernas" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ActualizaPiernas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaPiernasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ActualizaSolicitud_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ActualizaSolicitud_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaPreferenciasClienteAPP_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaPreferenciasClienteAPP" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaPreferenciasClienteAPP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaPreferenciasClienteAPPResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaCasosClienteAPP_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaCasosClienteAPP" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaCasosClienteAPP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaCasosClienteAPPResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetInformacionFlightPak_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInformacionFlightPak" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetInformacionFlightPak_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInformacionFlightPakResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetInformacionVuelosFerrys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInformacionVuelosFerrys" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetInformacionVuelosFerrys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInformacionVuelosFerrysResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SetCambiaEstatusFerry_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCambiaEstatusFerry" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SetCambiaEstatusFerry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCambiaEstatusFerryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SetProcesaJSON_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetProcesaJSON" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_SetProcesaJSON_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetProcesaJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtienePromedioVuelo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtienePromedioVuelo" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtienePromedioVuelo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtienePromedioVueloResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneDatosPilotoPorClave_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneDatosPilotoPorClave" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneDatosPilotoPorClave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneDatosPilotoPorClaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneEstatusPiloto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneEstatusPiloto" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneEstatusPiloto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneEstatusPilotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneVuelosPorPiloto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneVuelosPorPiloto" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneVuelosPorPiloto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneVuelosPorPilotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneVuelosPorRangoDeFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneVuelosPorRangoDeFechas" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ObtieneVuelosPorRangoDeFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneVuelosPorRangoDeFechasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaCuentaConceptoII_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaCuentaConceptoII" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaCuentaConceptoII_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaCuentaConceptoIIResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaPais_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaPais" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaPais_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaPaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaEstadoPorPais_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaEstadoPorPais" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_ConsultaEstadoPorPais_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaEstadoPorPaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetPreguntasEncuesta_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreguntasEncuesta" />
+  </wsdl:message>
+  <wsdl:message name="Iws_SyteLine_GetPreguntasEncuesta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreguntasEncuestaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Iws_SyteLine">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetData" message="tns:Iws_SyteLine_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetDataResponse" message="tns:Iws_SyteLine_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigoUnidad_Uno_Vendedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetCodigoUnidad_Uno_Vendedor" message="tns:Iws_SyteLine_GetCodigoUnidad_Uno_Vendedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetCodigoUnidad_Uno_VendedorResponse" message="tns:Iws_SyteLine_GetCodigoUnidad_Uno_Vendedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasContables">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetCuentasContables" message="tns:Iws_SyteLine_GetCuentasContables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetCuentasContablesResponse" message="tns:Iws_SyteLine_GetCuentasContables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasContablesServicios">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetCuentasContablesServicios" message="tns:Iws_SyteLine_GetCuentasContablesServicios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetCuentasContablesServiciosResponse" message="tns:Iws_SyteLine_GetCuentasContablesServicios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturantes">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetFacturantes" message="tns:Iws_SyteLine_GetFacturantes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetFacturantesResponse" message="tns:Iws_SyteLine_GetFacturantes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaFacturante">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ValidaFacturante" message="tns:Iws_SyteLine_ValidaFacturante_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ValidaFacturanteResponse" message="tns:Iws_SyteLine_ValidaFacturante_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumFactura">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetNumFactura" message="tns:Iws_SyteLine_GetNumFactura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetNumFacturaResponse" message="tns:Iws_SyteLine_GetNumFactura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetDataUsingDataContract" message="tns:Iws_SyteLine_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetDataUsingDataContractResponse" message="tns:Iws_SyteLine_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveArinV">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/SaveArinV" message="tns:Iws_SyteLine_SaveArinV_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/SaveArinVResponse" message="tns:Iws_SyteLine_SaveArinV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveArinVD">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/SaveArinVD" message="tns:Iws_SyteLine_SaveArinVD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/SaveArinVDResponse" message="tns:Iws_SyteLine_SaveArinVD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveConceptoFacFinanciera">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/SaveConceptoFacFinanciera" message="tns:Iws_SyteLine_SaveConceptoFacFinanciera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/SaveConceptoFacFinancieraResponse" message="tns:Iws_SyteLine_SaveConceptoFacFinanciera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaFacturacionMXN">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaFacturacionMXN" message="tns:Iws_SyteLine_GetEstadoCuentaFacturacionMXN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaFacturacionMXNResponse" message="tns:Iws_SyteLine_GetEstadoCuentaFacturacionMXN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaFacturacionDLLS">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaFacturacionDLLS" message="tns:Iws_SyteLine_GetEstadoCuentaFacturacionDLLS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaFacturacionDLLSResponse" message="tns:Iws_SyteLine_GetEstadoCuentaFacturacionDLLS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenNoAcumuladoDLLS">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenNoAcumuladoDLLS" message="tns:Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoDLLS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenNoAcumuladoDLLSResponse" message="tns:Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoDLLS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenNoAcumuladoMXN">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenNoAcumuladoMXN" message="tns:Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoMXN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenNoAcumuladoMXNResponse" message="tns:Iws_SyteLine_GetEstadoCuentaResumenNoAcumuladoMXN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenAcumuladoDLLS">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenAcumuladoDLLS" message="tns:Iws_SyteLine_GetEstadoCuentaResumenAcumuladoDLLS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenAcumuladoDLLSResponse" message="tns:Iws_SyteLine_GetEstadoCuentaResumenAcumuladoDLLS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenAcumuladoMXN">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenAcumuladoMXN" message="tns:Iws_SyteLine_GetEstadoCuentaResumenAcumuladoMXN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenAcumuladoMXNResponse" message="tns:Iws_SyteLine_GetEstadoCuentaResumenAcumuladoMXN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaEstatusCancelacionFactura">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ValidaEstatusCancelacionFactura" message="tns:Iws_SyteLine_ValidaEstatusCancelacionFactura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ValidaEstatusCancelacionFacturaResponse" message="tns:Iws_SyteLine_ValidaEstatusCancelacionFactura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovimientosAnterioresEdoCuenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetMovimientosAnterioresEdoCuenta" message="tns:Iws_SyteLine_GetMovimientosAnterioresEdoCuenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetMovimientosAnterioresEdoCuentaResponse" message="tns:Iws_SyteLine_GetMovimientosAnterioresEdoCuenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTipoCambio">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/RecuperaTipoCambio" message="tns:Iws_SyteLine_RecuperaTipoCambio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/RecuperaTipoCambioResponse" message="tns:Iws_SyteLine_RecuperaTipoCambio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTipoCambioFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/RecuperaTipoCambioFecha" message="tns:Iws_SyteLine_RecuperaTipoCambioFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/RecuperaTipoCambioFechaResponse" message="tns:Iws_SyteLine_RecuperaTipoCambioFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturasTabulado">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetFacturasTabulado" message="tns:Iws_SyteLine_GetFacturasTabulado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetFacturasTabuladoResponse" message="tns:Iws_SyteLine_GetFacturasTabulado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneraSolicitudVuelo">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GeneraSolicitudVuelo" message="tns:Iws_SyteLine_GeneraSolicitudVuelo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GeneraSolicitudVueloResponse" message="tns:Iws_SyteLine_GeneraSolicitudVuelo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeneraPiernas">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GeneraPiernas" message="tns:Iws_SyteLine_GeneraPiernas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GeneraPiernasResponse" message="tns:Iws_SyteLine_GeneraPiernas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelaSolicitudVuelo">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/CancelaSolicitudVuelo" message="tns:Iws_SyteLine_CancelaSolicitudVuelo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/CancelaSolicitudVueloResponse" message="tns:Iws_SyteLine_CancelaSolicitudVuelo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSolicitudVuelo">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaSolicitudVuelo" message="tns:Iws_SyteLine_ConsultaSolicitudVuelo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaSolicitudVueloResponse" message="tns:Iws_SyteLine_ConsultaSolicitudVuelo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPiernas">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/EliminaPiernas" message="tns:Iws_SyteLine_EliminaPiernas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/EliminaPiernasResponse" message="tns:Iws_SyteLine_EliminaPiernas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaPiernas">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ActualizaPiernas" message="tns:Iws_SyteLine_ActualizaPiernas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ActualizaPiernasResponse" message="tns:Iws_SyteLine_ActualizaPiernas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaSolicitud">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ActualizaSolicitud" message="tns:Iws_SyteLine_ActualizaSolicitud_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ActualizaSolicitudResponse" message="tns:Iws_SyteLine_ActualizaSolicitud_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPreferenciasClienteAPP">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaPreferenciasClienteAPP" message="tns:Iws_SyteLine_ConsultaPreferenciasClienteAPP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaPreferenciasClienteAPPResponse" message="tns:Iws_SyteLine_ConsultaPreferenciasClienteAPP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCasosClienteAPP">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaCasosClienteAPP" message="tns:Iws_SyteLine_ConsultaCasosClienteAPP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaCasosClienteAPPResponse" message="tns:Iws_SyteLine_ConsultaCasosClienteAPP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInformacionFlightPak">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetInformacionFlightPak" message="tns:Iws_SyteLine_GetInformacionFlightPak_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetInformacionFlightPakResponse" message="tns:Iws_SyteLine_GetInformacionFlightPak_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInformacionVuelosFerrys">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetInformacionVuelosFerrys" message="tns:Iws_SyteLine_GetInformacionVuelosFerrys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetInformacionVuelosFerrysResponse" message="tns:Iws_SyteLine_GetInformacionVuelosFerrys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCambiaEstatusFerry">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/SetCambiaEstatusFerry" message="tns:Iws_SyteLine_SetCambiaEstatusFerry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/SetCambiaEstatusFerryResponse" message="tns:Iws_SyteLine_SetCambiaEstatusFerry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProcesaJSON">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/SetProcesaJSON" message="tns:Iws_SyteLine_SetProcesaJSON_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/SetProcesaJSONResponse" message="tns:Iws_SyteLine_SetProcesaJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePromedioVuelo">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtienePromedioVuelo" message="tns:Iws_SyteLine_ObtienePromedioVuelo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtienePromedioVueloResponse" message="tns:Iws_SyteLine_ObtienePromedioVuelo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneDatosPilotoPorClave">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneDatosPilotoPorClave" message="tns:Iws_SyteLine_ObtieneDatosPilotoPorClave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneDatosPilotoPorClaveResponse" message="tns:Iws_SyteLine_ObtieneDatosPilotoPorClave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneEstatusPiloto">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneEstatusPiloto" message="tns:Iws_SyteLine_ObtieneEstatusPiloto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneEstatusPilotoResponse" message="tns:Iws_SyteLine_ObtieneEstatusPiloto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneVuelosPorPiloto">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneVuelosPorPiloto" message="tns:Iws_SyteLine_ObtieneVuelosPorPiloto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneVuelosPorPilotoResponse" message="tns:Iws_SyteLine_ObtieneVuelosPorPiloto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneVuelosPorRangoDeFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneVuelosPorRangoDeFechas" message="tns:Iws_SyteLine_ObtieneVuelosPorRangoDeFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ObtieneVuelosPorRangoDeFechasResponse" message="tns:Iws_SyteLine_ObtieneVuelosPorRangoDeFechas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCuentaConceptoII">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaCuentaConceptoII" message="tns:Iws_SyteLine_ConsultaCuentaConceptoII_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaCuentaConceptoIIResponse" message="tns:Iws_SyteLine_ConsultaCuentaConceptoII_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPais">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaPais" message="tns:Iws_SyteLine_ConsultaPais_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaPaisResponse" message="tns:Iws_SyteLine_ConsultaPais_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaEstadoPorPais">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaEstadoPorPais" message="tns:Iws_SyteLine_ConsultaEstadoPorPais_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/ConsultaEstadoPorPaisResponse" message="tns:Iws_SyteLine_ConsultaEstadoPorPais_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreguntasEncuesta">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iws_SyteLine/GetPreguntasEncuesta" message="tns:Iws_SyteLine_GetPreguntasEncuesta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iws_SyteLine/GetPreguntasEncuestaResponse" message="tns:Iws_SyteLine_GetPreguntasEncuesta_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Iws_SyteLine" type="tns:Iws_SyteLine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigoUnidad_Uno_Vendedor">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetCodigoUnidad_Uno_Vendedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasContables">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetCuentasContables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasContablesServicios">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetCuentasContablesServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturantes">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetFacturantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaFacturante">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ValidaFacturante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumFactura">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetNumFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveArinV">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/SaveArinV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveArinVD">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/SaveArinVD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveConceptoFacFinanciera">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/SaveConceptoFacFinanciera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaFacturacionMXN">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaFacturacionMXN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaFacturacionDLLS">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaFacturacionDLLS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenNoAcumuladoDLLS">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenNoAcumuladoDLLS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenNoAcumuladoMXN">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenNoAcumuladoMXN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenAcumuladoDLLS">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenAcumuladoDLLS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoCuentaResumenAcumuladoMXN">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetEstadoCuentaResumenAcumuladoMXN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaEstatusCancelacionFactura">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ValidaEstatusCancelacionFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovimientosAnterioresEdoCuenta">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetMovimientosAnterioresEdoCuenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTipoCambio">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/RecuperaTipoCambio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperaTipoCambioFecha">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/RecuperaTipoCambioFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturasTabulado">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetFacturasTabulado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneraSolicitudVuelo">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GeneraSolicitudVuelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeneraPiernas">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GeneraPiernas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelaSolicitudVuelo">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/CancelaSolicitudVuelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSolicitudVuelo">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ConsultaSolicitudVuelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPiernas">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/EliminaPiernas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaPiernas">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ActualizaPiernas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaSolicitud">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ActualizaSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPreferenciasClienteAPP">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ConsultaPreferenciasClienteAPP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCasosClienteAPP">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ConsultaCasosClienteAPP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInformacionFlightPak">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetInformacionFlightPak" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInformacionVuelosFerrys">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetInformacionVuelosFerrys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCambiaEstatusFerry">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/SetCambiaEstatusFerry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProcesaJSON">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/SetProcesaJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtienePromedioVuelo">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ObtienePromedioVuelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneDatosPilotoPorClave">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ObtieneDatosPilotoPorClave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneEstatusPiloto">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ObtieneEstatusPiloto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneVuelosPorPiloto">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ObtieneVuelosPorPiloto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneVuelosPorRangoDeFechas">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ObtieneVuelosPorRangoDeFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCuentaConceptoII">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ConsultaCuentaConceptoII" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPais">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ConsultaPais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaEstadoPorPais">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/ConsultaEstadoPorPais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreguntasEncuesta">
+      <soap:operation soapAction="http://tempuri.org/Iws_SyteLine/GetPreguntasEncuesta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws_SyteLine">
+    <wsdl:port name="BasicHttpBinding_Iws_SyteLine" binding="tns:BasicHttpBinding_Iws_SyteLine">
+      <soap:address location="http://192.168.1.39/wsMex_Jet_360/wsSiteLine.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

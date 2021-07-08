@@ -1,0 +1,53 @@
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\obj\Debug\ClientesCasa.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\bin\ClientesCasa.dll.config
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\bin\ClientesCasa.dll
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\bin\ClientesCasa.pdb
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\bin\NucleoBase.dll
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\obj\Debug\ClientesCasa.dll
+\\Mac\Home\Documents\Visual Studio 2013\Projects\ClientesCasa\ClientesCasa\obj\Debug\ClientesCasa.pdb
+C:\clientes_casa2\trunk\ClientesCasa\bin\ClientesCasa.dll.config
+C:\clientes_casa2\trunk\ClientesCasa\bin\ClientesCasa.dll
+C:\clientes_casa2\trunk\ClientesCasa\bin\ClientesCasa.pdb
+C:\clientes_casa2\trunk\ClientesCasa\obj\Debug\Interop.SAPbobsCOM.dll
+C:\clientes_casa2\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.ResolveComReference.cache
+C:\clientes_casa2\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CoreCompileInputs.cache
+C:\clientes_casa2\trunk\ClientesCasa\obj\Debug\ClientesCasa.dll
+C:\clientes_casa2\trunk\ClientesCasa\obj\Debug\ClientesCasa.pdb
+C:\clientes_casa2\trunk\ClientesCasa\obj\Debug\ClientesCasa.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\bin\ClientesCasa.dll.config
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\bin\ClientesCasa.dll
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\bin\ClientesCasa.pdb
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\bin\DocumentFormat.OpenXml.dll
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\bin\DocumentFormat.OpenXml.xml
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csprojAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\Interop.SAPbobsCOM.dll
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.ResolveComReference.cache
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CopyComplete
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.dll
+C:\Users\HP\Documents\Visual Studio 2017\Projects\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.pdb
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\bin\ClientesCasa.dll.config
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\bin\ClientesCasa.dll
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\bin\ClientesCasa.pdb
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\bin\DocumentFormat.OpenXml.dll
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\bin\DocumentFormat.OpenXml.xml
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csprojAssemblyReference.cache
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\Interop.SAPbobsCOM.dll
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.ResolveComReference.cache
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CoreCompileInputs.cache
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CopyComplete
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\ClientesCasa.dll
+E:\MORVEL\ALE\Clientes Casa\trunk\ClientesCasa\obj\Debug\ClientesCasa.pdb
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\bin\ClientesCasa.dll.config
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\bin\ClientesCasa.dll
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\bin\ClientesCasa.pdb
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\bin\DocumentFormat.OpenXml.dll
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\bin\DocumentFormat.OpenXml.xml
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csprojAssemblyReference.cache
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\Interop.SAPbobsCOM.dll
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.ResolveComReference.cache
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CoreCompileInputs.cache
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.csproj.CopyComplete
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.dll
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.pdb
+E:\AerolineasEjecutivas\Codigos\ClientesCasa\trunk\ClientesCasa\obj\Debug\ClientesCasa.dll.licenses
