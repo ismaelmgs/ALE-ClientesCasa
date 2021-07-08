@@ -171,8 +171,37 @@ namespace ClientesCasa.Views.Reportes
                 strPath = Server.MapPath("RPT\\rptEstadoCuenta.rpt");
                 strPath = strPath.Replace("\\Views\\Reportes", "");
                 rd.Load(strPath, OpenReportMethod.OpenReportByDefault);
-                DataTable dt = new DataTable();
+
+                #region Tabla de Datos Extras
+                DataTable dtExtras = new DataTable();
+                DataColumn column;
+                DataRow row;
+                column = new DataColumn();
+                //column.DataType = System.Type.GetType("System.Int32");
+                column.ColumnName = "Cliente";
+                dtExtras.Columns.Add(column);
                 
+                column = new DataColumn();
+                column.ColumnName = "Periodo";
+                dtExtras.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "Elaboro";
+                dtExtras.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "Matricula";
+                dtExtras.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "ClaveContrato";
+                dtExtras.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "IVA";
+                dtExtras.Columns.Add(column);
+
+                #endregion
 
                 //rd.SetParameterValue("Matricula", "XLT");
                 rd.SetDataSource(ds.Tables[0]);
@@ -187,6 +216,8 @@ namespace ClientesCasa.Views.Reportes
                 string strError = ex.S();
             }
         }
+
+
 
         protected void btnAceptarPeriodo_Click(object sender, EventArgs e)
         {
