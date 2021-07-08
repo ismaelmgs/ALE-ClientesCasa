@@ -171,6 +171,7 @@ namespace ClientesCasa.Views.Reportes
                 strPath = Server.MapPath("RPT\\rptEstadoCuenta.rpt");
                 strPath = strPath.Replace("\\Views\\Reportes", "");
                 rd.Load(strPath, OpenReportMethod.OpenReportByDefault);
+                DataTable dt = new DataTable();
                 
 
                 //rd.SetParameterValue("Matricula", "XLT");
