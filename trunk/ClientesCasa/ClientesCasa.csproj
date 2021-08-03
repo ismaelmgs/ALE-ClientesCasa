@@ -194,6 +194,28 @@
     <Content Include="RPT\dsEdoCuenta.xsc">
       <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
     </Content>
+    <Content Include="RPT\dsCostoHoraVuelo.xsc">
+      <DependentUpon>dsCostoHoraVuelo.xsd</DependentUpon>
+    </Content>
+    <None Include="RPT\dsCostoHoraVuelo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCostoHoraVuelo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPT\dsCostoHoraVuelo.xss">
+      <DependentUpon>dsCostoHoraVuelo.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPT\dsCostoHoraVuelo_V.xsc">
+      <DependentUpon>dsCostoHoraVuelo_V.xsd</DependentUpon>
+    </Content>
+    <None Include="RPT\dsCostoHoraVuelo_V.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCostoHoraVuelo_V.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPT\dsCostoHoraVuelo_V.xss">
+      <DependentUpon>dsCostoHoraVuelo_V.xsd</DependentUpon>
+    </Content>
     <None Include="RPT\dsEdoCuenta.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -205,6 +227,17 @@
     <Content Include="RPT\dsEdoCuenta_USD.xsc">
       <DependentUpon>dsEdoCuenta_USD.xsd</DependentUpon>
     </Content>
+    <Content Include="RPT\dsEdoCuenta_MXP.xsc">
+      <DependentUpon>dsEdoCuenta_MXP.xsd</DependentUpon>
+    </Content>
+    <None Include="RPT\dsEdoCuenta_MXP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEdoCuenta_MXP.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPT\dsEdoCuenta_MXP.xss">
+      <DependentUpon>dsEdoCuenta_MXP.xsd</DependentUpon>
+    </Content>
     <None Include="RPT\dsEdoCuenta_USD.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -212,6 +245,17 @@
     </None>
     <Content Include="RPT\dsEdoCuenta_USD.xss">
       <DependentUpon>dsEdoCuenta_USD.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPT\dsTotalesTiempo.xsc">
+      <DependentUpon>dsTotalesTiempo.xsd</DependentUpon>
+    </Content>
+    <None Include="RPT\dsTotalesTiempo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTotalesTiempo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPT\dsTotalesTiempo.xss">
+      <DependentUpon>dsTotalesTiempo.xsd</DependentUpon>
     </Content>
     <None Include="Web References\wsNomina\ws_catalogosToken.disco" />
     <Content Include="Web.config">
@@ -531,20 +575,64 @@
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPT\dsCostoHoraVuelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCostoHoraVuelo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\dsCostoHoraVuelo_V.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCostoHoraVuelo_V.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RPT\dsEdoCuenta.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\dsEdoCuenta_MXP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEdoCuenta_MXP.xsd</DependentUpon>
     </Compile>
     <Compile Include="RPT\dsEdoCuenta_USD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEdoCuenta_USD.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RPT\dsTotalesTiempo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTotalesTiempo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\rptCostoHoraVuelo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCostoHoraVuelo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT\rptEstadoCuenta.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptEstadoCuenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptSubCostoHoraVuelo_F.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSubCostoHoraVuelo_F.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptSubCostoHoraVuelo_V.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSubCostoHoraVuelo_V.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\rptSubRepEdoCuenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSubRepEdoCuenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RPT\rptSubRepEdoCuenta_USD.cs">
@@ -863,9 +951,25 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptCostoHoraVuelo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCostoHoraVuelo.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\rptEstadoCuenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptEstadoCuenta.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptSubCostoHoraVuelo_F.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubCostoHoraVuelo_F.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptSubCostoHoraVuelo_V.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubCostoHoraVuelo_V.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\rptSubRepEdoCuenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubRepEdoCuenta.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\rptSubRepEdoCuenta_USD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -203,6 +203,11 @@
                                                             </td>
                                                         </tr>
                                                         <tr class="tdrlr">
+                                                            <td style="text-align: center" colspan="5">
+                                                                <asp:Label ID="lblPeriodo" runat="server" Text=""></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="tdrlr">
                                                             <td style="text-align: center" colspan="5">&nbsp;</td>
                                                         </tr>
                                                         <tr class="tdrlr">

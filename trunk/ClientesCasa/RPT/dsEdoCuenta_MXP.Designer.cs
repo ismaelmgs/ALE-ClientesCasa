@@ -20,17 +20,17 @@ namespace ClientesCasa.RPT {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsEdoCuenta_USD")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsEdoCuenta_MXP")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsEdoCuenta_USD : global::System.Data.DataSet {
+    public partial class dsEdoCuenta_MXP : global::System.Data.DataSet {
         
-        private USDDataTable tableUSD;
+        private MXPDataTable tableMXP;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public dsEdoCuenta_USD() {
+        public dsEdoCuenta_MXP() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace ClientesCasa.RPT {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected dsEdoCuenta_USD(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsEdoCuenta_MXP(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace ClientesCasa.RPT {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["USD"] != null)) {
-                    base.Tables.Add(new USDDataTable(ds.Tables["USD"]));
+                if ((ds.Tables["MXP"] != null)) {
+                    base.Tables.Add(new MXPDataTable(ds.Tables["MXP"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace ClientesCasa.RPT {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public USDDataTable USD {
+        public MXPDataTable MXP {
             get {
-                return this.tableUSD;
+                return this.tableMXP;
             }
         }
         
@@ -127,7 +127,7 @@ namespace ClientesCasa.RPT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsEdoCuenta_USD cln = ((dsEdoCuenta_USD)(base.Clone()));
+            dsEdoCuenta_MXP cln = ((dsEdoCuenta_MXP)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace ClientesCasa.RPT {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["USD"] != null)) {
-                    base.Tables.Add(new USDDataTable(ds.Tables["USD"]));
+                if ((ds.Tables["MXP"] != null)) {
+                    base.Tables.Add(new MXPDataTable(ds.Tables["MXP"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace ClientesCasa.RPT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableUSD = ((USDDataTable)(base.Tables["USD"]));
+            this.tableMXP = ((MXPDataTable)(base.Tables["MXP"]));
             if ((initTable == true)) {
-                if ((this.tableUSD != null)) {
-                    this.tableUSD.InitVars();
+                if ((this.tableMXP != null)) {
+                    this.tableMXP.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace ClientesCasa.RPT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsEdoCuenta_USD";
+            this.DataSetName = "dsEdoCuenta_MXP";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsEdoCuenta_USD.xsd";
+            this.Namespace = "http://tempuri.org/dsEdoCuenta_MXP.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableUSD = new USDDataTable();
-            base.Tables.Add(this.tableUSD);
+            this.tableMXP = new MXPDataTable();
+            base.Tables.Add(this.tableMXP);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeUSD() {
+        private bool ShouldSerializeMXP() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace ClientesCasa.RPT {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsEdoCuenta_USD ds = new dsEdoCuenta_USD();
+            dsEdoCuenta_MXP ds = new dsEdoCuenta_MXP();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace ClientesCasa.RPT {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void USDRowChangeEventHandler(object sender, USDRowChangeEvent e);
+        public delegate void MXPRowChangeEventHandler(object sender, MXPRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class USDDataTable : global::System.Data.TypedTableBase<USDRow> {
+        public partial class MXPDataTable : global::System.Data.TypedTableBase<MXPRow> {
             
             private global::System.Data.DataColumn columnFecha;
             
@@ -299,8 +299,8 @@ namespace ClientesCasa.RPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USDDataTable() {
-                this.TableName = "USD";
+            public MXPDataTable() {
+                this.TableName = "MXP";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +308,7 @@ namespace ClientesCasa.RPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal USDDataTable(global::System.Data.DataTable table) {
+            internal MXPDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +325,7 @@ namespace ClientesCasa.RPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected USDDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected MXPDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -413,34 +413,34 @@ namespace ClientesCasa.RPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USDRow this[int index] {
+            public MXPRow this[int index] {
                 get {
-                    return ((USDRow)(this.Rows[index]));
+                    return ((MXPRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event USDRowChangeEventHandler USDRowChanging;
+            public event MXPRowChangeEventHandler MXPRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event USDRowChangeEventHandler USDRowChanged;
+            public event MXPRowChangeEventHandler MXPRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event USDRowChangeEventHandler USDRowDeleting;
+            public event MXPRowChangeEventHandler MXPRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event USDRowChangeEventHandler USDRowDeleted;
+            public event MXPRowChangeEventHandler MXPRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddUSDRow(USDRow row) {
+            public void AddMXPRow(MXPRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USDRow AddUSDRow(string Fecha, string _No__Referencia, string Tipo_de_Gasto, string Concepto, string Rubro, string Detalle, string Proveedor, double Importe, decimal AmpliadoGasto) {
-                USDRow rowUSDRow = ((USDRow)(this.NewRow()));
+            public MXPRow AddMXPRow(string Fecha, string _No__Referencia, string Tipo_de_Gasto, string Concepto, string Rubro, string Detalle, string Proveedor, decimal Importe, string AmpliadoGasto) {
+                MXPRow rowMXPRow = ((MXPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Fecha,
                         _No__Referencia,
@@ -451,15 +451,15 @@ namespace ClientesCasa.RPT {
                         Proveedor,
                         Importe,
                         AmpliadoGasto};
-                rowUSDRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowUSDRow);
-                return rowUSDRow;
+                rowMXPRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMXPRow);
+                return rowMXPRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                USDDataTable cln = ((USDDataTable)(base.Clone()));
+                MXPDataTable cln = ((MXPDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,7 +467,7 @@ namespace ClientesCasa.RPT {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new USDDataTable();
+                return new MXPDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -503,36 +503,36 @@ namespace ClientesCasa.RPT {
                 base.Columns.Add(this.columnDetalle);
                 this.columnProveedor = new global::System.Data.DataColumn("Proveedor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProveedor);
-                this.columnImporte = new global::System.Data.DataColumn("Importe", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnImporte = new global::System.Data.DataColumn("Importe", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImporte);
-                this.columnAmpliadoGasto = new global::System.Data.DataColumn("AmpliadoGasto", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnAmpliadoGasto = new global::System.Data.DataColumn("AmpliadoGasto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmpliadoGasto);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USDRow NewUSDRow() {
-                return ((USDRow)(this.NewRow()));
+            public MXPRow NewMXPRow() {
+                return ((MXPRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new USDRow(builder);
+                return new MXPRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(USDRow);
+                return typeof(MXPRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.USDRowChanged != null)) {
-                    this.USDRowChanged(this, new USDRowChangeEvent(((USDRow)(e.Row)), e.Action));
+                if ((this.MXPRowChanged != null)) {
+                    this.MXPRowChanged(this, new MXPRowChangeEvent(((MXPRow)(e.Row)), e.Action));
                 }
             }
             
@@ -540,8 +540,8 @@ namespace ClientesCasa.RPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.USDRowChanging != null)) {
-                    this.USDRowChanging(this, new USDRowChangeEvent(((USDRow)(e.Row)), e.Action));
+                if ((this.MXPRowChanging != null)) {
+                    this.MXPRowChanging(this, new MXPRowChangeEvent(((MXPRow)(e.Row)), e.Action));
                 }
             }
             
@@ -549,8 +549,8 @@ namespace ClientesCasa.RPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.USDRowDeleted != null)) {
-                    this.USDRowDeleted(this, new USDRowChangeEvent(((USDRow)(e.Row)), e.Action));
+                if ((this.MXPRowDeleted != null)) {
+                    this.MXPRowDeleted(this, new MXPRowChangeEvent(((MXPRow)(e.Row)), e.Action));
                 }
             }
             
@@ -558,14 +558,14 @@ namespace ClientesCasa.RPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.USDRowDeleting != null)) {
-                    this.USDRowDeleting(this, new USDRowChangeEvent(((USDRow)(e.Row)), e.Action));
+                if ((this.MXPRowDeleting != null)) {
+                    this.MXPRowDeleting(this, new MXPRowChangeEvent(((MXPRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveUSDRow(USDRow row) {
+            public void RemoveMXPRow(MXPRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -574,7 +574,7 @@ namespace ClientesCasa.RPT {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsEdoCuenta_USD ds = new dsEdoCuenta_USD();
+                dsEdoCuenta_MXP ds = new dsEdoCuenta_MXP();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -592,7 +592,7 @@ namespace ClientesCasa.RPT {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "USDDataTable";
+                attribute2.FixedValue = "MXPDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -636,15 +636,15 @@ namespace ClientesCasa.RPT {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class USDRow : global::System.Data.DataRow {
+        public partial class MXPRow : global::System.Data.DataRow {
             
-            private USDDataTable tableUSD;
+            private MXPDataTable tableMXP;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal USDRow(global::System.Data.DataRowBuilder rb) : 
+            internal MXPRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableUSD = ((USDDataTable)(this.Table));
+                this.tableMXP = ((MXPDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -652,14 +652,14 @@ namespace ClientesCasa.RPT {
             public string Fecha {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD.FechaColumn]));
+                        return ((string)(this[this.tableMXP.FechaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.FechaColumn] = value;
+                    this[this.tableMXP.FechaColumn] = value;
                 }
             }
             
@@ -668,14 +668,14 @@ namespace ClientesCasa.RPT {
             public string _No__Referencia {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD._No__ReferenciaColumn]));
+                        return ((string)(this[this.tableMXP._No__ReferenciaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'No. Referencia\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'No. Referencia\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD._No__ReferenciaColumn] = value;
+                    this[this.tableMXP._No__ReferenciaColumn] = value;
                 }
             }
             
@@ -684,14 +684,14 @@ namespace ClientesCasa.RPT {
             public string Tipo_de_Gasto {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD.Tipo_de_GastoColumn]));
+                        return ((string)(this[this.tableMXP.Tipo_de_GastoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Tipo de Gasto\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Tipo de Gasto\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.Tipo_de_GastoColumn] = value;
+                    this[this.tableMXP.Tipo_de_GastoColumn] = value;
                 }
             }
             
@@ -700,14 +700,14 @@ namespace ClientesCasa.RPT {
             public string Concepto {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD.ConceptoColumn]));
+                        return ((string)(this[this.tableMXP.ConceptoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Concepto\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Concepto\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.ConceptoColumn] = value;
+                    this[this.tableMXP.ConceptoColumn] = value;
                 }
             }
             
@@ -716,14 +716,14 @@ namespace ClientesCasa.RPT {
             public string Rubro {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD.RubroColumn]));
+                        return ((string)(this[this.tableMXP.RubroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Rubro\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Rubro\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.RubroColumn] = value;
+                    this[this.tableMXP.RubroColumn] = value;
                 }
             }
             
@@ -732,14 +732,14 @@ namespace ClientesCasa.RPT {
             public string Detalle {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD.DetalleColumn]));
+                        return ((string)(this[this.tableMXP.DetalleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Detalle\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Detalle\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.DetalleColumn] = value;
+                    this[this.tableMXP.DetalleColumn] = value;
                 }
             }
             
@@ -748,155 +748,155 @@ namespace ClientesCasa.RPT {
             public string Proveedor {
                 get {
                     try {
-                        return ((string)(this[this.tableUSD.ProveedorColumn]));
+                        return ((string)(this[this.tableMXP.ProveedorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Proveedor\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Proveedor\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.ProveedorColumn] = value;
+                    this[this.tableMXP.ProveedorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Importe {
+            public decimal Importe {
                 get {
                     try {
-                        return ((double)(this[this.tableUSD.ImporteColumn]));
+                        return ((decimal)(this[this.tableMXP.ImporteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Importe\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Importe\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.ImporteColumn] = value;
+                    this[this.tableMXP.ImporteColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal AmpliadoGasto {
+            public string AmpliadoGasto {
                 get {
                     try {
-                        return ((decimal)(this[this.tableUSD.AmpliadoGastoColumn]));
+                        return ((string)(this[this.tableMXP.AmpliadoGastoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'AmpliadoGasto\' de la tabla \'USD\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'AmpliadoGasto\' de la tabla \'MXP\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUSD.AmpliadoGastoColumn] = value;
+                    this[this.tableMXP.AmpliadoGastoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFechaNull() {
-                return this.IsNull(this.tableUSD.FechaColumn);
+                return this.IsNull(this.tableMXP.FechaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFechaNull() {
-                this[this.tableUSD.FechaColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.FechaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Is_No__ReferenciaNull() {
-                return this.IsNull(this.tableUSD._No__ReferenciaColumn);
+                return this.IsNull(this.tableMXP._No__ReferenciaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Set_No__ReferenciaNull() {
-                this[this.tableUSD._No__ReferenciaColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP._No__ReferenciaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTipo_de_GastoNull() {
-                return this.IsNull(this.tableUSD.Tipo_de_GastoColumn);
+                return this.IsNull(this.tableMXP.Tipo_de_GastoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTipo_de_GastoNull() {
-                this[this.tableUSD.Tipo_de_GastoColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.Tipo_de_GastoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsConceptoNull() {
-                return this.IsNull(this.tableUSD.ConceptoColumn);
+                return this.IsNull(this.tableMXP.ConceptoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetConceptoNull() {
-                this[this.tableUSD.ConceptoColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.ConceptoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRubroNull() {
-                return this.IsNull(this.tableUSD.RubroColumn);
+                return this.IsNull(this.tableMXP.RubroColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRubroNull() {
-                this[this.tableUSD.RubroColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.RubroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDetalleNull() {
-                return this.IsNull(this.tableUSD.DetalleColumn);
+                return this.IsNull(this.tableMXP.DetalleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDetalleNull() {
-                this[this.tableUSD.DetalleColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.DetalleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsProveedorNull() {
-                return this.IsNull(this.tableUSD.ProveedorColumn);
+                return this.IsNull(this.tableMXP.ProveedorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetProveedorNull() {
-                this[this.tableUSD.ProveedorColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.ProveedorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsImporteNull() {
-                return this.IsNull(this.tableUSD.ImporteColumn);
+                return this.IsNull(this.tableMXP.ImporteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetImporteNull() {
-                this[this.tableUSD.ImporteColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.ImporteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAmpliadoGastoNull() {
-                return this.IsNull(this.tableUSD.AmpliadoGastoColumn);
+                return this.IsNull(this.tableMXP.AmpliadoGastoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAmpliadoGastoNull() {
-                this[this.tableUSD.AmpliadoGastoColumn] = global::System.Convert.DBNull;
+                this[this.tableMXP.AmpliadoGastoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -904,22 +904,22 @@ namespace ClientesCasa.RPT {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class USDRowChangeEvent : global::System.EventArgs {
+        public class MXPRowChangeEvent : global::System.EventArgs {
             
-            private USDRow eventRow;
+            private MXPRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USDRowChangeEvent(USDRow row, global::System.Data.DataRowAction action) {
+            public MXPRowChangeEvent(MXPRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USDRow Row {
+            public MXPRow Row {
                 get {
                     return this.eventRow;
                 }

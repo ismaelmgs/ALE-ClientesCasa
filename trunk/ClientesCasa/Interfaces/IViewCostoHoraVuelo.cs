@@ -9,6 +9,11 @@ namespace ClientesCasa.Interfaces
 {
     public interface IViewCostoHoraVuelo : IBaseView
     {
+        DataTable dtTOTALESTOTALES { set; get; }
+        DataTable dtTOTALESFijos { set; get; }
+        DataTable dtTOTALESVariables { set; get; }
+        DataTable dtFijos { set; get; }
+        DataTable dtVariables { set; get; }
         DataTable dtClientes { set; get; }
         object[] oArrFiltros { get; }
         DataSet dsGastos { set; get; }

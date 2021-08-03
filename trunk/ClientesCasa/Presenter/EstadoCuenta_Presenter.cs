@@ -76,9 +76,22 @@ namespace ClientesCasa.Presenter
                 }
 
                 decimal dTotalPesos = SumaColumnaTabla(ds.Tables[0], "Importe");
+                decimal dIVA = dTotalPesos * .16m;
+                decimal dTotal = dTotalPesos + dIVA;
+
                 sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; border-bottom:2px solid #000000; border-top:2px solid #000000'>Total de cargos en $ para:</td>";
-                sHTML += "<td style='text-align: right; border-bottom:2px solid #000000; border-top:2px solid #000000'>" + dTotalPesos.ToString("c") + "</td>";
+                sHTML += "<td colspan='7' style='text-align: right;  border-top:2px solid #000000'>Total de cargos en $ para:</td>";
+                sHTML += "<td style='text-align: right;  border-top:2px solid #000000'>" + dTotalPesos.ToString("c") + "</td>";
+                sHTML += "</tr>";
+
+                sHTML += "<tr>";
+                sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
+                sHTML += "<td style='text-align: right; '>" + dIVA.ToString("c") + "</td>";
+                sHTML += "</tr>";
+
+                sHTML += "<tr>";
+                sHTML += "<td colspan='7' style='text-align: right; '>Total:</td>";
+                sHTML += "<td style='text-align: right; '>" + dTotal.ToString("c") + "</td>";
                 sHTML += "</tr>";
 
                 //sHTML += "<tr>";
@@ -123,9 +136,21 @@ namespace ClientesCasa.Presenter
                 }
 
                 decimal dTotalDlls = SumaColumnaTabla(ds.Tables[1], "Importe");
+                decimal dIVADlls = dTotalDlls * .16m;
+                decimal dTotalDls = dTotalDlls + dIVADlls;
                 sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; border-bottom:2px solid #000000; border-top:2px solid #000000'>Total de cargos en $ para:</td>";
-                sHTML += "<td style='text-align: right; border-bottom:2px solid #000000; border-top:2px solid #000000'>" + dTotalDlls.ToString("c") + "</td>";
+                sHTML += "<td colspan='7' style='text-align: right; border-top:2px solid #000000'>Total de cargos en USD:</td>";
+                sHTML += "<td style='text-align: right; border-top:2px solid #000000'>" + dTotalDlls.ToString("c") + "</td>";
+                sHTML += "</tr>";
+
+                sHTML += "<tr>";
+                sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
+                sHTML += "<td style='text-align: right; '>" + dIVADlls.ToString("c") + "</td>";
+                sHTML += "</tr>";
+
+                sHTML += "<tr>";
+                sHTML += "<td colspan='7' style='text-align: right; '>Total en USD:</td>";
+                sHTML += "<td style='text-align: right; '>" + dTotalDls.ToString("c") + "</td>";
                 sHTML += "</tr>";
 
 

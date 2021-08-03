@@ -13,6 +13,8 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using ClientesCasa.Clases;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace ClientesCasa.Views.Reportes
 {
@@ -218,26 +220,111 @@ namespace ClientesCasa.Views.Reportes
         {
             try
             {
-                if (eSaveObj != null)
-                    eSaveObj(sender, e);
+                //if (eSaveObj != null)
+                //    eSaveObj(sender, e);
 
-                Response.Clear();
-                Response.Buffer = true;
-                Response.ContentType = "application/vnd.ms-excel";
-                Response.AddHeader("content-disposition", "attachment;filename=CostoHoraVuelo_" + sMatricula + ".xls");
-                Response.Charset = "UTF-8";
-                Response.ContentEncoding = Encoding.Default;
-                this.EnableViewState = false;
+                //Response.Clear();
+                //Response.Buffer = true;
+                //Response.ContentType = "application/vnd.ms-excel";
+                //Response.AddHeader("content-disposition", "attachment;filename=CostoHoraVuelo_" + sMatricula + ".xls");
+                //Response.Charset = "UTF-8";
+                //Response.ContentEncoding = Encoding.Default;
+                //this.EnableViewState = false;
 
-                StringWriter stringWrite = new StringWriter();
-                HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
-                pnlReporte.RenderControl(htmlWrite);
-                Response.Write(stringWrite.ToString());
-                Response.End();
+                //StringWriter stringWrite = new StringWriter();
+                //HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+                //pnlReporte.RenderControl(htmlWrite);
+                //Response.Write(stringWrite.ToString());
+                //Response.End();
+                DataSet dsCostoF = new DataSet();
+                DataSet dsCostoV = new DataSet();
+                DataSet dsTotTime = new DataSet();
+
+                DataTable dtTtime;
+                DataTable dtTTOTALES;
+                DataTable dtF;
+                DataTable dtTOTf;
+
+                DataTable dtV;
+                DataTable dtTOTv;
+
+
+                #region CArga tabla adicionales RPT
+                DataTable dtAdicionales = new DataTable();
+                dtAdicionales.Columns.Add("TCcambio");
+                dtAdicionales.Columns.Add("PromedioF");
+                dtAdicionales.Columns.Add("HVoladasF");
+                dtAdicionales.Columns.Add("CostoHVueloF");
+                dtAdicionales.Columns.Add("PromedioV");
+                dtAdicionales.Columns.Add("HVoladasV");
+                dtAdicionales.Columns.Add("CostoHVueloV");
+                dtAdicionales.Columns.Add("Matricula");
+                dtAdicionales.Columns.Add("Moneda");
+                dtAdicionales.Columns.Add("Periodo");
+                dtAdicionales.Columns.Add("Elaboro");
+
+                DataRow rowAdic= dtAdicionales.NewRow();
+                rowAdic["TCcambio"] = lblTipoCambioProm.Text;
+                rowAdic["PromedioF"] = lblPromedioFijo.Text;
+                rowAdic["HVoladasF"] = lblPromedioVoladasFijo.Text;
+                rowAdic["CostoHVueloF"] = lblCostoVueloFijo.Text;
+                rowAdic["PromedioV"] = lblPromedioVar.Text;
+                rowAdic["HVoladasV"] = lblPromedioVoladasVar.Text;
+                rowAdic["CostoHVueloV"] = lblCostoVueloVar.Text;
+
+                rowAdic["Matricula"] = lblMatricula.Text;
+                rowAdic["Moneda"] = lblMoneda.Text;
+                rowAdic["Periodo"] = lblPeriodo.Text;
+                rowAdic["Elaboro"] = lblElaboro.Text;
+                dtAdicionales.Rows.Add(rowAdic);
+                #endregion
+
+                //TOTALES
+                dtTtime = dtTotalesTiempo;
+                dtTTOTALES = dtTOTALESTOTALES;
+                dtTtime.TableName = "TotalesTiempo";
+                dtTTOTALES.TableName = "TotalesTotales";
+                dtAdicionales.TableName = "Adicionales";
+                dsTotTime.Tables.Add(dtTtime);
+                dsTotTime.Tables.Add(dtTTOTALES);
+                dsTotTime.Tables.Add(dtAdicionales);
+
+                //FIJOS
+                dtF = dtFijos;
+                dtTOTf = dtTOTALESFijos;
+                dtF.TableName = "Fijos";
+                dtTOTf.TableName = "TotalesFijos";
+                dsCostoF.Tables.Add(dtF);
+                dsCostoF.Tables.Add(dtTOTf);
+
+                //VARIABLES
+                dtV = dtVariables;
+                dtTOTv = dtTOTALESVariables;
+                dtV.TableName = "Variables";
+                dtTOTv.TableName = "TotalesVariables";
+                dsCostoV.Tables.Add(dtV.Copy());
+                dsCostoV.Tables.Add(dtTOTv);
+
+                
+
+                string strPath = string.Empty;
+                ReportDocument rd = new ReportDocument();
+                strPath = Server.MapPath("RPT\\rptCostoHoraVuelo.rpt");
+                strPath = strPath.Replace("\\Views\\Reportes", "");
+                rd.Load(strPath, OpenReportMethod.OpenReportByDefault);
+
+
+                rd.SetDataSource(dsTotTime);
+
+                rd.Subreports["rptSubCostoHoraVuelo_F.rpt"].SetDataSource(dsCostoF);
+                rd.Subreports["rptSubCostoHoraVuelo_V.rpt"].SetDataSource(dsCostoV);
+
+                rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "CostoHoraVuelo");
+
             }
             catch (Exception ex)
             {
-
+                string strError = ex.ToString();
             }
         }
         public override void VerifyRenderingInServerForm(Control control)
@@ -412,6 +499,33 @@ namespace ClientesCasa.Views.Reportes
             {
                 lblTipoCambioProm.Text = value.S();
             }
+        }
+
+        public DataTable dtTOTALESTOTALES
+        {
+            get { return (DataTable)ViewState["VTtotales"]; }
+            set { ViewState["VTtotales"] = value; }
+        }
+        public DataTable dtTOTALESFijos
+        {
+            get { return (DataTable)ViewState["VTfijos"]; }
+            set { ViewState["VTfijos"] = value; }
+        }
+
+        public DataTable dtTOTALESVariables
+        {
+            get { return (DataTable)ViewState["VTvariables"]; }
+            set { ViewState["VTvariables"] = value; }
+        }
+        public DataTable dtFijos
+        {
+            get { return (DataTable)ViewState["VFijos"]; }
+            set { ViewState["VFijos"] = value; }
+        }
+        public DataTable dtVariables
+        {
+            get { return (DataTable)ViewState["Vvariables"]; }
+            set { ViewState["Vvariables"] = value; }
         }
         public DataTable dtClientes
         {

@@ -144,6 +144,8 @@ namespace ClientesCasa.Views.Reportes
                 //Response.Write(stringWrite.ToString());
                 //Response.End();
                 DataSet ds;
+                DataSet dsMX = new DataSet();
+                DataTable dtMex;
                 string[] speriodo = txtPeriodo.Text.S().Split('/');
 
                 if (speriodo.Length == 1)
@@ -154,18 +156,43 @@ namespace ClientesCasa.Views.Reportes
 
                 if (eSearchEdoCuenta != null)
                     eSearchEdoCuenta(sender, e);
-                
+
                 ds = dsEdoCuenta;
                 ds.Tables[0].TableName = "MXP";
                 ds.Tables[1].TableName = "USD";
 
-                lblNombreCliente.Text = sNombrecliente;
-                lblMatricula.Text = sMatricula;
-                lblContrato.Text = sClaveContrato;
-                lblElaboro.Text = Utils.GetUserName;
-                lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                //lblNombreCliente.Text = sNombrecliente;
+                //lblMatricula.Text = sMatricula;
+                //lblContrato.Text = sClaveContrato;
+                //lblElaboro.Text = Utils.GetUserName;
+                //lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                string strSaldoAnterior = string.Empty;
+                string strPagosyCred = string.Empty;
+                string strNuevosCargos = string.Empty;
+                string strSaldoActual = string.Empty;
+                string strSaldoAnteriorUSD = string.Empty;
+                string strPagosyCredUSD = string.Empty;
+                string strNuevosCargosUSD = string.Empty;
+                string strSaldoActualUSD = string.Empty;
+                //lblPeriodo.Text = "AL " + ObtieneUltimoDiaMes(iMes) + " DE " + ObtieneNombreMes(iMes) + " DE " + iAnio.S();
 
-                
+                if (eSearchTotales != null)
+                    eSearchTotales(sender, e);
+
+                if (dtTotal != null && dtTotal.Rows.Count > 0)
+                {
+                    strSaldoAnterior = dtTotal.Rows[0]["SaldoAnterior"].S().D().ToString("c");
+                    strPagosyCred = dtTotal.Rows[0]["PagosCreditos"].S().D().ToString("c");
+                    strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString("c");
+                    strSaldoActual = dtTotal.Rows[0]["SaldoActual"].S().D().ToString("c");
+
+                    strSaldoAnteriorUSD = dtTotal.Rows[1]["SaldoAnterior"].S().D().ToString("c");
+                    strPagosyCredUSD = dtTotal.Rows[1]["PagosCreditos"].S().D().ToString("c");
+                    strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString("c");
+                    strSaldoActualUSD = dtTotal.Rows[1]["SaldoActual"].S().D().ToString("c");
+                }
+
+
                 string strPath = string.Empty;
                 ReportDocument rd = new ReportDocument();
                 strPath = Server.MapPath("RPT\\rptEstadoCuenta.rpt");
@@ -200,13 +227,69 @@ namespace ClientesCasa.Views.Reportes
                 column = new DataColumn();
                 column.ColumnName = "IVA";
                 dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "IVAText";
+                dtExtras.Columns.Add(column);
 
+                column = new DataColumn();
+                column.ColumnName = "Fecha";
+                dtExtras.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "SaldoAnterior";
+                dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "PagosyCred";
+                dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "NuevosCargos";
+                dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "SaldoActual";
+                dtExtras.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "SaldoAnteriorUSD";
+                dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "PagosyCredUSD";
+                dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "NuevosCargosUSD";
+                dtExtras.Columns.Add(column);
+                column = new DataColumn();
+                column.ColumnName = "SaldoActualUSD";
+                dtExtras.Columns.Add(column);
+
+                row = dtExtras.NewRow();
+                row["Cliente"] = sNombrecliente;
+                row["Periodo"] = "AL " + ObtieneUltimoDiaMes(iMes) + " DE " + ObtieneNombreMes(iMes) + " DE " + iAnio.S();
+                row["Elaboro"] = Utils.GetUserName;
+                row["Matricula"] = sMatricula;
+                row["ClaveContrato"] = sClaveContrato;
+                row["IVA"] = "0.16";
+                row["IVAText"] = "16%";
+                row["Fecha"] = DateTime.Now.ToString("dd/MM/yyyy");
+                row["SaldoAnterior"] = strSaldoAnterior;
+                row["PagosyCred"] = strPagosyCred;
+                row["NuevosCargos"] = strNuevosCargos;
+                row["SaldoActual"] = strSaldoActual;
+                row["SaldoAnteriorUSD"] = strSaldoAnteriorUSD;
+                row["PagosyCredUSD"] = strPagosyCredUSD;
+                row["NuevosCargosUSD"] = strNuevosCargosUSD;
+                row["SaldoActualUSD"] = strSaldoActualUSD;
+                dtExtras.Rows.Add(row);
+                dtExtras.TableName = "Extras";
                 #endregion
 
                 //rd.SetParameterValue("Matricula", "XLT");
-                rd.SetDataSource(ds.Tables[0]);
+                //dtMex = ds.Tables[0].Clone();
+                //dsMX.Tables.Add(dtMex);
+                //dsMX.Tables.Add(dtExtras);
+                //ds.Tables.Add(dtExtras);
+                rd.SetDataSource(dtExtras);
 
-
+                rd.Subreports["rptSubRepEdoCuenta.rpt"].SetDataSource(ds.Tables[0]);
                 rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds.Tables[1]);
 
                 rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "EstadoCuenta");
@@ -240,6 +323,8 @@ namespace ClientesCasa.Views.Reportes
                 lblContrato.Text = sClaveContrato;
                 lblElaboro.Text = Utils.GetUserName;
                 lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+                lblPeriodo.Text = "AL " + ObtieneUltimoDiaMes(iMes) + " DE " + ObtieneNombreMes(iMes) + " DE " + iAnio.S();
 
 
                 if (eSearchTotales != null)
@@ -327,6 +412,53 @@ namespace ClientesCasa.Views.Reportes
 
             return sMes;
         }
+
+        private string ObtieneUltimoDiaMes(int iMes)
+        {
+            string sDia = string.Empty;
+            switch (iMes)
+            {
+                case 1:
+                    sDia = "31";
+                    break;
+                case 2:
+                    sDia = "28";
+                    break;
+                case 3:
+                    sDia = "31";
+                    break;
+                case 4:
+                    sDia = "30";
+                    break;
+                case 5:
+                    sDia = "31";
+                    break;
+                case 6:
+                    sDia = "30";
+                    break;
+                case 7:
+                    sDia = "31";
+                    break;
+                case 8:
+                    sDia = "31";
+                    break;
+                case 9:
+                    sDia = "30";
+                    break;
+                case 10:
+                    sDia = "31";
+                    break;
+                case 11:
+                    sDia = "30";
+                    break;
+                case 12:
+                    sDia = "31";
+                    break;
+            }
+
+            return sDia;
+        }
+
         public void LlenaReporte(string sHTML)
         {
             try
