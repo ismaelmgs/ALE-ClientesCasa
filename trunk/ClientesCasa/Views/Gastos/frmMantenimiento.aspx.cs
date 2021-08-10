@@ -985,6 +985,7 @@ namespace ClientesCasa.Views.Gastos
                     oGastoE.dImporte = txtImporte.Text.S().D();
                     oGastoE.sTipoMoneda = sTipoMonedaG;
                     oGastoE.iIdRubro = ddlRubro.SelectedValue.S().I();
+                    oGastoE.iProveedor = ddlProveedor.SelectedValue.S().I();
                     oGastoE.iMes = iMes;
                     oGastoE.iAnio = iAnio;
                     oGastoE.iNumeroTrip = 0;
@@ -2017,6 +2018,14 @@ namespace ClientesCasa.Views.Gastos
                     ddlRubro.DataTextField = "DescripcionRubro";
                     ddlRubro.DataBind();
                 }
+
+                if (dtProveedor != null)
+                {
+                    ddlProveedor.DataSource = dtProveedor;
+                    ddlProveedor.DataValueField = "IdProveedor";
+                    ddlProveedor.DataTextField = "Descripcion";
+                    ddlProveedor.DataBind();
+                }
             }
             catch (Exception ex)
             {
@@ -2418,6 +2427,11 @@ namespace ClientesCasa.Views.Gastos
             set { ViewState["VSFechaVlo"] = value; }
         }
 
+        public DataTable dtProveedor
+        {
+            get { return (DataTable)ViewState["VSProveedor"]; }
+            set { ViewState["VSProveedor"] = value; }
+        }
         #endregion
 
         

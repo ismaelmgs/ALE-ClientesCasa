@@ -943,8 +943,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: left; width: 30%"></td>
+                        <td style="text-align: left; width: 30%">
+                            <asp:Label ID="Label4" runat="server" Text="Proveedor:"></asp:Label>
+                        </td>
                         <td style="text-align: left; width: 70%">
+                            <asp:DropDownList ID="ddlProveedor" runat="server" Width="90%"></asp:DropDownList><asp:Label ID="lblReqProveedor" runat="server" Text="*" ForeColor="Red"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -968,7 +971,7 @@
                             <asp:Label ID="lblRubro" runat="server" Text="Rubro:"></asp:Label>
                         </td>
                         <td style="text-align: left">
-                            <asp:DropDownList ID="ddlRubro" runat="server" Width="89%"></asp:DropDownList><asp:Label ID="lblReqRubro" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                            <asp:DropDownList ID="ddlRubro" runat="server" Width="90%"></asp:DropDownList><asp:Label ID="lblReqRubro" runat="server" Text="*" ForeColor="Red"></asp:Label>
                         </td>
                     </tr>
                     <tr>

@@ -23,7 +23,8 @@ namespace ClientesCasa.Interfaces
         GastoEstimado oGastoE { set; get; }
         string sMatricula { set; get; }
         DateTime dtFechaVlo { set; get; }
-
+        DataTable dtProveedor { set; get; }
+        
         DataTable dtGastosMEX { set; get; }
         DataTable dtGastosUSA { set; get; }
 

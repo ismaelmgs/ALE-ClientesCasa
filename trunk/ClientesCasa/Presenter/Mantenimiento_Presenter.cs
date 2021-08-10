@@ -37,6 +37,7 @@ namespace ClientesCasa.Presenter
             object[] oArr = oIView.oArrGastos;
 
             oIView.dtRubros = oIGesCat.DBGetObtieneRubros;
+            oIView.dtProveedor = oIGesCat.DBGetObtieneProveedores();
             oIView.dtTiposGasto = oIGesCat.DBGetConsultaTiposGasto;
             DataSet ds = ArmaTablasParaCargarMXNyUSD(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
             oIView.CargaGastosMEXUSA(ds);

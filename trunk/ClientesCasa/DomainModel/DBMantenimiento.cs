@@ -191,6 +191,7 @@ namespace ClientesCasa.DomainModel
                                                                                                   "@Importe", oGasto.dImporte,
                                                                                                   "@TipoMoneda", oGasto.sTipoMoneda,
                                                                                                   "@IdRubro", oGasto.iIdRubro,
+                                                                                                  "@IdProveedor", oGasto.iProveedor,
                                                                                                   "@Mes", oGasto.iMes,
                                                                                                   "@Anio", oGasto.iAnio,
                                                                                                   "@NumeroTrip", oGasto.iNumeroTrip,
@@ -315,5 +316,16 @@ namespace ClientesCasa.DomainModel
             return sMes;
         }
 
+        public DataTable DBGetObtieneProveedores()
+        {
+            try
+            {
+                return oDB_SP.EjecutarDT("[Catalogos].[spS_MXJ_ConsultaProveedor]");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

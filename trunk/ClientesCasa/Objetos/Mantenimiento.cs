@@ -63,6 +63,7 @@ namespace ClientesCasa.Objetos
         private string _sFechaVueloOpe = string.Empty;
         private int _iIdTipoRubro = 0;
         private string _sComentarios = string.Empty;
+        private int _iProveedor = 0;
 
 
         public long iIdGasto { get { return _iIdGasto; } set { _iIdGasto = value; } }
@@ -84,7 +85,7 @@ namespace ClientesCasa.Objetos
         public string sFechaVueloOpe { get { return _sFechaVueloOpe; } set { _sFechaVueloOpe = value; } }
         public int iIdTipoRubro { get { return _iIdTipoRubro; } set { _iIdTipoRubro = value; } }
         public string sComentarios { get { return _sComentarios; } set { _sComentarios = value; } }
-
+        public int iProveedor { get { return _iProveedor; } set { _iProveedor = value; } }
     }
 
 }
