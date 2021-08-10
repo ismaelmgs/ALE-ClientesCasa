@@ -177,16 +177,16 @@
                                     <asp:Panel ID="pnlReporte" runat="server" Visible="false" Width="100%">
                                         <table style=" width: 100%; border: 0; background-color: #0D2240;">
                                             <tr class="tdrlr">
-                                                <td style="width: 20%">
+                                                <td style="width: 10%">
                                                     <table border="0" style="width: 100%; text-align: center;">
                                                         <tr class="tdrlr">
                                                             <td>
-                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="http://aerolineasejecutivas.com/img/logo-ale.png" />
+                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/Logo_ALE_nvo.png" />
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </td>
-                                                <td style="width: 80%" colspan="2">
+                                                <td style="width: 90%" colspan="2">
                                                     <table style="width: 100%; background-color: #0D2240; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 10pt; color: #ffffff;">
                                                         <tr class="tdrlr">
                                                             <td style="text-align: center; width: 60%" colspan="5">

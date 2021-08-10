@@ -172,10 +172,10 @@
                                         <table style=" width: 100%; border: 0">
                                             <tr class="tdrlr">
                                                 <td style="width: 20%">
-                                                    <table border="0" style="width: 100%; text-align: center;">
+                                                    <table border="0" style="width: 100%; text-align:left;">
                                                         <tr class="tdrlr">
                                                             <td>
-                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="http://www.adelnorte.com.mx/esp/pv/images/default/fbo_ale.jpg" Width="140" Height="90" />
+                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/Logo_ALE_nvo.png" Width="300" Height="75" />
                                                             </td>
                                                         </tr>
                                                     </table>
