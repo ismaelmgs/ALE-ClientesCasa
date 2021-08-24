@@ -293,11 +293,11 @@ namespace ClientesCasa.Views.Reportes
                 rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds.Tables[1]);
 
                 rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "EstadoCuenta");
-            //}
-            //catch (Exception ex)
-            //{
-            //    string strError = ex.S();
-            //}
+            }
+            catch (Exception ex)
+            {
+                string strError = ex.S();
+            }
         }
 
         protected void btnGenerarXLS_Click(object sender, EventArgs e)
@@ -385,7 +385,7 @@ namespace ClientesCasa.Views.Reportes
                 throw ex;
             }
         }
-        private string ObtieneNombreMes(int iMes)
+        public string ObtieneNombreMes(int iMes)
         {
             string sMes = string.Empty;
             switch (iMes)
