@@ -105,6 +105,15 @@ namespace ClientesCasa.Views.Reportes
         protected global::System.Web.UI.WebControls.Button btnGenerar;
 
         /// <summary>
+        /// Control btnGenerarXLS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarXLS;
+        
+        /// <summary>
         /// Control pnlReporte.
         /// </summary>
         /// <remarks>

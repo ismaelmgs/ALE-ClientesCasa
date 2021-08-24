@@ -191,6 +191,7 @@ namespace ClientesCasa.Views.Reportes
 
                 pnlReporte.Visible = true;
                 btnGenerar.Visible = true;
+                btnGenerarXLS.Visible = true;
 
                 lblElaboro.Text = "Elaboró: " + Utils.GetUserName;
                 lblFechaReporte.Text = DateTime.Now.ToLongDateString();
@@ -320,13 +321,30 @@ namespace ClientesCasa.Views.Reportes
                 rd.Subreports["rptSubCostoHoraVuelo_V.rpt"].SetDataSource(dsCostoV);
 
                 rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "CostoHoraVuelo");
-
+                Response.End();
             }
             catch (Exception ex)
             {
                 string strError = ex.ToString();
             }
         }
+        protected void btnGenerarXLS_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("content-disposition", "attachment;filename=CostoHoraVuelo_" + sMatricula + ".xls");
+            Response.Charset = "UTF-8";
+            Response.ContentEncoding = Encoding.Default;
+            this.EnableViewState = false;
+
+            StringWriter stringWrite = new StringWriter();
+            HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+            pnlReporte.RenderControl(htmlWrite);
+            Response.Write(stringWrite.ToString());
+            Response.End();
+        }
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
@@ -616,6 +634,6 @@ namespace ClientesCasa.Views.Reportes
             }
         }
 
-       
+        
     }
 }

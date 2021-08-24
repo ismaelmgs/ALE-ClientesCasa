@@ -293,11 +293,28 @@ namespace ClientesCasa.Views.Reportes
                 rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds.Tables[1]);
 
                 rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "EstadoCuenta");
-            }
-            catch (Exception ex)
-            {
-                string strError = ex.S();
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    string strError = ex.S();
+            //}
+        }
+
+        protected void btnGenerarXLS_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("content-disposition", "attachment;filename=EstadoCuenta_" + sMatricula + ".xls");
+            Response.Charset = "UTF-8";
+            Response.ContentEncoding = Encoding.Default;
+            this.EnableViewState = false;
+
+            StringWriter stringWrite = new StringWriter();
+            HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+            pnlReporte.RenderControl(htmlWrite);
+            Response.Write(stringWrite.ToString());
+            Response.End();
         }
 
 
@@ -345,6 +362,7 @@ namespace ClientesCasa.Views.Reportes
 
                 pnlReporte.Visible = true;
                 btnGenerar.Visible = true;
+                btnGenerarXLS.Visible = true;
 
                 mpePeriodo.Hide();
             }
@@ -568,6 +586,7 @@ namespace ClientesCasa.Views.Reportes
             get { return (string)ViewState["VSNombreCliente"]; }
             set { ViewState["VSNombreCliente"] = value; }
         }
+
         #endregion
 
         

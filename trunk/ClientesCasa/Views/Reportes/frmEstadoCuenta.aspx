@@ -165,7 +165,8 @@
                                     <table style="width: 100%">
                                         <tr>
                                             <td style="text-align: right; float: right">
-                                                <asp:Button ID="btnGenerar" runat="server" Text="Exportar" Visible="false" CssClass="btn btn-success" OnClick="btnGenerar_Click" /><p>&nbsp;</p>
+                                                <asp:Button ID="btnGenerar" runat="server" Text="Exportar PDF" Visible="false" CssClass="btn btn-success" OnClick="btnGenerar_Click" />&nbsp;
+                                                <asp:Button ID="btnGenerarXLS" runat="server" Text="Exportar XLS" Visible="false" CssClass="btn btn-success" OnClick="btnGenerarXLS_Click" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -391,6 +392,7 @@
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="btnGenerar" />
+            <asp:PostBackTrigger ControlID="btnGenerarXLS" />
         </Triggers>
     </asp:UpdatePanel>
 
