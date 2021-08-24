@@ -197,7 +197,7 @@
                 <table style="width: 100% !important;">
                     <tr>
                         <td style="text-align: center !important;">
-                            <asp:Button ID="btnActualizarComprobantes" runat="server" Text="Actualizar lista comprobantes" OnClick="btnActualizarComprobantes_Click" CssClass="btn btn-success" Style="width: 190px !important;" />
+                            <asp:Button ID="btnActualizarComprobantes" runat="server" Text="Actualizar lista comprobantes" OnClick="btnActualizarComprobantes_Click" CssClass="btn btn-success" Style="min-width: 215px !important;" />
                             <asp:Button ID="btnActualizar" runat="server" Text="Actualizar lista de gastos" OnClick="btnActualizar_Click" CssClass="btn btn-success" Style="width: 190px !important;" />
                         </td>
                     </tr>
@@ -241,12 +241,12 @@
                                                 <asp:Label ID="lblMatriculaMEX" runat="server"></asp:Label></strong><br />
                                         </div>
                                         <div style="text-align: right; margin-right: 15px;">
-                                            <asp:LinkButton ID="lbkExportaMXN" runat="server" Text="Exportar a Excel" OnClick="lbkExportaMXN_Click" CssClass="lblInput btn btn-success"
-                                                Font-Underline="true" Style="margin-right: 20px; height: 20px;"></asp:LinkButton>
+                                            <asp:LinkButton ID="lbkExportaMXN" runat="server" Text="Exportar a Excel" OnClick="lbkExportaMXN_Click" CssClass="btn btn-success"
+                                                Font-Underline="false" Style="margin-right: 20px; height: 10px;"></asp:LinkButton>
                                         </div>
                                         <br />
                                         <div>
-                                            <div class="table-responsive" style="overflow: auto; width: 100%;">
+                                            <div class="table-responsive" style="width: 100%; border:1px solid #dddddd;">
                                                 <table class="table">
                                                     <tr>
                                                         <td>
@@ -261,14 +261,14 @@
                                                                                 No existen Registros para mostrar.
                                                                             </EmptyDataTemplate>
                                                                             <Columns>
-                                                                                <asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Gasto Estimado">
                                                                                     <ItemTemplate>
-                                                                                        <img alt="" style="cursor: pointer" width="24" height="24" src="../../Images/icons/read_more.png" />
+                                                                                        <img alt="" style="cursor: pointer; margin-left: 25%;" width="24" height="24" src="../../Images/icons/read_more.png" />
                                                                                         <asp:Panel ID="pnlGastosMXN" runat="server" Style="display: none">
                                                                                             <div id="div<%# Eval("IdGasto") %>" style="text-align: left">
                                                                                                 <asp:UpdatePanel ID="upaDetGastosMXN" runat="server" UpdateMode="Conditional">
                                                                                                     <ContentTemplate>
-                                                                                                        <asp:GridView ID="gvDetalleGastoMXN" runat="server" AutoGenerateColumns="false" Width="80%">
+                                                                                                        <asp:GridView ID="gvDetalleGastoMXN" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin:0 auto; border: 2px solid #547ba6;">
                                                                                                             <Columns>
                                                                                                                 <asp:BoundField DataField="LegId" HeaderText="No pierna" />
                                                                                                                 <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
@@ -283,17 +283,18 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <asp:TemplateField HeaderText="Gasto Estimado">
+                                                                                <%--<asp:TemplateField>
                                                                                     <ItemTemplate>
                                                                                         <asp:ImageButton ID="btnEliminarMEX" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
                                                                                             CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="24" Height="24" />
                                                                                     </ItemTemplate>
-                                                                                </asp:TemplateField>
+                                                                                </asp:TemplateField>--%>
+
                                                                                 <asp:TemplateField HeaderText="Buscar Pierna">
                                                                                     <ItemTemplate>
                                                                                         <asp:UpdatePanel ID="upaBusquedaPiernaMXN" runat="server" UpdateMode="Conditional">
                                                                                             <ContentTemplate>
-                                                                                                <asp:ImageButton ID="btnBuscarPierna" runat="server" OnClick="btnBuscarPierna_Click" ImageUrl="~/Images/icons/searchdate.png" ToolTip="De clic para buscar una pierna." Width="24" Height="24" />
+                                                                                               <asp:ImageButton ID="btnBuscarPierna" runat="server" OnClick="btnBuscarPierna_Click" ImageUrl="~/Images/icons/searchdate.png" ToolTip="De clic para buscar una pierna."  Width="18" Height="18" Style="margin: 0 auto; margin-left: 25%;"/>
                                                                                             </ContentTemplate>
                                                                                         </asp:UpdatePanel>
                                                                                     </ItemTemplate>
@@ -326,11 +327,11 @@
 
                                                                                 <asp:TemplateField HeaderText="Importe">
                                                                                     <ItemTemplate>
-                                                                                        <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important;"></asp:TextBox>
+                                                                                        <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;"></asp:TextBox>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe" />
+                                                                                <asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe"/>
 
                                                                                 <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                     <ItemTemplate>
@@ -421,11 +422,11 @@
                                         </div>
                                         <br />
                                         <div style="text-align: right; margin-right: 15px;">
-                                            <asp:LinkButton ID="lkbExportaUSD" runat="server" Text="Exportar a Excel" OnClick="lkbExportaUSD_Click" CssClass="lblInput btn btn-success"
-                                                Font-Underline="true" Style="margin-right: 20px; height: 20px;"></asp:LinkButton>
+                                            <asp:LinkButton ID="lkbExportaUSD" runat="server" Text="Exportar a Excel" OnClick="lkbExportaUSD_Click" CssClass="btn btn-success"
+                                                Font-Underline="false" Style="margin-right: 20px; height: 20px;"></asp:LinkButton>
                                         </div>
                                         <br />
-                                        <div class="table-responsive" style="overflow: auto; width: 100%;">
+                                        <div class="table-responsive" style="width: 100%; border:1px solid #dddddd;">
                                             <table class="table">
                                                 <tr>
                                                     <td>
@@ -440,14 +441,14 @@
                                                                             No existen Registros.
                                                                         </EmptyDataTemplate>
                                                                         <Columns>
-                                                                            <asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText="Gasto Estimado">
                                                                                 <ItemTemplate>
-                                                                                    <img alt="" style="cursor: pointer" width="24" height="24" src="../../Images/icons/read_more.png" />
+                                                                                    <img alt="" style="cursor: pointer; margin-left: 25%;" width="24" height="24" src="../../Images/icons/read_more.png" />
                                                                                     <asp:Panel ID="pnlGastosUSD" runat="server" Style="display: none">
                                                                                         <div id="divUSA<%# Eval("IdGasto") %>">
                                                                                             <asp:UpdatePanel ID="upaDetGastosUSD" runat="server" UpdateMode="Conditional">
                                                                                                 <ContentTemplate>
-                                                                                                    <asp:GridView ID="gvDetalleGastoUSD" runat="server" AutoGenerateColumns="false" Width="80%">
+                                                                                                    <asp:GridView ID="gvDetalleGastoUSD" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin:0 auto; border: 2px solid #547ba6;">
                                                                                                         <Columns>
                                                                                                             <asp:BoundField DataField="LegId" HeaderText="No pierna" />
                                                                                                             <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
@@ -461,18 +462,19 @@
                                                                                     </asp:Panel>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-
-                                                                            <asp:TemplateField HeaderText="Gasto Estimado">
+                                                                                                                                                        
+                                                                            <%--<asp:TemplateField>
                                                                                 <ItemTemplate>
                                                                                     <asp:ImageButton ID="btnEliminarUSA" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
                                                                                         CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="24" Height="24" />
                                                                                 </ItemTemplate>
-                                                                            </asp:TemplateField>
+                                                                            </asp:TemplateField>--%>
+
                                                                             <asp:TemplateField HeaderText="Buscar Pierna">
                                                                                 <ItemTemplate>
                                                                                     <asp:UpdatePanel ID="upaBusquedaPiernaUSD" runat="server" UpdateMode="Conditional">
                                                                                         <ContentTemplate>
-                                                                                            <asp:ImageButton ID="btnBuscarPiernaUSA" runat="server" OnClick="btnBuscarPierna_Click1" ImageUrl="~/Images/icons/searchdate.png" Width="24" Height="24" />
+                                                                                            <asp:ImageButton ID="btnBuscarPiernaUSA" runat="server" OnClick="btnBuscarPierna_Click1" ImageUrl="~/Images/icons/searchdate.png" Width="18" Height="18" ImageAlign="Middle" Style="margin: 0 auto; margin-left: 25%;" />
                                                                                         </ContentTemplate>
                                                                                     </asp:UpdatePanel>
                                                                                 </ItemTemplate>
@@ -510,7 +512,7 @@
 
                                                                             <asp:TemplateField HeaderText="Importe">
                                                                                 <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important;"></asp:TextBox>
+                                                                                    <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;"></asp:TextBox>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 
