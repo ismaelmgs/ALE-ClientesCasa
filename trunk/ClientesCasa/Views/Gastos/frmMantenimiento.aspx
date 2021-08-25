@@ -261,9 +261,9 @@
                                                                                 No existen Registros para mostrar.
                                                                             </EmptyDataTemplate>
                                                                             <Columns>
-                                                                                <asp:TemplateField HeaderText="Gasto Estimado">
+                                                                                <asp:TemplateField HeaderText="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
                                                                                     <ItemTemplate>
-                                                                                        <img alt="" style="cursor: pointer; margin-left: 25%;" width="24" height="24" src="../../Images/icons/read_more.png" />
+                                                                                        <img alt="" style="cursor: pointer; margin-left: 5%;" width="24" height="24" src="../../Images/icons/read_more.png" />
                                                                                         <asp:Panel ID="pnlGastosMXN" runat="server" Style="display: none">
                                                                                             <div id="div<%# Eval("IdGasto") %>" style="text-align: left">
                                                                                                 <asp:UpdatePanel ID="upaDetGastosMXN" runat="server" UpdateMode="Conditional">
@@ -283,12 +283,12 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <%--<asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Gasto Estimado">
                                                                                     <ItemTemplate>
                                                                                         <asp:ImageButton ID="btnEliminarMEX" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
-                                                                                            CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="24" Height="24" />
+                                                                                            CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="23" Height="23" Style="margin-left: 25%;" />
                                                                                     </ItemTemplate>
-                                                                                </asp:TemplateField>--%>
+                                                                                </asp:TemplateField>
 
                                                                                 <asp:TemplateField HeaderText="Buscar Pierna">
                                                                                     <ItemTemplate>
@@ -331,7 +331,7 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe"/>
+                                                                                <asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe" ItemStyle-HorizontalAlign="Right" />
 
                                                                                 <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                     <ItemTemplate>
@@ -441,9 +441,9 @@
                                                                             No existen Registros.
                                                                         </EmptyDataTemplate>
                                                                         <Columns>
-                                                                            <asp:TemplateField HeaderText="Gasto Estimado">
+                                                                            <asp:TemplateField HeaderText="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
                                                                                 <ItemTemplate>
-                                                                                    <img alt="" style="cursor: pointer; margin-left: 25%;" width="24" height="24" src="../../Images/icons/read_more.png" />
+                                                                                    <img alt="" style="cursor: pointer; margin-left: 5%;" width="24" height="24" src="../../Images/icons/read_more.png" />
                                                                                     <asp:Panel ID="pnlGastosUSD" runat="server" Style="display: none">
                                                                                         <div id="divUSA<%# Eval("IdGasto") %>">
                                                                                             <asp:UpdatePanel ID="upaDetGastosUSD" runat="server" UpdateMode="Conditional">
@@ -463,12 +463,12 @@
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
                                                                                                                                                         
-                                                                            <%--<asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText="Gasto Estimado">
                                                                                 <ItemTemplate>
                                                                                     <asp:ImageButton ID="btnEliminarUSA" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
-                                                                                        CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="24" Height="24" />
+                                                                                        CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="23" Height="23" Style="margin-left: 25%;" />
                                                                                 </ItemTemplate>
-                                                                            </asp:TemplateField>--%>
+                                                                            </asp:TemplateField>
 
                                                                             <asp:TemplateField HeaderText="Buscar Pierna">
                                                                                 <ItemTemplate>
@@ -521,8 +521,8 @@
                                                                             <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                 <ItemTemplate>
                                                                                     <asp:DropDownList ID="ddlFijoVar" runat="server" Width="90px">
-                                                                                        <asp:ListItem Text="Fijo" Value="1"></asp:ListItem>
-                                                                                        <asp:ListItem Text="Variable" Value="2"></asp:ListItem>
+                                                                                        <asp:ListItem Text="FIJO" Value="1"></asp:ListItem>
+                                                                                        <asp:ListItem Text="VARIABLE" Value="2"></asp:ListItem>
                                                                                     </asp:DropDownList>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
