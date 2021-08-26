@@ -213,10 +213,10 @@ namespace ClientesCasa.Views.Gastos
                         cddTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
                         ddlTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
 
-                        cddAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
+                        //cddAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
 
-                        if (dt.Rows[i]["AmpliadoGasto"].S() != "0")
-                            ddlAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
+                        //if (dt.Rows[i]["AmpliadoGasto"].S() != "0")
+                        //    ddlAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
                     }
                 }
 
@@ -289,10 +289,10 @@ namespace ClientesCasa.Views.Gastos
                         cddTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
                         ddlTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
 
-                        cddAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
+                        //cddAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
 
-                        if (dt.Rows[i]["AmpliadoGasto"].S() != "0")
-                            ddlAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
+                        //if (dt.Rows[i]["AmpliadoGasto"].S() != "0")
+                        //    ddlAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
                     }
                 }
 
@@ -1882,7 +1882,7 @@ namespace ClientesCasa.Views.Gastos
                 dtPesos.Columns.Add("FijoVar");
                 dtPesos.Columns.Add("Rubro");
                 dtPesos.Columns.Add("TipoGasto");
-                dtPesos.Columns.Add("AmpliadoGasto");
+                //dtPesos.Columns.Add("AmpliadoGasto");
                 dtPesos.Columns.Add("Comentarios");
 
                 for (int i = 0; i < dtContratos.Rows.Count; i++)
@@ -1899,11 +1899,13 @@ namespace ClientesCasa.Views.Gastos
                     dr["FechaVuelo"] = ((Label)row.FindControl("lblFechaMXN")).Text.S();
                     dr["Referencia"] = ((Label)row.FindControl("lblReferenciaPesos")).Text.S();
                     dr["Importe"] = String.Format("{0:C}", Convert.ToDecimal(((TextBox)row.FindControl("txtImporte")).Text.S()));
-                    dr["ImporteO"] = String.Format("{0:C}", Convert.ToDecimal(row.Cells[6].Text.Replace("$", "").S()));
+                    Label lblImpOri = (Label)row.FindControl("lblImporteOriginal");
+                    dr["ImporteO"] = lblImpOri.Text;
+                    //dr["ImporteO"] = String.Format("{0:C}", Convert.ToDecimal(row.Cells[6].Text.Replace("$", "").S()));
                     dr["FijoVar"] = ((DropDownList)row.FindControl("ddlFijoVar")).SelectedItem.Text.S();
                     dr["Rubro"] = ((DropDownList)row.FindControl("ddlRubro")).SelectedItem.Text.S();
                     dr["TipoGasto"] = ((DropDownList)row.FindControl("ddlTipoGasto")).SelectedItem.Text.S();
-                    dr["AmpliadoGasto"] = ((DropDownList)row.FindControl("ddlAcumulado1")).SelectedItem.Text.S();
+                    //dr["AmpliadoGasto"] = ""; // ((DropDownList)row.FindControl("ddlAcumulado1")).SelectedItem.Text.S();
                     dr["Comentarios"] = ((TextBox)row.FindControl("txtComentarios")).Text.S();
 
                     for (int i = 0; i < dtContratos.Rows.Count; i++)
@@ -1939,7 +1941,7 @@ namespace ClientesCasa.Views.Gastos
                 dtPesos.Columns.Add("FijoVar");
                 dtPesos.Columns.Add("Rubro");
                 dtPesos.Columns.Add("TipoGasto");
-                dtPesos.Columns.Add("AmpliadoGasto");
+                //dtPesos.Columns.Add("AmpliadoGasto");
                 dtPesos.Columns.Add("Comentarios");
 
                 for (int i = 0; i < dtContratos.Rows.Count; i++)
@@ -1956,11 +1958,14 @@ namespace ClientesCasa.Views.Gastos
                     dr["FechaVuelo"] = ((Label)row.FindControl("lblFechaUSD")).Text.S();
                     dr["Referencia"] = ((Label)row.FindControl("lblReferenciaDlls")).Text.S();
                     dr["Importe"] = String.Format("{0:C}", Convert.ToDecimal(((TextBox)row.FindControl("txtImporte")).Text.S()));
-                    dr["ImporteO"] = String.Format("{0:C}", Convert.ToDecimal(row.Cells[6].Text.Replace("$", "").S()));
+                    Label lblImpOri = (Label)row.FindControl("lblImporteOriginalUSD");
+                    dr["ImporteO"] = lblImpOri.Text;
+
+                    //dr["ImporteO"] = String.Format("{0:C}", Convert.ToDecimal(row.Cells[6].Text.Replace("$", "").S()));
                     dr["FijoVar"] = ((DropDownList)row.FindControl("ddlFijoVar")).SelectedItem.Text.S();
                     dr["Rubro"] = ((DropDownList)row.FindControl("ddlRubro")).SelectedItem.Text.S();
                     dr["TipoGasto"] = ((DropDownList)row.FindControl("ddlTipoGasto")).SelectedItem.Text.S();
-                    dr["AmpliadoGasto"] = ((DropDownList)row.FindControl("ddlAcumulado1")).SelectedItem.Text.S();
+                    //dr["AmpliadoGasto"] = ""; // ((DropDownList)row.FindControl("ddlAcumulado1")).SelectedItem.Text.S();
                     dr["Comentarios"] = ((TextBox)row.FindControl("txtComentarios")).Text.S();
 
                     for (int i = 0; i < dtContratos.Rows.Count; i++)

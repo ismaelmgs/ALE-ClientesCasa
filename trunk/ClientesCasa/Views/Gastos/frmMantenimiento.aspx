@@ -316,7 +316,7 @@
                                                                                         <asp:UpdatePanel ID="upaLinkRefPesos" runat="server" UpdateMode="Conditional">
                                                                                             <ContentTemplate>
                                                                                                 <asp:Label ID="lblReferenciaPesos" runat="server" Text='<%# Bind("Referencia") %>' Font-Size="X-Small"></asp:Label>
-                                                                                                <asp:ImageButton ID="imbReferenciaPesos" runat="server" Width="16" Height="16" ImageUrl="~/Images/icons/view.png" CommandName="ViewReference" 
+                                                                                                <asp:ImageButton ID="imbReferenciaPesos" runat="server" Width="16" Height="16" ImageUrl="~/Images/icons/searchdate.png" CommandName="ViewReference" Style="margin: 0 auto; margin-left: 25%;"
                                                                                                     CommandArgument='<%# Bind("Referencia") %>' ToolTip="De clic para visualizar el documento." Visible="false"></asp:ImageButton>
                                                                                             </ContentTemplate>
                                                                                         </asp:UpdatePanel>
@@ -331,7 +331,13 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe" ItemStyle-HorizontalAlign="Right" />
+                                                                                <asp:TemplateField HeaderText="Importe Original" ItemStyle-HorizontalAlign="Right">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="lblImporteOriginal" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+
+                                                                                <%--<asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe" />--%>
 
                                                                                 <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                     <ItemTemplate>
@@ -358,7 +364,7 @@
                                                                                         <asp:HiddenField ID="hfTipoGasto" runat="server" />
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
-                                                                                <asp:TemplateField HeaderText="Ampliado Gasto">
+                                                                                <%--<asp:TemplateField HeaderText="Ampliado Gasto">
                                                                                     <ItemTemplate>
                                                                                         <asp:DropDownList ID="ddlAcumulado1" runat="server" Width="100px" EnableViewState="true">
                                                                                         </asp:DropDownList>
@@ -366,7 +372,7 @@
                                                                                             PromptValue="Descripcion" ServicePath="ServiceCS.asmx" ServiceMethod="GetAmpliado" runat="server"
                                                                                             Category="Ampliado" ParentControlID="ddlTipoGasto" EnableViewState="true" />
                                                                                     </ItemTemplate>
-                                                                                </asp:TemplateField>
+                                                                                </asp:TemplateField>--%>
 
                                                                                 <asp:TemplateField HeaderText="Comentarios">
                                                                                     <ItemTemplate>
@@ -489,14 +495,25 @@
                                                                                     </asp:UpdatePanel>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>--%>
-                                                                            <asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />
+
+                                                                            <asp:TemplateField HeaderText="Fecha Vuelo">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:UpdatePanel ID="upaFechaMXN" runat="server" UpdateMode="Conditional">
+                                                                                            <ContentTemplate>
+                                                                                                <asp:Label ID="lblFechaUSD" runat="server" Text='<%# Bind("FechaVuelo") %>'></asp:Label>
+                                                                                            </ContentTemplate>
+                                                                                        </asp:UpdatePanel>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+
+                                                                            <%--<asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />--%>
 
                                                                             <asp:TemplateField HeaderText="No.Referencia" SortExpression="Referencia">
                                                                                     <ItemTemplate>
                                                                                         <asp:UpdatePanel ID="upaLinkRefDlls" runat="server" UpdateMode="Conditional">
                                                                                             <ContentTemplate>
                                                                                                 <asp:Label ID="lblReferenciaDlls" runat="server" Text='<%# Bind("Referencia") %>' Font-Size="X-Small"></asp:Label>
-                                                                                                <asp:ImageButton ID="imbReferenciaDlls" runat="server" Width="16" Height="16" ImageUrl="~/Images/icons/view.png" CommandName="ViewReference" 
+                                                                                                <asp:ImageButton ID="imbReferenciaDlls" runat="server" Width="16" Height="16" ImageUrl="~/Images/icons/searchdate.png" CommandName="ViewReference" Style="margin: 0 auto; margin-left: 25%;"
                                                                                                     CommandArgument='<%# Bind("Referencia") %>' ToolTip="De clic para visualizar el documento." Visible="false"></asp:ImageButton>
                                                                                             </ContentTemplate>
                                                                                         </asp:UpdatePanel>
@@ -516,7 +533,13 @@
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 
-                                                                            <asp:BoundField DataField="Importe" DataFormatString="{0:C}" HeaderText="Importe Original" />
+                                                                            <asp:TemplateField HeaderText="Importe Original" ItemStyle-HorizontalAlign="Right">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="lblImporteOriginalUSD" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+
+                                                                            <%--<asp:BoundField DataField="Importe" DataFormatString="{0:C}" HeaderText="Importe Original" />--%>
 
                                                                             <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                 <ItemTemplate>
@@ -542,7 +565,7 @@
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 
-                                                                            <asp:TemplateField HeaderText="Ampliado Gasto">
+                                                                            <%--<asp:TemplateField HeaderText="Ampliado Gasto">
                                                                                 <ItemTemplate>
                                                                                     <asp:DropDownList ID="ddlAcumulado1" runat="server" Width="100px" EnableViewState="true">
                                                                                     </asp:DropDownList>
@@ -550,7 +573,7 @@
                                                                                         PromptValue="Descripcion" ServicePath="ServiceCS.asmx" ServiceMethod="GetAmpliado" runat="server"
                                                                                         Category="Ampliado" ParentControlID="ddlTipoGasto" EnableViewState="true" />
                                                                                 </ItemTemplate>
-                                                                            </asp:TemplateField>
+                                                                            </asp:TemplateField>--%>
 
                                                                             <asp:TemplateField HeaderText="Comentarios">
                                                                                 <ItemTemplate>
