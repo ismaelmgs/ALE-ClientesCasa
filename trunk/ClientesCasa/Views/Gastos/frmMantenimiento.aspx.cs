@@ -481,10 +481,11 @@ namespace ClientesCasa.Views.Gastos
                         TextBox t1 = new TextBox();
                         t1.ID = "txt" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
                         t1.Visible = true;
-                        //t1.CssClass = "txtInput";
+                        t1.CssClass = "AlineadoDerecha";
                         t1.Width = 65;
                         t1.Text = dt.Rows[e.Row.RowIndex][dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "")].S();
                         t1.Attributes["onfocus"] = "javascript:this.select();";
+                        
 
                         TableCell tc = new TableCell();
                         tc.Width = 300;
@@ -568,7 +569,7 @@ namespace ClientesCasa.Views.Gastos
                         TextBox t1 = new TextBox();
                         t1.ID = "txt" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
                         t1.Visible = true;
-                        //t1.CssClass = "txtInput";
+                        t1.CssClass = "AlineadoDerecha";
                         t1.Width = 65;
                         t1.Text = dt.Rows[e.Row.RowIndex][dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "")].S();
                         t1.Attributes["onfocus"] = "javascript:this.select();";
@@ -1888,6 +1889,7 @@ namespace ClientesCasa.Views.Gastos
                 for (int i = 0; i < dtContratos.Rows.Count; i++)
                 {
                     dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S());
+                    dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S() + "Imp");
                 }
 
                 foreach (GridViewRow row in gv.Rows)
@@ -1914,7 +1916,9 @@ namespace ClientesCasa.Views.Gastos
                         sContrato = dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
 
                         DropDownList ddl = (DropDownList)gv.Rows[row.RowIndex].FindControl("ddl" + sContrato + "|" + row.RowIndex.S());
+                        TextBox txt = (TextBox)gv.Rows[row.RowIndex].FindControl("txt" + sContrato);
                         dr[dtContratos.Rows[i]["ClaveContrato"].S()] = ddl.SelectedItem.Text.S();
+                        dr[dtContratos.Rows[i]["ClaveContrato"].S() + "Imp"] = txt.Text.S();
                     }
 
                     dtPesos.Rows.Add(dr);
@@ -1947,6 +1951,7 @@ namespace ClientesCasa.Views.Gastos
                 for (int i = 0; i < dtContratos.Rows.Count; i++)
                 {
                     dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S());
+                    dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S() + "Imp");
                 }
 
                 foreach (GridViewRow row in gv.Rows)
@@ -1974,7 +1979,9 @@ namespace ClientesCasa.Views.Gastos
                         sContrato = dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
 
                         DropDownList ddl = (DropDownList)gv.Rows[row.RowIndex].FindControl("ddl" + sContrato + "|" + row.RowIndex.S());
+                        TextBox txt = (TextBox)gv.Rows[row.RowIndex].FindControl("txt" + sContrato);
                         dr[dtContratos.Rows[i]["ClaveContrato"].S()] = ddl.SelectedItem.Text.S();
+                        dr[dtContratos.Rows[i]["ClaveContrato"].S() + "Imp"] = txt.Text.S();
                     }
 
                     dtPesos.Rows.Add(dr);
