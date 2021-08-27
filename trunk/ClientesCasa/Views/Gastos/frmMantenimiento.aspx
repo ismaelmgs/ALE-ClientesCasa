@@ -115,6 +115,12 @@
         }
     </script>
 
+    <style type="text/css">
+        .AlineadoDerecha{
+            text-align:right;
+            }
+    </style>
+
 
     <cc1:ToolkitScriptManager ID="ToolKitScriptManager" runat="server"></cc1:ToolkitScriptManager>
     <asp:UpdatePanel ID="upaPrincipal" runat="server" UpdateMode="Conditional">
