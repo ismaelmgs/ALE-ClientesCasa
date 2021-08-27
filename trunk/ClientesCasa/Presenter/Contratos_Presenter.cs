@@ -92,8 +92,12 @@ namespace ClientesCasa.Presenter
         {
             if (!oIGesCat.DBGetValidaExisteContrato(oIView.sClaveContrato))
             {
-                if (oIGesCat.DBSetInsertaContrato(oIView.oCliente))
+                int iIdCont = oIGesCat.DBSetInsertaContrato(oIView.oCliente);
+                if (iIdCont > 0)
+                {
+                    oIView.iIdContrato = iIdCont;
                     oIView.MostrarMensaje("El contrato se insertó de manera correcta.", "Aviso");
+                }
                 else
                     oIView.MostrarMensaje("Ocurrió un error al insertar el contrato.", "Aviso");
             }

@@ -493,18 +493,24 @@ namespace ClientesCasa.Views.Catalogos
                     {
                         oComprobante = new Comprobante();
                         oComprobante.sNumeroReporte = txtDescripcionDoc.Text.S();
-                        oComprobante.iIdGasto = iIdContrato;
-                        oComprobante.sNombreArchivo = fuArchivo.FileName;
-                        oComprobante.sExtension = Path.GetExtension(fuArchivo.FileName);
-                        oComprobante.bArchivo = fuArchivo.FileBytes;
+                        
+                        if (iIdContrato > 0) 
+                        {
+                            oComprobante.iIdGasto = iIdContrato;
+                            oComprobante.sNombreArchivo = fuArchivo.FileName;
+                            oComprobante.sExtension = Path.GetExtension(fuArchivo.FileName);
+                            oComprobante.bArchivo = fuArchivo.FileBytes;
 
-                        mpeArchivo.Hide();
+                            mpeArchivo.Hide();
 
-                        if (eSaveDocumentoContrato != null)
-                            eSaveDocumentoContrato(sender, e);
+                            if (eSaveDocumentoContrato != null)
+                                eSaveDocumentoContrato(sender, e);
 
-                        if (eGetDocumentosContrato != null)
-                            eGetDocumentosContrato(sender, e);
+                            if (eGetDocumentosContrato != null)
+                                eGetDocumentosContrato(sender, e);
+                        }
+                        else
+                            MostrarMensaje("Es necesario que exxista un contrato asociado", "Aviso");
                     }
                     else
                     {
