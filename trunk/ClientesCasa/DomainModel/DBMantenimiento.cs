@@ -320,7 +320,15 @@ namespace ClientesCasa.DomainModel
         {
             try
             {
-                return oDB_SP.EjecutarDT("[Catalogos].[spS_MXJ_ConsultaProveedor]");
+                DataTable dtProvSAP = new DBBaseSAP().oDB_SP.EjecutarDT("[dbo].[SP_GET_OBTIENE_SOCIOSNEGOCIO]");
+                DataTable dtProved = oDB_SP.EjecutarDT("[Catalogos].[spS_MXJ_ConsultaProveedor]");
+
+                dtProvSAP.Merge(dtProved);
+
+                DataView dtV = dtProvSAP.DefaultView;
+                dtV.Sort = "Descripcion ASC";
+
+                return dtV.ToTable();
             }
             catch (Exception ex)
             {

@@ -249,7 +249,7 @@ namespace ClientesCasa.DomainModel
                 throw ex;
             }
         }
-        public bool DBSetInsertaContrato(ClienteContrato oContrato)
+        public int DBSetInsertaContrato(ClienteContrato oContrato)
         {
             try
             {
@@ -270,7 +270,8 @@ namespace ClientesCasa.DomainModel
                     oContrato.iIdContrato = oRes.S().I();
                     iRes = DBSetInsertaAdicionalesContratoCC(oContrato);
                 }
-                return iRes > 0 ? true : false;
+
+                return iRes.S().I();
             }
             catch (Exception ex)
             {
