@@ -182,7 +182,7 @@ namespace ClientesCasa.DomainModel
                 throw ex;
             }
         }
-        public bool DBSetInsertaCliente(ClienteContrato oCliente)
+        public int DBSetInsertaCliente(ClienteContrato oCliente)
         {
             try
             {
@@ -208,7 +208,7 @@ namespace ClientesCasa.DomainModel
                                                                                             "@UsuarioCreacion", Utils.GetUser,
                                                                                             "@IP", Utils.GetIPAddress);
 
-                return oRes != null ? true : false;
+                return oRes.S().I();
             }
             catch (Exception ex)
             {

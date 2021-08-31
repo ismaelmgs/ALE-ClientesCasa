@@ -76,8 +76,12 @@ namespace ClientesCasa.Presenter
         }
         protected override void NewObj_Presenter(object sender, EventArgs e)
         {
-            if (oIGesCat.DBSetInsertaCliente(oIView.oCliente))
+            int iIntCli = oIGesCat.DBSetInsertaCliente(oIView.oCliente);
+            if (iIntCli > 0)
+            {
+                oIView.iIdCliente = iIntCli.S();
                 oIView.MostrarMensaje("El cliente se insertó de manera correcta.", "Aviso");
+            }
             else
                 oIView.MostrarMensaje("Ocurrió un error al insertar al cliente.", "Aviso");
         }
