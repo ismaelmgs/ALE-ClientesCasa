@@ -4676,7 +4676,7 @@ namespace ClientesCasa.Views.CuentasPorPagar
                         oConcepto.sEmpresa = "1";
                         oConcepto.iLinea = x + 1;
 
-                        if (fRows[x]["Matricula"].S() == "KT32078" || fRows[x]["Matricula"].S() == "LA69879")
+                        if (fRows[x]["Matricula"].S() == "KT32078" || fRows[x]["Matricula"].S() == "LA69879" || fRows[x]["Matricula"].S() == "LE16884")
                         {
                             oConcepto.sItem = "GTO20"; //fRows[x]["CODIGO ARTICULO"].S();
 
@@ -4737,6 +4737,8 @@ namespace ClientesCasa.Views.CuentasPorPagar
                             oConcepto.sAlmacen = "P0001";
                         else if (fRows[x]["Matricula"].S() == "LA69879")
                             oConcepto.sAlmacen = "P0002";
+                        else if (fRows[x]["Matricula"].S() == "LE16884")
+                            oConcepto.sAlmacen = "P0001";
                         else
                         {
                             System.Data.DataTable dtAlmacen = new DBAccesoSAP().DBGetObtieneAlmacen(fRows[x]["Matricula"].S());
