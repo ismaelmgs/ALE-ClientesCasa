@@ -182,7 +182,7 @@
                                                     <table border="0" style="width: 100%; text-align: center;">
                                                         <tr class="tdrlr">
                                                             <td>
-                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/Logo_ALE_nvo.png" />
+                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/logoblanco.png" />
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -412,10 +412,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:30%">
+                        <td style="width:30%"><br />
                             <asp:Label ID="Label1" runat="server" Text="Periodo:" CssClass="lblInput"></asp:Label>
                         </td>
-                        <td style="width:70%">
+                        <td style="width:70%"><br />
                             <asp:TextBox ID="txtPeriodo" type="date" runat="server" placeholder="MM/YYYY" CssClass="form-control"></asp:TextBox>
 
                         </td>
@@ -423,12 +423,12 @@
                 </table>
                 <table style="width: 100%">
                     <tr>
-                        <td style="width: 50%">
+                        <td style="width: 50%"><br />
                             <div style="text-align: right; float: right">
                                 <asp:Button ID="btnAceptarPeriodo" runat="server" Text="Aceptar" OnClientClick="OcultarModal();" OnClick="btnAceptarPeriodo_Click" CssClass="btn btn-primary" />
                             </div>
                         </td>
-                        <td style="width: 50%">
+                        <td style="width: 50%"><br />
                             <div style="text-align: left; float: left">
                                 <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClientClick="OcultarModal();" CssClass="btn btn-default" />
                             </div>
