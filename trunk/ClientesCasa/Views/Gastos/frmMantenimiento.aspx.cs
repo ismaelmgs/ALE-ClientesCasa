@@ -626,6 +626,7 @@ namespace ClientesCasa.Views.Gastos
         decimal dSumaImporteO = 0;
         protected void gvMantenimiento_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            string sRubroSelect = string.Empty;
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
@@ -707,7 +708,8 @@ namespace ClientesCasa.Views.Gastos
                         ddlRubro.DataValueField = "IdRubro";
                         ddlRubro.DataBind();
 
-                        ddlRubro.SelectedValue = dt.Rows[e.Row.RowIndex]["IdRubro"].S();
+                        sRubroSelect = dt.Rows[e.Row.RowIndex]["IdRubro"].S();
+                        ddlRubro.SelectedValue = sRubroSelect;
                     }
 
                     if (dtContratos != null)
@@ -1688,10 +1690,10 @@ namespace ClientesCasa.Views.Gastos
                     DropDownList ddlRubro = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlRubro");
                     DropDownList ddlTipoGasto = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlTipoGasto");
                     DropDownList ddlAmpliadoGasto = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlAcumulado1");
-                    TextBox txtReferencia = (TextBox)gvMantenimiento.Rows[i].FindControl("txtReferencia");
+                    //TextBox txtReferencia = (TextBox)gvMantenimiento.Rows[i].FindControl("txtReferencia");
 
 
-                    if (txtMonto != null && ddlRubro != null && ddlTipoGasto != null && ddlAmpliadoGasto != null)
+                    if (txtMonto != null && ddlRubro != null && ddlTipoGasto != null)
                     {
                         GastoEstimado oG = new GastoEstimado();
                         oG.iIdGasto = iIdGasto;
@@ -1700,7 +1702,7 @@ namespace ClientesCasa.Views.Gastos
                         oG.sUsuario = Session["usuario"].S();
                         oG.iIdRubro = ddlRubro.SelectedValue.S().I();
                         oG.sTipoGasto = ddlTipoGasto.SelectedValue.S();
-                        oG.sAmpliadoGasto = ddlAmpliadoGasto.SelectedValue.S();
+                        //oG.sAmpliadoGasto = ddlAmpliadoGasto.SelectedValue.S();
 
                         GridView gvDetMXN = (GridView)gvMantenimiento.Rows[i].FindControl("gvDetalleGastoMXN");
                         if (gvDetMXN != null)
@@ -1827,9 +1829,9 @@ namespace ClientesCasa.Views.Gastos
                     TextBox txtMonto = (TextBox)gvMantenimientoUSA.Rows[i].FindControl("txtImporte");
                     DropDownList ddlRubro = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlRubro");
                     DropDownList ddlTipoGasto = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlTipoGasto");
-                    DropDownList ddlAmpliadoGasto = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlAcumulado1");
+                    //DropDownList ddlAmpliadoGasto = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlAcumulado1");
 
-                    if (txtMonto != null && ddlRubro != null && ddlTipoGasto != null && ddlAmpliadoGasto != null)
+                    if (txtMonto != null && ddlRubro != null && ddlTipoGasto != null )
                     {
                         GastoEstimado oG = new GastoEstimado();
                         oG.iIdGasto = iIdGasto;
@@ -1838,7 +1840,7 @@ namespace ClientesCasa.Views.Gastos
                         oG.sUsuario = Utils.GetUser;
                         oG.iIdRubro = ddlRubro.SelectedValue.S().I();
                         oG.sTipoGasto = ddlTipoGasto.SelectedValue.S();
-                        oG.sAmpliadoGasto = ddlAmpliadoGasto.SelectedValue.S();
+                        //oG.sAmpliadoGasto = ddlAmpliadoGasto.SelectedValue.S();
                         //oG.iNumeroPierna = txtPierna.Text.S().I();
 
                         if(gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != string.Empty && gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != "&nbsp;")

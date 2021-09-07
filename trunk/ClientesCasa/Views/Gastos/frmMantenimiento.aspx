@@ -289,7 +289,7 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <asp:TemplateField HeaderText="Gasto Estimado">
+                                                                                <asp:TemplateField HeaderText="Estimado">
                                                                                     <ItemTemplate>
                                                                                         <asp:ImageButton ID="btnEliminarMEX" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
                                                                                             CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="23" Height="23" Style="margin-left: 25%;" />
@@ -396,7 +396,7 @@
                                             </div>
                                             <div style="text-align: right; margin-right: 15px;">
                                                 <br />
-                                                <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClientClick="visible('divMessage');" OnClick="btnModificar_Click" CssClass="btn btn-success" Style="margin-right: 20px;"></asp:Button>
+                                                <asp:Button ID="btnModificar" runat="server" Text="Guardar" OnClientClick="visible('divMessage');" OnClick="btnModificar_Click" CssClass="btn btn-success" Style="margin-right: 20px;"></asp:Button>
                                             </div>
                                         </div>
                                     </div>
@@ -475,7 +475,7 @@
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
                                                                                                                                                         
-                                                                            <asp:TemplateField HeaderText="Gasto Estimado">
+                                                                            <asp:TemplateField HeaderText="Estimado">
                                                                                 <ItemTemplate>
                                                                                     <asp:ImageButton ID="btnEliminarUSA" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
                                                                                         CommandName="Eliminar" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/delete.png" Width="23" Height="23" Style="margin-left: 25%;" />
@@ -597,7 +597,7 @@
                                         </div>
                                         <br />
                                         <div style="text-align: right; margin-right: 15px;">
-                                            <asp:Button ID="btnModificar1" runat="server" Text="Modificar" OnClick="btnModificar1_Click" CssClass="btn btn-success" Style="margin-right: 20px;"></asp:Button>
+                                            <asp:Button ID="btnModificar1" runat="server" Text="Guardar" OnClick="btnModificar1_Click" CssClass="btn btn-success" Style="margin-right: 20px;"></asp:Button>
                                         </div>
                                     </div>
                                 </div>
