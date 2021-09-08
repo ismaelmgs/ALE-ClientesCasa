@@ -145,12 +145,16 @@
     <Content Include="Images\icons\view.png" />
     <Content Include="Images\icons\warning.png" />
     <Content Include="Images\icons\xml.png" />
+    <Content Include="Images\logo-AI.jpg" />
+    <Content Include="Images\logo-ale-2.jpg" />
     <Content Include="Images\logo-ale.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\logoblanco.png" />
     <Content Include="Images\logo_AI.png" />
     <Content Include="Images\Logo_ALE_nvo.jpg" />
     <Content Include="Images\Logo_ALE_nvo.png" />
+    <Content Include="Images\logo_fond_bco.jpg" />
+    <Content Include="Images\LOGO_N.png" />
     <Content Include="login.aspx" />
     <Content Include="logo-ale.ico" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />

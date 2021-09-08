@@ -182,7 +182,7 @@
                                                     <table border="0" style="width: 100%; text-align: center;">
                                                         <tr class="tdrlr">
                                                             <td>
-                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/logoblanco.png" />
+                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/logo-AI.jpg" />
                                                             </td>
                                                         </tr>
                                                     </table>
