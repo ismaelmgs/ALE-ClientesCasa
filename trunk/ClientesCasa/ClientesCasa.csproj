@@ -170,6 +170,7 @@
     <Content Include="Views\ASC\frmAprobacionFacturas.aspx" />
     <Content Include="Views\ASC\frmEnvioFacturas.aspx" />
     <Content Include="Views\ASC\frmVistaPreviaRefDoc.aspx" />
+    <Content Include="Views\Catalogos\frmProveedores.aspx" />
     <Content Include="Views\CuentasPorPagar\frmConsultaCargaPolizas.aspx" />
     <Content Include="Views\CuentasPorPagar\frmNominaFin.aspx" />
     <Content Include="Views\CuentasPorPagar\frmPolizaNomina.aspx" />
@@ -462,6 +463,7 @@
     <Compile Include="DomainModel\DBNominaFin.cs" />
     <Compile Include="DomainModel\DBParametros.cs" />
     <Compile Include="DomainModel\DBPolizaNomina.cs" />
+    <Compile Include="DomainModel\DBProveedores.cs" />
     <Compile Include="DomainModel\DBReporteSaldos.cs" />
     <Compile Include="DomainModel\DBResultadoNomina.cs" />
     <Compile Include="DomainModel\DBRolAccion.cs" />
@@ -504,6 +506,7 @@
     <Compile Include="Interfaces\IViewMttoPDF.cs" />
     <Compile Include="Interfaces\IViewNominafin.cs" />
     <Compile Include="Interfaces\IViewPolizaNomina.cs" />
+    <Compile Include="Interfaces\IViewProveedores.cs" />
     <Compile Include="Interfaces\IViewReporteSaldos.cs" />
     <Compile Include="Interfaces\IViewResultNomina.cs" />
     <Compile Include="Interfaces\IViewRubros.cs" />
@@ -572,6 +575,7 @@
     <Compile Include="Presenter\MttoPDF_Presenter.cs" />
     <Compile Include="Presenter\NominaFin_Presenter.cs" />
     <Compile Include="Presenter\PolizaNomina_Presenter.cs" />
+    <Compile Include="Presenter\Proveedores_Presenter.cs" />
     <Compile Include="Presenter\ReporteSaldos_Presenter.cs" />
     <Compile Include="Presenter\ResultadoNomina_Presenter.cs" />
     <Compile Include="Presenter\RubrosMatricula_Presenter.cs" />
@@ -703,6 +707,13 @@
     </Compile>
     <Compile Include="Views\ASC\frmVistaPreviaRefDoc.aspx.designer.cs">
       <DependentUpon>frmVistaPreviaRefDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Catalogos\frmProveedores.aspx.cs">
+      <DependentUpon>frmProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Catalogos\frmProveedores.aspx.designer.cs">
+      <DependentUpon>frmProveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CuentasPorPagar\frmConsultaCargaPolizas.aspx.cs">
       <DependentUpon>frmConsultaCargaPolizas.aspx</DependentUpon>
