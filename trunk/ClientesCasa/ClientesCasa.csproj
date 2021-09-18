@@ -171,6 +171,7 @@
     <Content Include="Views\ASC\frmEnvioFacturas.aspx" />
     <Content Include="Views\ASC\frmVistaPreviaRefDoc.aspx" />
     <Content Include="Views\Catalogos\frmProveedores.aspx" />
+    <Content Include="Views\Catalogos\frmTipoGasto.aspx" />
     <Content Include="Views\CuentasPorPagar\frmConsultaCargaPolizas.aspx" />
     <Content Include="Views\CuentasPorPagar\frmNominaFin.aspx" />
     <Content Include="Views\CuentasPorPagar\frmPolizaNomina.aspx" />
@@ -470,6 +471,7 @@
     <Compile Include="DomainModel\DBRubros.cs" />
     <Compile Include="DomainModel\DBRubrosMatricula.cs" />
     <Compile Include="DomainModel\DBSolicitudAviones.cs" />
+    <Compile Include="DomainModel\DBTipoGasto.cs" />
     <Compile Include="DomainModel\DBUsuarios.cs" />
     <Compile Include="DomainModel\DBUtils.cs" />
     <Compile Include="frmDefault.aspx.cs">
@@ -512,6 +514,7 @@
     <Compile Include="Interfaces\IViewRubros.cs" />
     <Compile Include="Interfaces\IViewRubrosMatricula.cs" />
     <Compile Include="Interfaces\IViewSolicitudAvion.cs" />
+    <Compile Include="Interfaces\IViewTipoGasto.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -581,6 +584,7 @@
     <Compile Include="Presenter\RubrosMatricula_Presenter.cs" />
     <Compile Include="Presenter\Rubros_Presenter.cs" />
     <Compile Include="Presenter\SolicitudAviones_Presenter.cs" />
+    <Compile Include="Presenter\TipoGasto_Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -714,6 +718,13 @@
     </Compile>
     <Compile Include="Views\Catalogos\frmProveedores.aspx.designer.cs">
       <DependentUpon>frmProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Catalogos\frmTipoGasto.aspx.cs">
+      <DependentUpon>frmTipoGasto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Catalogos\frmTipoGasto.aspx.designer.cs">
+      <DependentUpon>frmTipoGasto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\CuentasPorPagar\frmConsultaCargaPolizas.aspx.cs">
       <DependentUpon>frmConsultaCargaPolizas.aspx</DependentUpon>
