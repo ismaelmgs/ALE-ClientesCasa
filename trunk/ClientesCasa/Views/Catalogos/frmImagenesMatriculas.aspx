@@ -222,11 +222,11 @@
                                         </div>
                                         <div style="text-align: center;">
                                             <strong>
-                                                <asp:Label ID="lblClaveCliente" runat="server"></asp:Label></strong><br />
+                                                <asp:Label ID="lblClaveCliente" runat="server"></asp:Label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <strong>
-                                                <asp:Label ID="lblNombreCliente" runat="server"></asp:Label></strong><br />
+                                                <asp:Label ID="lblNombreCliente" runat="server"></asp:Label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
                                             <strong>
-                                                <asp:Label ID="lblMatricula" runat="server"></asp:Label></strong><br />
+                                                <asp:Label ID="lblMatricula" runat="server"></asp:Label></strong>
                                         </div>
                                         <div style="text-align: right; margin-right: 15px;">
                                             <asp:Button ID="btnAgregarImagen" runat="server" Text="Agregar" OnClick="btnAgregarImagen_Click" CssClass="btn btn-success" Style="min-width: 215px !important;" />
@@ -239,7 +239,7 @@
                                                         <td>
                                                             <div class="table-responsive" style="margin: 5px;">
                                                                 <asp:GridView ID="gvImagenes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdImagen"
-                                                                    AllowPaging="True" Width="80%" CssClass="table table-bordered table-striped table-hover"
+                                                                    AllowPaging="True" Width="100%" CssClass="table table-bordered table-striped table-hover"
                                                                     PageSize="2" OnRowCommand="gvImagenes_RowCommand" >
                                                                     <EmptyDataTemplate>
                                                                         No existen Registros para mostrar.
@@ -257,17 +257,23 @@
                                                                         <asp:TemplateField HeaderText="Acciones">
                                                                             <ItemTemplate>
                                                                                 <div style="text-align: center">
-                                                                                    <asp:UpdatePanel runat="server">
-                                                                                        <ContentTemplate>
-                                                                                            <asp:ImageButton ID="imbDescargar" runat="server" CommandName="Descargar" Width="24px" Height="24px" ToolTip="Descargar Imagen"
-                                                                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/download.png"  />
-                                                                                            </ContentTemplate>
-                                                                                        <Triggers>
-                                                                                            <asp:PostBackTrigger ControlID="imbDescargar" />
-                                                                                        </Triggers>
-                                                                                    </asp:UpdatePanel>
-                                                                                    <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Images/icons/delete.png" ToolTip="Elimina Imágen"
-                                                                                        OnClick="imbEliminar_Click" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Height="24px" Width="24px" OnClientClick="return DeleteConfirmation();"/>
+                                                                                    <div class="section group" style="width:50%; margin:0 auto; border:0px;">
+                                                                                            <div class="col span_2_of_4" style="text-align:center;">
+                                                                                                <asp:UpdatePanel runat="server">
+                                                                                                    <ContentTemplate>
+                                                                                                        <asp:ImageButton ID="imbDescargar" runat="server" CommandName="Descargar" Width="30px" Height="30px" ToolTip="Descargar Imagen"
+                                                                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/download2.png"  />
+                                                                                                        </ContentTemplate>
+                                                                                                    <Triggers>
+                                                                                                        <asp:PostBackTrigger ControlID="imbDescargar" />
+                                                                                                    </Triggers>
+                                                                                                </asp:UpdatePanel>
+                                                                                            </div>
+                                                                                            <div class="col span_2_of_4" style="text-align:center;">
+                                                                                                <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Images/icons/delete.png" ToolTip="Elimina Imágen"
+                                                                                                OnClick="imbEliminar_Click" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Height="30px" Width="30px" OnClientClick="return DeleteConfirmation();"/>
+                                                                                            </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
