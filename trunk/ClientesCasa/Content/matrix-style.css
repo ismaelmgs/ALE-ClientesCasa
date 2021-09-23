@@ -2690,6 +2690,9 @@ form {
     padding: 0px 15px 0px 15px;*/
     border-radius: 15px;
 }
+.span_1_of_6 {
+    width: 15%;
+}
 /*  GRID OF FOUR  */
 .span_4_of_4 {
     width: 100%;
@@ -2706,6 +2709,7 @@ form {
 .span_1_of_4 {
     width: 25%;
 }
+
 /*  GRID OF FIVE  */
 .span_5_of_5 {
     width: 100%;

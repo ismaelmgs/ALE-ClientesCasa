@@ -75,35 +75,25 @@
             </div>
             <div class="widget-content nopadding">
             <fieldset style="width: 100%">
-                <div class="section group">
-                        <div class="col span_1_of_4" style="text-align:Left;">&nbsp;</div>
-	                    <div class="col span_1_of_4" style="text-align:Left;">
-                            <strong><asp:Label ID="lblSerie" runat="server" Text="Serie:"></asp:Label></strong>
-                        </div>
-                        <div class="col span_1_of_4" style="text-align:left;">
-                            <asp:Label ID="readSerie" runat="server" Text="" ></asp:Label>
-                        </div>
-                        <div class="col span_1_of_4" style="text-align:Left;">&nbsp;</div>
-                </div>
-                <div class="section group">
-                        <div class="col span_1_of_4" style="text-align:Left;">&nbsp;</div>
-	                    <div class="col span_1_of_4" style="text-align:left;">
-                            <strong><asp:Label ID="lblMatricula" runat="server" Text="Matricula:"></asp:Label></strong>
-                        </div>
-                        <div class="col span_1_of_4" style="text-align:left;">
-                            <asp:Label ID="readMatricula" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div class="col span_1_of_4" style="text-align:Left;">&nbsp;</div>
-                </div>
-                <div class="section group">
-                        <div class="col span_1_of_4" style="text-align:Left;">&nbsp;</div>
-	                    <div class="col span_1_of_4" style="text-align:left;">
-                            <strong><asp:Label ID="lblCliente" runat="server" Text="Cliente:"></asp:Label></strong>
-                        </div>
-                        <div class="col span_1_of_4" style="text-align:left;">
-                            <asp:Label ID="readCliente" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div class="col span_1_of_4" style="text-align:Left;">&nbsp;</div>
+                <div class="section group" style="width: 100%; margin:0 auto;">
+	                <div class="col span_1_of_6" style="text-align:center;padding:3px;">
+                        <strong><asp:Label ID="lblSerie" runat="server" Text="Serie:"></asp:Label></strong>
+                    </div>
+                    <div class="col span_1_of_6" style="text-align:left;padding:3px;">
+                        <asp:Label ID="readSerie" runat="server" Text="" ></asp:Label>
+                    </div>
+	                <div class="col span_1_of_6" style="text-align:center;padding:3px;">
+                        <strong><asp:Label ID="lblMatricula" runat="server" Text="Matricula:"></asp:Label></strong>
+                    </div>
+                    <div class="col span_1_of_6" style="text-align:left;padding:3px;">
+                        <asp:Label ID="readMatricula" runat="server" Text=""></asp:Label>
+                    </div>
+	                <div class="col span_1_of_6" style="text-align:center;padding:3px;">
+                        <strong><asp:Label ID="lblCliente" runat="server" Text="Cliente:"></asp:Label></strong>
+                    </div>
+                    <div class="col span_1_of_6" style="text-align:left;padding:3px;">
+                        <asp:Label ID="readCliente" runat="server" Text=""></asp:Label>
+                    </div>
                 </div>
                 <div class="section group">
                         <div class="col span_4_of_4" style="text-align:center;">
