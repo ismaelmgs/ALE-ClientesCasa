@@ -240,7 +240,7 @@
                                                             <div class="table-responsive" style="margin: 5px;">
                                                                 <asp:GridView ID="gvImagenes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdImagen"
                                                                     AllowPaging="True" Width="80%" CssClass="table table-bordered table-striped table-hover"
-                                                                    PageSize="2" OnRowDataBound="gvImagenes_RowDataBound" OnPageIndexChanging="gvImagenes_PageIndexChanging" >
+                                                                    PageSize="2" OnRowCommand="gvImagenes_RowCommand" >
                                                                     <EmptyDataTemplate>
                                                                         No existen Registros para mostrar.
                                                                     </EmptyDataTemplate>
@@ -253,9 +253,19 @@
                                                                         <asp:BoundField DataField="IdAeronave" HeaderText="IdAeronave" />
                                                                         <asp:BoundField DataField="Tituloimg" HeaderText="Titulo Imágen" ItemStyle-HorizontalAlign="Left" />
                                                                         <asp:BoundField DataField="NombreImg" HeaderText="Nombre Imagen" />
+                                                                         
                                                                         <asp:TemplateField HeaderText="Acciones">
                                                                             <ItemTemplate>
                                                                                 <div style="text-align: center">
+                                                                                    <asp:UpdatePanel runat="server">
+                                                                                        <ContentTemplate>
+                                                                                            <asp:ImageButton ID="imbDescargar" runat="server" CommandName="Descargar" Width="24px" Height="24px" ToolTip="Descargar Imagen"
+                                                                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/download.png"  />
+                                                                                            </ContentTemplate>
+                                                                                        <Triggers>
+                                                                                            <asp:PostBackTrigger ControlID="imbDescargar" />
+                                                                                        </Triggers>
+                                                                                    </asp:UpdatePanel>
                                                                                     <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Images/icons/delete.png" ToolTip="Elimina Imágen"
                                                                                         OnClick="imbEliminar_Click" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Height="24px" Width="24px" OnClientClick="return DeleteConfirmation();"/>
                                                                                 </div>

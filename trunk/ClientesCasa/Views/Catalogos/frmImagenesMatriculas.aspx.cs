@@ -61,15 +61,62 @@ namespace ClientesCasa.Views.Catalogos
 
             }
         }
-        protected void gvImagenes_RowDataBound(object sender, GridViewRowEventArgs e)
+
+        protected void gvImagenes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            try
+            {
+                //byte[] imageByte;
+
+                //for (int i = 0; i < gvImagenes.Rows.Count; i++)
+                //{
+                //    Label lblImagen = (Label)gvImagenes.Rows[i].FindControl("lblIdImagen");
+                //    Image imgMat = (Image)gvImagenes.Rows[i].FindControl("imgImagen");
+
+                //    //imageByte = lblImagen.Text.b
+                //}}
+                GridView gvArchivos = (GridView)sender;
+                iIdImagen = gvArchivos.DataKeys[e.CommandArgument.S().I()]["IdImagen"].S().I();
+                string sExtension = string.Empty;
+                string sNombreArch = string.Empty;
+
+                switch (e.CommandName)
+                {
+                    case "Descargar":
+
+                        DataRow[] drs = dtImagenes.Select("IdImagen = " + iIdImagen);
+
+                        if (drs != null && drs.Length > 0)
+                        {
+                            sNombreArch = drs[0]["NombreImg"].S();
+                            sExtension = drs[0]["Extension"].S();
+
+                            byte[] bPDF = (byte[])drs[0]["Imagen"];
+                            if (bPDF != null)
+                            {
+                                MemoryStream ms = new MemoryStream(bPDF);
+                                Response.ContentType = "image/jpeg";
+                                Response.AddHeader("content-disposition", "attachment;filename=" + sNombreArch);
+                                Response.ContentType = "application/octet-stream";
+                                Response.Buffer = true;
+                                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                                Response.BinaryWrite(bPDF);
+                                Response.Flush();
+                                Response.End();
+                            }
+                        }
+                        break;
+                }
+            }
+            catch(Exception ex)
+            { 
+
+            }
         }
 
-        protected void gvImagenes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-        }
+        
 
-            protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             try
             {
@@ -267,6 +314,7 @@ namespace ClientesCasa.Views.Catalogos
         {
             try
             {
+                dtImagenes = dt;
                 gvImagenes.DataSource = dt;
                 gvImagenes.DataBind();
             }
@@ -299,6 +347,12 @@ namespace ClientesCasa.Views.Catalogos
         {
             get { return (DataTable)ViewState["VClientes"]; }
             set { ViewState["VClientes"] = value; }
+        }
+
+        public DataTable dtImagenes
+        {
+            get { return (DataTable)ViewState["VImagenes"]; }
+            set { ViewState["VImagenes"] = value; }
         }
 
         public string sMatricula
