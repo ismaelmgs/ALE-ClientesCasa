@@ -170,6 +170,7 @@
     <Content Include="Views\ASC\frmAprobacionFacturas.aspx" />
     <Content Include="Views\ASC\frmEnvioFacturas.aspx" />
     <Content Include="Views\ASC\frmVistaPreviaRefDoc.aspx" />
+    <Content Include="Views\Catalogos\frmImagenesMatriculas.aspx" />
     <Content Include="Views\Catalogos\frmProveedores.aspx" />
     <Content Include="Views\Catalogos\frmTipoGasto.aspx" />
     <Content Include="Views\CuentasPorPagar\frmConsultaCargaPolizas.aspx" />
@@ -457,6 +458,7 @@
     <Compile Include="DomainModel\DBFacturantes.cs" />
     <Compile Include="DomainModel\DBFlightPak.cs" />
     <Compile Include="DomainModel\DBGastosSinAsignar.cs" />
+    <Compile Include="DomainModel\DBImagenesMatricula.cs" />
     <Compile Include="DomainModel\DBIntegratir.cs" />
     <Compile Include="DomainModel\DBMantenimiento.cs" />
     <Compile Include="DomainModel\DBMttoPagos.cs" />
@@ -502,6 +504,7 @@
     <Compile Include="Interfaces\IVIewEstadoCuenta.cs" />
     <Compile Include="Interfaces\IViewFacturantes.cs" />
     <Compile Include="Interfaces\IViewGastosSinAsignar.cs" />
+    <Compile Include="Interfaces\IViewImagenesMatricula.cs" />
     <Compile Include="Interfaces\IViewLogin.cs" />
     <Compile Include="Interfaces\IViewMantenimiento.cs" />
     <Compile Include="Interfaces\IViewMttoPagos.cs" />
@@ -572,6 +575,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Presenter\GastosSinAsignar_Presenter.cs" />
+    <Compile Include="Presenter\ImagenesMatricula_Presenter.cs" />
     <Compile Include="Presenter\Login_Presenter.cs" />
     <Compile Include="Presenter\Mantenimiento_Presenter.cs" />
     <Compile Include="Presenter\MttoPagos_Presenter.cs" />
@@ -711,6 +715,13 @@
     </Compile>
     <Compile Include="Views\ASC\frmVistaPreviaRefDoc.aspx.designer.cs">
       <DependentUpon>frmVistaPreviaRefDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Catalogos\frmImagenesMatriculas.aspx.cs">
+      <DependentUpon>frmImagenesMatriculas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Catalogos\frmImagenesMatriculas.aspx.designer.cs">
+      <DependentUpon>frmImagenesMatriculas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Catalogos\frmProveedores.aspx.cs">
       <DependentUpon>frmProveedores.aspx</DependentUpon>

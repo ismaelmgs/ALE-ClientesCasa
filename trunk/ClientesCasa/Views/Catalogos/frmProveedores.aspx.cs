@@ -104,18 +104,7 @@ namespace ClientesCasa.Views.Catalogos
         {
             try
             {
-                //if (e.Row.RowType == DataControlRowType.DataRow)
-                //{
-                //    iIdRubro = 0;
-                //    GridView gv = (GridView)e.Row.FindControl("gvDetalleRubro");
-                //    iIdRubro = gvRubros.DataKeys[e.Row.RowIndex]["IdRubro"].S().I();
-
-                //    if (eSearchCuentas != null)
-                //        eSearchCuentas(sender, e);
-
-                //    gv.DataSource = dtCuentasRubro;
-                //    gv.DataBind();
-                //}
+                
             }
             catch (Exception ex)
             {

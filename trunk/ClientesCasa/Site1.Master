@@ -209,6 +209,7 @@
                     <li><a href="../../../../ClientesCasa/Views/Catalogos/frmRubrosMatricula.aspx">Rubros x Matricula</a></li>
                     <li><a href="../../../../ClientesCasa/Views/Catalogos/frmProveedores.aspx">Proveedores</a></li>
                     <li><a href="../../../../ClientesCasa/Views/Catalogos/frmTipoGasto.aspx">Tipo de Gasto</a></li>
+                    <li><a href="../../../../ClientesCasa/Views/Catalogos/frmImagenesMatriculas.aspx">Imagenes Matriculas</a></li>
                 </ul>
             </li>
             <li class="submenu">
