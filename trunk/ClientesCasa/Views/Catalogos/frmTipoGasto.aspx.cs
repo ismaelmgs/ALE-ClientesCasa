@@ -125,6 +125,20 @@ namespace ClientesCasa.Views.Catalogos
             }
         }
 
+        protected void gvTipoG_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                DataTable dt = dtTipoGastos;
+                gvTipoG.PageIndex = e.NewPageIndex;
+                LoadTipoGasto(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         #endregion
         #region METODOS
 
@@ -132,6 +146,7 @@ namespace ClientesCasa.Views.Catalogos
         {
             try
             {
+                dtTipoGastos = dt;
                 gvTipoG.DataSource = dt;
                 gvTipoG.DataBind();
             }
@@ -157,6 +172,12 @@ namespace ClientesCasa.Views.Catalogos
         public event EventHandler eSaveObj;
         public event EventHandler eDeleteObj;
         public event EventHandler eSearchObj;
+
+        public DataTable dtTipoGastos
+        {
+            get { return (DataTable)ViewState["VdtTipoGastos"]; }
+            set { ViewState["VdtTipoGastos"] = value; }
+        }
 
         public int iIdConcepto
         {

@@ -49,8 +49,8 @@
                 <div>
                 <asp:UpdatePanel ID="upaTipoG" runat="server">
                     <ContentTemplate>
-                        <asp:GridView ID="gvTipoG" runat="server" AutoGenerateColumns="False"
-                            OnRowDataBound="gvTipoG_RowDataBound" Width="55%" DataKeyNames="IdConcepto"
+                        <asp:GridView ID="gvTipoG" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="10"
+                            OnRowDataBound="gvTipoG_RowDataBound" Width="55%" DataKeyNames="IdConcepto" OnPageIndexChanging="gvTipoG_PageIndexChanging"
                             CssClass="table table-bordered table-striped table-hover">
                             <EmptyDataTemplate>
                                 <asp:Label ID="Label50" runat="server" Text="No existen Registros."></asp:Label>

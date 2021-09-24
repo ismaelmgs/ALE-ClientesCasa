@@ -164,7 +164,7 @@
                                                 <asp:BoundField DataField="Nombre" HeaderText="Nombre del cliente" ItemStyle-HorizontalAlign="Left" />
                                                 <asp:BoundField DataField="ClaveContrato" HeaderText="Clave del contrato" />
                                                 <asp:BoundField DataField="Matricula" HeaderText="Matrícula Aeronave" />
-                                                <asp:TemplateField HeaderText="IdAeronave" ItemStyle-HorizontalAlign="Right">
+                                                <asp:TemplateField HeaderText="IdAeronave" ItemStyle-HorizontalAlign="Right" Visible="false">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblIdAeronave" Text='<%# Bind("IdAeroave") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
                                                     </ItemTemplate>
@@ -250,7 +250,7 @@
                                                                                 <asp:Label ID="lblIdImagen" Text='<%# Bind("IdImagen") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:BoundField DataField="IdAeronave" HeaderText="IdAeronave" />
+                                                                        <%--<asp:BoundField DataField="IdAeronave" HeaderText="IdAeronave" />--%>
                                                                         <asp:BoundField DataField="Tituloimg" HeaderText="Titulo Imágen" ItemStyle-HorizontalAlign="Left" />
                                                                         <asp:BoundField DataField="NombreImg" HeaderText="Nombre Imagen" />
                                                                          

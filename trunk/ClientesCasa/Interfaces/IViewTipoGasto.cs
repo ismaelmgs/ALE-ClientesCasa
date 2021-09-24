@@ -12,6 +12,8 @@ namespace ClientesCasa.Interfaces
         string sDescConcepto { set; get; }
         int iIdConcepto { set; get; }
         object[] oArrTipoG { get; }
+
+        DataTable dtTipoGastos { set; get; }
         void LoadTipoGasto(DataTable dt);
         void MostrarMensaje(string sMensaje, string sCaption);
     }
