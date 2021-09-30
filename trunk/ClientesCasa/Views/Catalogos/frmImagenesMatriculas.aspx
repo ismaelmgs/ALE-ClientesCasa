@@ -216,25 +216,24 @@
             <asp:Panel ID="pnlRubros" runat="server" Visible="false">
                 <asp:UpdatePanel ID="upaGastosPesos" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                     <ContentTemplate>
+                        <div style="text-align: center; font-size:13px;">
+                            <strong>
+                                <asp:Label ID="lblClaveCliente" runat="server"></asp:Label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong>
+                                <asp:Label ID="lblNombreCliente" runat="server"></asp:Label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong>
+                                <asp:Label ID="lblMatricula" runat="server"></asp:Label></strong>
+                        </div>
                         <div class="widget-box">
                             <div class="widget-title">
                                 <span class="icon"><i class="icon-align-justify"></i></span>
                                 <h5>Imágenes</h5>
                             </div>
                             <div class="widget-content nopadding">
+                                <br />
                                 <div class="control-group">
                                     <div class="controls">
-                                        <div style="text-align: right; margin-right: 15px;">
-                                            
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <strong>
-                                                <asp:Label ID="lblClaveCliente" runat="server"></asp:Label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <strong>
-                                                <asp:Label ID="lblNombreCliente" runat="server"></asp:Label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <strong>
-                                                <asp:Label ID="lblMatricula" runat="server"></asp:Label></strong>
-                                        </div>
+                                        
                                         <div style="text-align: right; margin-right: 15px;">
                                             <asp:Button ID="btnAgregarImagen" runat="server" Text="Agregar" OnClick="btnAgregarImagen_Click" CssClass="btn btn-success" Style="min-width: 215px !important;" />
                                         </div>
@@ -296,7 +295,18 @@
                                                 
                                             </div>
                                         </div>
-                                        <div style="text-align: right; margin-right: 15px;">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="widget-box">
+                            <div class="widget-title">
+                                <span class="icon"><i class="icon-align-justify"></i></span>
+                                <h5>PDF´s</h5>
+                            </div>
+                            <div style="text-align: right; margin-right: 15px;"><br />
                                             <asp:Button ID="btnAgregarPDF" runat="server" Text="Agregar" OnClick="btnAgregarPDF_Click" CssClass="btn btn-success" Style="min-width: 215px !important;" />
                                         </div>
                                         <br />
@@ -357,9 +367,6 @@
                                                 
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </ContentTemplate>
                     <Triggers>
