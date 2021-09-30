@@ -91,6 +91,13 @@
             modal.hide();
         }
 
+        function OcultarModalArchivoPDF() {
+
+            var modalId = '<%=mpeArchivoPDF.ClientID%>';
+            var modal = $find(modalId);
+            modal.hide();
+        }
+
         
     </script>
 
@@ -240,7 +247,7 @@
                                                             <div class="table-responsive" style="margin: 5px;">
                                                                 <asp:GridView ID="gvImagenes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdImagen"
                                                                     AllowPaging="True" Width="100%" CssClass="table table-bordered table-striped table-hover"
-                                                                    PageSize="2" OnRowCommand="gvImagenes_RowCommand" >
+                                                                    PageSize="5" OnRowCommand="gvImagenes_RowCommand" >
                                                                     <EmptyDataTemplate>
                                                                         No existen Registros para mostrar.
                                                                     </EmptyDataTemplate>
@@ -272,6 +279,67 @@
                                                                                             <div class="col span_2_of_4" style="text-align:center;">
                                                                                                 <asp:ImageButton ID="imbEliminar" runat="server" ImageUrl="~/Images/icons/delete.png" ToolTip="Elimina Imágen"
                                                                                                 OnClick="imbEliminar_Click" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Height="30px" Width="30px" OnClientClick="return DeleteConfirmation();"/>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                    </Columns>
+                                                                </asp:GridView>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div style="text-align: right; margin-right: 15px;">
+                                                <br />
+                                                
+                                            </div>
+                                        </div>
+                                        <div style="text-align: right; margin-right: 15px;">
+                                            <asp:Button ID="btnAgregarPDF" runat="server" Text="Agregar" OnClick="btnAgregarPDF_Click" CssClass="btn btn-success" Style="min-width: 215px !important;" />
+                                        </div>
+                                        <br />
+                                        <div>
+                                            <div class="table-responsive" style="width: 100%; border:1px solid #dddddd;">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="table-responsive" style="margin: 5px;">
+                                                                <asp:GridView ID="gvImagenesPDF" runat="server" AutoGenerateColumns="False" DataKeyNames="IdImagen"
+                                                                    AllowPaging="True" Width="100%" CssClass="table table-bordered table-striped table-hover"
+                                                                    PageSize="5" OnRowCommand="gvImagenesPDF_RowCommand" >
+                                                                    <EmptyDataTemplate>
+                                                                        No existen Registros para mostrar.
+                                                                    </EmptyDataTemplate>
+                                                                    <Columns>
+                                                                        <asp:TemplateField HeaderText="Id Imagen" ItemStyle-HorizontalAlign="Right" Visible="false">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblIdImagenPDF" Text='<%# Bind("IdImagen") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <%--<asp:BoundField DataField="IdAeronave" HeaderText="IdAeronave" />--%>
+                                                                        <asp:BoundField DataField="Tituloimg" HeaderText="Titulo PDF" ItemStyle-HorizontalAlign="Left" />
+                                                                        <asp:BoundField DataField="NombreImg" HeaderText="Nombre PDF" />
+                                                                         
+                                                                        <asp:TemplateField HeaderText="Acciones">
+                                                                            <ItemTemplate>
+                                                                                <div style="text-align: center">
+                                                                                    <div class="section group" style="width:50%; margin:0 auto; border:0px;">
+                                                                                            <div class="col span_2_of_4" style="text-align:center;">
+                                                                                                <asp:UpdatePanel runat="server">
+                                                                                                    <ContentTemplate>
+                                                                                                        <asp:ImageButton ID="imbDescargarPDF" runat="server" CommandName="Descargar" Width="30px" Height="30px" ToolTip="Descargar PDF"
+                                                                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" ImageUrl="~/Images/icons/download2.png"  />
+                                                                                                        </ContentTemplate>
+                                                                                                    <Triggers>
+                                                                                                        <asp:PostBackTrigger ControlID="imbDescargarPDF" />
+                                                                                                    </Triggers>
+                                                                                                </asp:UpdatePanel>
+                                                                                            </div>
+                                                                                            <div class="col span_2_of_4" style="text-align:center;">
+                                                                                                <asp:ImageButton ID="imbEliminarPDF" runat="server" ImageUrl="~/Images/icons/delete.png" ToolTip="Elimina PDF"
+                                                                                                OnClick="imbEliminarPDF_Click" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Height="30px" Width="30px" OnClientClick="return DeleteConfirmation();"/>
                                                                                             </div>
                                                                                     </div>
                                                                                 </div>
@@ -343,7 +411,7 @@
         </asp:UpdatePanel>
     </asp:Panel>
 
-    <%--Modal para cargar archivo--%>
+    <%--Modal para cargar archivo de IMAGEN--%>
     <asp:HiddenField ID="hdTargetArchivo" runat="server" />
     <cc1:ModalPopupExtender ID="mpeArchivo" runat="server" TargetControlID="hdTargetArchivo"
         PopupControlID="pnlArchivo" BackgroundCssClass="overlayy">
@@ -355,7 +423,7 @@
                 <table style="width: 100%">
                     <tr>
                         <td colspan="2">
-                            <h4><asp:Label ID="Label3" runat="server" Text="Seleccione el archivo"></asp:Label></h4>
+                            <h4><asp:Label ID="Label3" runat="server" Text="Seleccione la Imágen"></asp:Label></h4>
                         </td>
                     </tr>
                     <tr>
@@ -397,6 +465,65 @@
             </ContentTemplate>
             <Triggers>
                 <asp:PostBackTrigger ControlID="btnAceptarArchivo" />
+            </Triggers>
+        </asp:UpdatePanel>
+    </asp:Panel>
+
+
+    <%--Modal para cargar archivo PDF --%>
+    <asp:HiddenField ID="hdTargetArchivoPDF" runat="server" />
+    <cc1:ModalPopupExtender ID="mpeArchivoPDF" runat="server" TargetControlID="hdTargetArchivoPDF"
+        PopupControlID="pnlArchivoPDF" BackgroundCssClass="overlayy">
+    </cc1:ModalPopupExtender>
+    <asp:Panel ID="pnlArchivoPDF" runat="server" BackColor="White" Height="200"
+        Width="500" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">
+        <asp:UpdatePanel ID="upaArchivoPDF" runat="server">
+            <ContentTemplate>
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="2">
+                            <h4><asp:Label ID="Label2" runat="server" Text="Seleccione el archivo PDF"></asp:Label></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">
+                            <asp:Label ID="Label5" runat="server" Text="Descripcion:"></asp:Label>
+                        </td>
+                        <td width="75%" style="text-align: left">
+                                <asp:TextBox ID="txtDescPDF" runat="server" Style="width:94%;"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">
+                            <asp:Label ID="Label6" runat="server" Text="Archivo:"></asp:Label>
+                        </td>
+                        <td width="75%" style="text-align: left">
+                                <asp:FileUpload ID="fuArchivoPDF" runat="server" Width="90%" CssClass="btn btn-success" accept=".pdf"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <asp:Label ID="Label7" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 100%">
+                            <p>&nbsp;</p>
+                            <div style="text-align: center;">
+                                <asp:Button ID="btnAceptarArchivoPDF" runat="server" Text="Subir Archivo" OnClick="btnAceptarArchivoPDF_Click" OnClientClick="OcultarModalArchivo();" CssClass="btn btn-primary" />
+                                <asp:Button ID="btnCancelarArchivoPDF" runat="server" Text="Cancelar" OnClientClick="OcultarModalArchivoPDF();" CssClass="btn btn-default" />&nbsp;&nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100%"></td></tr>
+                </table>
+            </ContentTemplate>
+            <Triggers>
+                <asp:PostBackTrigger ControlID="btnAceptarArchivoPDF" />
             </Triggers>
         </asp:UpdatePanel>
     </asp:Panel>

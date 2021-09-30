@@ -66,15 +66,6 @@ namespace ClientesCasa.Views.Catalogos
         {
             try
             {
-                //byte[] imageByte;
-
-                //for (int i = 0; i < gvImagenes.Rows.Count; i++)
-                //{
-                //    Label lblImagen = (Label)gvImagenes.Rows[i].FindControl("lblIdImagen");
-                //    Image imgMat = (Image)gvImagenes.Rows[i].FindControl("imgImagen");
-
-                //    //imageByte = lblImagen.Text.b
-                //}}
                 GridView gvArchivos = (GridView)sender;
                 iIdImagen = gvArchivos.DataKeys[e.CommandArgument.S().I()]["IdImagen"].S().I();
                 string sExtension = string.Empty;
@@ -84,7 +75,7 @@ namespace ClientesCasa.Views.Catalogos
                 {
                     case "Descargar":
 
-                        DataRow[] drs = dtImagenes.Select("IdImagen = " + iIdImagen);
+                        DataRow[] drs = dtImagenes.Tables[0].Select("IdImagen = " + iIdImagen);
 
                         if (drs != null && drs.Length > 0)
                         {
@@ -114,7 +105,50 @@ namespace ClientesCasa.Views.Catalogos
             }
         }
 
-        
+        protected void gvImagenesPDF_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                GridView gvArchivos = (GridView)sender;
+                iIdImagen = gvArchivos.DataKeys[e.CommandArgument.S().I()]["IdImagen"].S().I();
+                string sExtension = string.Empty;
+                string sNombreArch = string.Empty;
+
+                switch (e.CommandName)
+                {
+                    case "Descargar":
+
+                        DataRow[] drs = dtImagenes.Tables[1].Select("IdImagen = " + iIdImagen);
+
+                        if (drs != null && drs.Length > 0)
+                        {
+                            sNombreArch = drs[0]["NombreImg"].S();
+                            sExtension = drs[0]["Extension"].S();
+
+                            byte[] bPDF = (byte[])drs[0]["Imagen"];
+                            if (bPDF != null)
+                            {
+                                MemoryStream ms = new MemoryStream(bPDF);
+                                Response.ContentType = "application/pdf";
+                                Response.AddHeader("content-disposition", "attachment;filename=" + sNombreArch);
+                                Response.ContentType = "application/octet-stream";
+                                Response.Buffer = true;
+                                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                                Response.BinaryWrite(bPDF);
+                                Response.Flush();
+                                Response.End();
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
 
         protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -141,6 +175,25 @@ namespace ClientesCasa.Views.Catalogos
             {
                 int iIndex = ((ImageButton)sender).CommandArgument.S().I();
                 iIdImagen = gvImagenes.DataKeys[iIndex]["IdImagen"].S().I();
+
+                if (eDeleteObj != null)
+                    eDeleteObj(sender, e);
+
+                if (eGetImagenesMatricula != null)
+                    eGetImagenesMatricula(sender, e);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void imbEliminarPDF_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                int iIndex = ((ImageButton)sender).CommandArgument.S().I();
+                iIdImagen = gvImagenesPDF.DataKeys[iIndex]["IdImagen"].S().I();
 
                 if (eDeleteObj != null)
                     eDeleteObj(sender, e);
@@ -218,10 +271,14 @@ namespace ClientesCasa.Views.Catalogos
 
             }
         }
-
         protected void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             mpeArchivo.Show();
+        }
+
+        protected void btnAgregarPDF_Click(object sender, EventArgs e)
+        {
+            mpeArchivoPDF.Show();
         }
 
         protected void btnAceptarArchivo_Click(object sender, EventArgs e)
@@ -232,12 +289,7 @@ namespace ClientesCasa.Views.Catalogos
                 {
                     if (ValidaExtension(Path.GetExtension(fuArchivo.FileName)))
                     {
-                        //oComprobante = new Comprobante();
-                        //oComprobante.sNumeroReporte = txtDescripcionDoc.Text.S();
-
-                        //        if (iIdContrato > 0)
-                        //        {
-                        //            oComprobante.iIdGasto = iIdContrato;
+                        sTituloImagen = txtDescripcionDoc.Text;
                         sNombreArchivo = fuArchivo.FileName;
                         sExtensionImagen = Path.GetExtension(fuArchivo.FileName);
                         arImagen = fuArchivo.FileBytes;
@@ -249,17 +301,46 @@ namespace ClientesCasa.Views.Catalogos
 
                         if (eGetImagenesMatricula != null)
                             eGetImagenesMatricula(sender, e);
-                        //        }
-                        //        else
-                        //            MostrarMensaje("Es necesario que exxista un contrato asociado", "Aviso");
                     }
                     else
                     {
                         MostrarMensaje("Este tipo de archivo no se puede anexar como comprobante, favor de verificar", "Aviso");
                     }
                 }
-                    //else
-                    //    MostrarMensaje("Se debe seleccionar un archivo a subir, favor de verificar", "Aviso");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void btnAceptarArchivoPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (fuArchivoPDF.HasFile)
+                {
+                    if (ValidaExtensionPDF(Path.GetExtension(fuArchivoPDF.FileName)))
+                    {
+                        sTituloImagen = txtDescPDF.Text;
+                        sNombreArchivo = fuArchivoPDF.FileName;
+                        sExtensionImagen = Path.GetExtension(fuArchivoPDF.FileName);
+                        arImagen = fuArchivoPDF.FileBytes;
+
+                        mpeArchivo.Hide();
+
+                        if (eSaveImagenesMatricula != null)
+                            eSaveImagenesMatricula(sender, e);
+
+                        if (eGetImagenesMatricula != null)
+                            eGetImagenesMatricula(sender, e);
+                    }
+                    else
+                    {
+                        MostrarMensaje("Este tipo de archivo no se puede anexar como comprobante, favor de verificar", "Aviso");
+                    }
+                }
+                
             }
             catch (Exception ex)
             {
@@ -297,6 +378,26 @@ namespace ClientesCasa.Views.Catalogos
             }
         }
 
+        private bool ValidaExtensionPDF(string sExtension)
+        {
+            try
+            {
+                bool ban = false;
+                switch (sExtension)
+                {
+                    case ".pdf":
+                        ban = true;
+                        break;
+                }
+
+                return ban;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void LLenaClientes(DataTable dt)
         {
             try
@@ -310,13 +411,17 @@ namespace ClientesCasa.Views.Catalogos
             }
         }
 
-        public void LLenaImagenesMatricula(DataTable dt)
+        public void LLenaImagenesMatricula(DataSet ds)
         {
             try
             {
-                dtImagenes = dt;
-                gvImagenes.DataSource = dt;
+                dtImagenes = ds;
+
+                gvImagenes.DataSource = ds.Tables[0];
                 gvImagenes.DataBind();
+
+                gvImagenesPDF.DataSource = ds.Tables[1];
+                gvImagenesPDF.DataBind();
             }
             catch (Exception ex)
             {
@@ -349,9 +454,9 @@ namespace ClientesCasa.Views.Catalogos
             set { ViewState["VClientes"] = value; }
         }
 
-        public DataTable dtImagenes
+        public DataSet dtImagenes
         {
-            get { return (DataTable)ViewState["VImagenes"]; }
+            get { return (DataSet)ViewState["VImagenes"]; }
             set { ViewState["VImagenes"] = value; }
         }
 
@@ -365,6 +470,12 @@ namespace ClientesCasa.Views.Catalogos
         {
             get { return (string)ViewState["VNombreArchivo"]; }
             set { ViewState["VNombreArchivo"] = value; }
+        }
+
+        public string sTituloImagen
+        {
+            get { return (string)ViewState["VsTituloImagen"]; }
+            set { ViewState["VsTituloImagen"] = value; }
         }
 
         public string sExtensionImagen
@@ -399,7 +510,7 @@ namespace ClientesCasa.Views.Catalogos
             {
                 return new object[] {
                                         "@IdAeronave", iIdAeronave,
-                                        "@TituloImg", txtDescripcionDoc.Text,
+                                        "@TituloImg", sTituloImagen, 
                                         "@NombreImagen", sNombreArchivo,
                                         "@Extension", sExtensionImagen,
                                         "@Imagen", arImagen,

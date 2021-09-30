@@ -17,7 +17,7 @@ namespace ClientesCasa.Interfaces
         int iIdImagen { set; get; }
         void LLenaClientes(DataTable dt);
         void MostrarMensaje(string sMensaje, string sCaption);
-        void LLenaImagenesMatricula(DataTable dt);
+        void LLenaImagenesMatricula(DataSet dt);
 
         event EventHandler eSaveImagenesMatricula;
         event EventHandler eGetImagenesMatricula;

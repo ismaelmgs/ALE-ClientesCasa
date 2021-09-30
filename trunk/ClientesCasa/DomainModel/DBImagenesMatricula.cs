@@ -35,11 +35,11 @@ namespace ClientesCasa.DomainModel
             }
         }
 
-        public DataTable DBGetConsultaImagenesMatricula(int iIdAeronave)
+        public DataSet DBGetConsultaImagenesMatricula(int iIdAeronave)
         {
             try
             {
-                return oDB_SP.EjecutarDT("[ClientesCasa].[spS_CC_ConsultaImagenesAeronaves]", "@IdAeronave", iIdAeronave);
+                return oDB_SP.EjecutarDS("[ClientesCasa].[spS_CC_ConsultaImagenesAeronaves]", "@IdAeronave", iIdAeronave);
             }
             catch (Exception ex)
             {
