@@ -36,7 +36,7 @@
         }
 
         function UserDeleteConfirmation() {
-            if (confirm("¿Realmente esta seguro de eliminar el gasto?"))
+            if (confirm("¿Realmente desea realizar la eliminación?"))
                 return true;
             else
                 return false;
