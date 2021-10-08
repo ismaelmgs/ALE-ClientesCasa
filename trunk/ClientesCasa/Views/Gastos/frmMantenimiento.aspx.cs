@@ -294,6 +294,10 @@ namespace ClientesCasa.Views.Gastos
                         //if (dt.Rows[i]["AmpliadoGasto"].S() != "0")
                         //    ddlAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
                     }
+                    else
+                    {
+                        ddlTipo.SelectedIndex = 0;
+                    }
                 }
 
 
@@ -806,9 +810,10 @@ namespace ClientesCasa.Views.Gastos
                     dSumaImporteOUSA += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "ImporteModificado"));
 
                     DropDownList ddlTipoGasto = (DropDownList)e.Row.FindControl("ddlTipoGasto");
-                    DropDownList ddlAcumulado1 = (DropDownList)e.Row.FindControl("ddlAcumulado1");
+                    //DropDownList ddlAcumulado1 = (DropDownList)e.Row.FindControl("ddlAcumulado1");
 
-                    if (ddlTipoGasto != null && ddlAcumulado1 != null)
+                    //if (ddlTipoGasto != null && ddlAcumulado1 != null)
+                    if (ddlTipoGasto != null)
                     {
                         ddlTipoGasto.DataSource = dtTiposGasto;
                         ddlTipoGasto.DataTextField = "Descripcion";
@@ -818,8 +823,8 @@ namespace ClientesCasa.Views.Gastos
                         if (dt.Rows[e.Row.RowIndex]["TipoGasto"].S() != "")
                         {
                             ddlTipoGasto.SelectedValue = dt.Rows[e.Row.RowIndex]["TipoGasto"].S();
-                            CargaComboAcumuladoGasto(ddlAcumulado1, ObtieneAumuladosGasto1(dt.Rows[e.Row.RowIndex]["TipoGasto"].S()));
-                            ddlAcumulado1.SelectedValue = dt.Rows[e.Row.RowIndex]["AmpliadoGasto"].S();
+                            //CargaComboAcumuladoGasto(ddlAcumulado1, ObtieneAumuladosGasto1(dt.Rows[e.Row.RowIndex]["TipoGasto"].S()));
+                            //ddlAcumulado1.SelectedValue = dt.Rows[e.Row.RowIndex]["AmpliadoGasto"].S();
                         }
                     }
 
@@ -1355,23 +1360,27 @@ namespace ClientesCasa.Views.Gastos
                         gvDetalle.DataBind();
 
                     }
+                    ////
+                    
+                    ///
 
-                    gvMantenimientoUSA.Rows[iIdFila].Cells[3].Text = txtFechaOperacionUSA.Text.S().Dt().ToString("dd/MM/yyyy");
 
-                    //UpdatePanel upaFechaUSD = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaFechaUSD");
-                    //if (upaFechaUSD != null)
-                    //{
+                    //gvMantenimientoUSA.Rows[iIdFila].Cells[3].Text = txtFechaOperacionUSA.Text.S().Dt().ToString("dd/MM/yyyy");
 
-                    //    Label lblFechaUSD = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
-                    //    if (lblFechaUSD != null)
-                    //        lblFechaUSD.Text = txtFechaOperacionUSA.Text.S().Dt().ToString("dd/MM/yyyy");
+                    UpdatePanel upaFechaUSD = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaFechaUSD");
+                    if (upaFechaUSD != null)
+                    {
 
-                    //    upaFechaUSD.Update();
-                    //}
+                        Label lblFechaUSD = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
+                        if (lblFechaUSD != null)
+                            lblFechaUSD.Text = txtFechaOperacionUSA.Text.S().Dt().ToString("dd/MM/yyyy");
 
-                    Label lblFechaUSD = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
-                    if (lblFechaUSD != null)
-                        lblFechaUSD.Text = txtFechaOperacionUSA.Text.S().Dt().ToString("dd/MM/yyyy");
+                        upaFechaUSD.Update();
+                    }
+
+                    //Label lblFechaUSD = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
+                    //if (lblFechaUSD != null)
+                    //    lblFechaUSD.Text = txtFechaOperacionUSA.Text.S().Dt().ToString("dd/MM/yyyy");
 
                     UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaDetGastosUSD");
                     if (upaGridDetalle != null)
@@ -1842,9 +1851,11 @@ namespace ClientesCasa.Views.Gastos
                         oG.sTipoGasto = ddlTipoGasto.SelectedValue.S();
                         //oG.sAmpliadoGasto = ddlAmpliadoGasto.SelectedValue.S();
                         //oG.iNumeroPierna = txtPierna.Text.S().I();
-
-                        if(gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != string.Empty && gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != "&nbsp;")
-                            oG.sFechaVueloOpe = gvMantenimientoUSA.Rows[i].Cells[3].Text.S();
+                        Label lblFechaOper = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblFechaUSD");
+                        //string strFechaOpe = lblFechaOper.Text;
+                        //if (gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != string.Empty && gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != "&nbsp;")
+                        if (lblFechaOper.Text != string.Empty && lblFechaOper.Text != "&nbsp;")
+                                oG.sFechaVueloOpe = lblFechaOper.Text;
 
                         TextBox txtComentarios = (TextBox)gvMantenimientoUSA.Rows[i].FindControl("txtComentarios");
                         if (txtComentarios != null)

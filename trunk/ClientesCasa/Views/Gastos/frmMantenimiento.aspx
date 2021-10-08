@@ -315,7 +315,6 @@
                                                                                         </asp:UpdatePanel>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
-                                                                                <%--<asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" SortExpression="FechaVuelo" />--%>
 
                                                                                 <asp:TemplateField HeaderText="No.Referencia" SortExpression="Referencia" ControlStyle-Width="150">
                                                                                     <ItemTemplate>
@@ -329,8 +328,6 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                                <%--<asp:BoundField DataField="Referencia" HeaderText="Referencia" SortExpression="Referencia" />--%>
-
                                                                                 <asp:TemplateField HeaderText="Importe">
                                                                                     <ItemTemplate>
                                                                                         <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;"></asp:TextBox>
@@ -342,8 +339,6 @@
                                                                                         <asp:Label ID="lblImporteOriginal" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
-
-                                                                                <%--<asp:BoundField DataField="Importe" HeaderText="Importe Original" DataFormatString="{0:C}" SortExpression="Importe" />--%>
 
                                                                                 <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                     <ItemTemplate>
@@ -370,15 +365,6 @@
                                                                                         <asp:HiddenField ID="hfTipoGasto" runat="server" />
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
-                                                                                <%--<asp:TemplateField HeaderText="Ampliado Gasto">
-                                                                                    <ItemTemplate>
-                                                                                        <asp:DropDownList ID="ddlAcumulado1" runat="server" Width="100px" EnableViewState="true">
-                                                                                        </asp:DropDownList>
-                                                                                        <cc1:CascadingDropDown ID="cdlAmpliado" TargetControlID="ddlAcumulado1" PromptText="Seleccione" LoadingText="Cargando..."
-                                                                                            PromptValue="Descripcion" ServicePath="ServiceCS.asmx" ServiceMethod="GetAmpliado" runat="server"
-                                                                                            Category="Ampliado" ParentControlID="ddlTipoGasto" EnableViewState="true" />
-                                                                                    </ItemTemplate>
-                                                                                </asp:TemplateField>--%>
 
                                                                                 <asp:TemplateField HeaderText="Comentarios">
                                                                                     <ItemTemplate>
@@ -492,27 +478,15 @@
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 
-                                                                            <%--<asp:TemplateField HeaderText="Fecha Vuelo">
-                                                                                <ItemTemplate>
-                                                                                    <asp:UpdatePanel ID="upaFechaUSD" runat="server" UpdateMode="Always">
-                                                                                        <ContentTemplate>
-                                                                                            <asp:Label ID="lblFechaUSD" runat="server" Text='<%# Bind("FechaVuelo") %>'></asp:Label>
-                                                                                        </ContentTemplate>
-                                                                                    </asp:UpdatePanel>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>--%>
-
                                                                             <asp:TemplateField HeaderText="Fecha Vuelo">
                                                                                     <ItemTemplate>
-                                                                                        <asp:UpdatePanel ID="upaFechaMXN" runat="server" UpdateMode="Conditional">
+                                                                                        <asp:UpdatePanel ID="upaFechaUSD" runat="server" UpdateMode="Conditional">
                                                                                             <ContentTemplate>
                                                                                                 <asp:Label ID="lblFechaUSD" runat="server" Text='<%# Bind("FechaVuelo") %>'></asp:Label>
                                                                                             </ContentTemplate>
                                                                                         </asp:UpdatePanel>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
-
-                                                                            <%--<asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />--%>
 
                                                                             <asp:TemplateField HeaderText="No.Referencia" SortExpression="Referencia">
                                                                                     <ItemTemplate>
@@ -526,13 +500,6 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-                                                                            <%--<asp:TemplateField HeaderText="FirstName" SortExpression="FirstName">
-                                                                                <ItemTemplate>
-                                                                                    <asp:LinkButton ID="lkbReferencia" runat="server" Text='<%# Bind("Referencia") %>' Font-Underline="true" ForeColor="Blue" OnClick="lkbReferencia_Click"></asp:LinkButton>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>--%>
-                                                                            <%--<asp:BoundField DataField="Referencia" HeaderText="Referencia" />--%>
-
                                                                             <asp:TemplateField HeaderText="Importe">
                                                                                 <ItemTemplate>
                                                                                     <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;"></asp:TextBox>
@@ -544,8 +511,6 @@
                                                                                         <asp:Label ID="lblImporteOriginalUSD" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
-
-                                                                            <%--<asp:BoundField DataField="Importe" DataFormatString="{0:C}" HeaderText="Importe Original" />--%>
 
                                                                             <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                 <ItemTemplate>
@@ -570,16 +535,6 @@
                                                                                         Category="TipoGasto" EnableViewState="true" />
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-
-                                                                            <%--<asp:TemplateField HeaderText="Ampliado Gasto">
-                                                                                <ItemTemplate>
-                                                                                    <asp:DropDownList ID="ddlAcumulado1" runat="server" Width="100px" EnableViewState="true">
-                                                                                    </asp:DropDownList>
-                                                                                    <cc1:CascadingDropDown ID="cdlAmpliado" TargetControlID="ddlAcumulado1" PromptText="Seleccione" LoadingText="Cargando..."
-                                                                                        PromptValue="Descripcion" ServicePath="ServiceCS.asmx" ServiceMethod="GetAmpliado" runat="server"
-                                                                                        Category="Ampliado" ParentControlID="ddlTipoGasto" EnableViewState="true" />
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>--%>
 
                                                                             <asp:TemplateField HeaderText="Comentarios">
                                                                                 <ItemTemplate>
