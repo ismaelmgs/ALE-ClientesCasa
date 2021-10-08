@@ -183,6 +183,7 @@
     <Content Include="Views\CuentasPorPagar\frmPolizaResult.aspx" />
     <Content Include="Views\Gastos\frmComprobanteGastos.aspx" />
     <Content Include="Views\Gastos\frmExtraccionGastos.aspx" />
+    <Content Include="Views\Gastos\frmCorteGastos.aspx" />
     <Content Include="Views\Gastos\frmMantenimiento.aspx" />
     <Content Include="Views\Gastos\frmVistaPreviaRef.aspx" />
     <Content Include="Views\Gastos\ServiceCS.asmx" />
@@ -450,6 +451,7 @@
     <Compile Include="DomainModel\DBComprobantes.cs" />
     <Compile Include="DomainModel\DBConsultaCargaPolizas.cs" />
     <Compile Include="DomainModel\DBContratos.cs" />
+    <Compile Include="DomainModel\DBCorteMensual.cs" />
     <Compile Include="DomainModel\DBCostoHoraVuelo.cs" />
     <Compile Include="DomainModel\DBDashboard.cs" />
     <Compile Include="DomainModel\DBEnvioFacturas.cs" />
@@ -497,6 +499,7 @@
     <Compile Include="Interfaces\IViewComprobantes.cs" />
     <Compile Include="Interfaces\IViewConsultaCargaPolizas.cs" />
     <Compile Include="Interfaces\IViewContratos.cs" />
+    <Compile Include="Interfaces\IViewCorteMensual.cs" />
     <Compile Include="Interfaces\IViewCostoHoraVuelo.cs" />
     <Compile Include="Interfaces\IViewDashboard.cs" />
     <Compile Include="Interfaces\IViewDashboardMain.cs" />
@@ -566,6 +569,7 @@
     <Compile Include="Presenter\Contratos_Presenter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Presenter\CorteMensual_Presenter.cs" />
     <Compile Include="Presenter\CostoHoraVuelo_Presenter.cs" />
     <Compile Include="Presenter\DashboardMain_Presenter.cs" />
     <Compile Include="Presenter\Dashboard_Presenter.cs" />
@@ -806,6 +810,13 @@
     </Compile>
     <Compile Include="Views\Gastos\frmExtraccionGastos.aspx.designer.cs">
       <DependentUpon>frmExtraccionGastos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gastos\frmCorteGastos.aspx.cs">
+      <DependentUpon>frmCorteGastos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Gastos\frmCorteGastos.aspx.designer.cs">
+      <DependentUpon>frmCorteGastos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Gastos\frmMantenimiento.aspx.cs">
       <DependentUpon>frmMantenimiento.aspx</DependentUpon>
