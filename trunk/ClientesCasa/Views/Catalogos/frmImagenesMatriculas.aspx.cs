@@ -290,8 +290,8 @@ namespace ClientesCasa.Views.Catalogos
                     if (ValidaExtension(Path.GetExtension(fuArchivo.FileName)))
                     {
                         sTituloImagen = txtDescripcionDoc.Text;
-                        sNombreArchivo = fuArchivo.FileName;
-                        sExtensionImagen = Path.GetExtension(fuArchivo.FileName);
+                        sNombreArchivo = fuArchivo.FileName.S().ToLower();
+                        sExtensionImagen = Path.GetExtension(fuArchivo.FileName).S().ToLower();
                         arImagen = fuArchivo.FileBytes;
 
                         mpeArchivo.Hide();
@@ -304,7 +304,7 @@ namespace ClientesCasa.Views.Catalogos
                     }
                     else
                     {
-                        MostrarMensaje("Este tipo de archivo no se puede anexar como comprobante, favor de verificar", "Aviso");
+                        MostrarMensaje("Este tipo de archivo ("+ Path.GetExtension(fuArchivo.FileName)  + ") no se puede anexar como imagen, favor de verificar", "Aviso");
                     }
                 }
             }
@@ -329,15 +329,15 @@ namespace ClientesCasa.Views.Catalogos
 
                         mpeArchivo.Hide();
 
-                        if (eSaveImagenesMatricula != null)
-                            eSaveImagenesMatricula(sender, e);
+                        if (eSavePDFMatricula != null)
+                            eSavePDFMatricula(sender, e);
 
                         if (eGetImagenesMatricula != null)
                             eGetImagenesMatricula(sender, e);
                     }
                     else
                     {
-                        MostrarMensaje("Este tipo de archivo no se puede anexar como comprobante, favor de verificar", "Aviso");
+                        MostrarMensaje("Este tipo de archivo (" + Path.GetExtension(fuArchivoPDF.FileName) + ") no se puede anexar como pdf, favor de verificar", "Aviso");
                     }
                 }
                 
@@ -357,6 +357,7 @@ namespace ClientesCasa.Views.Catalogos
             try
             {
                 bool ban = false;
+                sExtension = sExtension.ToLower();
                 switch (sExtension)
                 {
                     case ".jpg":
@@ -365,9 +366,9 @@ namespace ClientesCasa.Views.Catalogos
                     case ".jpeg":
                         ban = true;
                         break;
-                    case ".gif":
-                        ban = true;
-                        break;
+                    
+
+
                 }
 
                 return ban;
@@ -446,6 +447,7 @@ namespace ClientesCasa.Views.Catalogos
         public event EventHandler eSearchObj;
 
         public event EventHandler eSaveImagenesMatricula;
+        public event EventHandler eSavePDFMatricula;
         public event EventHandler eGetImagenesMatricula;
 
         public DataTable dtClientes

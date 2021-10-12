@@ -20,6 +20,7 @@ namespace ClientesCasa.Interfaces
         void LLenaImagenesMatricula(DataSet dt);
 
         event EventHandler eSaveImagenesMatricula;
+        event EventHandler eSavePDFMatricula;
         event EventHandler eGetImagenesMatricula;
     }
 }

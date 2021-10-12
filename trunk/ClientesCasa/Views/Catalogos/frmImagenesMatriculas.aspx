@@ -113,7 +113,7 @@
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server">
                 <div style="text-align: left">
-                    <h4>&nbsp;&nbsp;Mantenimiento de Imagenes por Matrícula</h4>
+                    <h4>&nbsp;&nbsp;Mantenimiento de Imágenes y Documentos por Matrícula</h4>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title">

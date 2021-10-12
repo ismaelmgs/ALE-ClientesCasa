@@ -17,6 +17,7 @@ namespace ClientesCasa.Presenter
             oIGesCat = oCI;
 
             oIView.eSaveImagenesMatricula += eSaveImagenesMatricula_Presenter;
+            oIView.eSavePDFMatricula += eSavePDFMatricula_Presenter;
             oIView.eGetImagenesMatricula += eGetImagenesMatricula_Presenter;
         }
 
@@ -34,6 +35,14 @@ namespace ClientesCasa.Presenter
                 oIView.MostrarMensaje("Ocurrio un error al agregar la imágen.", "Aviso");
         }
 
+        protected void eSavePDFMatricula_Presenter(object sender, EventArgs e)
+        {
+            if (oIGesCat.DBSetInsertaDocumentoAsociadoContrato(oIView.oArrImagenMat))
+                oIView.MostrarMensaje("El archivo PDF se agregó de manera correcta.", "Aviso");
+            else
+                oIView.MostrarMensaje("Ocurrio un error al agregar el archivo PDF.", "Aviso");
+        }
+
         protected void eGetImagenesMatricula_Presenter(object sender, EventArgs e)
         {
             oIView.LLenaImagenesMatricula(oIGesCat.DBGetConsultaImagenesMatricula(oIView.iIdAeronave));
@@ -42,9 +51,9 @@ namespace ClientesCasa.Presenter
         protected override void DeleteObj_Presenter(object sender, EventArgs e)
         {
             if (oIGesCat.DBSetEliminaImagenMatricula(oIView.iIdImagen))
-                oIView.MostrarMensaje("La imágen se inactivó de manera correcta.", "Aviso");
+                oIView.MostrarMensaje("El archivo se inactivó de manera correcta.", "Aviso");
             else
-                oIView.MostrarMensaje("Ocurrió un error al inactivar la imágen.", "Aviso");
+                oIView.MostrarMensaje("Ocurrió un error al inactivar el archivo.", "Aviso");
         }
     }
 }
