@@ -739,6 +739,8 @@ namespace ClientesCasa.Views.Gastos
                     {
                         if (dt.Rows[e.Row.RowIndex]["Comprobante"].S().I() == 1)
                             imbReferencia.Visible = true;
+                        else
+                            imbReferencia.Visible = false;
                     }
                 }
 

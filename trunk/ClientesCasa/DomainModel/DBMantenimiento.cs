@@ -228,7 +228,9 @@ namespace ClientesCasa.DomainModel
                     string sRuta = ArmaRutaComprobante(row["Mes"].S(), row["Anio"].S(), row["Matricula"].S(), row["Moneda"].S());
                     string sRutaFinal = sRuta.Replace("\\", @"\");
                     if (File.Exists(sRutaFinal + row["Referencia"].S() + ".pdf"))
-                        DBSetActualizaBanderaComprobanteGasto(row["IdGasto"].S().I());
+                        DBSetActualizaBanderaComprobanteGasto(row["IdGasto"].S().I(),1);
+                    else
+                        DBSetActualizaBanderaComprobanteGasto(row["IdGasto"].S().I(), 0);
                 }
             }
             catch (Exception ex)
@@ -236,12 +238,12 @@ namespace ClientesCasa.DomainModel
                 throw ex;
             }
         }
-        private void DBSetActualizaBanderaComprobanteGasto(int iIdGasto)
+        private void DBSetActualizaBanderaComprobanteGasto(int iIdGasto, int iComprobante)
         {
             try
             {
                 object oRes = oDB_SP.EjecutarValor("[ClientesCasa].[spU_CC_ActualizaBanderaComprobante]", "@IdGasto", iIdGasto,
-                                                                                                            "@Comprobante", 1);
+                                                                                                            "@Comprobante", iComprobante);
 
             }
             catch (Exception ex)
