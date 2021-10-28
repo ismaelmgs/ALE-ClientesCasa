@@ -119,6 +119,9 @@
         .AlineadoDerecha{
             text-align:right;
             }
+        .ColumnaOculta {
+            display:none;
+        }
     </style>
 
 
@@ -371,6 +374,12 @@
                                                                                         <asp:TextBox ID="txtComentarios" runat="server" Width="100px"></asp:TextBox>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
+
+                                                                                <asp:TemplateField ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" FooterStyle-CssClass="ColumnaOculta">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="lblNoPierna" runat="server"></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
                                                                             </Columns>
                                                                         </asp:GridView>
                                                                     </asp:Panel>
@@ -541,6 +550,13 @@
                                                                                     <asp:TextBox ID="txtComentarios" runat="server" Width="100px"></asp:TextBox>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
+
+                                                                            <asp:TemplateField ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" FooterStyle-CssClass="ColumnaOculta">
+                                                                                <ItemTemplate>
+                                                                                    <asp:Label ID="lblNoPierna" runat="server"></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+
                                                                         </Columns>
                                                                     </asp:GridView>
                                                                 </asp:Panel>

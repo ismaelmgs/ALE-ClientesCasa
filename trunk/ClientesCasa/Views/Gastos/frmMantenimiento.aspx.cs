@@ -742,6 +742,12 @@ namespace ClientesCasa.Views.Gastos
                         else
                             imbReferencia.Visible = false;
                     }
+
+                    Label lblNoPierna = (Label)e.Row.FindControl("lblNoPierna");
+                    if (lblNoPierna != null)
+                    {
+                        lblNoPierna.Text = dt.Rows[e.Row.RowIndex]["NumeroPierna"].S();
+                    }
                 }
 
                 if (e.Row.RowType == DataControlRowType.Footer)
@@ -878,6 +884,11 @@ namespace ClientesCasa.Views.Gastos
                             imbReferencia.Visible = true;
                     }
 
+                    Label lblNoPierna = (Label)e.Row.FindControl("lblNoPierna");
+                    if (lblNoPierna != null)
+                    {
+                        lblNoPierna.Text = dt.Rows[e.Row.RowIndex]["NumeroPierna"].S();
+                    }
                 }
 
                 if (e.Row.RowType == DataControlRowType.Footer)
@@ -1211,6 +1222,10 @@ namespace ClientesCasa.Views.Gastos
                                 if(lblFechaMXN != null)
                                     lblFechaMXN.Text = row[0]["FechaVuelo"].S().Dt().ToString("dd/MM/yyyy");
 
+                                Label lblNoPierna = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblNoPierna");
+                                if (lblNoPierna != null)
+                                    lblNoPierna.Text = iIdPierna.S();
+
                                 upaFechaMXN.Update();
                             }
 
@@ -1328,6 +1343,10 @@ namespace ClientesCasa.Views.Gastos
                                 Label lblFechaMXN = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
                                 if (lblFechaMXN != null)
                                     lblFechaMXN.Text = row[0]["FechaVuelo"].S().Dt().ToString("dd/MM/yyyy");
+
+                                Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblNoPierna");
+                                if (lblNoPierna != null)
+                                    lblNoPierna.Text = iIdPierna.S();
 
                                 upaFechaMXN.Update();
                             }
@@ -1708,7 +1727,7 @@ namespace ClientesCasa.Views.Gastos
                     {
                         GastoEstimado oG = new GastoEstimado();
                         oG.iIdGasto = iIdGasto;
-                        oG.dImporte = txtMonto.Text.Replace(",","").S().D();
+                        oG.dImporte = txtMonto.Text.Replace(",", "").S().D();
                         oG.iNumeroTrip = 0;
                         oG.sUsuario = Session["usuario"].S();
                         oG.iIdRubro = ddlRubro.SelectedValue.S().I();
@@ -1722,6 +1741,13 @@ namespace ClientesCasa.Views.Gastos
                                 oG.iNumeroPierna = gvDetMXN.Rows[0].Cells[0].Text.S().I();
                             else
                                 oG.iNumeroPierna = 0;
+                        }
+
+                        if (oG.iNumeroPierna == 0)
+                        {
+                            Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNoPierna");
+                            if (lblNoPierna.Text != null)
+                                oG.iNumeroPierna = lblNoPierna.Text.S().I();
                         }
 
                         Label lblFechaMXN = (Label)gvMantenimiento.Rows[i].FindControl("lblFechaMXN");
@@ -1854,10 +1880,15 @@ namespace ClientesCasa.Views.Gastos
                         //oG.sAmpliadoGasto = ddlAmpliadoGasto.SelectedValue.S();
                         //oG.iNumeroPierna = txtPierna.Text.S().I();
                         Label lblFechaOper = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblFechaUSD");
-                        //string strFechaOpe = lblFechaOper.Text;
-                        //if (gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != string.Empty && gvMantenimientoUSA.Rows[i].Cells[3].Text.S() != "&nbsp;")
                         if (lblFechaOper.Text != string.Empty && lblFechaOper.Text != "&nbsp;")
                                 oG.sFechaVueloOpe = lblFechaOper.Text;
+
+                        if (oG.iNumeroPierna == 0)
+                        {
+                            Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNoPierna");
+                            if (lblNoPierna.Text != null)
+                                oG.iNumeroPierna = lblNoPierna.Text.S().I();
+                        }
 
                         TextBox txtComentarios = (TextBox)gvMantenimientoUSA.Rows[i].FindControl("txtComentarios");
                         if (txtComentarios != null)
