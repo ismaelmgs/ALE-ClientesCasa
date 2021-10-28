@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using NucleoBase.Core;
+using System.Data;
 
 namespace ClientesCasa.Presenter
 {
@@ -59,6 +60,9 @@ namespace ClientesCasa.Presenter
         }
         protected void eGetContratoDetalle_Presenter(object sender, EventArgs e)
         {
+            DataTable dtListRep = new DataTable();
+            dtListRep = oIGesCat.DBGetObtieneListadoRepEdoCuenta();
+            oIView.CargaLista_Rep_Edo_Cuenta(dtListRep);
             oIView.oContrato = oIGesCat.DBGetObtieneDetalleContrato(oIView.iIdContrato);
             oIView.LlenaIntercambios(oIGesCat.DBGetIntercambiosContratos(oIView.iIdContrato));
         }

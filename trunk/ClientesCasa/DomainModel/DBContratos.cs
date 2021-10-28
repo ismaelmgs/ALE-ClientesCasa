@@ -118,6 +118,19 @@ namespace ClientesCasa.DomainModel
                 throw ex;
             }
         }
+
+        public DataTable DBGetObtieneListadoRepEdoCuenta()
+        {
+            try
+            {
+                return oDB_SP.EjecutarDT("[ClientesCasa].[spS_CC_ConsultaRep_Edo_Cuenta]");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public ClienteContrato DBGetObtieneDetalleContrato(int iIdContrato)
         {
             try
@@ -263,7 +276,8 @@ namespace ClientesCasa.DomainModel
                                                                                                 "@FactorIntercambio", oContrato.iFactorIntercambio,
                                                                                                 "@TiempoFacturar", oContrato.iTipoCosto,
                                                                                                 "@UsuarioCreacion", Utils.GetUser,
-                                                                                                "@IP", Utils.GetIPAddress);
+                                                                                                "@IP", Utils.GetIPAddress,
+                                                                                                "@IdRepEdoC", oContrato.iRepEdoCuenta);
                 int iRes = 0;
                 if (oRes.S().I() > 0)
                 {
@@ -292,7 +306,8 @@ namespace ClientesCasa.DomainModel
                                                                                                 "@FactorIntercambio", oContrato.iFactorIntercambio,
                                                                                                 "@TiempoFacturar", oContrato.iTipoCosto,
                                                                                                 "@UsuarioModificacion", Utils.GetUser,
-                                                                                                "@IP", Utils.GetIPAddress);
+                                                                                                "@IP", Utils.GetIPAddress,
+                                                                                                "@IdRepEdoC", oContrato.iRepEdoCuenta);
 
                 int iRes = DBSetActualizaAdicionalesContratoCC(oContrato);
 

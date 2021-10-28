@@ -46,6 +46,7 @@ namespace ClientesCasa.Objetos
         private int _iFactorIntercambio = 0;
         private DateTime? _dtFechaContrato = new DateTime();
         private int _iEstatusContrato = 0;
+        private int _iRepEdoCuenta = 0;
         private int _iTipoCosto = 0;
         private DataTable _dtDocumentos = new DataTable();
 
@@ -117,6 +118,7 @@ namespace ClientesCasa.Objetos
         public int iFactorIntercambio { get { return _iFactorIntercambio; } set { _iFactorIntercambio = value; } }
         public DateTime? dtFechaContrato { get { return _dtFechaContrato; } set { _dtFechaContrato = value; } }
         public int iEstatusContrato { get { return _iEstatusContrato; } set { _iEstatusContrato = value; } }
+        public int iRepEdoCuenta { get { return _iRepEdoCuenta; } set { _iRepEdoCuenta = value; } }
         public int iTipoCosto { get { return _iTipoCosto; } set { _iTipoCosto = value; } }
         public DataTable dtDocumentos { get { return _dtDocumentos; } set { _dtDocumentos = value; } }
         public int iIntercambioId { get { return _iIntercambioId; } set { _iIntercambioId = value; } }

@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ClientesCasa.Views.Catalogos {
-    
-    
-    public partial class frmContratos {
-        
+namespace ClientesCasa.Views.Catalogos
+{
+
+
+    public partial class frmContratos
+    {
+
         /// <summary>
         /// Control ToolKitScriptManager.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ToolkitScriptManager ToolKitScriptManager;
-        
+
         /// <summary>
         /// Control pnlBusqueda.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlBusqueda;
-        
+
         /// <summary>
         /// Control txtBusqueda.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
-        
+
         /// <summary>
         /// Control ddlOpcion.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOpcion;
-        
+
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
+
         /// <summary>
         /// Control btnAgregarCliente.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarCliente;
-        
+
         /// <summary>
         /// Control gvClientes.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvClientes;
-        
+
         /// <summary>
         /// Control pnlAltaClientes.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAltaClientes;
-        
+
         /// <summary>
         /// Control lblClaveCliente.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblClaveCliente;
-        
+
         /// <summary>
         /// Control lblReqClaveCliente.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReqClaveCliente;
-        
+
         /// <summary>
         /// Control txtClaveCliente.
         /// </summary>
@@ -110,7 +112,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClaveCliente;
-        
+
         /// <summary>
         /// Control lblNombreClienteA.
         /// </summary>
@@ -119,7 +121,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombreClienteA;
-        
+
         /// <summary>
         /// Control lblReqNombreCliente.
         /// </summary>
@@ -128,7 +130,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReqNombreCliente;
-        
+
         /// <summary>
         /// Control txtNombreClienteA.
         /// </summary>
@@ -137,7 +139,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreClienteA;
-        
+
         /// <summary>
         /// Control lblRazonSocial.
         /// </summary>
@@ -146,7 +148,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRazonSocial;
-        
+
         /// <summary>
         /// Control txtRazonSocial.
         /// </summary>
@@ -155,7 +157,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRazonSocial;
-        
+
         /// <summary>
         /// Control lblTieneRFC.
         /// </summary>
@@ -164,7 +166,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTieneRFC;
-        
+
         /// <summary>
         /// Control rblTieneRFC.
         /// </summary>
@@ -173,7 +175,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblTieneRFC;
-        
+
         /// <summary>
         /// Control lblRFC.
         /// </summary>
@@ -182,7 +184,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRFC;
-        
+
         /// <summary>
         /// Control txtRFC.
         /// </summary>
@@ -191,7 +193,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRFC;
-        
+
         /// <summary>
         /// Control lblTipoContribuyente.
         /// </summary>
@@ -200,7 +202,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoContribuyente;
-        
+
         /// <summary>
         /// Control ddlTipoContribuyente.
         /// </summary>
@@ -209,7 +211,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoContribuyente;
-        
+
         /// <summary>
         /// Control lblActivo.
         /// </summary>
@@ -218,7 +220,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblActivo;
-        
+
         /// <summary>
         /// Control chkActivo.
         /// </summary>
@@ -227,7 +229,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkActivo;
-        
+
         /// <summary>
         /// Control lblTelefonoCliente.
         /// </summary>
@@ -236,7 +238,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefonoCliente;
-        
+
         /// <summary>
         /// Control txtTelefonoCliente.
         /// </summary>
@@ -245,7 +247,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoCliente;
-        
+
         /// <summary>
         /// Control ftbTelefonoCliente.
         /// </summary>
@@ -254,7 +256,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender ftbTelefonoCliente;
-        
+
         /// <summary>
         /// Control lblFax.
         /// </summary>
@@ -263,7 +265,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFax;
-        
+
         /// <summary>
         /// Control txtFax.
         /// </summary>
@@ -272,7 +274,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFax;
-        
+
         /// <summary>
         /// Control ftbFax.
         /// </summary>
@@ -281,7 +283,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender ftbFax;
-        
+
         /// <summary>
         /// Control lblCorreoElectronico.
         /// </summary>
@@ -290,7 +292,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCorreoElectronico;
-        
+
         /// <summary>
         /// Control txtCorreoElectronico.
         /// </summary>
@@ -299,7 +301,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCorreoElectronico;
-        
+
         /// <summary>
         /// Control lblSector.
         /// </summary>
@@ -308,7 +310,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSector;
-        
+
         /// <summary>
         /// Control ddlSector.
         /// </summary>
@@ -317,7 +319,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSector;
-        
+
         /// <summary>
         /// Control lblPais.
         /// </summary>
@@ -326,7 +328,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPais;
-        
+
         /// <summary>
         /// Control ddlPais.
         /// </summary>
@@ -335,7 +337,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPais;
-        
+
         /// <summary>
         /// Control lblEstado.
         /// </summary>
@@ -344,7 +346,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstado;
-        
+
         /// <summary>
         /// Control ddlEstado.
         /// </summary>
@@ -353,7 +355,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
-        
+
         /// <summary>
         /// Control lblDireccion.
         /// </summary>
@@ -362,7 +364,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDireccion;
-        
+
         /// <summary>
         /// Control txtDireccion.
         /// </summary>
@@ -371,7 +373,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
+
         /// <summary>
         /// Control lblCiudad.
         /// </summary>
@@ -380,7 +382,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCiudad;
-        
+
         /// <summary>
         /// Control txtCiudad.
         /// </summary>
@@ -389,7 +391,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCiudad;
-        
+
         /// <summary>
         /// Control lblCP.
         /// </summary>
@@ -398,7 +400,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCP;
-        
+
         /// <summary>
         /// Control txtCP.
         /// </summary>
@@ -407,7 +409,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCP;
-        
+
         /// <summary>
         /// Control ftbCP.
         /// </summary>
@@ -416,7 +418,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender ftbCP;
-        
+
         /// <summary>
         /// Control lblPaisDE.
         /// </summary>
@@ -425,7 +427,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPaisDE;
-        
+
         /// <summary>
         /// Control ddlPaisDE.
         /// </summary>
@@ -434,7 +436,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPaisDE;
-        
+
         /// <summary>
         /// Control lblEstadoDE.
         /// </summary>
@@ -443,7 +445,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoDE;
-        
+
         /// <summary>
         /// Control ddlEstadoDE.
         /// </summary>
@@ -452,7 +454,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstadoDE;
-        
+
         /// <summary>
         /// Control lblDireccionDE.
         /// </summary>
@@ -461,7 +463,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDireccionDE;
-        
+
         /// <summary>
         /// Control txtDireccionDE.
         /// </summary>
@@ -470,7 +472,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccionDE;
-        
+
         /// <summary>
         /// Control lblCiudadDE.
         /// </summary>
@@ -479,7 +481,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCiudadDE;
-        
+
         /// <summary>
         /// Control txtCiudadDE.
         /// </summary>
@@ -488,7 +490,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCiudadDE;
-        
+
         /// <summary>
         /// Control lblCPDE.
         /// </summary>
@@ -497,7 +499,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCPDE;
-        
+
         /// <summary>
         /// Control txtCPDE.
         /// </summary>
@@ -506,7 +508,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCPDE;
-        
+
         /// <summary>
         /// Control ftbCPDE.
         /// </summary>
@@ -515,7 +517,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender ftbCPDE;
-        
+
         /// <summary>
         /// Control btnGuardarCliente.
         /// </summary>
@@ -524,7 +526,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardarCliente;
-        
+
         /// <summary>
         /// Control btnAgregarContrato.
         /// </summary>
@@ -533,7 +535,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarContrato;
-        
+
         /// <summary>
         /// Control gvContratos.
         /// </summary>
@@ -542,7 +544,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvContratos;
-        
+
         /// <summary>
         /// Control btnRegresar.
         /// </summary>
@@ -551,7 +553,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresar;
-        
+
         /// <summary>
         /// Control pnlContratos.
         /// </summary>
@@ -560,7 +562,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlContratos;
-        
+
         /// <summary>
         /// Control lblClaveContrato.
         /// </summary>
@@ -569,7 +571,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblClaveContrato;
-        
+
         /// <summary>
         /// Control lblReqClaveContrato.
         /// </summary>
@@ -578,7 +580,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReqClaveContrato;
-        
+
         /// <summary>
         /// Control txtClaveContrato.
         /// </summary>
@@ -587,7 +589,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClaveContrato;
-        
+
         /// <summary>
         /// Control lblCleveCliente.
         /// </summary>
@@ -596,7 +598,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCleveCliente;
-        
+
         /// <summary>
         /// Control readClaveCliente.
         /// </summary>
@@ -605,7 +607,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label readClaveCliente;
-        
+
         /// <summary>
         /// Control lblErrorClaveContrato.
         /// </summary>
@@ -614,7 +616,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorClaveContrato;
-        
+
         /// <summary>
         /// Control lblAeronaveSerie.
         /// </summary>
@@ -623,7 +625,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAeronaveSerie;
-        
+
         /// <summary>
         /// Control lblReqAeronaveSerie.
         /// </summary>
@@ -632,7 +634,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReqAeronaveSerie;
-        
+
         /// <summary>
         /// Control txtAeronaveSerie.
         /// </summary>
@@ -641,7 +643,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAeronaveSerie;
-        
+
         /// <summary>
         /// Control imbAeronave.
         /// </summary>
@@ -650,7 +652,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imbAeronave;
-        
+
         /// <summary>
         /// Control lblMatricula.
         /// </summary>
@@ -659,7 +661,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMatricula;
-        
+
         /// <summary>
         /// Control ReadMatricula.
         /// </summary>
@@ -668,7 +670,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ReadMatricula;
-        
+
         /// <summary>
         /// Control lblPorcentPart.
         /// </summary>
@@ -677,7 +679,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPorcentPart;
-        
+
         /// <summary>
         /// Control lblReqPorcentPart.
         /// </summary>
@@ -686,7 +688,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReqPorcentPart;
-        
+
         /// <summary>
         /// Control txtPorcentPart.
         /// </summary>
@@ -695,7 +697,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPorcentPart;
-        
+
         /// <summary>
         /// Control ftbPorcentPart.
         /// </summary>
@@ -704,7 +706,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender ftbPorcentPart;
-        
+
         /// <summary>
         /// Control lblHorasContratadas.
         /// </summary>
@@ -713,7 +715,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHorasContratadas;
-        
+
         /// <summary>
         /// Control lblReqHorasContratadas.
         /// </summary>
@@ -722,7 +724,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReqHorasContratadas;
-        
+
         /// <summary>
         /// Control txtHorasContratadas.
         /// </summary>
@@ -731,7 +733,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHorasContratadas;
-        
+
         /// <summary>
         /// Control ftbHorasContratadas.
         /// </summary>
@@ -740,7 +742,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender ftbHorasContratadas;
-        
+
         /// <summary>
         /// Control lblAplicaIntercambios.
         /// </summary>
@@ -749,7 +751,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAplicaIntercambios;
-        
+
         /// <summary>
         /// Control rblAplcaIntercambios.
         /// </summary>
@@ -758,7 +760,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblAplcaIntercambios;
-        
+
         /// <summary>
         /// Control lblFactorIntercambio.
         /// </summary>
@@ -767,7 +769,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFactorIntercambio;
-        
+
         /// <summary>
         /// Control rblFactorIntercambio.
         /// </summary>
@@ -776,7 +778,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblFactorIntercambio;
-        
+
         /// <summary>
         /// Control lblFechaContrato.
         /// </summary>
@@ -785,7 +787,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaContrato;
-        
+
         /// <summary>
         /// Control txtFechaContrato.
         /// </summary>
@@ -794,7 +796,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaContrato;
-        
+
         /// <summary>
         /// Control lblFechaFinContrato.
         /// </summary>
@@ -803,7 +805,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaFinContrato;
-        
+
         /// <summary>
         /// Control txtFechaFinContrato.
         /// </summary>
@@ -812,7 +814,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaFinContrato;
-        
+
         /// <summary>
         /// Control lblAnticipoContrato.
         /// </summary>
@@ -821,7 +823,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAnticipoContrato;
-        
+
         /// <summary>
         /// Control txtAnticipoContrato.
         /// </summary>
@@ -830,7 +832,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAnticipoContrato;
-        
+
         /// <summary>
         /// Control ddlMonedaAnticipo.
         /// </summary>
@@ -839,7 +841,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMonedaAnticipo;
-        
+
         /// <summary>
         /// Control lblEstatusContrato.
         /// </summary>
@@ -848,7 +850,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstatusContrato;
-        
+
         /// <summary>
         /// Control ddlEstatusContrato.
         /// </summary>
@@ -857,7 +859,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstatusContrato;
-        
+
         /// <summary>
         /// Control lblTipoCosto.
         /// </summary>
@@ -866,7 +868,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoCosto;
-        
+
         /// <summary>
         /// Control rbtnTRipoCosto.
         /// </summary>
@@ -875,7 +877,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnTRipoCosto;
-        
+
         /// <summary>
         /// Control lblServicioConsultoria.
         /// </summary>
@@ -884,7 +886,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblServicioConsultoria;
-        
+
         /// <summary>
         /// Control rblServicioConsultoria.
         /// </summary>
@@ -893,7 +895,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblServicioConsultoria;
-        
+
         /// <summary>
         /// Control lblTarifas.
         /// </summary>
@@ -902,7 +904,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTarifas;
-        
+
         /// <summary>
         /// Control rblTarifas.
         /// </summary>
@@ -911,7 +913,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblTarifas;
-        
+
         /// <summary>
         /// Control lblDetalleTarifa.
         /// </summary>
@@ -920,7 +922,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDetalleTarifa;
-        
+
         /// <summary>
         /// Control rblDetalleTarifa.
         /// </summary>
@@ -929,7 +931,25 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblDetalleTarifa;
-        
+
+        /// <summary>
+        /// Control lblRepEdoCuenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRepEdoCuenta;
+
+        /// <summary>
+        /// Control ddlRepEdoCuenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRepEdoCuenta;
+
         /// <summary>
         /// Control lblNoPoliza.
         /// </summary>
@@ -938,7 +958,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoPoliza;
-        
+
         /// <summary>
         /// Control txtNoPoliza.
         /// </summary>
@@ -947,7 +967,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNoPoliza;
-        
+
         /// <summary>
         /// Control lblEmpresaAseguradora.
         /// </summary>
@@ -956,7 +976,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmpresaAseguradora;
-        
+
         /// <summary>
         /// Control txtEmpresaAseguradora.
         /// </summary>
@@ -965,7 +985,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpresaAseguradora;
-        
+
         /// <summary>
         /// Control lblFechaInicioSeguro.
         /// </summary>
@@ -974,7 +994,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaInicioSeguro;
-        
+
         /// <summary>
         /// Control txtFechaInicioSeguro.
         /// </summary>
@@ -983,7 +1003,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaInicioSeguro;
-        
+
         /// <summary>
         /// Control lblFechaFinSeguro.
         /// </summary>
@@ -992,7 +1012,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaFinSeguro;
-        
+
         /// <summary>
         /// Control txtFechaFinSeguro.
         /// </summary>
@@ -1001,7 +1021,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaFinSeguro;
-        
+
         /// <summary>
         /// Control btnContratoAceptar.
         /// </summary>
@@ -1010,7 +1030,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnContratoAceptar;
-        
+
         /// <summary>
         /// Control btnAgregarDocumento.
         /// </summary>
@@ -1019,7 +1039,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarDocumento;
-        
+
         /// <summary>
         /// Control gvDocumentos.
         /// </summary>
@@ -1028,7 +1048,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvDocumentos;
-        
+
         /// <summary>
         /// Control pnlIntercambios.
         /// </summary>
@@ -1037,7 +1057,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlIntercambios;
-        
+
         /// <summary>
         /// Control lblIntercambios.
         /// </summary>
@@ -1046,7 +1066,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambios;
-        
+
         /// <summary>
         /// Control btnAgregaIntercambio.
         /// </summary>
@@ -1055,7 +1075,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregaIntercambio;
-        
+
         /// <summary>
         /// Control gvIntercambio.
         /// </summary>
@@ -1064,7 +1084,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvIntercambio;
-        
+
         /// <summary>
         /// Control btnRegresarContratos.
         /// </summary>
@@ -1073,7 +1093,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresarContratos;
-        
+
         /// <summary>
         /// Control pnlAgregaintercambios.
         /// </summary>
@@ -1082,7 +1102,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAgregaintercambios;
-        
+
         /// <summary>
         /// Control lblGrupoModeloId.
         /// </summary>
@@ -1091,7 +1111,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGrupoModeloId;
-        
+
         /// <summary>
         /// Control ddlGrupoModelo.
         /// </summary>
@@ -1100,7 +1120,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGrupoModelo;
-        
+
         /// <summary>
         /// Control lblIntercambioFactor.
         /// </summary>
@@ -1109,7 +1129,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioFactor;
-        
+
         /// <summary>
         /// Control txtIntercambioFactor.
         /// </summary>
@@ -1118,7 +1138,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioFactor;
-        
+
         /// <summary>
         /// Control lblIntercambioEspera.
         /// </summary>
@@ -1127,7 +1147,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioEspera;
-        
+
         /// <summary>
         /// Control txtIntercambioEspera.
         /// </summary>
@@ -1136,7 +1156,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioEspera;
-        
+
         /// <summary>
         /// Control lblIntercambioPernocta.
         /// </summary>
@@ -1145,7 +1165,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioPernocta;
-        
+
         /// <summary>
         /// Control txtIntercambioPernocta.
         /// </summary>
@@ -1154,7 +1174,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioPernocta;
-        
+
         /// <summary>
         /// Control lblIntercambioTarifaInter.
         /// </summary>
@@ -1163,7 +1183,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioTarifaInter;
-        
+
         /// <summary>
         /// Control txtIntercambioTarifaInter.
         /// </summary>
@@ -1172,7 +1192,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioTarifaInter;
-        
+
         /// <summary>
         /// Control lblIntercambioTarifaNac.
         /// </summary>
@@ -1181,7 +1201,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioTarifaNac;
-        
+
         /// <summary>
         /// Control txtIntercambioTarifaNac.
         /// </summary>
@@ -1190,7 +1210,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioTarifaNac;
-        
+
         /// <summary>
         /// Control lblIntercambioFerry.
         /// </summary>
@@ -1199,7 +1219,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioFerry;
-        
+
         /// <summary>
         /// Control txtIntercambioFerry.
         /// </summary>
@@ -1208,7 +1228,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioFerry;
-        
+
         /// <summary>
         /// Control lblIntercambioAplicaFerry.
         /// </summary>
@@ -1217,7 +1237,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioAplicaFerry;
-        
+
         /// <summary>
         /// Control rblAplicaFerry.
         /// </summary>
@@ -1226,7 +1246,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblAplicaFerry;
-        
+
         /// <summary>
         /// Control lblIntercambioGalones.
         /// </summary>
@@ -1235,7 +1255,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioGalones;
-        
+
         /// <summary>
         /// Control txtIntercambioGalones.
         /// </summary>
@@ -1244,7 +1264,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioGalones;
-        
+
         /// <summary>
         /// Control lblIntercambioValor.
         /// </summary>
@@ -1253,7 +1273,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIntercambioValor;
-        
+
         /// <summary>
         /// Control txtIntercambioValor.
         /// </summary>
@@ -1262,7 +1282,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIntercambioValor;
-        
+
         /// <summary>
         /// Control btnIntercambioAceptar.
         /// </summary>
@@ -1271,7 +1291,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIntercambioAceptar;
-        
+
         /// <summary>
         /// Control btnCancelarIntercambio.
         /// </summary>
@@ -1280,7 +1300,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelarIntercambio;
-        
+
         /// <summary>
         /// Control hdTargetMatricula.
         /// </summary>
@@ -1289,7 +1309,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdTargetMatricula;
-        
+
         /// <summary>
         /// Control mpeMatricula.
         /// </summary>
@@ -1298,7 +1318,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mpeMatricula;
-        
+
         /// <summary>
         /// Control pnlMatricula.
         /// </summary>
@@ -1307,7 +1327,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlMatricula;
-        
+
         /// <summary>
         /// Control lblTituloMatricula.
         /// </summary>
@@ -1316,7 +1336,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTituloMatricula;
-        
+
         /// <summary>
         /// Control pnlMatriculas.
         /// </summary>
@@ -1325,7 +1345,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlMatriculas;
-        
+
         /// <summary>
         /// Control gvMatriculas.
         /// </summary>
@@ -1334,7 +1354,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvMatriculas;
-        
+
         /// <summary>
         /// Control lblErrorMat.
         /// </summary>
@@ -1343,7 +1363,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorMat;
-        
+
         /// <summary>
         /// Control btnAceptarMatriculas.
         /// </summary>
@@ -1352,7 +1372,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptarMatriculas;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -1361,7 +1381,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Control hdTargetArchivo.
         /// </summary>
@@ -1370,7 +1390,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdTargetArchivo;
-        
+
         /// <summary>
         /// Control mpeArchivo.
         /// </summary>
@@ -1379,7 +1399,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mpeArchivo;
-        
+
         /// <summary>
         /// Control pnlArchivo.
         /// </summary>
@@ -1388,7 +1408,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlArchivo;
-        
+
         /// <summary>
         /// Control upaArchivo.
         /// </summary>
@@ -1397,7 +1417,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upaArchivo;
-        
+
         /// <summary>
         /// Control Label3.
         /// </summary>
@@ -1406,7 +1426,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -1415,7 +1435,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control txtDescripcionDoc.
         /// </summary>
@@ -1424,7 +1444,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcionDoc;
-        
+
         /// <summary>
         /// Control Label4.
         /// </summary>
@@ -1433,7 +1453,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// Control fuArchivo.
         /// </summary>
@@ -1442,7 +1462,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuArchivo;
-        
+
         /// <summary>
         /// Control lblErrorArchivo.
         /// </summary>
@@ -1451,7 +1471,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorArchivo;
-        
+
         /// <summary>
         /// Control btnAceptarArchivo.
         /// </summary>
@@ -1460,7 +1480,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptarArchivo;
-        
+
         /// <summary>
         /// Control btnCancelarArchivo.
         /// </summary>
@@ -1469,7 +1489,7 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelarArchivo;
-        
+
         /// <summary>
         /// Control prgLoadingStatus.
         /// </summary>

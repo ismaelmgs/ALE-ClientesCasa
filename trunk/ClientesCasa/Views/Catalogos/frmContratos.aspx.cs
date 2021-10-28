@@ -493,8 +493,8 @@ namespace ClientesCasa.Views.Catalogos
                     {
                         oComprobante = new Comprobante();
                         oComprobante.sNumeroReporte = txtDescripcionDoc.Text.S();
-                        
-                        if (iIdContrato > 0) 
+
+                        if (iIdContrato > 0)
                         {
                             oComprobante.iIdGasto = iIdContrato;
                             oComprobante.sNombreArchivo = fuArchivo.FileName;
@@ -749,6 +749,24 @@ namespace ClientesCasa.Views.Catalogos
                 throw ex;
             }
         }
+
+        public void CargaLista_Rep_Edo_Cuenta(DataTable dtRepEdoCuenta)
+        {
+            try
+            {
+                ddlRepEdoCuenta.DataSource = dtRepEdoCuenta;
+                ddlRepEdoCuenta.DataValueField = "IdRepEdoC";
+                ddlRepEdoCuenta.DataTextField = "Descripcion";
+                ddlRepEdoCuenta.DataBind();
+
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    
         public void LlenaContratos(DataTable dt)
         {
             gvContratos.DataSource = dt;
@@ -957,7 +975,8 @@ namespace ClientesCasa.Views.Catalogos
                     dtFechaInicioSeg = txtFechaInicioSeguro.Text.S().Dt(),
                     dtFechaFinSeg = txtFechaFinSeguro.Text.S().Dt(),
 
-                    sUsuario = Utils.GetUser.S()
+                    sUsuario = Utils.GetUser.S(),
+                    iRepEdoCuenta = ddlRepEdoCuenta.SelectedValue.S().I()
                 };
             }
             set
@@ -1015,6 +1034,8 @@ namespace ClientesCasa.Views.Catalogos
                     txtCPDE.Text = oCat.sCPDE;
 
                     rbtnTRipoCosto.SelectedValue = oCat.iTipoCosto.S();
+
+                    ddlRepEdoCuenta.SelectedValue = oCat.iRepEdoCuenta.S();
 
                     LlenaContratos(oCat.dtContratos);
                 }

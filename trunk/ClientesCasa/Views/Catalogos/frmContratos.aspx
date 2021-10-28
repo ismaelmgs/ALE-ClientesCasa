@@ -692,6 +692,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="section group">
+                                <div class="col span_1_of_4">
+                                    <asp:Label ID="lblRepEdoCuenta" runat="server" Text="Reporte Estado de Cuenta:"></asp:Label>
+                                </div>
+                                <div class="col span_1_of_4">
+                                    <asp:DropDownList ID="ddlRepEdoCuenta" runat="server" CssClass=""></asp:DropDownList>
+                                </div>
+
+                            </div>
                         </td>
                     </tr>
                 </table>

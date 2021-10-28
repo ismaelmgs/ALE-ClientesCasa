@@ -32,6 +32,7 @@ namespace ClientesCasa.Interfaces
         void LoadClientes(DataTable dt);
         void CargaEstados(DropDownList ddl, DataTable dt);
         void LlenaIntercambios(DataTable dt);
+        void CargaLista_Rep_Edo_Cuenta(DataTable dt);
         void LoadGrupoModelo(DataTable dt);
         void MostrarMensaje(string sMensaje, string sCaption);
         void CargaDatosIniciales(DataTable dtSectores, DataTable dtEstatusContrato);
