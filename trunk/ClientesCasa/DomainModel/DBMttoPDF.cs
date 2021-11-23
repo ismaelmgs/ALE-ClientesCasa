@@ -23,11 +23,14 @@ namespace ClientesCasa.DomainModel
             }
         }
 
-        public DataTable DBGetDetalleReferencia(string sReferencia)
+        public DataTable DBGetDetalleReferencia(string sReferencia, string sMatricula, string sAnio, string sMes)
         {
             try
             {
-                return oDB_SP.EjecutarDT("[ClientesCasa].[spS_CC_ObtieneInformacionReferenciaGasto]", "@Referencia", sReferencia);
+                return oDB_SP.EjecutarDT("[ClientesCasa].[spS_CC_ObtieneInformacionReferenciaGasto]", "@Referencia", sReferencia
+                                                                                                        , "@Matricula", sMatricula
+                                                                                                        , "@Mes", sAnio
+                                                                                                        , "@Anio", sMes);
             }
             catch (Exception)
             {

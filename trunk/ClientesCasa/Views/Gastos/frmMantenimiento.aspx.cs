@@ -375,7 +375,7 @@ namespace ClientesCasa.Views.Gastos
                         string sReferencia = e.CommandArgument.S();
                         string sUrl = sReferencia + ".pdf";
 
-                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                         if (dt.Rows.Count > 0)
                         {
                             string sRuta = ArmaRutaComprobante(sReferencia);
@@ -418,8 +418,12 @@ namespace ClientesCasa.Views.Gastos
                     case "ViewReference":
                         string sReferencia = e.CommandArgument.S();
                         string sUrl = sReferencia + ".pdf";
+                        string strAnio = string.Empty;
+                        string strMes = string.Empty;
+                        strAnio = iAnio.S();
+                        strMes = iMes.S();
 
-                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                         if (dt.Rows.Count > 0)
                         {
                             string sRuta = ArmaRutaComprobante(sReferencia);
@@ -1513,7 +1517,7 @@ namespace ClientesCasa.Views.Gastos
                 string sReferencia = ((LinkButton)sender).Text.S();
                 string sUrl = sReferencia + ".pdf";
 
-                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                 if (dt.Rows.Count > 0)
                 {
                     int iMesRef = dt.Rows[0]["Mes"].S().I();
@@ -2205,7 +2209,7 @@ namespace ClientesCasa.Views.Gastos
             try
             {
                 string sRuta = string.Empty;
-                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                 if (dt.Rows.Count > 0)
                 {
                     int iMesRef = dt.Rows[0]["Mes"].S().I();
