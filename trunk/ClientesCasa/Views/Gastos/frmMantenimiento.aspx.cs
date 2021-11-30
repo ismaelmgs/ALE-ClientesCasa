@@ -1217,10 +1217,45 @@ namespace ClientesCasa.Views.Gastos
                             dtGastosMEX.Rows[iIdFila]["Ruta"] = row[0]["Ruta"].S();
                             dtGastosMEX.Rows[iIdFila]["TiempoCalzo"] = row[0]["TiempoCalzo"].S();
 
-                            LlenaGridDetalle(gvMantenimiento, iIdFila, dtGastosMEX, "gvDetalleGastoMXN", upa);
+                            //LlenaGridDetalle(gvMantenimiento, iIdFila, dtGastosMEX, "gvDetalleGastoMXN", upa);
+
+                            ///////////----------------------------------------
+                            GridView gvDetalle = (GridView)gvMantenimiento.Rows[iIdFila].FindControl("gvDetalleGastoMXN");
+                            
+                            if (gvDetalle != null)
+                            {
+                                DataTable dtD = new DataTable();
+                                dtD.Columns.Add("LegId");
+                                dtD.Columns.Add("Ruta");
+                                dtD.Columns.Add("FechaVuelo");
+                                dtD.Columns.Add("TiempoCalzo");
+
+                                DataRow rowD = dtD.NewRow();
+                                rowD["LegId"] = iIdPierna.S();
+                                rowD["Ruta"] = row[0]["Ruta"].S();
+                                rowD["FechaVuelo"] = row[0]["FechaVuelo"].S();
+                                rowD["TiempoCalzo"] = row[0]["TiempoCalzo"].S();
+
+                                dtD.Rows.Add(rowD);
+
+                                gvDetalle.DataSource = dtD;
+                                gvDetalle.DataBind();
+
+                                //gvDetalle.Rows[0].Cells[0].Text = iIdPierna.S();
+                                //gvDetalle.Rows[0].Cells[1].Text = row[0]["Ruta"].S();
+                                //gvDetalle.Rows[0].Cells[2].Text = row[0]["FechaVuelo"].S();
+                                //gvDetalle.Rows[0].Cells[3].Text = row[0]["TiempoCalzo"].S();
+
+                                //upa.Update();
+                            }
+
+                            ////---------------------------------------------------
+                            UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaDetGastosMXN");
+                            if (upaGridDetalle != null)
+                                upaGridDetalle.Update();
 
                             UpdatePanel upaFechaMXN = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaFechaMXN");
-                            if(upaFechaMXN != null)
+                            if (upaFechaMXN != null)
                             {
                                 Label lblFechaMXN = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblFechaMXN");
                                 if(lblFechaMXN != null)
@@ -1233,9 +1268,7 @@ namespace ClientesCasa.Views.Gastos
                                 upaFechaMXN.Update();
                             }
 
-                            UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaDetGastosMXN");
-                            if (upaGridDetalle != null)
-                                upaGridDetalle.Update();
+                           
                         }
                     }
                 }
@@ -1279,7 +1312,7 @@ namespace ClientesCasa.Views.Gastos
                         upaGridDetalle.Update();
                 }
 
-                //upaGridGastosMXN.Update();
+                upaGridGastosMXN.Update();
                 mpePierna.Hide();
             }
             catch (Exception ex)
