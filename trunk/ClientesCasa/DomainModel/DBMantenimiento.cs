@@ -127,7 +127,8 @@ namespace ClientesCasa.DomainModel
                                                                                                   "@AmpliadoGasto1", oGasto.sAmpliadoGasto,
                                                                                                   "@FechaVueloOpe", oGasto.sFechaVueloOpe,
                                                                                                   "@IdTipoRubro", oGasto.iIdTipoRubro,
-                                                                                                  "@Comentarios", oGasto.sComentarios);
+                                                                                                  "@Comentarios", oGasto.sComentarios,
+                                                                                                  "@Proveedor", oGasto.sProveedor);
                 return oRes != null ? true : false;
             }
             catch (Exception ex)

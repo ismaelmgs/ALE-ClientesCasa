@@ -379,7 +379,10 @@
                                                                                 </asp:TemplateField>
                                                                                 <asp:TemplateField HeaderText="Proveedor" HeaderStyle-Width="120px">
                                                                                     <ItemTemplate>
-                                                                                        <asp:Label ID="lblProv" runat="server" Text='<%# Bind("Proveedor") %>'></asp:Label>
+                                                                                        <asp:Label ID="lblProv" runat="server" Text='<%# Bind("Proveedor") %>' Visible="false"></asp:Label>
+                                                                                        <asp:DropDownList ID="ddlProvG" runat="server" Width="100px" >
+                                                                                        </asp:DropDownList>
+                                                                                        
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
@@ -560,7 +563,9 @@
                                                                             </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Proveedor" HeaderStyle-Width="100px">
                                                                                     <ItemTemplate>
-                                                                                        <asp:Label ID="lblProvUS" runat="server" Text='<%# Bind("Proveedor") %>'></asp:Label>
+                                                                                        <asp:Label ID="lblProvUS" runat="server" Text='<%# Bind("Proveedor") %>' Visible="false"></asp:Label>
+                                                                                        <asp:DropDownList ID="ddlProvGUS" runat="server" Width="100px" >
+                                                                                        </asp:DropDownList>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 

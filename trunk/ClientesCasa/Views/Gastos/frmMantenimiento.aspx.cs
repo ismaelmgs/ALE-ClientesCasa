@@ -635,6 +635,7 @@ namespace ClientesCasa.Views.Gastos
         protected void gvMantenimiento_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             string sRubroSelect = string.Empty;
+            string sProvGSelect = string.Empty;
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
@@ -718,6 +719,19 @@ namespace ClientesCasa.Views.Gastos
 
                         sRubroSelect = dt.Rows[e.Row.RowIndex]["IdRubro"].S();
                         ddlRubro.SelectedValue = sRubroSelect;
+                    }
+
+                    DropDownList ddlProvG = (DropDownList)e.Row.FindControl("ddlProvG");
+                    if (ddlProvG != null)
+                    {
+                        ddlProvG.DataSource = dtProveedor;
+                        ddlProvG.DataTextField = "Descripcion";
+                        ddlProvG.DataValueField = "IdProveedor";
+                        ddlProvG.DataBind();
+
+                        //sProvGSelect = dt.Rows[e.Row.RowIndex]["lblProv"].S();
+                        Label lblProv = (Label)e.Row.FindControl("lblProv");
+                        ddlProvG.SelectedItem.Text = lblProv.Text;
                     }
 
                     if (dtContratos != null)
@@ -861,6 +875,19 @@ namespace ClientesCasa.Views.Gastos
                         ddlRubro.DataBind();
 
                         ddlRubro.SelectedValue = dt.Rows[e.Row.RowIndex]["IdRubro"].S();
+                    }
+
+                    DropDownList ddlProvGUS = (DropDownList)e.Row.FindControl("ddlProvGUS");
+                    if (ddlProvGUS != null)
+                    {
+                        ddlProvGUS.DataSource = dtProveedor;
+                        ddlProvGUS.DataTextField = "Descripcion";
+                        ddlProvGUS.DataValueField = "IdProveedor";
+                        ddlProvGUS.DataBind();
+
+                        //sProvGSelect = dt.Rows[e.Row.RowIndex]["lblProv"].S();
+                        Label lblProvUS = (Label)e.Row.FindControl("lblProvUS");
+                        ddlProvGUS.SelectedItem.Text = lblProvUS.Text;
                     }
 
                     if (dtContratos != null)
@@ -1799,6 +1826,10 @@ namespace ClientesCasa.Views.Gastos
                         if (ddlTipoRubro != null)
                             oG.iIdTipoRubro = ddlTipoRubro.SelectedValue.S().I();
 
+                        DropDownList ddlProveedor = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlProvG");
+                        if (ddlProveedor != null)
+                            oG.sProveedor = ddlProveedor.SelectedItem.Text;
+
                         lstGastoEstimado.Add(oG);
                     }
                 }
@@ -1934,6 +1965,10 @@ namespace ClientesCasa.Views.Gastos
                         DropDownList ddlTipoRubro = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlFijoVar");
                         if (ddlTipoRubro != null)
                             oG.iIdTipoRubro = ddlTipoRubro.SelectedValue.S().I();
+
+                        DropDownList ddlProveedor = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlProvGUS");
+                        if (ddlProveedor != null)
+                            oG.sProveedor = ddlProveedor.SelectedItem.Text;
 
                         lstGastoEstimado.Add(oG);
                     }
@@ -2120,6 +2155,7 @@ namespace ClientesCasa.Views.Gastos
                     ddlProveedor.DataValueField = "IdProveedor";
                     ddlProveedor.DataTextField = "Descripcion";
                     ddlProveedor.DataBind();
+
                 }
             }
             catch (Exception ex)
