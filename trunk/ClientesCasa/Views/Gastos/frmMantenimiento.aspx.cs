@@ -1037,7 +1037,7 @@ namespace ClientesCasa.Views.Gastos
                     oGastoE.dImporte = txtImporte.Text.S().D();
                     oGastoE.sTipoMoneda = sTipoMonedaG;
                     oGastoE.iIdRubro = ddlRubro.SelectedValue.S().I();
-                    oGastoE.iProveedor = ddlProveedor.SelectedValue.S().I();
+                    oGastoE.sProveedor = ddlProveedor.SelectedItem.Text;
                     oGastoE.iMes = iMes;
                     oGastoE.iAnio = iAnio;
                     oGastoE.iNumeroTrip = 0;

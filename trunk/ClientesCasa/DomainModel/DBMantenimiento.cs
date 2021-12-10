@@ -192,7 +192,7 @@ namespace ClientesCasa.DomainModel
                                                                                                   "@Importe", oGasto.dImporte,
                                                                                                   "@TipoMoneda", oGasto.sTipoMoneda,
                                                                                                   "@IdRubro", oGasto.iIdRubro,
-                                                                                                  "@IdProveedor", oGasto.iProveedor,
+                                                                                                  "@Proveedor", oGasto.sProveedor,
                                                                                                   "@Mes", oGasto.iMes,
                                                                                                   "@Anio", oGasto.iAnio,
                                                                                                   "@NumeroTrip", oGasto.iNumeroTrip,
