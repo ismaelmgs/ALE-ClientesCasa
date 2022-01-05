@@ -1953,7 +1953,7 @@ namespace ClientesCasa.Views.Gastos
 
                         if (oG.iNumeroPierna == 0)
                         {
-                            Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNoPierna");
+                            Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblNoPierna");
                             if (lblNoPierna.Text != null)
                                 oG.iNumeroPierna = lblNoPierna.Text.S().I();
                         }
@@ -1979,7 +1979,7 @@ namespace ClientesCasa.Views.Gastos
             }
             catch (Exception ex)
             {
-
+                 string strError = ex.ToString();
             }
         }
         public void MostrarMensaje(string sMensaje, string sCaption)
