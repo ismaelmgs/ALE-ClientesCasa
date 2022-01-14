@@ -275,9 +275,9 @@
                                                                                     <ItemTemplate>
                                                                                         <img alt="" style="cursor: pointer; margin-left: 5%;" width="24" height="24" src="../../Images/icons/read_more.png" />
                                                                                         <asp:Panel ID="pnlGastosMXN" runat="server" Style="display: none">
-                                                                                            <div id="div<%# Eval("IdGasto") %>" style="text-align: left">
-                                                                                                <asp:UpdatePanel ID="upaDetGastosMXN" runat="server" UpdateMode="Conditional">
-                                                                                                    <ContentTemplate>
+                                                                                            <asp:UpdatePanel ID="upaDetGastosMXN" runat="server" UpdateMode="Conditional">
+                                                                                                <ContentTemplate>
+                                                                                                    <div id="div<%# Eval("IdGasto") %>" style="text-align: left">
                                                                                                         <asp:GridView ID="gvDetalleGastoMXN" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin: 0 auto; border: 2px solid #547ba6;">
                                                                                                             <Columns>
                                                                                                                 <asp:BoundField DataField="LegId" HeaderText="No pierna" />
@@ -286,9 +286,10 @@
                                                                                                                 <asp:BoundField DataField="TiempoCalzo" HeaderText="Tiempo calzo" />
                                                                                                             </Columns>
                                                                                                         </asp:GridView>
-                                                                                                    </ContentTemplate>
-                                                                                                </asp:UpdatePanel>
-                                                                                            </div>
+                                                                                                    </div>
+
+                                                                                                </ContentTemplate>
+                                                                                            </asp:UpdatePanel>
                                                                                         </asp:Panel>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
@@ -373,6 +374,14 @@
                                                                                 <asp:TemplateField HeaderText="Comentarios">
                                                                                     <ItemTemplate>
                                                                                         <asp:TextBox ID="txtComentarios" runat="server" Width="100px"></asp:TextBox>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Proveedor" HeaderStyle-Width="120px">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="lblProv" runat="server" Text='<%# Bind("Proveedor") %>' Visible="false"></asp:Label>
+                                                                                        <asp:DropDownList ID="ddlProvG" runat="server" Width="100px" >
+                                                                                        </asp:DropDownList>
+                                                                                        
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
@@ -551,6 +560,13 @@
                                                                                     <asp:TextBox ID="txtComentarios" runat="server" Width="100px"></asp:TextBox>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText="Proveedor" HeaderStyle-Width="100px">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="lblProvUS" runat="server" Text='<%# Bind("Proveedor") %>' Visible="false"></asp:Label>
+                                                                                        <asp:DropDownList ID="ddlProvGUS" runat="server" Width="100px" >
+                                                                                        </asp:DropDownList>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
 
                                                                             <asp:TemplateField ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" FooterStyle-CssClass="ColumnaOculta">
                                                                                 <ItemTemplate>
@@ -648,7 +664,8 @@
                     <tr>
                         <td colspan="2" runat="server" id="tdCaption">&nbsp;
                             <center>
-                                <h4><asp:Label ID="lblCaption" runat="server"></asp:Label></h4>
+                                <h4>
+                                    <asp:Label ID="lblCaption" runat="server"></asp:Label></h4>
                             </center>
                         </td>
                     </tr>
@@ -696,7 +713,7 @@
                                 <asp:RadioButtonList ID="rblTipoFecha" runat="server" RepeatDirection="Horizontal"
                                     AutoPostBack="true" OnSelectedIndexChanged="rblTipoFecha_SelectedIndexChanged">
                                     <asp:ListItem Text="Fecha Vuelo" Value="1" Selected="True"></asp:ListItem>
-                                    <asp:ListItem Text="Fecha Operación" Value="2" ></asp:ListItem>
+                                    <asp:ListItem Text="Fecha Operación" Value="2"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </center>
                         </td>
@@ -727,23 +744,23 @@
                             <td colspan="3">
                                 <center>
                                     <asp:Panel ID="pnlPiernas" runat="server" ScrollBars="Auto" Width="90%" Height="200">
-                                        <asp:GridView ID="gvPiernas" runat="server" AutoGenerateColumns="False" Width="100%" 
+                                        <asp:GridView ID="gvPiernas" runat="server" AutoGenerateColumns="False" Width="100%"
                                             CssClass="table table-bordered table-striped table-hover" DataKeyNames="LegId">
-                                            <EmptyDataTemplate>
+                                            <emptydatatemplate>
                                                 No existen registros para mostrar.
-                                            </EmptyDataTemplate>
-                                            <Columns>
+                                            </emptydatatemplate>
+                                            <columns>
                                                 <asp:TemplateField HeaderText=" Seleccione ">
-                                                    <ItemTemplate>
+                                                    <itemtemplate>
                                                         <asp:RadioButton ID="rbSelecciona" runat="server" OnClick="javascript:Selrdbtn(this.id)" />
-                                                    </ItemTemplate>
+                                                    </itemtemplate>
                                                 </asp:TemplateField>
                                                 <asp:BoundField DataField="AeronaveMatricula" HeaderText="Matricula" />
                                                 <asp:BoundField DataField="VueloClienteId" HeaderText="Clave del cliente" ItemStyle-HorizontalAlign="Left" />
                                                 <asp:BoundField DataField="VueloContratoId" HeaderText="Clave del contrato" />
                                                 <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
                                                 <asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />
-                                            </Columns>
+                                            </columns>
                                         </asp:GridView>
                                     </asp:Panel>
                                 </center>
@@ -816,7 +833,7 @@
                     <tr>
                         <td colspan="3" style="text-align: center">
                             <center>
-                                <asp:RadioButtonList ID="rblTipoFechaUSA" runat="server" RepeatDirection="Horizontal" 
+                                <asp:RadioButtonList ID="rblTipoFechaUSA" runat="server" RepeatDirection="Horizontal"
                                     AutoPostBack="true" OnSelectedIndexChanged="rblTipoFechaUSA_SelectedIndexChanged">
                                     <asp:ListItem Text="Fecha Vuelo" Value="1" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Fecha Operación" Value="2"></asp:ListItem>
@@ -849,27 +866,27 @@
                         <tr>
                             <td colspan="3">
                                 <center>
-                                <asp:Panel ID="pnlPiernasGridUSA" runat="server" ScrollBars="Auto" Width="90%" Height="200">
-                                    <asp:GridView ID="gvPiernasUSA" runat="server" AutoGenerateColumns="False" Width="100%" 
-                                        CssClass="table table-bordered table-striped table-hover" DataKeyNames="LegId">
-                                        <EmptyDataTemplate>
-                                            No existen registros para mostrar.
-                                        </EmptyDataTemplate>
-                                        <Columns>
-                                            <asp:TemplateField HeaderText=" Seleccione ">
-                                                <ItemTemplate>
-                                                    <asp:RadioButton ID="rbSeleccionaUSA" runat="server" OnClick="javascript:Selrdbtn(this.id)" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:BoundField DataField="AeronaveMatricula" HeaderText="Matricula" />
-                                            <asp:BoundField DataField="VueloClienteId" HeaderText="Clave del cliente" ItemStyle-HorizontalAlign="Left" />
-                                            <asp:BoundField DataField="VueloContratoId" HeaderText="Clave del contrato" />
-                                            <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
-                                            <asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </asp:Panel>
-                            </center>
+                                    <asp:Panel ID="pnlPiernasGridUSA" runat="server" ScrollBars="Auto" Width="90%" Height="200">
+                                        <asp:GridView ID="gvPiernasUSA" runat="server" AutoGenerateColumns="False" Width="100%"
+                                            CssClass="table table-bordered table-striped table-hover" DataKeyNames="LegId">
+                                            <emptydatatemplate>
+                                                No existen registros para mostrar.
+                                            </emptydatatemplate>
+                                            <columns>
+                                                <asp:TemplateField HeaderText=" Seleccione ">
+                                                    <itemtemplate>
+                                                        <asp:RadioButton ID="rbSeleccionaUSA" runat="server" OnClick="javascript:Selrdbtn(this.id)" />
+                                                    </itemtemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField DataField="AeronaveMatricula" HeaderText="Matricula" />
+                                                <asp:BoundField DataField="VueloClienteId" HeaderText="Clave del cliente" ItemStyle-HorizontalAlign="Left" />
+                                                <asp:BoundField DataField="VueloContratoId" HeaderText="Clave del contrato" />
+                                                <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
+                                                <asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />
+                                            </columns>
+                                        </asp:GridView>
+                                    </asp:Panel>
+                                </center>
                             </td>
                         </tr>
                         <tr>

@@ -127,7 +127,8 @@ namespace ClientesCasa.DomainModel
                                                                                                   "@AmpliadoGasto1", oGasto.sAmpliadoGasto,
                                                                                                   "@FechaVueloOpe", oGasto.sFechaVueloOpe,
                                                                                                   "@IdTipoRubro", oGasto.iIdTipoRubro,
-                                                                                                  "@Comentarios", oGasto.sComentarios);
+                                                                                                  "@Comentarios", oGasto.sComentarios,
+                                                                                                  "@Proveedor", oGasto.sProveedor);
                 return oRes != null ? true : false;
             }
             catch (Exception ex)
@@ -191,7 +192,7 @@ namespace ClientesCasa.DomainModel
                                                                                                   "@Importe", oGasto.dImporte,
                                                                                                   "@TipoMoneda", oGasto.sTipoMoneda,
                                                                                                   "@IdRubro", oGasto.iIdRubro,
-                                                                                                  "@IdProveedor", oGasto.iProveedor,
+                                                                                                  "@Proveedor", oGasto.sProveedor,
                                                                                                   "@Mes", oGasto.iMes,
                                                                                                   "@Anio", oGasto.iAnio,
                                                                                                   "@NumeroTrip", oGasto.iNumeroTrip,

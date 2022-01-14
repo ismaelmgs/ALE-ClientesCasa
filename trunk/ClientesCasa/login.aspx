@@ -63,22 +63,22 @@
                                 <div class="controls">
                                     <div class="section group">
                                         <div class="main_input_box">
-                                            <div class="col span_1_of_4">
-                                                <span class="add-on bg_lg" style="width: 100%; text-align: center; border-radius: 10px;"><i class="icon-user" style="margin-right: 20%;"></i></span>
+                                            <div class="col span_1_of_5" style="background-color: #28b779;border-radius: 10px 0px 0px 10px;">
+                                                <span class="add-on bg_lg" style="text-align: center;"><i class="icon-user" style="margin-right: 20%;"></i></span>
                                             </div>
-                                            <div class="col span_3_of_4">
-                                                <asp:TextBox ID="txtUsuario" runat="server" placeholder="Usuario" MaxLength="40" Width="100%" CssClass="input_2"></asp:TextBox>
+                                            <div class="col span_4_of_5">
+                                                <asp:TextBox ID="txtUsuario" runat="server" placeholder="Usuario" MaxLength="40" Width="100%" CssClass="input_2" style="border-radius:0px 10px 10px 0px;"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="section group">
                                         <div class="main_input_box">
-                                            <div class="col span_1_of_4">
-                                                <span class="add-on bg_ly" style="width: 100%; text-align: center; border-radius: 10px;"><i class="icon-lock" style="margin-right: 20%;"></i></span>
+                                            <div class="col span_1_of_5" style="background-color: #ffb848;border-radius: 10px 0px 0px 10px;">
+                                                <span class="add-on bg_ly" style="text-align: center;"><i class="icon-lock" style="margin-right: 20%;"></i></span>
                                             </div>
-                                            <div class="col span_3_of_4">
-                                                <asp:TextBox ID="txtPassword" runat="server" placerholder="Password" TextMode="Password" MaxLength="40" CssClass="input_2" Width="100%"></asp:TextBox>
+                                            <div class="col span_4_of_5">
+                                                <asp:TextBox ID="txtPassword" runat="server" placerholder="Password" TextMode="Password" MaxLength="40" CssClass="input_2" Width="100%" style="border-radius:0px 10px 10px 0px;"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -106,10 +106,10 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #223140;">
+                    <div class="modal-header" style="background-color: #223140; color:#ffffff;">
                         <h4 class="modal-title" id="exampleModalLabel">¿Olvidó su contraseña?</h4>
                     </div>
-                    <div class="modal-body" style="background-color: #0b1a29;">
+                    <div class="modal-body" style="background-color: #0b1a29; color:#ffffff;">
                         <form id="recoverform" action="#" class="form-vertical">
                             <p class="normal_text">
                                 <h5>Ingrese su dirección de correo electrónico a continuación y le enviaremos instrucciones sobre cómo recuperar una contraseña.</h5>
@@ -117,7 +117,7 @@
                             <div class="controls">
                                 <div class="main_input_box" style="text-align: center;">
                                     <input type="text" placeholder="Correo electrónico" style="border-radius: 10px;" />
-                                    <button type="button" class="btn btn-success" style="margin-top: -10px;">
+                                    <button type="button" class="btn btn-success" style="margin-top: 0px;">
                                         Recuperar
                                     </button>
                                 </div>

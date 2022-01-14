@@ -18,6 +18,7 @@ namespace ClientesCasa.Interfaces
 
         void LLenaClientes(DataTable dt);
         void LlenaCalculoCorte(DataTable dt);
-        
+        void MostrarMensaje(string sMensaje, string sCaption);
+        void InhabilitaBoton();
     }
 }

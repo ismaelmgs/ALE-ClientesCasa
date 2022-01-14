@@ -166,7 +166,8 @@ namespace ClientesCasa.Views.Catalogos
 
         protected void btnAceptConfirm_Click(object sender, EventArgs e)
         {
-
+            if (eNewObj != null)
+                eNewObj(sender, e);
         }
 
         protected void btnCancelConfirm_Click(object sender, EventArgs e)
@@ -259,8 +260,16 @@ namespace ClientesCasa.Views.Catalogos
                     btnCorte.Enabled = false;
                 }
                 else
+                {
                     lblValidacion.Text = string.Empty;
+                    btnCorte.Enabled = true;
+                }
             }
+        }
+
+        public void InhabilitaBoton()
+        {
+            btnCorte.Enabled = false;
         }
         #endregion
 

@@ -375,7 +375,7 @@ namespace ClientesCasa.Views.Gastos
                         string sReferencia = e.CommandArgument.S();
                         string sUrl = sReferencia + ".pdf";
 
-                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                         if (dt.Rows.Count > 0)
                         {
                             string sRuta = ArmaRutaComprobante(sReferencia);
@@ -418,8 +418,12 @@ namespace ClientesCasa.Views.Gastos
                     case "ViewReference":
                         string sReferencia = e.CommandArgument.S();
                         string sUrl = sReferencia + ".pdf";
+                        string strAnio = string.Empty;
+                        string strMes = string.Empty;
+                        strAnio = iAnio.S();
+                        strMes = iMes.S();
 
-                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                        DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                         if (dt.Rows.Count > 0)
                         {
                             string sRuta = ArmaRutaComprobante(sReferencia);
@@ -631,6 +635,7 @@ namespace ClientesCasa.Views.Gastos
         protected void gvMantenimiento_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             string sRubroSelect = string.Empty;
+            string sProvGSelect = string.Empty;
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
@@ -714,6 +719,19 @@ namespace ClientesCasa.Views.Gastos
 
                         sRubroSelect = dt.Rows[e.Row.RowIndex]["IdRubro"].S();
                         ddlRubro.SelectedValue = sRubroSelect;
+                    }
+
+                    DropDownList ddlProvG = (DropDownList)e.Row.FindControl("ddlProvG");
+                    if (ddlProvG != null)
+                    {
+                        ddlProvG.DataSource = dtProveedor;
+                        ddlProvG.DataTextField = "Descripcion";
+                        ddlProvG.DataValueField = "IdProveedor";
+                        ddlProvG.DataBind();
+
+                        //sProvGSelect = dt.Rows[e.Row.RowIndex]["lblProv"].S();
+                        Label lblProv = (Label)e.Row.FindControl("lblProv");
+                        ddlProvG.SelectedItem.Text = lblProv.Text;
                     }
 
                     if (dtContratos != null)
@@ -857,6 +875,19 @@ namespace ClientesCasa.Views.Gastos
                         ddlRubro.DataBind();
 
                         ddlRubro.SelectedValue = dt.Rows[e.Row.RowIndex]["IdRubro"].S();
+                    }
+
+                    DropDownList ddlProvGUS = (DropDownList)e.Row.FindControl("ddlProvGUS");
+                    if (ddlProvGUS != null)
+                    {
+                        ddlProvGUS.DataSource = dtProveedor;
+                        ddlProvGUS.DataTextField = "Descripcion";
+                        ddlProvGUS.DataValueField = "IdProveedor";
+                        ddlProvGUS.DataBind();
+
+                        //sProvGSelect = dt.Rows[e.Row.RowIndex]["lblProv"].S();
+                        Label lblProvUS = (Label)e.Row.FindControl("lblProvUS");
+                        ddlProvGUS.SelectedItem.Text = lblProvUS.Text;
                     }
 
                     if (dtContratos != null)
@@ -1006,7 +1037,7 @@ namespace ClientesCasa.Views.Gastos
                     oGastoE.dImporte = txtImporte.Text.S().D();
                     oGastoE.sTipoMoneda = sTipoMonedaG;
                     oGastoE.iIdRubro = ddlRubro.SelectedValue.S().I();
-                    oGastoE.iProveedor = ddlProveedor.SelectedValue.S().I();
+                    oGastoE.sProveedor = ddlProveedor.SelectedItem.Text;
                     oGastoE.iMes = iMes;
                     oGastoE.iAnio = iAnio;
                     oGastoE.iNumeroTrip = 0;
@@ -1213,10 +1244,45 @@ namespace ClientesCasa.Views.Gastos
                             dtGastosMEX.Rows[iIdFila]["Ruta"] = row[0]["Ruta"].S();
                             dtGastosMEX.Rows[iIdFila]["TiempoCalzo"] = row[0]["TiempoCalzo"].S();
 
-                            LlenaGridDetalle(gvMantenimiento, iIdFila, dtGastosMEX, "gvDetalleGastoMXN", upa);
+                            //LlenaGridDetalle(gvMantenimiento, iIdFila, dtGastosMEX, "gvDetalleGastoMXN", upa);
+
+                            ///////////----------------------------------------
+                            GridView gvDetalle = (GridView)gvMantenimiento.Rows[iIdFila].FindControl("gvDetalleGastoMXN");
+                            
+                            if (gvDetalle != null)
+                            {
+                                DataTable dtD = new DataTable();
+                                dtD.Columns.Add("LegId");
+                                dtD.Columns.Add("Ruta");
+                                dtD.Columns.Add("FechaVuelo");
+                                dtD.Columns.Add("TiempoCalzo");
+
+                                DataRow rowD = dtD.NewRow();
+                                rowD["LegId"] = iIdPierna.S();
+                                rowD["Ruta"] = row[0]["Ruta"].S();
+                                rowD["FechaVuelo"] = row[0]["FechaVuelo"].S();
+                                rowD["TiempoCalzo"] = row[0]["TiempoCalzo"].S();
+
+                                dtD.Rows.Add(rowD);
+
+                                gvDetalle.DataSource = dtD;
+                                gvDetalle.DataBind();
+
+                                //gvDetalle.Rows[0].Cells[0].Text = iIdPierna.S();
+                                //gvDetalle.Rows[0].Cells[1].Text = row[0]["Ruta"].S();
+                                //gvDetalle.Rows[0].Cells[2].Text = row[0]["FechaVuelo"].S();
+                                //gvDetalle.Rows[0].Cells[3].Text = row[0]["TiempoCalzo"].S();
+
+                                //upa.Update();
+                            }
+
+                            ////---------------------------------------------------
+                            UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaDetGastosMXN");
+                            if (upaGridDetalle != null)
+                                upaGridDetalle.Update();
 
                             UpdatePanel upaFechaMXN = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaFechaMXN");
-                            if(upaFechaMXN != null)
+                            if (upaFechaMXN != null)
                             {
                                 Label lblFechaMXN = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblFechaMXN");
                                 if(lblFechaMXN != null)
@@ -1229,9 +1295,7 @@ namespace ClientesCasa.Views.Gastos
                                 upaFechaMXN.Update();
                             }
 
-                            UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaDetGastosMXN");
-                            if (upaGridDetalle != null)
-                                upaGridDetalle.Update();
+                           
                         }
                     }
                 }
@@ -1275,7 +1339,7 @@ namespace ClientesCasa.Views.Gastos
                         upaGridDetalle.Update();
                 }
 
-                //upaGridGastosMXN.Update();
+                upaGridGastosMXN.Update();
                 mpePierna.Hide();
             }
             catch (Exception ex)
@@ -1513,7 +1577,7 @@ namespace ClientesCasa.Views.Gastos
                 string sReferencia = ((LinkButton)sender).Text.S();
                 string sUrl = sReferencia + ".pdf";
 
-                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                 if (dt.Rows.Count > 0)
                 {
                     int iMesRef = dt.Rows[0]["Mes"].S().I();
@@ -1762,6 +1826,10 @@ namespace ClientesCasa.Views.Gastos
                         if (ddlTipoRubro != null)
                             oG.iIdTipoRubro = ddlTipoRubro.SelectedValue.S().I();
 
+                        DropDownList ddlProveedor = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlProvG");
+                        if (ddlProveedor != null)
+                            oG.sProveedor = ddlProveedor.SelectedItem.Text;
+
                         lstGastoEstimado.Add(oG);
                     }
                 }
@@ -1885,7 +1953,7 @@ namespace ClientesCasa.Views.Gastos
 
                         if (oG.iNumeroPierna == 0)
                         {
-                            Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNoPierna");
+                            Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblNoPierna");
                             if (lblNoPierna.Text != null)
                                 oG.iNumeroPierna = lblNoPierna.Text.S().I();
                         }
@@ -1898,6 +1966,10 @@ namespace ClientesCasa.Views.Gastos
                         if (ddlTipoRubro != null)
                             oG.iIdTipoRubro = ddlTipoRubro.SelectedValue.S().I();
 
+                        DropDownList ddlProveedor = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlProvGUS");
+                        if (ddlProveedor != null)
+                            oG.sProveedor = ddlProveedor.SelectedItem.Text;
+
                         lstGastoEstimado.Add(oG);
                     }
                 }
@@ -1907,7 +1979,7 @@ namespace ClientesCasa.Views.Gastos
             }
             catch (Exception ex)
             {
-
+                 string strError = ex.ToString();
             }
         }
         public void MostrarMensaje(string sMensaje, string sCaption)
@@ -2083,6 +2155,7 @@ namespace ClientesCasa.Views.Gastos
                     ddlProveedor.DataValueField = "IdProveedor";
                     ddlProveedor.DataTextField = "Descripcion";
                     ddlProveedor.DataBind();
+
                 }
             }
             catch (Exception ex)
@@ -2205,7 +2278,7 @@ namespace ClientesCasa.Views.Gastos
             try
             {
                 string sRuta = string.Empty;
-                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia);
+                DataTable dt = new DBMttoPDF().DBGetDetalleReferencia(sReferencia, sMatricula, iAnio.S(), iMes.S());
                 if (dt.Rows.Count > 0)
                 {
                     int iMesRef = dt.Rows[0]["Mes"].S().I();

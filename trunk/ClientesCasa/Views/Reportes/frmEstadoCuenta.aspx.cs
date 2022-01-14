@@ -147,7 +147,7 @@ namespace ClientesCasa.Views.Reportes
                 DataSet dsMX = new DataSet();
                 DataTable dtMex;
                 string[] speriodo = txtPeriodo.Text.S().Split('/');
-
+                double dbNuevoCargo = 0.0;
                 if (speriodo.Length == 1)
                     speriodo = txtPeriodo.Text.S().Split('-');
 
@@ -183,12 +183,24 @@ namespace ClientesCasa.Views.Reportes
                 {
                     strSaldoAnterior = dtTotal.Rows[0]["SaldoAnterior"].S().D().ToString("c");
                     strPagosyCred = dtTotal.Rows[0]["PagosCreditos"].S().D().ToString("c");
-                    strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString("c");
+                    //--
+                    //strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString("c");
+                    strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString();
+                    dbNuevoCargo = double.Parse(strNuevosCargos);
+                    dbNuevoCargo = dbNuevoCargo * 1.16;
+                    strNuevosCargos = dbNuevoCargo.ToString("c");
+                    //--
                     strSaldoActual = dtTotal.Rows[0]["SaldoActual"].S().D().ToString("c");
 
                     strSaldoAnteriorUSD = dtTotal.Rows[1]["SaldoAnterior"].S().D().ToString("c");
                     strPagosyCredUSD = dtTotal.Rows[1]["PagosCreditos"].S().D().ToString("c");
-                    strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString("c");
+                    //--
+                    //strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString("c");
+                    strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString();
+                    dbNuevoCargo = double.Parse(strNuevosCargosUSD);
+                    dbNuevoCargo = dbNuevoCargo * 1.16;
+                    strNuevosCargosUSD = dbNuevoCargo.ToString("c");
+                    //--
                     strSaldoActualUSD = dtTotal.Rows[1]["SaldoActual"].S().D().ToString("c");
                 }
 

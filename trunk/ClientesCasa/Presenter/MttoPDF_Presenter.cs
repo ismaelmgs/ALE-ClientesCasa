@@ -29,7 +29,7 @@ namespace ClientesCasa.Presenter
 
         protected void eSearchDetailReferencia_Presenter(object sender, EventArgs e)
         {
-            DataTable dt = oIClientesCat.DBGetDetalleReferencia(oIView.sReferencia);
+            DataTable dt = oIClientesCat.DBGetDetalleReferencia(oIView.sReferencia, oIView.sMatriculaRef, oIView.iAnioRef.S(), oIView.iMesRef.S());
 
             if (dt.Rows.Count > 0)
             {

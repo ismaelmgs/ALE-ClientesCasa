@@ -32,6 +32,15 @@ namespace ClientesCasa.Presenter
         protected override void NewObj_Presenter(object sender, EventArgs e)
         {
             string sRes = oIGesCat.DBInsertaCorteMensualPorContrato(oIView.sClaveContrato, oIView.iMes, oIView.iAnio);
+            if (sRes != string.Empty)
+            {
+                oIView.InhabilitaBoton();
+                oIView.MostrarMensaje("La información de guardo correctamente.", "Aviso");
+            }
+            else
+                oIView.MostrarMensaje("Ocurrió un error al guardar el corte mensual.", "Aviso");
+
+
         }
     }
 }
