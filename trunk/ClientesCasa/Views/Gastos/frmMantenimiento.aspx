@@ -116,11 +116,12 @@
     </script>
 
     <style type="text/css">
-        .AlineadoDerecha{
-            text-align:right;
-            }
+        .AlineadoDerecha {
+            text-align: right;
+        }
+
         .ColumnaOculta {
-            display:none;
+            display: none;
         }
     </style>
 
@@ -255,7 +256,7 @@
                                         </div>
                                         <br />
                                         <div>
-                                            <div class="table-responsive" style="width: 100%; border:1px solid #dddddd;">
+                                            <div class="table-responsive" style="width: 100%; border: 1px solid #dddddd;">
                                                 <table class="table">
                                                     <tr>
                                                         <td>
@@ -277,7 +278,7 @@
                                                                                             <div id="div<%# Eval("IdGasto") %>" style="text-align: left">
                                                                                                 <asp:UpdatePanel ID="upaDetGastosMXN" runat="server" UpdateMode="Conditional">
                                                                                                     <ContentTemplate>
-                                                                                                        <asp:GridView ID="gvDetalleGastoMXN" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin:0 auto; border: 2px solid #547ba6;">
+                                                                                                        <asp:GridView ID="gvDetalleGastoMXN" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin: 0 auto; border: 2px solid #547ba6;">
                                                                                                             <Columns>
                                                                                                                 <asp:BoundField DataField="LegId" HeaderText="No pierna" />
                                                                                                                 <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
@@ -303,7 +304,7 @@
                                                                                     <ItemTemplate>
                                                                                         <asp:UpdatePanel ID="upaBusquedaPiernaMXN" runat="server" UpdateMode="Conditional">
                                                                                             <ContentTemplate>
-                                                                                               <asp:ImageButton ID="btnBuscarPierna" runat="server" OnClick="btnBuscarPierna_Click" ImageUrl="~/Images/icons/searchdate.png" ToolTip="De clic para buscar una pierna."  Width="18" Height="18" Style="margin: 0 auto; margin-left: 25%;"/>
+                                                                                                <asp:ImageButton ID="btnBuscarPierna" runat="server" OnClick="btnBuscarPierna_Click" ImageUrl="~/Images/icons/searchdate.png" ToolTip="De clic para buscar una pierna." Width="18" Height="18" Style="margin: 0 auto; margin-left: 25%;" />
                                                                                             </ContentTemplate>
                                                                                         </asp:UpdatePanel>
                                                                                     </ItemTemplate>
@@ -339,7 +340,7 @@
 
                                                                                 <asp:TemplateField HeaderText="Importe Original" ItemStyle-HorizontalAlign="Right">
                                                                                     <ItemTemplate>
-                                                                                        <asp:Label ID="lblImporteOriginal" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
+                                                                                        <asp:Label ID="lblImporteOriginal" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style="display: block; text-align: right;"></asp:Label>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
@@ -362,10 +363,10 @@
                                                                                     <ItemTemplate>
                                                                                         <asp:DropDownList ID="ddlTipoGasto" runat="server" Width="100px" EnableViewState="true">
                                                                                         </asp:DropDownList>
-                                                                                        <cc1:CascadingDropDown ID="cdlTipoGasto" TargetControlID="ddlTipoGasto" PromptText="Seleccione" LoadingText="Cargando..."
+                                                                                        <%--<cc1:CascadingDropDown ID="cdlTipoGasto" TargetControlID="ddlTipoGasto" PromptText="Seleccione" LoadingText="Cargando..."
                                                                                             PromptValue="Descripcion" ServicePath="ServiceCS.asmx" ServiceMethod="GetTipoGasto" runat="server"
                                                                                             Category="TipoGasto" EnableViewState="true" />
-                                                                                        <asp:HiddenField ID="hfTipoGasto" runat="server" />
+                                                                                        <asp:HiddenField ID="hfTipoGasto" runat="server" />--%>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
@@ -433,7 +434,7 @@
                                                 Font-Underline="false" Style="margin-right: 20px; height: 20px;"></asp:LinkButton>
                                         </div>
                                         <br />
-                                        <div class="table-responsive" style="width: 100%; border:1px solid #dddddd;">
+                                        <div class="table-responsive" style="width: 100%; border: 1px solid #dddddd;">
                                             <table class="table">
                                                 <tr>
                                                     <td>
@@ -455,7 +456,7 @@
                                                                                         <div id="divUSA<%# Eval("IdGasto") %>">
                                                                                             <asp:UpdatePanel ID="upaDetGastosUSD" runat="server" UpdateMode="Conditional">
                                                                                                 <ContentTemplate>
-                                                                                                    <asp:GridView ID="gvDetalleGastoUSD" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin:0 auto; border: 2px solid #547ba6;">
+                                                                                                    <asp:GridView ID="gvDetalleGastoUSD" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin: 0 auto; border: 2px solid #547ba6;">
                                                                                                         <Columns>
                                                                                                             <asp:BoundField DataField="LegId" HeaderText="No pierna" />
                                                                                                             <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
@@ -469,7 +470,7 @@
                                                                                     </asp:Panel>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-                                                                                                                                                        
+
                                                                             <asp:TemplateField HeaderText="Estimado">
                                                                                 <ItemTemplate>
                                                                                     <asp:ImageButton ID="btnEliminarUSA" runat="server" ToolTip="Elimina un gasto estimado" OnClientClick="return UserDeleteConfirmation();"
@@ -488,26 +489,26 @@
                                                                             </asp:TemplateField>
 
                                                                             <asp:TemplateField HeaderText="Fecha Vuelo">
-                                                                                    <ItemTemplate>
-                                                                                        <asp:UpdatePanel ID="upaFechaUSD" runat="server" UpdateMode="Conditional">
-                                                                                            <ContentTemplate>
-                                                                                                <asp:Label ID="lblFechaUSD" runat="server" Text='<%# Bind("FechaVuelo") %>'></asp:Label>
-                                                                                            </ContentTemplate>
-                                                                                        </asp:UpdatePanel>
-                                                                                    </ItemTemplate>
-                                                                                </asp:TemplateField>
+                                                                                <ItemTemplate>
+                                                                                    <asp:UpdatePanel ID="upaFechaUSD" runat="server" UpdateMode="Conditional">
+                                                                                        <ContentTemplate>
+                                                                                            <asp:Label ID="lblFechaUSD" runat="server" Text='<%# Bind("FechaVuelo") %>'></asp:Label>
+                                                                                        </ContentTemplate>
+                                                                                    </asp:UpdatePanel>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
 
                                                                             <asp:TemplateField HeaderText="No.Referencia" SortExpression="Referencia">
-                                                                                    <ItemTemplate>
-                                                                                        <asp:UpdatePanel ID="upaLinkRefDlls" runat="server" UpdateMode="Conditional">
-                                                                                            <ContentTemplate>
-                                                                                                <asp:Label ID="lblReferenciaDlls" runat="server" Text='<%# Bind("Referencia") %>' Font-Size="X-Small"></asp:Label>
-                                                                                                <asp:ImageButton ID="imbReferenciaDlls" runat="server" Width="16" Height="16" ImageUrl="~/Images/icons/searchdate.png" CommandName="ViewReference" Style="margin: 0 auto; margin-left: 25%;"
-                                                                                                    CommandArgument='<%# Bind("Referencia") %>' ToolTip="De clic para visualizar el documento." Visible="false"></asp:ImageButton>
-                                                                                            </ContentTemplate>
-                                                                                        </asp:UpdatePanel>
-                                                                                    </ItemTemplate>
-                                                                                </asp:TemplateField>
+                                                                                <ItemTemplate>
+                                                                                    <asp:UpdatePanel ID="upaLinkRefDlls" runat="server" UpdateMode="Conditional">
+                                                                                        <ContentTemplate>
+                                                                                            <asp:Label ID="lblReferenciaDlls" runat="server" Text='<%# Bind("Referencia") %>' Font-Size="X-Small"></asp:Label>
+                                                                                            <asp:ImageButton ID="imbReferenciaDlls" runat="server" Width="16" Height="16" ImageUrl="~/Images/icons/searchdate.png" CommandName="ViewReference" Style="margin: 0 auto; margin-left: 25%;"
+                                                                                                CommandArgument='<%# Bind("Referencia") %>' ToolTip="De clic para visualizar el documento." Visible="false"></asp:ImageButton>
+                                                                                        </ContentTemplate>
+                                                                                    </asp:UpdatePanel>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
 
                                                                             <asp:TemplateField HeaderText="Importe">
                                                                                 <ItemTemplate>
@@ -516,10 +517,10 @@
                                                                             </asp:TemplateField>
 
                                                                             <asp:TemplateField HeaderText="Importe Original" ItemStyle-HorizontalAlign="Right">
-                                                                                    <ItemTemplate>
-                                                                                        <asp:Label ID="lblImporteOriginalUSD" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style=" display:block; text-align: right;"></asp:Label>
-                                                                                    </ItemTemplate>
-                                                                                </asp:TemplateField>
+                                                                                <ItemTemplate>
+                                                                                    <asp:Label ID="lblImporteOriginalUSD" Text='<%# Bind("Importe", "{0:c}") %>' runat="server" Style="display: block; text-align: right;"></asp:Label>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
 
                                                                             <asp:TemplateField HeaderText="Fijo / Variable">
                                                                                 <ItemTemplate>
@@ -539,9 +540,9 @@
                                                                                 <ItemTemplate>
                                                                                     <asp:DropDownList ID="ddlTipoGasto" runat="server" Width="100px" EnableViewState="true">
                                                                                     </asp:DropDownList>
-                                                                                    <cc1:CascadingDropDown ID="cdlTipoGasto" TargetControlID="ddlTipoGasto" PromptText="Seleccione" LoadingText="Cargando..."
+                                                                                    <%--<cc1:CascadingDropDown ID="cdlTipoGasto" TargetControlID="ddlTipoGasto" PromptText="Seleccione" LoadingText="Cargando..."
                                                                                         PromptValue="Descripcion" ServicePath="ServiceCS.asmx" ServiceMethod="GetTipoGasto" runat="server"
-                                                                                        Category="TipoGasto" EnableViewState="true" />
+                                                                                        Category="TipoGasto" EnableViewState="true" />--%>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 
@@ -884,7 +885,7 @@
                             <td style="width: 40%; text-align: right">Fecha Operación:
                             </td>
                             <td style="width: 60%; text-align: left">
-                                <asp:TextBox ID="txtFechaOperacionUSA" runat="server" type="date" 
+                                <asp:TextBox ID="txtFechaOperacionUSA" runat="server" type="date"
                                     Width="80%" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
@@ -965,8 +966,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left; width: 30%"></td>
-                        <td style="text-align: left; width: 70%">
-                        </td>
+                        <td style="text-align: left; width: 70%"></td>
                     </tr>
                     <tr>
                         <td style="text-align: left">
@@ -1006,7 +1006,7 @@
             </ProgressTemplate>
         </asp:UpdateProgress>
     </asp:Panel>
-    
+
 
     <asp:UpdateProgress ID="prgLoadingStatus" runat="server" DynamicLayout="true">
         <ProgressTemplate>

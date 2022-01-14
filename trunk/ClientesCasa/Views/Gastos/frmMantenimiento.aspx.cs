@@ -675,9 +675,9 @@ namespace ClientesCasa.Views.Gastos
                     dSumaImporteO += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "ImporteModificado"));
 
                     DropDownList ddlTipoGasto = (DropDownList)e.Row.FindControl("ddlTipoGasto");
-                    DropDownList ddlAcumulado1 = (DropDownList)e.Row.FindControl("ddlAcumulado1");
+                    //DropDownList ddlAcumulado1 = (DropDownList)e.Row.FindControl("ddlAcumulado1");
 
-                    if (ddlTipoGasto != null && ddlAcumulado1 != null)
+                    if (ddlTipoGasto != null)
                     {
                         ddlTipoGasto.DataSource = dtTiposGasto;
                         ddlTipoGasto.DataTextField = "Descripcion";
@@ -687,8 +687,8 @@ namespace ClientesCasa.Views.Gastos
                         if (dt.Rows[e.Row.RowIndex]["TipoGasto"].S() != "")
                         {
                             ddlTipoGasto.SelectedValue = dt.Rows[e.Row.RowIndex]["TipoGasto"].S();
-                            CargaComboAcumuladoGasto(ddlAcumulado1, ObtieneAumuladosGasto1(dt.Rows[e.Row.RowIndex]["TipoGasto"].S()));
-                            ddlAcumulado1.SelectedValue = dt.Rows[e.Row.RowIndex]["AmpliadoGasto"].S();
+                            //CargaComboAcumuladoGasto(ddlAcumulado1, ObtieneAumuladosGasto1(dt.Rows[e.Row.RowIndex]["TipoGasto"].S()));
+                            //ddlAcumulado1.SelectedValue = dt.Rows[e.Row.RowIndex]["AmpliadoGasto"].S();
                         }
                     }
 
