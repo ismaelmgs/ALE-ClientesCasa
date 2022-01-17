@@ -204,13 +204,13 @@ namespace ClientesCasa.Views.Gastos
                 for (int i = 0; i < gvMantenimiento.Rows.Count; i++)
                 {
                     DropDownList ddlTipo = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlTipoGasto");
-                    CascadingDropDown cddTipo = (CascadingDropDown)gvMantenimiento.Rows[i].FindControl("cdlTipoGasto");
+                    //CascadingDropDown cddTipo = (CascadingDropDown)gvMantenimiento.Rows[i].FindControl("cdlTipoGasto");
                     DropDownList ddlAcu = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlAcumulado1");
                     CascadingDropDown cddAcu = (CascadingDropDown)gvMantenimiento.Rows[i].FindControl("cdlAmpliado");
 
                     if (dt.Rows[i]["TipoGasto"].S() != "")
                     {
-                        cddTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
+                        //cddTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
                         ddlTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
 
                         //cddAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
@@ -280,13 +280,13 @@ namespace ClientesCasa.Views.Gastos
                 for (int i = 0; i < gvMantenimientoUSA.Rows.Count; i++)
                 {
                     DropDownList ddlTipo = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlTipoGasto");
-                    CascadingDropDown cddTipo = (CascadingDropDown)gvMantenimientoUSA.Rows[i].FindControl("cdlTipoGasto");
+                    //CascadingDropDown cddTipo = (CascadingDropDown)gvMantenimientoUSA.Rows[i].FindControl("cdlTipoGasto");
                     DropDownList ddlAcu = (DropDownList)gvMantenimientoUSA.Rows[i].FindControl("ddlAcumulado1");
                     CascadingDropDown cddAcu = (CascadingDropDown)gvMantenimientoUSA.Rows[i].FindControl("cdlAmpliado");
 
                     if (dt.Rows[i]["TipoGasto"].S() != "")
                     {
-                        cddTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
+                        //cddTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
                         ddlTipo.SelectedValue = dt.Rows[i]["TipoGasto"].S();
 
                         //cddAcu.SelectedValue = dt.Rows[i]["AmpliadoGasto"].S();
