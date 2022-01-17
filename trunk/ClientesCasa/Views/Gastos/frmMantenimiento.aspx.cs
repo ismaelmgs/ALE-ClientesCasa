@@ -31,6 +31,7 @@ namespace ClientesCasa.Views.Gastos
             {
                 txtTrioUSA.Attributes["onfocus"] = "javascript:this.select();";
                 txtTripPiernas.Attributes["onfocus"] = "javascript:this.select();";
+                Utils.GuardarBitacora("MANTTO_DATOS  -->  Load   -------------------------------------------------");
             }
         }
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -83,6 +84,7 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
+                Utils.GuardarBitacora("MANTTO_DATOS  --> Selecciona la matricula ************");
                 //dtGastosMex = null;
                 lstCliente = new List<string>();
                 string sMatriculag = string.Empty;
@@ -125,6 +127,7 @@ namespace ClientesCasa.Views.Gastos
 
                         sContrato = sContratog;
                         mpePeriodo.Show();
+                        Utils.GuardarBitacora("MANTTO_DATOS  --> Muestra el Calendario");
                     }
                 }
             }
@@ -137,6 +140,7 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
+                Utils.GuardarBitacora("MANTTO_DATOS  --> Selecciona del periodo a consultar ************");
                 Page.Validate("VPeriodo");
                 if (Page.IsValid)
                 {
@@ -174,6 +178,7 @@ namespace ClientesCasa.Views.Gastos
                 }
                 else
                     mpePeriodo.Show();
+                Utils.GuardarBitacora("MANTTO_DATOS  --> muestra resultados en pantalla");
             }
             catch (Exception ex)
             {
@@ -634,6 +639,7 @@ namespace ClientesCasa.Views.Gastos
         decimal dSumaImporteO = 0;
         protected void gvMantenimiento_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound MXN ---");
             string sRubroSelect = string.Empty;
             string sProvGSelect = string.Empty;
             try
@@ -784,11 +790,13 @@ namespace ClientesCasa.Views.Gastos
             {
 
             }
+            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RowDataBound MXN --");
         }
         decimal dSumaImporteUSA = 0;
         decimal dSumaImporteOUSA = 0;
         protected void gvMantenimientoUSA_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound USD ---");
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
@@ -936,6 +944,7 @@ namespace ClientesCasa.Views.Gastos
             {
 
             }
+            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RowDataBound USD --");
         }
         protected void btnBuscarPierna_Click(object sender, EventArgs e)
         {

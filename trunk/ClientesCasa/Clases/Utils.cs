@@ -137,8 +137,7 @@ namespace ClientesCasa.Clases
         {
             try
             {
-                string lsCarpeta = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) +
-                                    "\\BitacorasApp\\";
+                string lsCarpeta = @"c:/Bitacoras/"; //Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\BitacorasApp\\";
                 string lsArchivo = "Bitacora_" + DateTime.Now.ToString("yyyy_MM_dd") + ".txt";
 
                 //valida si ya existe la carpeta o no
