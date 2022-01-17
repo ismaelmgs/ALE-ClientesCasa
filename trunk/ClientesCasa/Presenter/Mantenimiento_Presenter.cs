@@ -44,9 +44,9 @@ namespace ClientesCasa.Presenter
             Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Tipos de Gasto ---");
             oIView.dtTiposGasto = oIGesCat.DBGetConsultaTiposGasto;
             Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Tipos de Gasto --");
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Gastos MXN y USD ---");
+            
             DataSet ds = ArmaTablasParaCargarMXNyUSD(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene  Gastos MXN y USD --");
+            
             Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
             oIView.CargaGastosMEXUSA(ds);
             Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
@@ -95,6 +95,8 @@ namespace ClientesCasa.Presenter
         {
             try
             {
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Arma Gastor por contrato (porcentaje) --");
+
                 DataSet ds = new DataSet();
                 DataTable dtMEX = new DataTable("dtMex");
                 DataTable dtUSA = new DataTable("dtUSA");
@@ -111,19 +113,17 @@ namespace ClientesCasa.Presenter
                             string sName = row["ClaveContrato"].S();
                             dtMEX.Columns.Add("ddl" + sName);
                             dtUSA.Columns.Add("ddl" + sName);
-                        }
 
-                        foreach (DataRow row in dsCon.Tables[2].Rows)
-                        {
-                            string sName = row["ClaveContrato"].S();
                             dtMEX.Columns.Add(sName);
                             dtUSA.Columns.Add(sName);
                         }
+                        Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para MXN --");
 
                         foreach (DataRow row in dtMEX.Rows)
                         {
+                            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Importes Por Gastos y Contrato MXN --");
                             DataTable dt = oIGesCat.DBGetObtieneImportesPorGastosYContrato(row["IdGasto"].S().L(), Utils.GetUser);
-
+                            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Importes Por Gastos y Contrato MXN --");
                             for (int i = 0; i < dsCon.Tables[2].Rows.Count; i++)
                             {
                                 if (dt.Rows.Count > 0)
@@ -145,10 +145,14 @@ namespace ClientesCasa.Presenter
                             }
                         }
 
+                        Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene porcentaje para MXN --");
+
+                        Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para USD --");
                         foreach (DataRow row in dtUSA.Rows)
                         {
+                            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Importes Por Gastos y Contrato USD --");
                             DataTable dt = oIGesCat.DBGetObtieneImportesPorGastosYContrato(row["IdGasto"].S().L(), Utils.GetUser);
-
+                            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Importes Por Gastos y Contrato USD --");
                             for (int i = 0; i < dsCon.Tables[2].Rows.Count; i++)
                             {
                                 if (dt.Rows.Count > 0)
@@ -169,6 +173,8 @@ namespace ClientesCasa.Presenter
                                 }
                             }
                         }
+
+                        Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para USD --");
 
                         ds.Tables.Add(dtMEX);
                         ds.Tables.Add(dtUSA);
@@ -176,6 +182,7 @@ namespace ClientesCasa.Presenter
                     }
                 }
 
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Arma Gastor por contrato (porcentaje) --");
                 return ds;
             }
             catch (Exception ex)
