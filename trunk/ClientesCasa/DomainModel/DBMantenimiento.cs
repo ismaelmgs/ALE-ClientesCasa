@@ -113,6 +113,20 @@ namespace ClientesCasa.DomainModel
             }
         }
 
+        public DataTable DBGetObtieneImportesTodos_Gastos(string sMatricula, int iAnio, int iMes)
+        {
+            try
+            {
+                return oDB_SP.EjecutarDT("[ClientesCasa].[spS_CC_ConsultaImportesTODOSGastos]", "@Matricula", sMatricula,
+                                                                                                "@Anio", iAnio,
+                                                                                                "@Mes", iMes);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool DBSetActualizaGastos(GastoEstimado oGasto)
         {
             try

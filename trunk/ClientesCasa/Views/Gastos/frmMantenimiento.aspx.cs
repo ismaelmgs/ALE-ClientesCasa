@@ -639,7 +639,7 @@ namespace ClientesCasa.Views.Gastos
         decimal dSumaImporteO = 0;
         protected void gvMantenimiento_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound MXN ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound MXN ---");
             string sRubroSelect = string.Empty;
             string sProvGSelect = string.Empty;
             try
@@ -790,13 +790,13 @@ namespace ClientesCasa.Views.Gastos
             {
 
             }
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RowDataBound MXN --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RowDataBound MXN --");
         }
         decimal dSumaImporteUSA = 0;
         decimal dSumaImporteOUSA = 0;
         protected void gvMantenimientoUSA_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound USD ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound USD ---");
             try
             {
                 if (e.Row.RowType == DataControlRowType.DataRow)
@@ -944,7 +944,7 @@ namespace ClientesCasa.Views.Gastos
             {
 
             }
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RowDataBound USD --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RowDataBound USD --");
         }
         protected void btnBuscarPierna_Click(object sender, EventArgs e)
         {

@@ -19,6 +19,11 @@ namespace ClientesCasa.Interfaces
         List<MantenimientoGastos> oLstContratosGasto { set; get; }
         DataTable dtLegs { set; get; }
         int iTrip { set; get; }
+
+        int iMes { set; get; }
+        int iAnio { set; get; }
+
+
         long iIdGasto { set; get; }
         GastoEstimado oGastoE { set; get; }
         string sMatricula { set; get; }
