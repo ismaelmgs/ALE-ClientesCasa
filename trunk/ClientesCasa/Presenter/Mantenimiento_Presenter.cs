@@ -190,7 +190,7 @@ namespace ClientesCasa.Presenter
                             }
                         }
 
-                        Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para USD --");
+                        Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene porcentaje para USD --");
 
                         ds.Tables.Add(dtMEX);
                         ds.Tables.Add(dtUSA);
