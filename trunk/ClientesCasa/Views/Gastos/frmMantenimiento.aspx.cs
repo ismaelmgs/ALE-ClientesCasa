@@ -15,6 +15,7 @@ using ClientesCasa.Clases;
 using ClientesCasa.Objetos;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ClientesCasa.Views.Gastos
 {
@@ -1866,8 +1867,15 @@ namespace ClientesCasa.Views.Gastos
                 if (eSaveObj != null)
                     eSaveObj(null, EventArgs.Empty);
 
-                if (eInsImpGasto != null)
-                    eInsImpGasto(null, EventArgs.Empty);
+
+                //if (eInsImpGasto != null)
+                //    eInsImpGasto(null, EventArgs.Empty);
+
+                //await Task.Run(
+                   var i = new DBMantenimiento().DBSetInsertaImportesContratoGastos(oLstContratosGasto);
+                    //);
+
+
 
                 if (eObjSelected != null)
                     eObjSelected(null, EventArgs.Empty);
