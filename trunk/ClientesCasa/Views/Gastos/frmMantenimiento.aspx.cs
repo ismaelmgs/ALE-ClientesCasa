@@ -1868,13 +1868,8 @@ namespace ClientesCasa.Views.Gastos
                     eSaveObj(null, EventArgs.Empty);
 
 
-                //if (eInsImpGasto != null)
-                //    eInsImpGasto(null, EventArgs.Empty);
-
-                //await Task.Run(
-                   new DBMantenimiento().DBSetInsertaImportesContratoGastos(oLstContratosGasto);
-                    //);
-
+                if (eInsImpGasto != null)
+                    eInsImpGasto(null, EventArgs.Empty);
 
 
                 if (eObjSelected != null)

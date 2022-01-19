@@ -7,6 +7,7 @@ using NucleoBase.Core;
 using ClientesCasa.Clases;
 using ClientesCasa.Objetos;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ClientesCasa.DomainModel
 {
@@ -156,14 +157,17 @@ namespace ClientesCasa.DomainModel
         {
             try
             {
+                
                 foreach (MantenimientoGastos oGasto in oGastos)
                 {
                     oDB_SP.EjecutarSP("[ClientesCasa].[spI_CC_InsertaImporteContratosGasto]", "@IdGasto", oGasto.iIdGasto,
-                                                                                              "@Importe", oGasto.dImporte,
-                                                                                              "@ClaveContrato", oGasto.sContrato,
-                                                                                              "@Porcentaje", oGasto.iPorcentaje,
-                                                                                              "@UsuarioModificacion", oGasto.sUsuario);
+                                                                                                "@Importe", oGasto.dImporte,
+                                                                                                "@ClaveContrato", oGasto.sContrato,
+                                                                                                "@Porcentaje", oGasto.iPorcentaje,
+                                                                                                "@UsuarioModificacion", oGasto.sUsuario);
+                    
                 }
+               
             }
             catch (Exception ex)
             {

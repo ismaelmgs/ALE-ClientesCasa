@@ -80,7 +80,7 @@ namespace ClientesCasa.Presenter
         }
         protected void eInsImpGasto_Presenter(object sender, EventArgs e)
         {
-            oIGesCat.DBSetInsertaImportesContratoGastos(oIView.oLstContratosGasto);
+            //oIGesCat.DBSetInsertaImportesContratoGastos(oIView.oLstContratosGasto);
         }
         protected void eSearchLegs_Presenter(object sender, EventArgs e)
         {
