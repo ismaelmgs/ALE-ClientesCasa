@@ -1872,7 +1872,7 @@ namespace ClientesCasa.Views.Gastos
                 //    eInsImpGasto(null, EventArgs.Empty);
 
                 //await Task.Run(
-                   var i = new DBMantenimiento().DBSetInsertaImportesContratoGastos(oLstContratosGasto);
+                   new DBMantenimiento().DBSetInsertaImportesContratoGastos(oLstContratosGasto);
                     //);
 
 
