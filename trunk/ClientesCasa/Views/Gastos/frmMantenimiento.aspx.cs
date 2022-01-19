@@ -1077,9 +1077,13 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO carga Importes Porcentajes Pesos ---");
                 CargaImportePorcentajes(gvMantenimiento);
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN carga Importes Porcentajes Pesos--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RecuperaGrid Pesos---");
                 RecuperaGridPesos();
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RecuperaGrid Pesos--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Valida Porcentajes Pesos---");
                 if (ValidaPorcentajes(gvMantenimiento) != 0)
                 {
                     eMoneda = MonedaGasto.Pesos;
@@ -1090,7 +1094,10 @@ namespace ClientesCasa.Views.Gastos
                     upaGridGastosMXN.Update();
                     return;
                 }
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Valida Porcentajes Pesos--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Actualiza Grid Pesos---");
                 string sRes = ActualizaGridPesos();
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Actualiza Grid Pesos---");
                 MostrarMensaje(sRes, "Aviso");
             }
             catch (Exception ex)
@@ -1102,9 +1109,13 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO carga Importes Porcentajes Dolares ---");
                 CargaImportePorcentajes(gvMantenimientoUSA);
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN carga Importes Porcentajes Dolares --");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RecuperaGrid Dolares---");
                 RecuperaGridDolares();
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN RecuperaGrid Dolares--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Valida Porcentajes Dolares---");
                 if (ValidaPorcentajes(gvMantenimientoUSA) != 0)
                 {
                     eMoneda = MonedaGasto.Dolares;
@@ -1114,7 +1125,10 @@ namespace ClientesCasa.Views.Gastos
                     upaGastosDolares.Update();
                     return;
                 }
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Valida Porcentajes Dolares--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Actualiza Grid Dolares---");
                 string sRes = ActualizaGridDolares();
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Actualiza Grid Dolares--");
                 MostrarMensaje(sRes, "Aviso");
             }
             catch (Exception ex)
@@ -1862,16 +1876,18 @@ namespace ClientesCasa.Views.Gastos
                 oLstGastoE = (List<GastoEstimado>)Session["lstGridGastoEstimado"];
                 oLstContratosGasto = (List<MantenimientoGastos>)Session["lstGridMantenimientoGastos"];
 
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO proceso Save Pesos---");
                 if (eSaveObj != null)
                     eSaveObj(null, EventArgs.Empty);
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN proceso Save --");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO proceso InsImpGasto ---");
                 if (eInsImpGasto != null)
                     eInsImpGasto(null, EventArgs.Empty);
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN proceso InsImpGasto --");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO proceso eObjSelected --------------");
                 if (eObjSelected != null)
                     eObjSelected(null, EventArgs.Empty);
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN proceso eObjSelected -----------------");
                 return "Los gastos se modificaron correctamente.";
             }
             catch (Exception ex)
@@ -1888,16 +1904,18 @@ namespace ClientesCasa.Views.Gastos
 
                 oLstGastoE = (List<GastoEstimado>)Session["lstGridGastoEstimadoUsa"];
                 oLstContratosGasto = (List<MantenimientoGastos>)Session["lstGridMantenimientoGastosUsa"];
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO proceso Save Dolares---");
                 if (eSaveObj != null)
                     eSaveObj(null, EventArgs.Empty);
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN proceso Save Dolares--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO proceso InsImpGasto Dolares---");
                 if (eInsImpGasto != null)
                     eInsImpGasto(null, EventArgs.Empty);
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN proceso InsImpGasto Dolares--");
+                Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO proceso eObjSelected Dolares +++++++");
                 if (eObjSelected != null)
                     eObjSelected(null, EventArgs.Empty);
-
+                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN proceso eObjSelected Dolares +++++++");
                 return "Los gastos se modificaron correctamente.";
             }
             catch (Exception ex)

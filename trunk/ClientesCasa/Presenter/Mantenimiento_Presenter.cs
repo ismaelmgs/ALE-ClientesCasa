@@ -35,21 +35,21 @@ namespace ClientesCasa.Presenter
         protected override void ObjSelected_Presenter(object sender, EventArgs e)
         {
             object[] oArr = oIView.oArrGastos;
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Rubros ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Rubros ---");
             oIView.dtRubros = oIGesCat.DBGetObtieneRubros;
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Rubros --");
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene proveedores ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Rubros --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene proveedores ---");
             oIView.dtProveedor = oIGesCat.DBGetObtieneProveedores();
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Proveedores --");
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Tipos de Gasto ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Proveedores --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Tipos de Gasto ---");
             oIView.dtTiposGasto = oIGesCat.DBGetConsultaTiposGasto;
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Tipos de Gasto --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Tipos de Gasto --");
             
             DataSet ds = ArmaTablasParaCargarMXNyUSD(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
             
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
             oIView.CargaGastosMEXUSA(ds);
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
         }
         protected void eUpaGastos_Presenter(object sender, EventArgs e)
         {
@@ -120,7 +120,7 @@ namespace ClientesCasa.Presenter
 
                         DataTable dtT = oIGesCat.DBGetObtieneImportesTodos_Gastos(oIView.sMatricula , oIView.iAnio, oIView.iMes);
 
-                        Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para MXN --");
+                        //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para MXN --");
                         foreach (DataRow row in dtMEX.Rows)
                         {
                             
@@ -155,9 +155,9 @@ namespace ClientesCasa.Presenter
                             }
                         }
 
-                        Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene porcentaje para MXN --");
+                        //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene porcentaje para MXN --");
 
-                        Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para USD --");
+                        //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene porcentaje para USD --");
                         foreach (DataRow row in dtUSA.Rows)
                         {
                             string strIdGastoUSA = row["IdGasto"].S();
@@ -190,7 +190,7 @@ namespace ClientesCasa.Presenter
                             }
                         }
 
-                        Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene porcentaje para USD --");
+                        //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene porcentaje para USD --");
 
                         ds.Tables.Add(dtMEX);
                         ds.Tables.Add(dtUSA);
