@@ -25,7 +25,7 @@ namespace ClientesCasa.Views.Gastos
         #region EVENTOS
         protected void Page_Load(object sender, EventArgs e)
         {
-            Utils.GuardarBitacora("MANTTO_DATOS  --> ** INICIO Load   -------------------------------------------------");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> ** INICIO Load   -------------------------------------------------");
             //se inicia el presentador
             oPresenter = new Mantenimiento_Presenter(this, new DBMantenimiento());
 
@@ -38,16 +38,16 @@ namespace ClientesCasa.Views.Gastos
                     eGetCargaInicial(sender, e);
             }
 
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Load   -------------------------------------------------");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Load   -------------------------------------------------");
         }
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             try
             {
-                Utils.GuardarBitacora("MANTTO_DATOS  --> ** INICIO busqueda de clientes");
+                //Utils.GuardarBitacora("MANTTO_DATOS  --> ** INICIO busqueda de clientes");
                 if (eSearchObj != null)
                     eSearchObj(sender, e);
-                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN busqueda de clientes");
+                //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN busqueda de clientes");
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
-                Utils.GuardarBitacora("MANTTO_DATOS  --> Selecciona la matricula ************");
+                //Utils.GuardarBitacora("MANTTO_DATOS  --> Selecciona la matricula ************");
                 //dtGastosMex = null;
                 lstCliente = new List<string>();
                 string sMatriculag = string.Empty;
@@ -135,7 +135,7 @@ namespace ClientesCasa.Views.Gastos
 
                         sContrato = sContratog;
                         mpePeriodo.Show();
-                        Utils.GuardarBitacora("MANTTO_DATOS  --> Muestra el Calendario");
+                        //Utils.GuardarBitacora("MANTTO_DATOS  --> Muestra el Calendario");
                     }
                 }
             }
@@ -148,7 +148,7 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
-                Utils.GuardarBitacora("MANTTO_DATOS  --> ** INICIO Selecciona del periodo a consultar ************");
+                //Utils.GuardarBitacora("MANTTO_DATOS  --> ** INICIO Selecciona del periodo a consultar ************");
                 Page.Validate("VPeriodo");
                 if (Page.IsValid)
                 {
@@ -186,7 +186,7 @@ namespace ClientesCasa.Views.Gastos
                 }
                 else
                     mpePeriodo.Show();
-                Utils.GuardarBitacora("MANTTO_DATOS  --> FIN muestra resultados en pantalla");
+                //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN muestra resultados en pantalla");
             }
             catch (Exception ex)
             {
@@ -1097,18 +1097,18 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
-                Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Carga Importes porcentajes");
+               // Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Carga Importes porcentajes");
                 CargaImportePorcentajes(gvMantenimiento);
-                Utils.GuardarBitacora("MANTTO_DATOS --> FIN Carga Importes porcentajes");
+                //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Carga Importes porcentajes");
 
-                Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Recupera Grid Pesos");
+                //Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Recupera Grid Pesos");
                 RecuperaGridPesos();
-                Utils.GuardarBitacora("MANTTO_DATOS --> FIN Recupera Grid Pesos");
+                //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Recupera Grid Pesos");
 
-                Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Valida porcentajes");
+                //Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Valida porcentajes");
                 if (ValidaPorcentajes(gvMantenimiento) != 0)
                 {
-                    Utils.GuardarBitacora("MANTTO_DATOS --> FIN Valida porcentajes");
+                    //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Valida porcentajes");
 
                     eMoneda = MonedaGasto.Pesos;
                     upaGastosPesos.Update();
@@ -1118,9 +1118,9 @@ namespace ClientesCasa.Views.Gastos
                     upaGridGastosMXN.Update();
                     return;
                 }
-                Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Actualiza grid pesos");
+                //Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Actualiza grid pesos");
                 string sRes = ActualizaGridPesos();
-                Utils.GuardarBitacora("MANTTO_DATOS --> FIN Actualiza grid pesos");
+                //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Actualiza grid pesos");
 
                 GC.Collect();
                 MostrarMensaje(sRes, "Aviso");
@@ -1895,16 +1895,16 @@ namespace ClientesCasa.Views.Gastos
                 oLstGastoE = (List<GastoEstimado>)Session["lstGridGastoEstimado"];
                 oLstContratosGasto = (List<MantenimientoGastos>)Session["lstGridMantenimientoGastos"];
 
-                Utils.GuardarBitacora("MANTTO_DATOS  -->        eSaveObj");
+                //Utils.GuardarBitacora("MANTTO_DATOS  -->        eSaveObj");
                 if (eSaveObj != null)
                     eSaveObj(null, EventArgs.Empty);
 
 
-                Utils.GuardarBitacora("MANTTO_DATOS  -->        eInsImpGasto");
+                //Utils.GuardarBitacora("MANTTO_DATOS  -->        eInsImpGasto");
                 if (eInsImpGasto != null)
                     eInsImpGasto(null, EventArgs.Empty);
 
-                Utils.GuardarBitacora("MANTTO_DATOS  -->        eObjSelected");
+                //Utils.GuardarBitacora("MANTTO_DATOS  -->        eObjSelected");
                 if (eObjSelected != null)
                     eObjSelected(null, EventArgs.Empty);
 
