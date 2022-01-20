@@ -379,7 +379,7 @@
     <script src="<%=ResolveClientUrl("~/Scripts/wysihtml5-0.3.0.js") %>"></script>
     <script src="<%=ResolveClientUrl("~/Scripts/jquery.peity.min.js") %>"></script>
     <script src="<%=ResolveClientUrl("~/Scripts/bootstrap-wysihtml5.js") %>"></script>
-    <script type="text/javascript" src="<%=ResolveClientUrl("https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE") %>"></script>
+    
 
 
 <script type="text/javascript">

@@ -40,6 +40,22 @@ namespace ClientesCasa.Objetos
         public int iPorcentaje { get { return _iPorcentaje; } set { _iPorcentaje = value; } }
     }
 
+    [Serializable]
+    public class MantenimientoGastosType
+    {
+        private Int64 _iIdGasto = 0;
+        private decimal _dImporte = 0;
+        private string _sContrato = string.Empty;
+        private int _iPorcentaje = 0;
+        private string _sUsuario = string.Empty;
+        
+        public long iIdGasto { get { return _iIdGasto; } set { _iIdGasto = value; } }
+        public decimal dImporte { get { return _dImporte; } set { _dImporte = value; } }
+        public string sContrato { get { return _sContrato; } set { _sContrato = value; } }
+        public string sUsuario { get { return _sUsuario; } set { _sUsuario = value; } }
+        public int iPorcentaje { get { return _iPorcentaje; } set { _iPorcentaje = value; } }
+    }
+
     [Serializable, Bindable(BindableSupport.Yes)]
     public class GastoEstimado
     {

@@ -127,7 +127,7 @@
 
 
     <cc1:ToolkitScriptManager ID="ToolKitScriptManager" runat="server"></cc1:ToolkitScriptManager>
-    <asp:UpdatePanel ID="upaPrincipal" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="upaPrincipal" runat="server" UpdateMode="Always">
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server">
                 <div style="text-align: left">
