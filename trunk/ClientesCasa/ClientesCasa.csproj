@@ -185,6 +185,7 @@
     <Content Include="Views\Gastos\frmExtraccionGastos.aspx" />
     <Content Include="Views\Gastos\frmCorteGastos.aspx" />
     <Content Include="Views\Gastos\frmMantenimiento.aspx" />
+    <Content Include="Views\Gastos\frmMantenimiento2.aspx" />
     <Content Include="Views\Gastos\frmVistaPreviaRef.aspx" />
     <Content Include="Views\Gastos\ServiceCS.asmx" />
     <Content Include="Views\Principales\frmDashboard.aspx" />
@@ -824,6 +825,13 @@
     </Compile>
     <Compile Include="Views\Gastos\frmMantenimiento.aspx.designer.cs">
       <DependentUpon>frmMantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gastos\frmMantenimiento2.aspx.cs">
+      <DependentUpon>frmMantenimiento2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Gastos\frmMantenimiento2.aspx.designer.cs">
+      <DependentUpon>frmMantenimiento2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Gastos\frmVistaPreviaRef.aspx.cs">
       <DependentUpon>frmVistaPreviaRef.aspx</DependentUpon>
