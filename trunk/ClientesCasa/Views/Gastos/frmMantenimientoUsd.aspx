@@ -131,7 +131,7 @@
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server">
                 <div style="text-align: left">
-                    <h4>&nbsp;&nbsp;Mantenimiento de datos</h4>
+                    <h4>&nbsp;&nbsp;Mantenimiento de datos USD</h4>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title">
@@ -466,14 +466,14 @@
                                                                                         <div id="divUSA<%# Eval("IdGasto") %>">
                                                                                             <asp:UpdatePanel ID="upaDetGastosUSD" runat="server" UpdateMode="Conditional">
                                                                                                 <ContentTemplate>
-                                                                                                    <%--<asp:GridView ID="gvDetalleGastoUSD" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin: 0 auto; border: 2px solid #547ba6;">
+                                                                                                    <asp:GridView ID="gvDetalleGastoUSD" runat="server" AutoGenerateColumns="false" Width="80%" Style="margin: 0 auto; border: 2px solid #547ba6;">
                                                                                                         <Columns>
                                                                                                             <asp:BoundField DataField="LegId" HeaderText="No pierna" />
                                                                                                             <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
                                                                                                             <asp:BoundField DataField="FechaVuelo" HeaderText="Fecha vuelo" />
                                                                                                             <asp:BoundField DataField="TiempoCalzo" HeaderText="Tiempo calzo" />
                                                                                                         </Columns>
-                                                                                                    </asp:GridView>--%>
+                                                                                                    </asp:GridView>
                                                                                                 </ContentTemplate>
                                                                                             </asp:UpdatePanel>
                                                                                         </div>

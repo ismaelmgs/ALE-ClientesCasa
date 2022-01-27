@@ -131,7 +131,7 @@
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server">
                 <div style="text-align: left">
-                    <h4>&nbsp;&nbsp;Mantenimiento de datos</h4>
+                    <h4>&nbsp;&nbsp;Mantenimiento de datos MXN</h4>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title">
@@ -599,6 +599,18 @@
             </asp:Panel>
 
 
+            <asp:UpdateProgress ID="prgLoadingStatus" runat="server" DynamicLayout="true">
+                <ProgressTemplate>
+                    <div id="overlay">
+                        <div id="modalprogress">
+                            <div id="theprogress">
+                                <asp:Image ID="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/icons/loading-animated.gif" Width="150" Height="130" />
+                            </div>
+                        </div>
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+
         </ContentTemplate>
     </asp:UpdatePanel>
 
@@ -1025,16 +1037,6 @@
     </asp:Panel>
 
 
-    <asp:UpdateProgress ID="prgLoadingStatus" runat="server" DynamicLayout="true">
-        <ProgressTemplate>
-            <div id="overlay">
-                <div id="modalprogress">
-                    <div id="theprogress">
-                        <asp:Image ID="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/icons/loading-animated.gif" Width="150" Height="130" />
-                    </div>
-                </div>
-            </div>
-        </ProgressTemplate>
-    </asp:UpdateProgress>
+    
 
 </asp:Content>
