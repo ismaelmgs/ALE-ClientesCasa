@@ -174,7 +174,7 @@ namespace ClientesCasa.Views.Gastos
 
                     pnlActualizar.Visible = true;
                     pnlRubros.Visible = true;
-                    pnlRubrosUSA.Visible = true;
+                    //pnlRubrosUSA.Visible = true;
 
                     if (eObjSelected != null)
                         eObjSelected(sender, e);
@@ -1079,7 +1079,7 @@ namespace ClientesCasa.Views.Gastos
                         eObjSelected(sender, e);
 
                     upaGridGastosMXN.Update();
-                    upaGastosDolares.Update();
+                    //upaGastosDolares.Update();
 
                     LimpiaCamposGastoEstimado();
 
@@ -1672,17 +1672,18 @@ namespace ClientesCasa.Views.Gastos
                 if (ds != null)
                 {
                     dtGastosMEX = ds.Tables[0];
-                    dtGastosUSA = ds.Tables[1];
+                    //dtGastosUSA = ds.Tables[1];
+                    dtGastosUSA = null;
                     dtContratos = ds.Tables[2];
 
                     gvMantenimiento.DataSource = ds.Tables[0];
                     gvMantenimiento.DataBind();
 
-                    gvMantenimientoUSA.DataSource = ds.Tables[1];
-                    gvMantenimientoUSA.DataBind();
+                    //gvMantenimientoUSA.DataSource = ds.Tables[1];
+                    //gvMantenimientoUSA.DataBind();
 
                     pnlRubros.Visible = true;
-                    pnlRubrosUSA.Visible = true;
+                    //pnlRubrosUSA.Visible = true;
                 }
                 GC.Collect();
             }
