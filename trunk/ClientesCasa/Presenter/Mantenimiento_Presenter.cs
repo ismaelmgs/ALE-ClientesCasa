@@ -24,21 +24,16 @@ namespace ClientesCasa.Presenter
             oIView.eInsImpGasto += eInsImpGasto_Presenter;
             oIView.eSearchLegs += eSearchLegs_Presenter;
             oIView.eNewGastoEstimado += eNewGastoEstimado_Presenter;
-            oIView.eUpaComprobante += eUpaComprobante_Presenter;
+            oIView.eUpaComprobanteMXN += eUpaComprobanteMXN_Presenter;
+            oIView.eUpaComprobanteUSD += eUpaComprobanteUSD_Presenter;
             oIView.eGetCargaInicial += eGetCargaInicial_Presenter;
         }
 
         protected void eGetCargaInicial_Presenter(object sender, EventArgs e)
         {
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Rubros ---");
             oIView.dtRubros = oIGesCat.DBGetObtieneRubros;
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Rubros --");
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene proveedores ---");
             oIView.dtProveedor = oIGesCat.DBGetObtieneProveedores();
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Proveedores --");
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO Obtiene Tipos de Gasto ---");
             oIView.dtTiposGasto = oIGesCat.DBGetConsultaTiposGasto;
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN Obtiene Tipos de Gasto --");
         }
 
         protected override void SearchObj_Presenter(object sender, EventArgs e)
@@ -48,12 +43,13 @@ namespace ClientesCasa.Presenter
         }
         protected override void ObjSelected_Presenter(object sender, EventArgs e)
         {
+            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
             object[] oArr = oIView.oArrGastos;
             DataSet ds = ArmaTablasParaCargarMXNyUSD(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
             
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
+            
             oIView.CargaGastosMEXUSA(ds);
-            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
+            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
         }
         protected void eUpaGastos_Presenter(object sender, EventArgs e)
         {
@@ -69,8 +65,9 @@ namespace ClientesCasa.Presenter
                 }
             }
 
-            oIView.dtRubros = oIGesCat.DBGetObtieneRubros;
-            oIView.dtTiposGasto = oIGesCat.DBGetConsultaTiposGasto;
+            //Omar Validar que no haya problemas
+            //oIView.dtRubros = oIGesCat.DBGetObtieneRubros;
+            //oIView.dtTiposGasto = oIGesCat.DBGetConsultaTiposGasto;
             DataSet dsCon = ArmaTablasParaCargarMXNyUSD(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
             
             oIView.CargaGastosMEXUSA(dsCon);
@@ -251,9 +248,17 @@ namespace ClientesCasa.Presenter
                 throw ex;
             }
         }
-        protected void eUpaComprobante_Presenter(object sender, EventArgs e)
+        protected void eUpaComprobanteMXN_Presenter(object sender, EventArgs e)
         {
             oIGesCat.ActualizaBanderaComprobanteGasto(oIView.dtGastosMEX);
+            //oIGesCat.ActualizaBanderaComprobanteGasto(oIView.dtGastosUSA);
+
+            ObjSelected_Presenter(sender, e);
+        }
+
+        protected void eUpaComprobanteUSD_Presenter(object sender, EventArgs e)
+        {
+            //oIGesCat.ActualizaBanderaComprobanteGasto(oIView.dtGastosMEX);
             oIGesCat.ActualizaBanderaComprobanteGasto(oIView.dtGastosUSA);
 
             ObjSelected_Presenter(sender, e);

@@ -1653,8 +1653,8 @@ namespace ClientesCasa.Views.Gastos
         }
         protected void btnActualizarComprobantes_Click(object sender, EventArgs e)
         {
-            if (eUpaComprobante != null)
-                eUpaComprobante(sender, e);
+            if (eUpaComprobanteUSD != null)
+                eUpaComprobanteUSD(sender, e);
         }
         #endregion
 
@@ -2368,7 +2368,8 @@ namespace ClientesCasa.Views.Gastos
         public event EventHandler eInsImpGasto;
         public event EventHandler eSearchLegs;
         public event EventHandler eNewGastoEstimado;
-        public event EventHandler eUpaComprobante;
+        public event EventHandler eUpaComprobanteUSD;
+        public event EventHandler eUpaComprobanteMXN;
         public event EventHandler eGetCargaInicial;
 
         public DataTable dtClientes
