@@ -10,7 +10,7 @@
 namespace ClientesCasa.Views.Gastos {
     
     
-    public partial class frmMantenimiento2 {
+    public partial class frmMantenimientoUsd {
         
         /// <summary>
         /// Control ToolKitScriptManager.

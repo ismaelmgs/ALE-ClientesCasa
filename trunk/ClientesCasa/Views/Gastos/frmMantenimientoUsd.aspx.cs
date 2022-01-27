@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace ClientesCasa.Views.Gastos
 {
-    public partial class frmMantenimiento2 : System.Web.UI.Page, IViewMantenimiento
+    public partial class frmMantenimientoUsd : System.Web.UI.Page, IViewMantenimiento
     {
 
         #region EVENTOS
