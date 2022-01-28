@@ -417,7 +417,7 @@ namespace ClientesCasa.Presenter
             //oIGesCat.ActualizaBanderaComprobanteGasto(oIView.dtGastosMEX);
             oIGesCat.ActualizaBanderaComprobanteGasto(oIView.dtGastosUSA);
 
-            ObjSelected_Presenter(sender, e);
+            ObjSelectedUSD_Presenter(sender, e);
         }
     }
 }
