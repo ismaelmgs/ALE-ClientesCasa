@@ -176,8 +176,8 @@ namespace ClientesCasa.Views.Gastos
                     //pnlRubros.Visible = true;
                     pnlRubrosUSA.Visible = true;
 
-                    if (eObjSelected != null)
-                        eObjSelected(sender, e);
+                    if (eObjSelectedUSD != null)
+                        eObjSelectedUSD(sender, e);
 
                     //lblCentroCostosMEX.Text = "Centro de costos: " + sCentroCostos;
 
@@ -197,8 +197,8 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
-                if (eUpaGastos != null)
-                    eUpaGastos(sender, e);
+                if (eUpaGastosUSD != null)
+                    eUpaGastosUSD(sender, e);
 
                 if (eSearchObj != null)
                     eSearchObj(sender, e);
@@ -425,8 +425,8 @@ namespace ClientesCasa.Views.Gastos
                             if (eDeleteObj != null)
                                 eDeleteObj(sender, e);
 
-                            if (eObjSelected != null)
-                                eObjSelected(sender, e);
+                            if (eObjSelectedUSD != null)
+                                eObjSelectedUSD(sender, e);
 
                             upaGastosDolares.Update();
                         }
@@ -1077,8 +1077,8 @@ namespace ClientesCasa.Views.Gastos
                     if (eNewGastoEstimado != null)
                         eNewGastoEstimado(sender, e);
 
-                    if (eObjSelected != null)
-                        eObjSelected(sender, e);
+                    if (eObjSelectedUSD != null)
+                        eObjSelectedUSD(sender, e);
 
                     //upaGridGastosMXN.Update();
                     upaGastosDolares.Update();
@@ -1679,13 +1679,13 @@ namespace ClientesCasa.Views.Gastos
                 {
                     //dtGastosMEX = ds.Tables[0];
                     dtGastosMEX = null;
-                    dtGastosUSA = ds.Tables[1];
-                    dtContratos = ds.Tables[2];
+                    dtGastosUSA = ds.Tables[0];
+                    dtContratos = ds.Tables[1];
 
                     //gvMantenimiento.DataSource = ds.Tables[0];
                     //gvMantenimiento.DataBind();
 
-                    gvMantenimientoUSA.DataSource = ds.Tables[1];
+                    gvMantenimientoUSA.DataSource = dtGastosUSA;
                     gvMantenimientoUSA.DataBind();
 
                     //pnlRubros.Visible = true;
@@ -1939,8 +1939,8 @@ namespace ClientesCasa.Views.Gastos
                 if (eInsImpGasto != null)
                     eInsImpGasto(null, EventArgs.Empty);
 
-                if (eObjSelected != null)
-                    eObjSelected(null, EventArgs.Empty);
+                if (eObjSelectedUSD != null)
+                    eObjSelectedUSD(null, EventArgs.Empty);
 
                 return "Los gastos se modificaron correctamente.";
             }
@@ -2365,12 +2365,14 @@ namespace ClientesCasa.Views.Gastos
         public event EventHandler eDeleteObj;
         public event EventHandler eSearchObj;
         public event EventHandler eUpaGastos;
+        public event EventHandler eUpaGastosUSD;
         public event EventHandler eInsImpGasto;
         public event EventHandler eSearchLegs;
         public event EventHandler eNewGastoEstimado;
         public event EventHandler eUpaComprobanteUSD;
         public event EventHandler eUpaComprobanteMXN;
         public event EventHandler eGetCargaInicial;
+        public event EventHandler eObjSelectedUSD;
 
         public DataTable dtClientes
         {

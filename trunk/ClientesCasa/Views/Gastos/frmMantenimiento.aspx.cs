@@ -1674,9 +1674,9 @@ namespace ClientesCasa.Views.Gastos
                     dtGastosMEX = ds.Tables[0];
                     //dtGastosUSA = ds.Tables[1];
                     dtGastosUSA = null;
-                    dtContratos = ds.Tables[2];
+                    dtContratos = ds.Tables[1];
 
-                    gvMantenimiento.DataSource = ds.Tables[0];
+                    gvMantenimiento.DataSource = dtGastosMEX;
                     gvMantenimiento.DataBind();
 
                     //gvMantenimientoUSA.DataSource = ds.Tables[1];
@@ -2358,12 +2358,14 @@ namespace ClientesCasa.Views.Gastos
         public event EventHandler eDeleteObj;
         public event EventHandler eSearchObj;
         public event EventHandler eUpaGastos;
+        public event EventHandler eUpaGastosUSD;
         public event EventHandler eInsImpGasto;
         public event EventHandler eSearchLegs;
         public event EventHandler eNewGastoEstimado;
         public event EventHandler eUpaComprobanteMXN;
         public event EventHandler eUpaComprobanteUSD;
         public event EventHandler eGetCargaInicial;
+        public event EventHandler eObjSelectedUSD;
 
         public DataTable dtClientes
         {

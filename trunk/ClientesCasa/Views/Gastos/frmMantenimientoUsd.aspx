@@ -123,6 +123,9 @@
         .ColumnaOculta {
             display: none;
         }
+        .rowSelect{
+            cursor:pointer;
+        }
     </style>
 
 
@@ -191,6 +194,7 @@
                                                 <asp:BoundField DataField="ClaveContrato" HeaderText="Clave del contrato" />
                                                 <asp:BoundField DataField="Matricula" HeaderText="Matrícula Aeronave" />
                                             </Columns>
+                                            <RowStyle CssClass="rowSelect" />
                                         </asp:GridView>
                                     </div>
                                 </td>
