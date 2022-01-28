@@ -145,6 +145,7 @@
 
                         <div class="control-group">
                             <div class="controls">
+                            <%--<div class="">--%>
                                 <br />
                                 <div class="table-responsive" style="margin: 5px;">
                                     <table style="width: 100%" class="table table-striped">
@@ -431,6 +432,7 @@
                             <div class="widget-content nopadding">
                                 <div class="control-group">
                                     <div class="controls">
+                                    <%--<div class="">--%>
                                         <div style="text-align: right; margin-right: 15px;">
                                             <asp:Button ID="btnAgregarEstimadoUSA" runat="server" Text="Agregar Gasto Estimado" CssClass="btn btn-success" OnClick="btnAgregarEstimadoUSA_Click" Style="margin-right: 20px !important; width: 180px !important;" />
                                         </div>
@@ -463,7 +465,7 @@
                                                                             No existen Registros.
                                                                         </EmptyDataTemplate>
                                                                         <Columns>
-                                                                            <asp:TemplateField HeaderText="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+                                                                            <%--<asp:TemplateField HeaderText="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
                                                                                 <ItemTemplate>
                                                                                     <img alt="" style="cursor: pointer; margin-left: 5%;" width="24" height="24" src="../../Images/icons/read_more.png" />
                                                                                     <asp:Panel ID="pnlGastosUSD" runat="server" Style="display: none">
@@ -483,7 +485,7 @@
                                                                                         </div>
                                                                                     </asp:Panel>
                                                                                 </ItemTemplate>
-                                                                            </asp:TemplateField>
+                                                                            </asp:TemplateField>--%>
 
                                                                             <asp:TemplateField HeaderText="Estimado">
                                                                                 <ItemTemplate>
@@ -499,6 +501,12 @@
                                                                                             <asp:ImageButton ID="btnBuscarPiernaUSA" runat="server" OnClick="btnBuscarPierna_Click1" ImageUrl="~/Images/icons/searchdate.png" Width="18" Height="18" ImageAlign="Middle" Style="margin: 0 auto; margin-left: 25%;" />
                                                                                         </ContentTemplate>
                                                                                     </asp:UpdatePanel>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+
+                                                                            <asp:TemplateField HeaderText="No. Pierna" ItemStyle-HorizontalAlign="Right">
+                                                                                <ItemTemplate>
+                                                                                    <asp:Label ID="lblNumeroPierna" Text='<%# Bind("NumeroPierna") %>' runat="server" Style="display: block; text-align: right;"></asp:Label>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 

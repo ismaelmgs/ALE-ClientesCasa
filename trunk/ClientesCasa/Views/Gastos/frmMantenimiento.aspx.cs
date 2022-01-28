@@ -664,15 +664,15 @@ namespace ClientesCasa.Views.Gastos
                 {
                     DataTable dt = dtGastosMEX;
 
-                    GridView gvDetalle = (GridView)e.Row.FindControl("gvDetalleGastoMXN");
-                    if (gvDetalle != null)
-                    {
-                        DataTable dtD = dt.Clone();
-                        dtD.ImportRow(dt.Rows[e.Row.RowIndex]);
+                    //GridView gvDetalle = (GridView)e.Row.FindControl("gvDetalleGastoMXN");
+                    //if (gvDetalle != null)
+                    //{
+                    //    DataTable dtD = dt.Clone();
+                    //    dtD.ImportRow(dt.Rows[e.Row.RowIndex]);
                         
-                        gvDetalle.DataSource = dtD;
-                        gvDetalle.DataBind();
-                    }
+                    //    gvDetalle.DataSource = dtD;
+                    //    gvDetalle.DataBind();
+                    //}
 
                     ImageButton btnGastoE = (ImageButton)e.Row.FindControl("btnEliminarMEX");
                     if (btnGastoE != null)

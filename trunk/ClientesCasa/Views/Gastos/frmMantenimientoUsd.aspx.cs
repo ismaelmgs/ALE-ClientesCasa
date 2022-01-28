@@ -823,15 +823,15 @@ namespace ClientesCasa.Views.Gastos
                     DataTable dt = dtGastosUSA;
 
                     // MOGI 21/01/2022
-                    GridView gvDetalle = (GridView)e.Row.FindControl("gvDetalleGastoUSD");
-                    if (gvDetalle != null)
-                    {
-                        DataTable dtD = dt.Clone();
-                        dtD.ImportRow(dt.Rows[e.Row.RowIndex]);
+                    //GridView gvDetalle = (GridView)e.Row.FindControl("gvDetalleGastoUSD");
+                    //if (gvDetalle != null)
+                    //{
+                    //    DataTable dtD = dt.Clone();
+                    //    dtD.ImportRow(dt.Rows[e.Row.RowIndex]);
 
-                        gvDetalle.DataSource = dtD;
-                        gvDetalle.DataBind();
-                    }
+                    //    gvDetalle.DataSource = dtD;
+                    //    gvDetalle.DataBind();
+                    //}
 
                     ImageButton btnGastoE = (ImageButton)e.Row.FindControl("btnEliminarUSA");
                     if (btnGastoE != null)
