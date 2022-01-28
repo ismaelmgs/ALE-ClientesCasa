@@ -44,5 +44,7 @@ namespace ClientesCasa.Interfaces
         event EventHandler eUpaComprobanteMXN;
         event EventHandler eUpaComprobanteUSD;
         event EventHandler eGetCargaInicial;
+        event EventHandler eObjSelectedUSD;
+        event EventHandler eUpaGastosUSD;
     }
 }
