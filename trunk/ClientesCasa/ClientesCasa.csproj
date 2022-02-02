@@ -188,6 +188,7 @@
     <Content Include="Views\Gastos\frmMantenimientoUsd.aspx" />
     <Content Include="Views\Gastos\frmVistaPreviaRef.aspx" />
     <Content Include="Views\Gastos\ServiceCS.asmx" />
+    <Content Include="Views\Manttos\frmManttosMXN.aspx" />
     <Content Include="Views\Principales\frmDashboard.aspx" />
     <Content Include="Views\Principales\frmDetailDash.aspx" />
     <Content Include="Views\Principales\frmMttoPagos.aspx" />
@@ -842,6 +843,13 @@
     </Compile>
     <Compile Include="Views\Gastos\ServiceCS.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Manttos\frmManttosMXN.aspx.cs">
+      <DependentUpon>frmManttosMXN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manttos\frmManttosMXN.aspx.designer.cs">
+      <DependentUpon>frmManttosMXN.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Principales\frmDashboard.aspx.cs">
       <DependentUpon>frmDashboard.aspx</DependentUpon>
