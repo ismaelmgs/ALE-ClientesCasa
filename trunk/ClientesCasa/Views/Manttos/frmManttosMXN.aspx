@@ -398,7 +398,7 @@
 
             <%-- Modal de Periodo --%>
             <asp:HiddenField ID="hdTargetPeriodo" runat="server" />
-            <cc1:ModalPopupExtender ID="mpePeriodo" runat="server" TargetControlID="hdTargetPeriodo" PopupControlID="pnlPeriodo" BackgroundCssClass="overlayy">
+            <cc1:ModalPopupExtender ID="mpePeriodo" CancelControlID="btnCancelar" runat="server" TargetControlID="hdTargetPeriodo" PopupControlID="pnlPeriodo" BackgroundCssClass="overlayy">
             </cc1:ModalPopupExtender>
             <asp:Panel ID="pnlPeriodo" runat="server" BorderColor="" BackColor="White" Height="150px"
                 Width="280px" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">

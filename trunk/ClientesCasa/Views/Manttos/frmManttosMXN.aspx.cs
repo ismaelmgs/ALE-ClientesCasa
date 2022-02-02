@@ -371,62 +371,63 @@ namespace ClientesCasa.Views.Manttos
                     }
 
                 }
-
-                if (e.Row.RowType == DataControlRowType.DataRow)
+                if (dtContratos.Rows.Count > 1)
                 {
-
-                    for (int i = 0; i < dtContratos.Rows.Count; i++) //dt.Columns.Count; i++)
+                    if (e.Row.RowType == DataControlRowType.DataRow)
                     {
-                        DropDownList ddlPor = new DropDownList();
-                        ddlPor.ID = "ddl" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "") + "|" + e.Row.RowIndex.S();
-                        //ddlPor.CssClass = "slcList";
-                        ddlPor.Width = 65;
-                        ddlPor.DataSource = dtPorcentaje;
-                        ddlPor.DataTextField = "Valor";
-                        ddlPor.DataValueField = "Id";
-                        ddlPor.DataBind();
 
-                        ddlPor.SelectedValue = dt.Rows[e.Row.RowIndex]["ddl" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "")].S();
+                        for (int i = 0; i < dtContratos.Rows.Count; i++) //dt.Columns.Count; i++)
+                        {
+                            DropDownList ddlPor = new DropDownList();
+                            ddlPor.ID = "ddl" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "") + "|" + e.Row.RowIndex.S();
+                            //ddlPor.CssClass = "slcList";
+                            ddlPor.Width = 65;
+                            ddlPor.DataSource = dtPorcentaje;
+                            ddlPor.DataTextField = "Valor";
+                            ddlPor.DataValueField = "Id";
+                            ddlPor.DataBind();
 
-                        TextBox t1 = new TextBox();
-                        t1.ID = "txt" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
-                        t1.Visible = true;
-                        t1.CssClass = "AlineadoDerecha";
-                        t1.Width = 65;
-                        t1.Text = dt.Rows[e.Row.RowIndex][dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "")].S();
-                        t1.Attributes["onfocus"] = "javascript:this.select();";
+                            ddlPor.SelectedValue = dt.Rows[e.Row.RowIndex]["ddl" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "")].S();
+
+                            TextBox t1 = new TextBox();
+                            t1.ID = "txt" + dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
+                            t1.Visible = true;
+                            t1.CssClass = "AlineadoDerecha";
+                            t1.Width = 65;
+                            t1.Text = dt.Rows[e.Row.RowIndex][dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "")].S();
+                            t1.Attributes["onfocus"] = "javascript:this.select();";
 
 
-                        TableCell tc = new TableCell();
-                        tc.Width = 300;
-                        tc.Controls.Add(ddlPor);
-                        tc.Controls.Add(t1);
-                        e.Row.Cells.Add(tc);
+                            TableCell tc = new TableCell();
+                            tc.Width = 300;
+                            tc.Controls.Add(ddlPor);
+                            tc.Controls.Add(t1);
+                            e.Row.Cells.Add(tc);
+                        }
+
+                        System.Web.UI.WebControls.Image imgError = new System.Web.UI.WebControls.Image();
+                        imgError.ID = "imgError";
+                        imgError.ImageUrl = "~/Images/icons/error.png";
+                        imgError.ToolTip = "La distribución de porcentaje es incorrecta.";
+                        imgError.Visible = false;
+                        imgError.Height = 16;
+                        imgError.Width = 16;
+
+                        System.Web.UI.WebControls.Image imgWarning = new System.Web.UI.WebControls.Image();
+                        imgWarning.ID = "imgWarning";
+                        imgWarning.ImageUrl = "~/Images/icons/warning.png";
+                        imgWarning.ToolTip = "No se ha realizado la distribución del gasto.";
+                        imgWarning.Visible = false;
+                        imgWarning.Height = 16;
+                        imgWarning.Width = 16;
+
+                        TableCell tcError = new TableCell();
+                        tcError.Controls.Add(imgError);
+                        tcError.Controls.Add(imgWarning);
+
+                        e.Row.Cells.Add(tcError);
                     }
-
-                    System.Web.UI.WebControls.Image imgError = new System.Web.UI.WebControls.Image();
-                    imgError.ID = "imgError";
-                    imgError.ImageUrl = "~/Images/icons/error.png";
-                    imgError.ToolTip = "La distribución de porcentaje es incorrecta.";
-                    imgError.Visible = false;
-                    imgError.Height = 16;
-                    imgError.Width = 16;
-
-                    System.Web.UI.WebControls.Image imgWarning = new System.Web.UI.WebControls.Image();
-                    imgWarning.ID = "imgWarning";
-                    imgWarning.ImageUrl = "~/Images/icons/warning.png";
-                    imgWarning.ToolTip = "No se ha realizado la distribución del gasto.";
-                    imgWarning.Visible = false;
-                    imgWarning.Height = 16;
-                    imgWarning.Width = 16;
-
-                    TableCell tcError = new TableCell();
-                    tcError.Controls.Add(imgError);
-                    tcError.Controls.Add(imgWarning);
-
-                    e.Row.Cells.Add(tcError);
                 }
-
                 if (e.Row.RowType == DataControlRowType.Footer)
                 {
                     for (int i = 0; i < dtContratos.Rows.Count; i++)
@@ -471,52 +472,54 @@ namespace ClientesCasa.Views.Manttos
                     }
                 }
 
-
-
-                DataTable dtTotalCon = new DataTable();
-                DataTable dtIndex = new DataTable();
-                for (int i = 0; i < dtContratos.Rows.Count; i++)
+                //Solo cuando la matricula tenga mas de 1 contrato
+                if (dtContratos.Rows.Count > 1)
                 {
-                    dtTotalCon.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S(), typeof(decimal));
-                }
-
-                dtIndex = dtTotalCon.Clone();
-                DataRow drImpCon = dtTotalCon.NewRow();
-
-                for (int i = 0; i < dtContratos.Rows.Count; i++)
-                {
-                    decimal dImp = 0;
-                    foreach (DataRow drImp in dt.Rows)
+                    DataTable dtTotalCon = new DataTable();
+                    DataTable dtIndex = new DataTable();
+                    for (int i = 1; i < dtContratos.Rows.Count; i++)
                     {
-                        dImp += drImp[dtContratos.Rows[i]["ClaveContrato"].S()].S().D();
+                        dtTotalCon.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S(), typeof(decimal));
                     }
 
-                    drImpCon[dtContratos.Rows[i]["ClaveContrato"].S()] = dImp;
-                }
+                    dtIndex = dtTotalCon.Clone();
+                    DataRow drImpCon = dtTotalCon.NewRow();
 
-                dtTotalCon.Rows.Add(drImpCon);
-
-
-                DataRow rowInd = dtIndex.NewRow();
-                for (int i = 0; i < gvMantenimiento.HeaderRow.Cells.Count; i++)
-                {
-                    foreach (DataRow dr in dtContratos.Rows)
+                    for (int i = 0; i < dtContratos.Rows.Count; i++)
                     {
-                        if (gvMantenimiento.HeaderRow.Cells[i].Text.S() == dr["ClaveContrato"].S())
+                        decimal dImp = 0;
+                        foreach (DataRow drImp in dt.Rows)
                         {
-                            rowInd[dr["ClaveContrato"].S()] = i.S();
+                            //Revisar esteb codigo, para ponerlo dentro del for de arriba, linea 481
+                            dImp += drImp[dtContratos.Rows[i]["ClaveContrato"].S()].S().D();
+                        }
+
+                        drImpCon[dtContratos.Rows[i]["ClaveContrato"].S()] = dImp;
+                    }
+
+                    dtTotalCon.Rows.Add(drImpCon);
+
+
+                    DataRow rowInd = dtIndex.NewRow();
+                    for (int i = 0; i < gvMantenimiento.HeaderRow.Cells.Count; i++)
+                    {
+                        foreach (DataRow dr in dtContratos.Rows)
+                        {
+                            if (gvMantenimiento.HeaderRow.Cells[i].Text.S() == dr["ClaveContrato"].S())
+                            {
+                                rowInd[dr["ClaveContrato"].S()] = i.S();
+                            }
                         }
                     }
+
+                    dtIndex.Rows.Add(rowInd);
+
+                    foreach (DataRow row in dtContratos.Rows)
+                    {
+                        gvMantenimiento.FooterRow.Cells[dtIndex.Rows[0][row["ClaveContrato"].S()].S().I()].Text = dtTotalCon.Rows[0][row["ClaveContrato"].S()].S().D().ToString("c");
+                        gvMantenimiento.FooterRow.Cells[dtIndex.Rows[0][row["ClaveContrato"].S()].S().I()].HorizontalAlign = HorizontalAlign.Center;
+                    }
                 }
-
-                dtIndex.Rows.Add(rowInd);
-
-                foreach (DataRow row in dtContratos.Rows)
-                {
-                    gvMantenimiento.FooterRow.Cells[dtIndex.Rows[0][row["ClaveContrato"].S()].S().I()].Text = dtTotalCon.Rows[0][row["ClaveContrato"].S()].S().D().ToString("c");
-                    gvMantenimiento.FooterRow.Cells[dtIndex.Rows[0][row["ClaveContrato"].S()].S().I()].HorizontalAlign = HorizontalAlign.Center;
-                }
-
                 GC.Collect();
             }
             catch (Exception ex)
