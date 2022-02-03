@@ -681,6 +681,8 @@ namespace ClientesCasa.Views.Manttos
             {
                 if (ds != null)
                 {
+                    dsGastosMXN = null;
+                    dsGastosMXN = ds;
                     dtGastosMEX = ds.Tables[0];
                     dtGastosUSA = null;
                     dtContratos = ds.Tables[1];
@@ -690,10 +692,7 @@ namespace ClientesCasa.Views.Manttos
 
                     pnlRubros.Visible = true;
                 }
-                ds.Dispose();
-                dtGastosMEX.Dispose();
                 GC.Collect();
-                //GC.WaitForPendingFinalizers();
             }
             catch (Exception ex)
             {
@@ -1488,7 +1487,45 @@ namespace ClientesCasa.Views.Manttos
             get { return (DataTable)ViewState["VSProveedor"]; }
             set { ViewState["VSProveedor"] = value; }
         }
+
+        public DataSet dsGastosMXN
+        {
+            get { return (DataSet)ViewState["VSdsGastosMXN"]; }
+            set { ViewState["VSdsGastosMXN"] = value; }
+        }
         #endregion
+
+        protected void btnBuscarPiernas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAceptarPierna_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelarPierna_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvMantenimiento_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                gvMantenimiento.PageIndex = e.NewPageIndex;
+                if (dsGastosMXN != null)
+                {
+                    CargaGastosMEXUSA(dsGastosMXN);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
         
     }
 }

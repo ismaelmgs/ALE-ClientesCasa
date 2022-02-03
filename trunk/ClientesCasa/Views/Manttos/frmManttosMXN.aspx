@@ -256,7 +256,7 @@
 
                                                                     <asp:Panel ID="pnlRubrosMat" runat="server" ScrollBars="Auto" Height="400">
 
-                                                                        <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true"
+                                                                        <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="10"
                                                                             CssClass="table table-bordered table-striped table-hover" OnRowDataBound="gvMantenimiento_RowDataBound"
                                                                             DataKeyNames="IdGasto" OnRowCommand="gvMantenimiento_RowCommand" OnRowCreated="gvMantenimiento_RowCreated"
                                                                             OnPreRender="gvMantenimiento_PreRender">
@@ -376,7 +376,6 @@
 
 
                                                                             </Columns>
-
                                                                         </asp:GridView>
 
                                                                     </asp:Panel>
@@ -465,6 +464,132 @@
                 </asp:UpdatePanel>
             </asp:Panel>
 
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
+
+    <%-- Modal de Piernas --%>
+    <asp:HiddenField ID="hdTargetPiernas" runat="server" />
+    <cc1:ModalPopupExtender ID="mpePierna" runat="server" TargetControlID="hdTargetPiernas" CancelControlID="btnCancelarPierna"
+        PopupControlID="pnlPiernasModal" BackgroundCssClass="overlayy">
+    </cc1:ModalPopupExtender>
+    <asp:Panel ID="pnlPiernasModal" runat="server" BorderColor="" BackColor="White" Height="370px"
+        Width="520px" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">
+        <asp:UpdatePanel ID="upaBuscaPiernas" runat="server">
+            <ContentTemplate>
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="3">
+                            <h4>
+                                <asp:Label ID="lblTituloPierna" runat="server" Text="Búsqueda de Piernas / Fecha Operación"></asp:Label></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center">
+                            <center>
+                                <%--<asp:RadioButtonList ID="rblTipoFecha" runat="server" RepeatDirection="Horizontal"
+                                    AutoPostBack="true" OnSelectedIndexChanged="rblTipoFecha_SelectedIndexChanged">
+                                    <asp:ListItem Text="Fecha Vuelo" Value="1" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="Fecha Operación" Value="2"></asp:ListItem>
+                                </asp:RadioButtonList>--%>
+                                
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <asp:Panel ID="pnlPiernasMXN" runat="server">
+                    <table style="width: 100%">
+                        <tr>
+                            <td width="30%">
+                                <asp:Label ID="lblPierna" runat="server" Text="Fecha:"></asp:Label>
+                            </td>
+                            <td width="30%">
+                                <asp:TextBox ID="txtTripPiernas" runat="server" type="date" placeholder="Fecha de Inicio" Width="80%" CssClass="form-control"></asp:TextBox>
+                                <asp:Label ID="lblReqFechaVlo" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                            </td>
+                            <td width="40%">
+                                <asp:Button ID="btnBuscarPiernas" runat="server" Text="Buscar" CssClass="btn btn-info" OnClick="btnBuscarPiernas_Click" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <asp:Label ID="lblValFechaVlo" runat="server" Text="El campo es requerido." Visible="false" ForeColor="Red"></asp:Label>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <center>
+                                    <asp:Panel ID="pnlPiernas" runat="server" ScrollBars="Auto" Width="90%" Height="200">
+                                        <asp:GridView ID="gvPiernas" runat="server" AutoGenerateColumns="False" Width="100%"
+                                            CssClass="table table-bordered table-striped table-hover" DataKeyNames="LegId">
+                                            <emptydatatemplate>
+                                                No existen registros para mostrar.
+                                            </emptydatatemplate>
+                                            <columns>
+                                                <asp:TemplateField HeaderText=" Seleccione ">
+                                                    <itemtemplate>
+                                                        <asp:RadioButton ID="rbSelecciona" runat="server" OnClick="javascript:Selrdbtn(this.id)" />
+                                                    </itemtemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField DataField="AeronaveMatricula" HeaderText="Matricula" />
+                                                <asp:BoundField DataField="VueloClienteId" HeaderText="Clave del cliente" ItemStyle-HorizontalAlign="Left" />
+                                                <asp:BoundField DataField="VueloContratoId" HeaderText="Clave del contrato" />
+                                                <asp:BoundField DataField="Ruta" HeaderText="Ruta" />
+                                                <asp:BoundField DataField="FechaVuelo" HeaderText="Fecha Vuelo" />
+                                            </columns>
+                                        </asp:GridView>
+                                    </asp:Panel>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <asp:Label ID="lblMensajePiernas" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <asp:Panel ID="pnlFechaOpeMXN" runat="server" Height="240px" Visible="false">
+                    <table style="width: 100%">
+                        <tr>
+                            <td style="width: 40%; text-align: right">Fecha Operación:
+                            </td>
+                            <td style="width: 60%; text-align: left">
+                                <asp:TextBox ID="txtFechaOperacionMXN" runat="server" type="date"
+                                    Width="80%" CssClass="form-control"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <table style="width: 100%">
+                    <tr>
+                        <td width="50%">
+                            <div style="text-align: right; float: right">
+                                <asp:Button ID="btnAceptarPierna" runat="server" Text="Aceptar" OnClientClick="OcultarModalPiernasMXN();" OnClick="btnAceptarPierna_Click" CssClass="btn btn-primary" />
+                            </div>
+                        </td>
+                        <td width="50%">
+                            <div style="text-align: left; float: left">
+                                <asp:Button ID="btnCancelarPierna" runat="server" Text="Cancelar" OnClientClick="OcultarModalPiernasMXN();" OnClick="btnCancelarPierna_Click" CssClass="btn btn-default" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnBuscarPiernas" EventName="Click" />
+            </Triggers>
+        </asp:UpdatePanel>
+        <asp:UpdateProgress ID="upgBuscarPiernas" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="upaBuscaPiernas">
+            <ProgressTemplate>
+                <div style="text-align: left">
+                    <asp:Label ID="lblProgresBuscarPiernas" runat="server" Text="Por favor espere..." Font-Italic="true"></asp:Label>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+    </asp:Panel>
+
 </asp:Content>
