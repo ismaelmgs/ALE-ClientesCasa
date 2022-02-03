@@ -254,10 +254,10 @@
                                                             <asp:UpdatePanel ID="upaGridGastosMXN" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                                                                 <ContentTemplate>
 
-                                                                    <asp:Panel ID="pnlRubrosMat" runat="server" ScrollBars="Auto" Height="400">
+                                                                    <asp:Panel ID="pnlRubrosMat" runat="server" ScrollBars="Auto" style="max-height:600px; overflow-y:auto;">
 
                                                                         <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="10"
-                                                                            CssClass="table table-bordered table-striped table-hover" OnRowDataBound="gvMantenimiento_RowDataBound"
+                                                                            CssClass="table table-bordered table-striped table-hover" OnRowDataBound="gvMantenimiento_RowDataBound" EnableViewState="true"
                                                                             DataKeyNames="IdGasto" OnRowCommand="gvMantenimiento_RowCommand" OnRowCreated="gvMantenimiento_RowCreated"
                                                                             OnPreRender="gvMantenimiento_PreRender">
                                                                             <EmptyDataTemplate>
@@ -410,64 +410,66 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>
 
-            <%-- Modal de Periodo --%>
-            <asp:HiddenField ID="hdTargetPeriodo" runat="server" />
-            <cc1:ModalPopupExtender ID="mpePeriodo" CancelControlID="btnCancelar" runat="server" TargetControlID="hdTargetPeriodo"
-                PopupControlID="pnlPeriodo" BackgroundCssClass="overlayy">
-            </cc1:ModalPopupExtender>
-            <asp:Panel ID="pnlPeriodo" runat="server" BorderColor="" BackColor="White" Height="150px"
-                Width="280px" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td colspan="2">
-                                    <h4>
-                                        <asp:Label ID="Label2" runat="server" Text="Seleccione el periodo"></asp:Label></h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 30%">
-                                    <asp:Label ID="Label1" runat="server" Text="Periodo:" CssClass="lblInput"></asp:Label>
-                                </td>
-                                <td style="width: 70%">
-                                    <asp:TextBox ID="txtPeriodo" type="date" runat="server" placeholder="MM/YYYY" CssClass="form-control"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <%--<asp:RequiredFieldValidator ID="rfvPeriodo" runat="server" ControlToValidate="txtPeriodo" Display="Dynamic"
-                                        ErrorMessage="El campo es requerido" ValidationGroup="VPeriodo" CssClass="validar"></asp:RequiredFieldValidator>--%>
-                                </td>
-                            </tr>
-                        </table>
-                        <table style="width: 100%">
-                            <tr>
-                                <td style="width: 50%">
-                                    <div style="text-align: right; float: right">
-                                        <asp:Button ID="btnAceptarPeriodo" runat="server" Text="Aceptar" OnClientClick="OcultarModal();"
-                                            OnClick="btnAceptarPeriodo_Click" CssClass="btn btn-primary" CausesValidation="false" />
-                                    </div>
-                                </td>
-                                <td style="width: 50%">
-                                    <div style="text-align: left; float: left">
-                                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClientClick="OcultarModal();" CssClass="btn btn-default" />
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="btnAceptarPeriodo" EventName="Click" />
-                    </Triggers>
-                </asp:UpdatePanel>
-            </asp:Panel>
+            
 
 
 
         </ContentTemplate>
     </asp:UpdatePanel>
+
+    <%-- Modal de Periodo --%>
+    <asp:HiddenField ID="hdTargetPeriodo" runat="server" />
+    <cc1:ModalPopupExtender ID="mpePeriodo" CancelControlID="btnCancelar" runat="server" TargetControlID="hdTargetPeriodo"
+        PopupControlID="pnlPeriodo" BackgroundCssClass="overlayy">
+    </cc1:ModalPopupExtender>
+    <asp:Panel ID="pnlPeriodo" runat="server" BorderColor="" BackColor="White" Height="150px"
+        Width="280px" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="2">
+                            <h4>
+                                <asp:Label ID="Label2" runat="server" Text="Seleccione el periodo"></asp:Label></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                            <asp:Label ID="Label1" runat="server" Text="Periodo:" CssClass="lblInput"></asp:Label>
+                        </td>
+                        <td style="width: 70%">
+                            <asp:TextBox ID="txtPeriodo" type="date" runat="server" placeholder="MM/YYYY" CssClass="form-control"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <%--<asp:RequiredFieldValidator ID="rfvPeriodo" runat="server" ControlToValidate="txtPeriodo" Display="Dynamic"
+                                ErrorMessage="El campo es requerido" ValidationGroup="VPeriodo" CssClass="validar"></asp:RequiredFieldValidator>--%>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 50%">
+                            <div style="text-align: right; float: right">
+                                <asp:Button ID="btnAceptarPeriodo" runat="server" Text="Aceptar" OnClientClick="OcultarModal();"
+                                    OnClick="btnAceptarPeriodo_Click" CssClass="btn btn-primary" CausesValidation="false" />
+                            </div>
+                        </td>
+                        <td style="width: 50%">
+                            <div style="text-align: left; float: left">
+                                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClientClick="OcultarModal();" CssClass="btn btn-default" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnAceptarPeriodo" EventName="Click" />
+            </Triggers>
+        </asp:UpdatePanel>
+    </asp:Panel>
 
     <%-- Modal de Piernas --%>
     <asp:HiddenField ID="hdTargetPiernas" runat="server" />
