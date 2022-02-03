@@ -229,7 +229,8 @@
                 <ul>
                     <li><a href="../../../../ClientesCasa/Views/Gastos/frmComprobanteGastos.aspx">Visor de comprobantes</a></li>
                     <li><a href="../../../../ClientesCasa/Views/Gastos/frmExtraccionGastos.aspx">Extracción de Gastos</a></li>
-                    <li><a href="../../../../ClientesCasa/Views/Gastos/frmMantenimiento.aspx">Mantenimiento de Gastos MXN</a></li>
+                    <%--<li><a href="../../../../ClientesCasa/Views/Gastos/frmMantenimiento.aspx">Mantenimiento de Gastos MXN</a></li>--%>
+                    <li><a href="../../../../ClientesCasa/Views/Manttos/frmManttosMXN.aspx">Mantenimiento de Gastos MXN</a></li>
                     <li><a href="../../../../ClientesCasa/Views/Gastos/frmMantenimientoUsd.aspx">Mantenimiento de Gastos USD</a></li>
                     <li><a href="../../../../ClientesCasa/Views/Gastos/frmCorteGastos.aspx">Corte Mensual</a></li>
                 </ul>

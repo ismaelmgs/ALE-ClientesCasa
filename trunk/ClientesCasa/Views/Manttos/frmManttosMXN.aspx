@@ -360,6 +360,21 @@
                                                                                         <asp:Label ID="lblNoPierna" runat="server"></asp:Label>
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
+
+
+                                                                                <asp:TemplateField HeaderText="Porcentaje">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:DropDownList ID="ddlPorcentaje" runat="server" Width="100px" EnableViewState="true" Style="width:80px;">
+                                                                                        </asp:DropDownList>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Importe">
+                                                                                    <ItemTemplate>
+                                                                                        <asp:TextBox ID="txtImporte_2" runat="server" Style="display: block; text-align: right; width:70px;"></asp:TextBox>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+
+
                                                                             </Columns>
 
                                                                         </asp:GridView>
@@ -398,7 +413,8 @@
 
             <%-- Modal de Periodo --%>
             <asp:HiddenField ID="hdTargetPeriodo" runat="server" />
-            <cc1:ModalPopupExtender ID="mpePeriodo" CancelControlID="btnCancelar" runat="server" TargetControlID="hdTargetPeriodo" PopupControlID="pnlPeriodo" BackgroundCssClass="overlayy">
+            <cc1:ModalPopupExtender ID="mpePeriodo" CancelControlID="btnCancelar" runat="server" TargetControlID="hdTargetPeriodo"
+                PopupControlID="pnlPeriodo" BackgroundCssClass="overlayy">
             </cc1:ModalPopupExtender>
             <asp:Panel ID="pnlPeriodo" runat="server" BorderColor="" BackColor="White" Height="150px"
                 Width="280px" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">
@@ -431,7 +447,8 @@
                             <tr>
                                 <td style="width: 50%">
                                     <div style="text-align: right; float: right">
-                                        <asp:Button ID="btnAceptarPeriodo" runat="server" Text="Aceptar" OnClientClick="OcultarModal();" OnClick="btnAceptarPeriodo_Click" CssClass="btn btn-primary" />
+                                        <asp:Button ID="btnAceptarPeriodo" runat="server" Text="Aceptar" OnClientClick="OcultarModal();"
+                                            OnClick="btnAceptarPeriodo_Click" CssClass="btn btn-primary" CausesValidation="false" />
                                     </div>
                                 </td>
                                 <td style="width: 50%">
@@ -442,6 +459,9 @@
                             </tr>
                         </table>
                     </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnAceptarPeriodo" EventName="Click" />
+                    </Triggers>
                 </asp:UpdatePanel>
             </asp:Panel>
 
