@@ -290,7 +290,7 @@
 
                                                                     <asp:Panel ID="pnlRubrosMat" runat="server" ScrollBars="Auto" style="max-height:600px; overflow-y:auto;">
 
-                                                                        <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="10"
+                                                                        <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="30"
                                                                             CssClass="table table-bordered table-striped table-hover" OnRowDataBound="gvMantenimiento_RowDataBound" EnableViewState="true"
                                                                             DataKeyNames="IdGasto" OnRowCommand="gvMantenimiento_RowCommand" OnRowCreated="gvMantenimiento_RowCreated"
                                                                             OnPreRender="gvMantenimiento_PreRender">
