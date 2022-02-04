@@ -149,65 +149,77 @@
                         <h5>Búsqueda de Clientes</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        <div class="control-group">
-                            <div class="">
-                                <br />
-                                <div class="table-responsive" style="margin: 5px;">
-                                    <table style="width: 100%" class="table table-striped">
-                                        <tr>
-                                            <td style="text-align: center">
-                                                <div class="section group" style="margin-left: -30px;">
-                                                    <div class="col span_1_of_4">
-                                                        &nbsp; Búsqueda:
-                                                    </div>
-                                                    <div class="col span_1_of_4">
-                                                        <asp:TextBox ID="txtBusqueda" runat="server" MaxLength="98" Width="90%"
-                                                            ClientIDMode="Static" onkeypress="return EnterEvent(event);"></asp:TextBox>
-                                                    </div>
-                                                    <div class="col span_1_of_4">
-                                                        <asp:DropDownList ID="ddlOpcBus" runat="server" placeholder="Seleccione">
-                                                            <asp:ListItem Text="Clave Cliente" Value="2"></asp:ListItem>
-                                                            <asp:ListItem Text="Clave Contrato" Value="3"></asp:ListItem>
-                                                            <asp:ListItem Text="Matrícula" Value="4" Selected="True"></asp:ListItem>
-                                                            <asp:ListItem Text="Solo Activos" Value="1"></asp:ListItem>
-                                                            <asp:ListItem Text="Inactivos" Value="0"></asp:ListItem>
-                                                        </asp:DropDownList>
-                                                    </div>
-                                                    <div class="col span_1_of_4">
-                                                        <asp:Button ID="btnBuscarCliente" runat="server" Text="Buscar" OnClick="btnBuscarCliente_Click" ClientIDMode="Static" CssClass="btn btn-success" />
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                        
 
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <div class="table-responsive" style="margin: 5px;">
-                                        <asp:GridView ID="gvClientes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdContrato"
-                                            AllowPaging="True" Width="100%" CssClass="table table-bordered table-striped table-hover"
-                                            PageSize="2" OnRowDataBound="gvClientes_RowDataBound" OnPageIndexChanging="gvClientes_PageIndexChanging" 
-                                            OnSelectedIndexChanged="gvClientes_SelectedIndexChanged">
-                                            <EmptyDataTemplate>
-                                                No existen Registros para mostrar.
-                                            </EmptyDataTemplate>
-                                            <Columns>
-                                                <asp:BoundField DataField="ClaveCliente" HeaderText="Clave del Cliente" />
-                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre del cliente" ItemStyle-HorizontalAlign="Left" />
-                                                <asp:BoundField DataField="ClaveContrato" HeaderText="Clave del contrato" />
-                                                <asp:BoundField DataField="Matricula" HeaderText="Matrícula Aeronave" />
-                                            </Columns>
-                                            <RowStyle CssClass="rowSelect" />
 
-                                        </asp:GridView>
+                        <asp:UpdatePanel ID="upaClientes" runat="server">
+                            <ContentTemplate>
+                                <div class="control-group">
+                                    <div class="">
+                                        <br />
+                                        <div class="table-responsive" style="margin: 5px;">
+                                            <table style="width: 100%" class="table table-striped">
+                                                <tr>
+                                                    <td style="text-align: center">
+                                                        <div class="section group" style="margin-left: -30px;">
+                                                            <div class="col span_1_of_4">
+                                                                &nbsp; Búsqueda:
+                                                            </div>
+                                                            <div class="col span_1_of_4">
+                                                                <asp:TextBox ID="txtBusqueda" runat="server" MaxLength="98" Width="90%"
+                                                                    ClientIDMode="Static" onkeypress="return EnterEvent(event);"></asp:TextBox>
+                                                            </div>
+                                                            <div class="col span_1_of_4">
+                                                                <asp:DropDownList ID="ddlOpcBus" runat="server" placeholder="Seleccione">
+                                                                    <asp:ListItem Text="Clave Cliente" Value="2"></asp:ListItem>
+                                                                    <asp:ListItem Text="Clave Contrato" Value="3"></asp:ListItem>
+                                                                    <asp:ListItem Text="Matrícula" Value="4" Selected="True"></asp:ListItem>
+                                                                    <asp:ListItem Text="Solo Activos" Value="1"></asp:ListItem>
+                                                                    <asp:ListItem Text="Inactivos" Value="0"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </div>
+                                                            <div class="col span_1_of_4">
+                                                                <asp:Button ID="btnBuscarCliente" runat="server" Text="Buscar" OnClick="btnBuscarCliente_Click" ClientIDMode="Static" CssClass="btn btn-success" />
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
+
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>
+                                            <div class="table-responsive" style="margin: 5px;">
+                                                <asp:GridView ID="gvClientes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdContrato"
+                                                    AllowPaging="True" Width="100%" CssClass="table table-bordered table-striped table-hover"
+                                                    PageSize="2" OnRowDataBound="gvClientes_RowDataBound" OnPageIndexChanging="gvClientes_PageIndexChanging" 
+                                                    OnSelectedIndexChanged="gvClientes_SelectedIndexChanged">
+                                                    <EmptyDataTemplate>
+                                                        No existen Registros para mostrar.
+                                                    </EmptyDataTemplate>
+                                                    <Columns>
+                                                        <asp:BoundField DataField="ClaveCliente" HeaderText="Clave del Cliente" />
+                                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre del cliente" ItemStyle-HorizontalAlign="Left" />
+                                                        <asp:BoundField DataField="ClaveContrato" HeaderText="Clave del contrato" />
+                                                        <asp:BoundField DataField="Matricula" HeaderText="Matrícula Aeronave" />
+                                                    </Columns>
+                                                    <RowStyle CssClass="rowSelect" />
+
+                                                </asp:GridView>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="btnBuscarCliente" EventName="Click" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+
+                        
 
 
 
@@ -422,6 +434,7 @@
                     </ContentTemplate>
                     <Triggers>
                         <asp:PostBackTrigger ControlID="lbkExportaMXN" />
+                        <asp:AsyncPostBackTrigger ControlID="btnAgregarEstimado" EventName="Click" />
                     </Triggers>
                 </asp:UpdatePanel>
             </asp:Panel>
