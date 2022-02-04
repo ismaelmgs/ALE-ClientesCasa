@@ -57,6 +57,7 @@ namespace ClientesCasa.Views.Manttos
         {
             try
             {
+
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     if (e.Row.RowType == DataControlRowType.DataRow)
@@ -168,7 +169,27 @@ namespace ClientesCasa.Views.Manttos
 
         protected void lbkExportaMXN_Click(object sender, EventArgs e)
         {
+            GridView gv = new GridView();
+            gv.AutoGenerateColumns = true;
 
+            DataTable dtPesos = new DataTable();
+            dtPesos = ExportaGridExcelPesos(gvMantenimiento, MonedaGasto.Pesos);
+            gv.DataSource = dtPesos;
+            gv.DataBind();
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("content-disposition", "attachment;filename=MttoPesos_" + sMatricula + ".xls");
+            Response.Charset = "UTF-8";
+            Response.ContentEncoding = Encoding.Default;
+            this.EnableViewState = false;
+
+            StringWriter stringWrite = new StringWriter();
+            HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+            gv.RenderControl(htmlWrite);
+            Response.Write(stringWrite.ToString());
+            Response.End();
         }
 
         decimal dSumaImporte = 0;
@@ -293,12 +314,15 @@ namespace ClientesCasa.Views.Manttos
                             {
                                 if (dt.Rows.Count > 0)
                                 {
-                                    foreach (DataRow row in dtContratos.Rows)
+                                    if (dtContratos.Rows.Count > 1)
                                     {
-                                        DropDownList ddl = (DropDownList)e.Row.FindControl("ddl" + row.S("ClaveContrato") + "|" + e.Row.RowIndex.S());
-                                        if (ddl != null)
+                                        foreach (DataRow row in dtContratos.Rows)
                                         {
-                                            ddl.SelectedValue = dt.Rows[e.Row.RowIndex]["ddl" + row["ClaveContrato"]].S();
+                                            DropDownList ddl = (DropDownList)e.Row.FindControl("ddl" + row.S("ClaveContrato") + "|" + e.Row.RowIndex.S());
+                                            if (ddl != null)
+                                            {
+                                                ddl.SelectedValue = dt.Rows[e.Row.RowIndex]["ddl" + row["ClaveContrato"]].S();
+                                            }
                                         }
                                     }
                                 }
@@ -333,7 +357,6 @@ namespace ClientesCasa.Views.Manttos
                         }
 
                         GC.Collect();
-                        GC.WaitForPendingFinalizers();
                     }
                 }
             }
@@ -409,13 +432,15 @@ namespace ClientesCasa.Views.Manttos
                             //    AddSortImage(sortColumnIndex, e.Row, gvMantenimiento);
                             //}
 
-
-                            for (int i = 0; i < dtContratos.Rows.Count; i++)
+                            if (dtContratos.Rows.Count > 1)
                             {
-                                TableCell tc = new TableCell();
-                                tc.Text = dtContratos.Rows[i]["ClaveContrato"].S();
-                                tc.Style.Add("font-weight", "bold");
-                                e.Row.Cells.Add(tc);
+                                for (int i = 0; i < dtContratos.Rows.Count; i++)
+                                {
+                                    TableCell tc = new TableCell();
+                                    tc.Text = dtContratos.Rows[i]["ClaveContrato"].S();
+                                    tc.Style.Add("font-weight", "bold");
+                                    e.Row.Cells.Add(tc);
+                                }
                             }
 
                         }
@@ -476,16 +501,19 @@ namespace ClientesCasa.Views.Manttos
                                 e.Row.Cells.Add(tcError);
                             }
                         }
-                        if (e.Row.RowType == DataControlRowType.Footer)
+                        if (dtContratos.Rows.Count > 1)
                         {
-                            for (int i = 0; i < dtContratos.Rows.Count; i++)
+                            if (e.Row.RowType == DataControlRowType.Footer)
                             {
-                                TableCell tc = new TableCell();
-                                tc.Text = dtContratos.Rows[i]["ClaveContrato"].S();
-                                tc.Style.Add("font-weight", "bold");
-                                e.Row.Cells.Add(tc);
-                            }
+                                for (int i = 0; i < dtContratos.Rows.Count; i++)
+                                {
+                                    TableCell tc = new TableCell();
+                                    tc.Text = dtContratos.Rows[i]["ClaveContrato"].S();
+                                    tc.Style.Add("font-weight", "bold");
+                                    e.Row.Cells.Add(tc);
+                                }
 
+                            }
                         }
                         GC.Collect();
                     }
@@ -644,6 +672,7 @@ namespace ClientesCasa.Views.Manttos
 
                     //lblCentroCostosMEX.Text = "Centro de costos: " + sCentroCostos;
                     upaPrincipal.Update();
+                    upaGridGastosMXN.Update();
                     mpePeriodo.Hide();
                 }
                 else
@@ -658,11 +687,47 @@ namespace ClientesCasa.Views.Manttos
 
         protected void btnBuscarPierna_Click(object sender, ImageClickEventArgs e)
         {
+            try
+            {
+                ImageButton btn = (ImageButton)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                if (row != null)
+                {
+                    iIdFila = row.RowIndex;
+                    txtTripPiernas.Text = string.Empty;
+                    gvPiernas.DataSource = null;
+                    gvPiernas.DataBind();
+                    mpePierna.Show();
 
+                    if (row.Cells[3].Text.S() != string.Empty && row.Cells[3].Text.S() != "&nbsp;")
+                    {
+                        txtTripPiernas.Text = string.Format("{0:yyyy-MM-dd}", row.Cells[3].Text.S().Dt());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
+
         protected void btnAgregarEstimado_Click(object sender, EventArgs e)
         {
+            try
+            {
+                mpeGastosEstimados.Show();
+                sTipoMonedaG = "MXN";
+                //sCentroCostos = string.Empty;
 
+                //if (gvMantenimiento.Rows.Count > 0)
+                //    sCentroCostos = gvMantenimiento.Rows[0].Cells[7].Text.S();
+
+                CargaRubros();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         #endregion
@@ -827,10 +892,18 @@ namespace ClientesCasa.Views.Manttos
                 //dtPesos.Columns.Add("AmpliadoGasto");
                 dtPesos.Columns.Add("Comentarios");
 
-                for (int i = 0; i < dtContratos.Rows.Count; i++)
+                if (dtContratos.Rows.Count > 1)
                 {
-                    dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S());
-                    dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S() + "Imp");
+                    for (int i = 0; i < dtContratos.Rows.Count; i++)
+                    {
+                        dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S());
+                        dtPesos.Columns.Add(dtContratos.Rows[i]["ClaveContrato"].S() + "Importe");
+                    }
+                }
+                else if (dtContratos.Rows.Count == 1)
+                {
+                    dtPesos.Columns.Add("Porcentaje");
+                    dtPesos.Columns.Add(dtContratos.Rows[0]["ClaveContrato"].S() + "Importe");
                 }
 
                 foreach (GridViewRow row in gv.Rows)
@@ -851,15 +924,25 @@ namespace ClientesCasa.Views.Manttos
                     //dr["AmpliadoGasto"] = ""; // ((DropDownList)row.FindControl("ddlAcumulado1")).SelectedItem.Text.S();
                     dr["Comentarios"] = ((TextBox)row.FindControl("txtComentarios")).Text.S();
 
-                    for (int i = 0; i < dtContratos.Rows.Count; i++)
+                    if (dtContratos.Rows.Count > 1)
                     {
-                        string sContrato = string.Empty;
-                        sContrato = dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
+                        for (int i = 0; i < dtContratos.Rows.Count; i++)
+                        {
+                            string sContrato = string.Empty;
+                            sContrato = dtContratos.Rows[i]["ClaveContrato"].S().Replace("-", "");
 
-                        DropDownList ddl = (DropDownList)gv.Rows[row.RowIndex].FindControl("ddl" + sContrato + "|" + row.RowIndex.S());
-                        TextBox txt = (TextBox)gv.Rows[row.RowIndex].FindControl("txt" + sContrato);
-                        dr[dtContratos.Rows[i]["ClaveContrato"].S()] = ddl.SelectedItem.Text.S();
-                        dr[dtContratos.Rows[i]["ClaveContrato"].S() + "Imp"] = txt.Text.S();
+                            DropDownList ddl = (DropDownList)gv.Rows[row.RowIndex].FindControl("ddl" + sContrato + "|" + row.RowIndex.S());
+                            TextBox txt = (TextBox)gv.Rows[row.RowIndex].FindControl("txt" + sContrato);
+                            dr[dtContratos.Rows[i]["ClaveContrato"].S()] = ddl.SelectedItem.Text.S();
+                            dr[dtContratos.Rows[i]["ClaveContrato"].S() + "Imp"] = txt.Text.S();
+                        }
+                    }
+                    else if (dtContratos.Rows.Count == 1)
+                    {
+                        DropDownList ddl = (DropDownList)gv.Rows[row.RowIndex].FindControl("ddlPorcentaje");
+                        TextBox txt = (TextBox)gv.Rows[row.RowIndex].FindControl("txtImporte_2");
+                        dr["Porcentaje"] = ddl.SelectedItem.Text.S();
+                        dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = txt.Text.S();
                     }
 
                     dtPesos.Rows.Add(dr);
@@ -1174,45 +1257,45 @@ namespace ClientesCasa.Views.Manttos
                 throw ex;
             }
         }
-        //private void CargaRubros()
-        //{
-        //    try
-        //    {
-        //        if (dtRubros != null)
-        //        {
-        //            ddlRubro.DataSource = dtRubros;
-        //            ddlRubro.DataValueField = "IdRubro";
-        //            ddlRubro.DataTextField = "DescripcionRubro";
-        //            ddlRubro.DataBind();
-        //        }
+        private void CargaRubros()
+        {
+            try
+            {
+                if (dtRubros != null)
+                {
+                    ddlRubro.DataSource = dtRubros;
+                    ddlRubro.DataValueField = "IdRubro";
+                    ddlRubro.DataTextField = "DescripcionRubro";
+                    ddlRubro.DataBind();
+                }
 
-        //        if (dtProveedor != null)
-        //        {
-        //            ddlProveedor.DataSource = dtProveedor;
-        //            ddlProveedor.DataValueField = "IdProveedor";
-        //            ddlProveedor.DataTextField = "Descripcion";
-        //            ddlProveedor.DataBind();
+                if (dtProveedor != null)
+                {
+                    ddlProveedor.DataSource = dtProveedor;
+                    ddlProveedor.DataValueField = "IdProveedor";
+                    ddlProveedor.DataTextField = "Descripcion";
+                    ddlProveedor.DataBind();
 
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-        //private void LimpiaCamposGastoEstimado()
-        //{
-        //    try
-        //    {
-        //        txtNoReferencia.Text = string.Empty;
-        //        txtImporte.Text = string.Empty;
-        //        ddlRubro.SelectedIndex = -1;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void LimpiaCamposGastoEstimado()
+        {
+            try
+            {
+                txtNoReferencia.Text = string.Empty;
+                txtImporte.Text = string.Empty;
+                ddlRubro.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         //-------------------------------------------------------------------
 
@@ -1503,12 +1586,185 @@ namespace ClientesCasa.Views.Manttos
 
         protected void btnBuscarPiernas_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txtTripPiernas.Text.S() != string.Empty)
+                {
+                    lblValFechaVlo.Visible = false;
 
+                    dtFechaVlo = txtTripPiernas.Text.S().Dt();
+
+                    if (eSearchLegs != null)
+                        eSearchLegs(sender, e);
+
+                    gvPiernas.DataSource = dtLegs;
+                    gvPiernas.DataBind();
+                }
+                else
+                {
+                    lblValFechaVlo.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         protected void btnAceptarPierna_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                if (rblTipoFecha.SelectedValue == "1")
+                {
+                    bool ban = false;
+                    UpdatePanel upa = new UpdatePanel();
+                    for (int i = 0; i < gvPiernas.Rows.Count; i++)
+                    {
+                        upa = (UpdatePanel)gvPiernas.Rows[i].FindControl("upaDetGastosMXN");
+                        RadioButton rb = (RadioButton)gvPiernas.Rows[i].FindControl("rbSelecciona");
+                        if (rb != null)
+                        {
+                            if (rb.Checked)
+                            {
+                                ban = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    int iIdPierna = 0;
+
+                    if (!ban)
+                    {
+                        lblMensajePiernas.Text = "Debe seleccionar una pierna, favor de verificar";
+                        mpePierna.Show();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < gvPiernas.Rows.Count; i++)
+                        {
+                            RadioButton rb = (RadioButton)gvPiernas.Rows[i].FindControl("rbSelecciona");
+                            if (rb != null)
+                            {
+                                if (rb.Checked)
+                                {
+                                    iIdPierna = gvPiernas.DataKeys[i]["LegId"].S().I();
+                                }
+                            }
+                        }
+
+                        DataRow[] row = dtLegs.Select("LegId = " + iIdPierna.S());
+                        if (row != null)
+                        {
+                            dtGastosMEX.Rows[iIdFila]["FechaVuelo"] = row[0]["FechaVuelo"].S();
+                            dtGastosMEX.Rows[iIdFila]["LegId"] = iIdPierna;
+                            dtGastosMEX.Rows[iIdFila]["Ruta"] = row[0]["Ruta"].S();
+                            dtGastosMEX.Rows[iIdFila]["TiempoCalzo"] = row[0]["TiempoCalzo"].S();
+
+                            //LlenaGridDetalle(gvMantenimiento, iIdFila, dtGastosMEX, "gvDetalleGastoMXN", upa);
+
+                            ///////////----------------------------------------
+                            GridView gvDetalle = (GridView)gvMantenimiento.Rows[iIdFila].FindControl("gvDetalleGastoMXN");
+
+                            if (gvDetalle != null)
+                            {
+                                DataTable dtD = new DataTable();
+                                dtD.Columns.Add("LegId");
+                                dtD.Columns.Add("Ruta");
+                                dtD.Columns.Add("FechaVuelo");
+                                dtD.Columns.Add("TiempoCalzo");
+
+                                DataRow rowD = dtD.NewRow();
+                                rowD["LegId"] = iIdPierna.S();
+                                rowD["Ruta"] = row[0]["Ruta"].S();
+                                rowD["FechaVuelo"] = row[0]["FechaVuelo"].S();
+                                rowD["TiempoCalzo"] = row[0]["TiempoCalzo"].S();
+
+                                dtD.Rows.Add(rowD);
+
+                                gvDetalle.DataSource = dtD;
+                                gvDetalle.DataBind();
+
+                                //gvDetalle.Rows[0].Cells[0].Text = iIdPierna.S();
+                                //gvDetalle.Rows[0].Cells[1].Text = row[0]["Ruta"].S();
+                                //gvDetalle.Rows[0].Cells[2].Text = row[0]["FechaVuelo"].S();
+                                //gvDetalle.Rows[0].Cells[3].Text = row[0]["TiempoCalzo"].S();
+
+                                //upa.Update();
+                            }
+
+                            ////---------------------------------------------------
+                            UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaDetGastosMXN");
+                            if (upaGridDetalle != null)
+                                upaGridDetalle.Update();
+
+                            UpdatePanel upaFechaMXN = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaFechaMXN");
+                            if (upaFechaMXN != null)
+                            {
+                                Label lblFechaMXN = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblFechaMXN");
+                                if (lblFechaMXN != null)
+                                    lblFechaMXN.Text = row[0]["FechaVuelo"].S().Dt().ToString("dd/MM/yyyy");
+
+                                Label lblNoPierna = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblNoPierna");
+                                if (lblNoPierna != null)
+                                    lblNoPierna.Text = iIdPierna.S();
+
+                                upaFechaMXN.Update();
+                            }
+
+
+                        }
+                    }
+                }
+                else
+                {
+                    DataTable dtVacio = new DataTable();
+                    dtVacio.Columns.Add("FechaVuelo");
+                    dtVacio.Columns.Add("LegId");
+                    dtVacio.Columns.Add("Ruta");
+                    dtVacio.Columns.Add("TiempoCalzo");
+
+                    DataRow row = dtVacio.NewRow();
+                    row["FechaVuelo"] = txtFechaOperacionMXN.Text.S().Dt().ToString("dd/MM/yyyy");
+                    row["LegId"] = "0";
+                    row["Ruta"] = string.Empty;
+                    row["TiempoCalzo"] = string.Empty;
+
+                    dtVacio.Rows.Add(row);
+
+                    GridView gvDetalle = (GridView)gvMantenimiento.Rows[iIdFila].FindControl("gvDetalleGastoMXN");
+                    if (gvDetalle != null)
+                    {
+                        gvDetalle.DataSource = dtVacio;
+                        gvDetalle.DataBind();
+
+                    }
+
+                    UpdatePanel upaFechaMXN = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaFechaMXN");
+                    if (upaFechaMXN != null)
+                    {
+
+                        Label lblFechaMXN = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblFechaMXN");
+                        if (lblFechaMXN != null)
+                            lblFechaMXN.Text = txtFechaOperacionMXN.Text.S().Dt().ToString("dd/MM/yyyy");
+
+                        upaFechaMXN.Update();
+                    }
+
+                    UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimiento.Rows[iIdFila].FindControl("upaDetGastosMXN");
+                    if (upaGridDetalle != null)
+                        upaGridDetalle.Update();
+                }
+
+                upaGridGastosMXN.Update();
+                mpePierna.Hide();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         protected void btnCancelarPierna_Click(object sender, EventArgs e)
@@ -1532,6 +1788,129 @@ namespace ClientesCasa.Views.Manttos
             }
             
         }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Carga Importes porcentajes");
+                CargaImportePorcentajes(gvMantenimiento);
+                //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Carga Importes porcentajes");
+
+                //Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Recupera Grid Pesos");
+                RecuperaGridPesos();
+                //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Recupera Grid Pesos");
+
+                //Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Valida porcentajes");
+                if (ValidaPorcentajes(gvMantenimiento) != 0)
+                {
+                    //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Valida porcentajes");
+
+                    eMoneda = MonedaGasto.Pesos;
+                    upaGastosPesos.Update();
+                    lblCaption.Text = "Gastos en Pesos";
+                    lblMessageConfirm.Text = "Existen gastos sin distribuir o existe alguno incorrecto, ¿Desea continuar guardando la información?";
+                    mpeConfirm.Show();
+                    upaGridGastosMXN.Update();
+                    return;
+                }
+                //Utils.GuardarBitacora("MANTTO_DATOS --> ** INICIO Actualiza grid pesos");
+                string sRes = ActualizaGridPesos();
+                //Utils.GuardarBitacora("MANTTO_DATOS --> FIN Actualiza grid pesos");
+
+                GC.Collect();
+                MostrarMensaje(sRes, "Aviso");
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        protected void btnAceptConfirm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sResultado = string.Empty;
+                switch (eMoneda)
+                {
+                    case MonedaGasto.Pesos:
+                        sResultado = ActualizaGridPesos();
+                        break;
+                    case MonedaGasto.Dolares:
+                        //sResultado = ActualizaGridDolares();
+                        break;
+                }
+
+                mpeConfirm.Hide();
+                MostrarMensaje(sResultado, "Modificación de importe");
+            }
+            catch (Exception ex)
+            {
+                MostrarMensaje("Se detecto el siguiente error: " + ex.Message, "Error al guardar informacion");
+            }
+        }
+
+        protected void btnCancelConfirm_Click(object sender, EventArgs e)
+        {
+            mpeConfirm.Hide();
+        }
+
+        protected void rblTipoFecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblTipoFecha.SelectedValue == "1")
+            {
+                pnlPiernasMXN.Visible = true;
+                pnlFechaOpeMXN.Visible = false;
+            }
+            else
+            {
+                pnlPiernasMXN.Visible = false;
+                pnlFechaOpeMXN.Visible = true;
+            }
+        }
+
+        protected void btnAceptarEstimado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Page.Validate("VGastoEstimado");
+                if (Page.IsValid)
+                {
+                    oGastoE = new GastoEstimado();
+                    oGastoE.sNoReferencia = txtNoReferencia.Text.S();
+                    oGastoE.sMatricula = sMatricula;
+                    oGastoE.dImporte = txtImporte.Text.S().D();
+                    oGastoE.sTipoMoneda = sTipoMonedaG;
+                    oGastoE.iIdRubro = ddlRubro.SelectedValue.S().I();
+                    oGastoE.sProveedor = ddlProveedor.SelectedItem.Text;
+                    oGastoE.iMes = iMes;
+                    oGastoE.iAnio = iAnio;
+                    oGastoE.iNumeroTrip = 0;
+                    oGastoE.sUsuario = Utils.GetUser;
+
+                    if (eNewGastoEstimado != null)
+                        eNewGastoEstimado(sender, e);
+
+                    if (eObjSelected != null)
+                        eObjSelected(sender, e);
+
+                    upaGridGastosMXN.Update();
+                    //upaGastosDolares.Update();
+
+                    LimpiaCamposGastoEstimado();
+
+                    mpeGastosEstimados.Hide();
+                }
+                else
+                    mpeGastosEstimados.Show();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        
         
     }
 }

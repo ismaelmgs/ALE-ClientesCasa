@@ -14,6 +14,27 @@
         .rowSelect{
             cursor:pointer;
         }
+        .GridPager a, .GridPager span
+        {
+            display: block;
+            height: 15px;
+            width: 15px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+        .GridPager a
+        {
+            background-color: #f5f5f5;
+            color: #969696;
+            border: 1px solid #969696;
+        }
+        .GridPager span
+        {
+            background-color: #A1DCF2;
+            color: #000;
+            border: 1px solid #3AC0F2;
+        }
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
@@ -90,12 +111,12 @@
         }
 
         function OcultarModalPiernasMXN() {
-            <%--var txtTasa = '<%=txtTripPiernas.ClientID%>';
+            var txtTasa = '<%=txtTripPiernas.ClientID%>';
             txtTasa.value = "";
 
             var modalId = '<%= mpePierna.ClientID%>';
             var modal = $find(modalId);
-            modal.hide();--%>
+            modal.hide();
         }
 
         function OcultarModalPiernasUSD() {
@@ -108,9 +129,9 @@
         }
 
         function OcultarModalEstimados() {
-            <%--var modalId = '<%=mpeGastosEstimados.ClientID%>';
+            var modalId = '<%=mpeGastosEstimados.ClientID%>';
             var modal = $find(modalId);
-            modal.hide();--%>
+            modal.hide();
         }
     </script>
 
@@ -169,7 +190,8 @@
                                     <div class="table-responsive" style="margin: 5px;">
                                         <asp:GridView ID="gvClientes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdContrato"
                                             AllowPaging="True" Width="100%" CssClass="table table-bordered table-striped table-hover"
-                                            PageSize="2" OnRowDataBound="gvClientes_RowDataBound" OnPageIndexChanging="gvClientes_PageIndexChanging" OnSelectedIndexChanged="gvClientes_SelectedIndexChanged">
+                                            PageSize="2" OnRowDataBound="gvClientes_RowDataBound" OnPageIndexChanging="gvClientes_PageIndexChanging" 
+                                            OnSelectedIndexChanged="gvClientes_SelectedIndexChanged">
                                             <EmptyDataTemplate>
                                                 No existen Registros para mostrar.
                                             </EmptyDataTemplate>
@@ -374,8 +396,8 @@
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
-
                                                                             </Columns>
+                                                                            <PagerStyle HorizontalAlign="Right" CssClass="GridPager" />
                                                                         </asp:GridView>
 
                                                                     </asp:Panel>
@@ -386,6 +408,10 @@
                                                     </tr>
                                                 </table>
                                             </div>
+                                            <div style="text-align: right; margin-right: 15px;">
+                                                <br />
+                                                <asp:Button ID="btnModificar" runat="server" Text="Guardar" OnClientClick="visible('divMessage');" OnClick="btnModificar_Click" CssClass="btn btn-success" Style="margin-right: 20px;"></asp:Button>
+                                            </div>
                                         </div>
 
 
@@ -394,6 +420,9 @@
                             </div>
                         </div>
                     </ContentTemplate>
+                    <Triggers>
+                        <asp:PostBackTrigger ControlID="lbkExportaMXN" />
+                    </Triggers>
                 </asp:UpdatePanel>
             </asp:Panel>
 
@@ -490,12 +519,11 @@
                     <tr>
                         <td colspan="3" style="text-align: center">
                             <center>
-                                <%--<asp:RadioButtonList ID="rblTipoFecha" runat="server" RepeatDirection="Horizontal"
+                                <asp:RadioButtonList ID="rblTipoFecha" runat="server" RepeatDirection="Horizontal"
                                     AutoPostBack="true" OnSelectedIndexChanged="rblTipoFecha_SelectedIndexChanged">
                                     <asp:ListItem Text="Fecha Vuelo" Value="1" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Fecha Operación" Value="2"></asp:ListItem>
-                                </asp:RadioButtonList>--%>
-                                
+                                </asp:RadioButtonList>
                             </center>
                         </td>
                     </tr>
@@ -575,7 +603,7 @@
                         </td>
                         <td width="50%">
                             <div style="text-align: left; float: left">
-                                <asp:Button ID="btnCancelarPierna" runat="server" Text="Cancelar" OnClientClick="OcultarModalPiernasMXN();" OnClick="btnCancelarPierna_Click" CssClass="btn btn-default" />
+                                <asp:Button ID="btnCancelarPierna" runat="server" Text="Cancelar" OnClientClick="OcultarModalPiernasMXN();" CssClass="btn btn-default" />
                             </div>
                         </td>
                     </tr>
@@ -589,6 +617,132 @@
             <ProgressTemplate>
                 <div style="text-align: left">
                     <asp:Label ID="lblProgresBuscarPiernas" runat="server" Text="Por favor espere..." Font-Italic="true"></asp:Label>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+    </asp:Panel>
+
+
+    <%-- Modal Confirm --%>
+    <asp:HiddenField ID="hdTargetConfirm" runat="server" />
+    <cc1:ModalPopupExtender ID="mpeConfirm" runat="server" TargetControlID="hdTargetConfirm" CancelControlID="btnCancelConfirm"
+        PopupControlID="pnlConfirm" BackgroundCssClass="overlayy">
+    </cc1:ModalPopupExtender>
+    <asp:Panel ID="pnlConfirm" runat="server" BackColor="White" Style="display: none;" CssClass="modalrlr">
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="2" runat="server" id="tdCaption">&nbsp;
+                            <center>
+                                <h4>
+                                    <asp:Label ID="lblCaption" runat="server"></asp:Label></h4>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 60px; vertical-align: middle; text-align: center">
+                            <asp:Image ID="imgInfo" runat="server" ImageUrl="~/Images/icons/information.png" Height="24" Width="24" />
+                        </td>
+                        <td style="text-align: left; vertical-align: middle">
+                            <asp:Label ID="lblMessageConfirm" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">
+                            <asp:Button ID="btnAceptConfirm" runat="server" Text="Si" OnClientClick="OcultarModalConfir();" OnClick="btnAceptConfirm_Click" CssClass="btn btn-primary" />
+                        </td>
+                        <td style="text-align: left">
+                            <asp:Button ID="btnCancelConfirm" runat="server" Text="No" OnClick="btnCancelConfirm_Click" CssClass="btn btn-default" />
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </asp:Panel>
+
+
+    <%-- Modal de Gastos Estimados --%>
+    <asp:HiddenField ID="hdTargetGastosEstimados" runat="server" />
+    <cc1:ModalPopupExtender ID="mpeGastosEstimados" runat="server" TargetControlID="hdTargetGastosEstimados" 
+        CancelControlID="btnCancelarEstimado" PopupControlID="pnlGastosEstimados" BackgroundCssClass="overlayy">
+    </cc1:ModalPopupExtender>
+    <asp:Panel ID="pnlGastosEstimados" runat="server" BorderColor="" BackColor="White" Height="230px"
+        Width="400px" HorizontalAlign="Center" Style="display: none" CssClass="modalrlr">
+        <asp:UpdatePanel ID="upaGastosEstimados" runat="server">
+            <ContentTemplate>
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="2">
+                            <h4>
+                                <asp:Label ID="lblTituloMatricula" runat="server" Text="Agregar gasto estimado"></asp:Label></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; width: 30%">
+                            <asp:Label ID="lblNoReferencia" runat="server" Text="Referencia:"></asp:Label>
+                        </td>
+                        <td style="text-align: left; width: 70%">
+                            <asp:TextBox ID="txtNoReferencia" runat="server" Width="85%"></asp:TextBox><asp:Label ID="lblReqNoReferencia" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; width: 30%">
+                            <asp:Label ID="Label4" runat="server" Text="Proveedor:"></asp:Label>
+                        </td>
+                        <td style="text-align: left; width: 70%">
+                            <asp:DropDownList ID="ddlProveedor" runat="server" Width="90%"></asp:DropDownList><asp:Label ID="lblReqProveedor" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">
+                            <asp:Label ID="lblImporte" runat="server" Text="Importe:"></asp:Label>
+                        </td>
+                        <td style="text-align: left">
+                            <asp:TextBox ID="txtImporte" runat="server" Width="85%"></asp:TextBox><asp:Label ID="lblReqImporte" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                            <cc1:FilteredTextBoxExtender ID="ftbImporte" runat="server" TargetControlID="txtImporte" FilterMode="ValidChars"
+                                ValidChars="0123456789.-">
+                            </cc1:FilteredTextBoxExtender>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; width: 30%"></td>
+                        <td style="text-align: left; width: 70%"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">
+                            <asp:Label ID="lblRubro" runat="server" Text="Rubro:"></asp:Label>
+                        </td>
+                        <td style="text-align: left">
+                            <asp:DropDownList ID="ddlRubro" runat="server" Width="90%"></asp:DropDownList><asp:Label ID="lblReqRubro" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Label ID="lblErrorGastoEstimado" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 50%">
+                            <div style="text-align: right; float: right">
+                                <asp:Button ID="btnAceptarEstimado" runat="server" Text="Aceptar" OnClick="btnAceptarEstimado_Click" CssClass="btn btn-primary" />
+                            </div>
+                        </td>
+                        <td style="width: 50%">
+                            <div style="text-align: left; float: left">
+                                <asp:Button ID="btnCancelarEstimado" runat="server" Text="Cancelar" OnClientClick="OcultarModalEstimados();" CssClass="btn btn-default" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdateProgress ID="upgGastosEstimados" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="upaGastosEstimados">
+            <ProgressTemplate>
+                <div style="text-align: left">
+                    <asp:Label ID="lblProgresGastosEstimados" runat="server" Text="Por favor espere..."></asp:Label>
                 </div>
             </ProgressTemplate>
         </asp:UpdateProgress>
