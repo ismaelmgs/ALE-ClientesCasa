@@ -149,8 +149,6 @@
                         <h5>Búsqueda de Clientes</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        
-
 
                         <asp:UpdatePanel ID="upaClientes" runat="server">
                             <ContentTemplate>
@@ -219,10 +217,6 @@
                             </Triggers>
                         </asp:UpdatePanel>
 
-                        
-
-
-
                     </div>
                 </div>
             </asp:Panel>
@@ -290,10 +284,10 @@
 
                                                                     <asp:Panel ID="pnlRubrosMat" runat="server" ScrollBars="Auto" style="max-height:600px; overflow-y:auto;">
 
-                                                                        <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="30"
+                                                                        <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" 
                                                                             CssClass="table table-bordered table-striped table-hover" OnRowDataBound="gvMantenimiento_RowDataBound" EnableViewState="true"
-                                                                            DataKeyNames="IdGasto" OnRowCommand="gvMantenimiento_RowCommand" OnRowCreated="gvMantenimiento_RowCreated"
-                                                                            OnPreRender="gvMantenimiento_PreRender">
+                                                                            DataKeyNames="IdGasto,IdTipoGasto,Comprobante" OnRowCommand="gvMantenimiento_RowCommand" OnRowCreated="gvMantenimiento_RowCreated"
+                                                                            OnPreRender="gvMantenimiento_PreRender" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="30">
                                                                             <EmptyDataTemplate>
                                                                                 No existen Registros para mostrar.
                                                                             </EmptyDataTemplate>
