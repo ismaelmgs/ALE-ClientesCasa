@@ -201,7 +201,7 @@ namespace ClientesCasa.Views.Manttos
             string sProvGSelect = string.Empty;
             try
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
                     if (iBanPre == 2)
                     {
@@ -411,7 +411,7 @@ namespace ClientesCasa.Views.Manttos
         {
             try
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
                     if (iBanPre == 2)
                     {
@@ -526,7 +526,7 @@ namespace ClientesCasa.Views.Manttos
         {
             try
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
                     if (iBanPre == 2)
                     {
@@ -1554,7 +1554,6 @@ namespace ClientesCasa.Views.Manttos
                 throw ex;
             }
         }
-
         private void CargaComboAcumuladoGasto(DropDownList ddl, DataTable dt)
         {
             try
@@ -1619,7 +1618,6 @@ namespace ClientesCasa.Views.Manttos
                 throw ex;
             }
         }
-
         public void ControlLlenadoDatos(GridView gv)
         {
             try
@@ -1733,7 +1731,6 @@ namespace ClientesCasa.Views.Manttos
                 throw;
             }
         }
-
         public void MostrarMensaje(string sMensaje, string sCaption)
         {
             sMensaje = "alert('" + sMensaje + "');";

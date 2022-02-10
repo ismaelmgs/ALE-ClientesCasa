@@ -232,7 +232,7 @@ namespace ClientesCasa.Views.Gastos
             //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO RowDataBound USD ---");
             try
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
                     if (iBanPre == 2)
                     {
@@ -575,7 +575,7 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
-                if(IsPostBack)
+                if(!IsPostBack)
                 {
                     if(iBanPre == 2)
                     {
@@ -678,7 +678,7 @@ namespace ClientesCasa.Views.Gastos
         {
             try
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
                     if (iBanPre == 2)
                     {

@@ -297,7 +297,7 @@
                                                                         CssClass="table table-bordered table-striped table-hover" DataKeyNames="IdGasto,IdTipoGasto,Comprobante" EnableViewState="true"
                                                                         OnRowDataBound="gvMantenimientoUSA_RowDataBound" OnRowCommand="gvMantenimientoUSA_RowCommand"
                                                                         OnRowCreated="gvMantenimientoUSA_RowCreated" OnPreRender="gvMantenimientoUSA_PreRender"
-                                                                        OnPageIndexChanging="gvMantenimientoUSA_PageIndexChanging" PageSize="30">
+                                                                        OnPageIndexChanging="gvMantenimientoUSA_PageIndexChanging" PageSize="20">
                                                                         <EmptyDataTemplate>
                                                                             No existen Registros.
                                                                         </EmptyDataTemplate>
@@ -506,6 +506,7 @@
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnAceptarPeriodo" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btnCancelar" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
     </asp:Panel>
@@ -545,6 +546,9 @@
                     </tr>
                 </table>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnCancelConfirm" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
     </asp:Panel>
 
@@ -660,6 +664,7 @@
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnBuscarPiernasUSA" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnAceptarPiernaUSA" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btnCancelarPiernaUSA" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
         <asp:UpdateProgress ID="UpdateProgress1" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="upaPiernasUSA">
@@ -748,6 +753,9 @@
                     </tr>
                 </table>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnCancelarEstimado" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
         <asp:UpdateProgress ID="upgGastosEstimados" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="upaGastosEstimados">
             <ProgressTemplate>

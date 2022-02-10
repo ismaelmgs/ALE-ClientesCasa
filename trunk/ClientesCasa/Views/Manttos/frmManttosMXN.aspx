@@ -205,7 +205,6 @@
                                                         <asp:BoundField DataField="Matricula" HeaderText="Matrícula Aeronave" />
                                                     </Columns>
                                                     <RowStyle CssClass="rowSelect" />
-
                                                 </asp:GridView>
                                             </div>
                                         </td>
@@ -244,7 +243,6 @@
                     </tr>
                 </table>
             </asp:Panel>
-
 
             <asp:Panel ID="pnlRubros" runat="server" Visible="false">
                 <asp:UpdatePanel ID="upaGastosPesos" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
@@ -287,7 +285,7 @@
                                                                         <asp:GridView ID="gvMantenimiento" runat="server" AutoGenerateColumns="false" ShowFooter="true" AllowPaging="true" 
                                                                             CssClass="table table-bordered table-striped table-hover" OnRowDataBound="gvMantenimiento_RowDataBound" EnableViewState="true"
                                                                             DataKeyNames="IdGasto,IdTipoGasto,Comprobante" OnRowCommand="gvMantenimiento_RowCommand" OnRowCreated="gvMantenimiento_RowCreated"
-                                                                            OnPreRender="gvMantenimiento_PreRender" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="30">
+                                                                            OnPreRender="gvMantenimiento_PreRender" OnPageIndexChanging="gvMantenimiento_PageIndexChanging" PageSize="20">
                                                                             <EmptyDataTemplate>
                                                                                 No existen Registros para mostrar.
                                                                             </EmptyDataTemplate>
@@ -433,7 +431,6 @@
                 </asp:UpdatePanel>
             </asp:Panel>
 
-
             <asp:UpdateProgress ID="prgLoadingStatus" runat="server" DynamicLayout="true">
                 <ProgressTemplate>
                     <div id="overlay">
@@ -445,10 +442,6 @@
                     </div>
                 </ProgressTemplate>
             </asp:UpdateProgress>
-
-            
-
-
 
         </ContentTemplate>
     </asp:UpdatePanel>
@@ -503,6 +496,7 @@
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnAceptarPeriodo" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btnCancelar" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
     </asp:Panel>
@@ -618,6 +612,7 @@
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnBuscarPiernas" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btnCancelarPierna" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
         <asp:UpdateProgress ID="upgBuscarPiernas" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="upaBuscaPiernas">
@@ -665,6 +660,9 @@
                     </tr>
                 </table>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnCancelConfirm" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
     </asp:Panel>
 
@@ -745,6 +743,9 @@
                     </tr>
                 </table>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnCancelarEstimado" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
         <asp:UpdateProgress ID="upgGastosEstimados" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="upaGastosEstimados">
             <ProgressTemplate>
