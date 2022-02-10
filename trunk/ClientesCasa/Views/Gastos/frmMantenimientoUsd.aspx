@@ -14,6 +14,27 @@
         .rowSelect{
             cursor:pointer;
         }
+        .GridPager a, .GridPager span
+        {
+            display: block;
+            height: 15px;
+            width: 15px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+        .GridPager a
+        {
+            background-color: #f5f5f5;
+            color: #969696;
+            border: 1px solid #969696;
+        }
+        .GridPager span
+        {
+            background-color: #A1DCF2;
+            color: #000;
+            border: 1px solid #3AC0F2;
+        }
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
@@ -101,14 +122,14 @@
             return true;
         }
 
-        function OcultarModalPiernasMXN() {
+        <%--function OcultarModalPiernasMXN() {
             var txtTasa = '<%=txtTripPiernas.ClientID%>';
             txtTasa.value = "";
 
             var modalId = '<%= mpePierna.ClientID%>';
             var modal = $find(modalId);
             modal.hide();
-        }
+        }--%>
 
         function OcultarModalPiernasUSD() {
             var txtTasa = '<%=txtTrioUSA.ClientID%>';
@@ -394,6 +415,7 @@
                                                                             </asp:TemplateField>
 
                                                                         </Columns>
+                                                                        <PagerStyle HorizontalAlign="Right" CssClass="GridPager" />
                                                                     </asp:GridView>
 
                                                                 </asp:Panel>
