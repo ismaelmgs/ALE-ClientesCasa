@@ -392,6 +392,8 @@
                                                                                     <ItemTemplate>
                                                                                         <asp:DropDownList ID="ddlPorcentaje" runat="server" Width="100px" EnableViewState="true" Style="width:80px;">
                                                                                         </asp:DropDownList>
+                                                                                        <asp:Image ID="imgError" runat="server" ImageUrl="~/Images/icons/error.png" ToolTip="La distribución de porcentaje es incorrecta." Width="16px" Height="16px" Visible="false" />
+                                                                                        <asp:Image ID="imgWarning" runat="server" ImageUrl="~/Images/icons/warning.png" ToolTip="No se ha realizado la distribución del gasto." Width="16px" Height="16px" Visible="false" />
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
                                                                                 <asp:TemplateField HeaderText="Importe">
