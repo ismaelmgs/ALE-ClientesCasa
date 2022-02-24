@@ -35,6 +35,7 @@ namespace ClientesCasa.Views.Manttos
 
                 if (eGetCargaInicial != null)
                     eGetCargaInicial(sender, e);
+                
             }
         }
 
@@ -221,17 +222,17 @@ namespace ClientesCasa.Views.Manttos
                                 txtImp2 = (TextBox)e.Row.FindControl("txtImporte_2");
                                 ddlPorc = (DropDownList)e.Row.FindControl("ddlPorcentaje");
 
-                                if (dt != null)
-                                    txtImp2.Text = dt.Rows[e.Row.RowIndex][24].S();
+                                if (txtImp2 != null)
+                                    txtImp2.Text = dt.Rows[e.Row.RowIndex]["ImporteContGasto"].S();
 
-                                if (dtPorcentaje != null)
+                                if (ddlPorc != null)
                                 {
                                     ddlPorc.DataSource = dtPorcentaje;
                                     ddlPorc.DataTextField = "Valor";
                                     ddlPorc.DataValueField = "Id";
                                     ddlPorc.DataBind();
 
-                                    if (dt.Rows[e.Row.RowIndex][23].S() != "")
+                                    if (dt.Rows[e.Row.RowIndex]["PorcParticipacion"].S() != "")
                                         ddlPorc.SelectedValue = dt.Rows[e.Row.RowIndex][23].S();
                                 }
                             }
@@ -350,6 +351,7 @@ namespace ClientesCasa.Views.Manttos
                                 e.Row.Cells[6].Text = dSumaImporte.ToString("c");
                                 e.Row.Cells[6].HorizontalAlign = HorizontalAlign.Center;
                                 e.Row.Cells[6].Font.Bold = true;
+                                readTotal.Text = dSumaImporte.ToString("c");
                             }
 
                             GC.Collect();
@@ -1077,6 +1079,8 @@ namespace ClientesCasa.Views.Manttos
             {
                 if (ds != null)
                 {
+                    readTotal.Text = string.Empty;
+                    dSumaImporte = 0;
                     dsGastosMXN = null;
                     dsGastosMXN = ds;
                     dtGastosMEX = ds.Tables[0];
@@ -1086,7 +1090,18 @@ namespace ClientesCasa.Views.Manttos
                     gvMantenimiento.DataSource = dtGastosMEX;
                     gvMantenimiento.DataBind();
                     ControlLlenadoDatos(gvMantenimiento);
-                    pnlRubros.Visible = true;
+
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        if (!string.IsNullOrEmpty(ds.Tables[2].Rows[0][0].S()))
+                        {
+                            dSumaImporte = ds.Tables[2].Rows[0][0].S().D();
+                            readTotal.Text = dSumaImporte.ToString("c");
+                            pnlRubros.Visible = true;
+                            upaTotales.Update();
+                        }
+                    }
+                    
                 }
                 GC.Collect();
             }
@@ -1686,7 +1701,7 @@ namespace ClientesCasa.Views.Manttos
                                 if (dtContratos.Rows.Count == 1)
                                 {
                                     if (dtGastosMEX != null)
-                                        txtImp2.Text = dtGastosMEX.Rows[x][24].S();
+                                        txtImp2.Text = dtGastosMEX.Rows[x]["ImporteContGasto"].S();
 
                                     if (dtPorcentaje != null)
                                     {
@@ -1695,8 +1710,8 @@ namespace ClientesCasa.Views.Manttos
                                         ddlPorc.DataValueField = "Id";
                                         ddlPorc.DataBind();
 
-                                        if (dtGastosMEX.Rows[x][23].S() != "")
-                                            ddlPorc.SelectedValue = dtGastosMEX.Rows[x][23].S();
+                                        if (dtGastosMEX.Rows[x]["PorcParticipacion"].S() != "")
+                                            ddlPorc.SelectedValue = dtGastosMEX.Rows[x]["PorcParticipacion"].S();
                                     }
                                 }
 

@@ -248,8 +248,8 @@ namespace ClientesCasa.Views.Gastos
                                 txtImp2 = (TextBox)e.Row.FindControl("txtImporte_2");
                                 ddlPorc = (DropDownList)e.Row.FindControl("ddlPorcentaje");
 
-                                if (dt != null)
-                                    txtImp2.Text = dt.Rows[e.Row.RowIndex][24].S();
+                                if (txtImp2 != null)
+                                    txtImp2.Text = dt.Rows[e.Row.RowIndex]["ImporteContGasto"].S();
 
                                 if (dtPorcentaje != null)
                                 {
@@ -258,8 +258,8 @@ namespace ClientesCasa.Views.Gastos
                                     ddlPorc.DataValueField = "Id";
                                     ddlPorc.DataBind();
 
-                                    if (dt.Rows[e.Row.RowIndex][23].S() != "")
-                                        ddlPorc.SelectedValue = dt.Rows[e.Row.RowIndex][23].S();
+                                    if (dt.Rows[e.Row.RowIndex]["PorcParticipacion"].S() != "")
+                                        ddlPorc.SelectedValue = dt.Rows[e.Row.RowIndex]["PorcParticipacion"].S();
                                 }
                             }
 
@@ -362,6 +362,7 @@ namespace ClientesCasa.Views.Gastos
                                 e.Row.Cells[6].Text = dSumaImporteUSA.ToString("c");
                                 e.Row.Cells[6].HorizontalAlign = HorizontalAlign.Center;
                                 e.Row.Cells[6].Font.Bold = true;
+                                readTotal.Text = dSumaImporteUSA.ToString("c");
                             }
 
                             GC.Collect();
@@ -1182,6 +1183,8 @@ namespace ClientesCasa.Views.Gastos
             {
                 if (ds != null)
                 {
+                    readTotal.Text = string.Empty;
+                    dSumaImporteUSA = 0;
                     dsGastosUSD = null;
                     dsGastosUSD = ds;
                     dtGastosMEX = null;
@@ -1191,7 +1194,19 @@ namespace ClientesCasa.Views.Gastos
                     gvMantenimientoUSA.DataSource = dtGastosUSA;
                     gvMantenimientoUSA.DataBind();
                     ControlLlenadoDatos(gvMantenimientoUSA);
-                    pnlRubrosUSA.Visible = true;
+
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        if (!string.IsNullOrEmpty(ds.Tables[2].Rows[0][0].S()))
+                        {
+                            dSumaImporteUSA = ds.Tables[2].Rows[0][0].S().D();
+                            readTotal.Text = dSumaImporteUSA.ToString("c");
+                            pnlRubrosUSA.Visible = true;
+                            upaTotales.Update();
+                        }
+                    }
+
+                    
                 }
                 GC.Collect();
             }
@@ -1779,7 +1794,7 @@ namespace ClientesCasa.Views.Gastos
                                 if (dtContratos.Rows.Count == 1)
                                 {
                                     if (dtGastosUSA != null)
-                                        txtImp2.Text = dtGastosUSA.Rows[x][24].S();
+                                        txtImp2.Text = dtGastosUSA.Rows[x]["ImporteContGasto"].S();
 
                                     if (dtPorcentaje != null)
                                     {
@@ -1788,8 +1803,8 @@ namespace ClientesCasa.Views.Gastos
                                         ddlPorc.DataValueField = "Id";
                                         ddlPorc.DataBind();
 
-                                        if (dtGastosUSA.Rows[x][23].S() != "")
-                                            ddlPorc.SelectedValue = dtGastosUSA.Rows[x][23].S();
+                                        if (dtGastosUSA.Rows[x]["PorcParticipacion"].S() != "")
+                                            ddlPorc.SelectedValue = dtGastosUSA.Rows[x]["PorcParticipacion"].S();
                                     }
                                 }
 
