@@ -281,9 +281,13 @@
                                                                 <ContentTemplate>
                                                                     <asp:UpdatePanel ID="upaTotales" runat="server" UpdateMode="Conditional">
                                                                         <ContentTemplate>
-                                                                            <asp:Panel ID="pnlTotales" runat="server" style="text-align:right; width:100%; font-weight:700; font-size:11pt; padding-bottom:15px;">
+                                                                            <asp:Panel ID="pnlTotales" runat="server" style="text-align:left; width:100%; font-size:11pt; padding-bottom:15px;">
                                                                                 <div>
-                                                                                    <asp:Label ID="lblTotal" runat="server" Text="Total:"></asp:Label>
+                                                                                    <asp:Label ID="lblTotalOri" runat="server" Text="Total Original:" style="font-weight:bold;"></asp:Label>
+                                                                                    <asp:Label ID="readTotalOri" runat="server" Text=""></asp:Label>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <asp:Label ID="lblTotal" runat="server" Text="Total a cobrar:" style="font-weight:bold;"></asp:Label>
                                                                                     <asp:Label ID="readTotal" runat="server" Text=""></asp:Label>
                                                                                 </div>
                                                                             </asp:Panel>

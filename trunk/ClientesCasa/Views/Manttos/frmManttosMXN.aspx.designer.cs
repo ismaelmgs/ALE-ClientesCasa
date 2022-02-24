@@ -238,6 +238,24 @@ namespace ClientesCasa.Views.Manttos {
         protected global::System.Web.UI.WebControls.Panel pnlTotales;
         
         /// <summary>
+        /// Control lblTotalOri.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalOri;
+        
+        /// <summary>
+        /// Control readTotalOri.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label readTotalOri;
+        
+        /// <summary>
         /// Control lblTotal.
         /// </summary>
         /// <remarks>

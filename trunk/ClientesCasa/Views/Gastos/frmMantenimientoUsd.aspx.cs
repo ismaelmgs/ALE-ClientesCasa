@@ -181,7 +181,11 @@ namespace ClientesCasa.Views.Gastos
 
                     lblClaveClienteUSD.Text = "Clave cliente: " + lstCliente[0];
                     lblNombreClienteUSD.Text = "Nombre cliente: " + lstCliente[1];
-                    lblMatriculaUSD.Text = "Matrícula: " + lstCliente[2];
+
+                    if (lstCliente[2] == "XA-FTY" || lstCliente[2] == "F -7X")
+                        lblMatriculaUSD.Text = "Matrícula: XA-FTY, F -7X";
+                    else
+                        lblMatriculaUSD.Text = "Matrícula: " + lstCliente[2];
 
                     lblReqMes.Text = NombreMes;
                     lblReqAnio.Text = iAnio.S();
@@ -1183,7 +1187,9 @@ namespace ClientesCasa.Views.Gastos
             {
                 if (ds != null)
                 {
+                    readTotalOri.Text = string.Empty;
                     readTotal.Text = string.Empty;
+                    dSumaImporteOUSA = 0;
                     dSumaImporteUSA = 0;
                     dsGastosUSD = null;
                     dsGastosUSD = ds;
@@ -1200,7 +1206,10 @@ namespace ClientesCasa.Views.Gastos
                         if (!string.IsNullOrEmpty(ds.Tables[2].Rows[0][0].S()))
                         {
                             dSumaImporteUSA = ds.Tables[2].Rows[0][0].S().D();
-                            readTotal.Text = dSumaImporteUSA.ToString("c");
+                            dSumaImporteOUSA = ds.Tables[2].Rows[0][1].S().D();
+
+                            readTotalOri.Text = dSumaImporteOUSA.ToString("c"); //Total original
+                            readTotal.Text = dSumaImporteUSA.ToString("c"); //Total a cobrar
                             pnlRubrosUSA.Visible = true;
                             upaTotales.Update();
                         }
