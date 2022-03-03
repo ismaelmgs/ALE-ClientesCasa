@@ -187,7 +187,7 @@ namespace ClientesCasa.Views.Reportes
                     //strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString("c");
                     strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString();
                     dbNuevoCargo = double.Parse(strNuevosCargos);
-                    dbNuevoCargo = dbNuevoCargo * 1.16;
+                    //dbNuevoCargo = dbNuevoCargo * 1.16;
                     strNuevosCargos = dbNuevoCargo.ToString("c");
                     //--
                     strSaldoActual = dtTotal.Rows[0]["SaldoActual"].S().D().ToString("c");
@@ -198,7 +198,7 @@ namespace ClientesCasa.Views.Reportes
                     //strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString("c");
                     strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString();
                     dbNuevoCargo = double.Parse(strNuevosCargosUSD);
-                    dbNuevoCargo = dbNuevoCargo * 1.16;
+                    //dbNuevoCargo = dbNuevoCargo * 1.16;
                     strNuevosCargosUSD = dbNuevoCargo.ToString("c");
                     //--
                     strSaldoActualUSD = dtTotal.Rows[1]["SaldoActual"].S().D().ToString("c");

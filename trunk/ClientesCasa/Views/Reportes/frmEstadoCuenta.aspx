@@ -182,13 +182,15 @@
                                                     <table border="0" style="width: 100%; text-align: center;">
                                                         <tr class="tdrlr">
                                                             <td>
-                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/logo-AI.jpg" />
+                                                                <asp:Image ID="imgLogoReporte" runat="server" ImageUrl="~/Images/logo-AI2.jpg" />
+                                                                <%--<asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo-AI.jpg" />--%>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </td>
                                                 <td style="width: 90%" colspan="2">
-                                                    <table style="width: 100%; background-color: #0D2240; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 10pt; color: #ffffff;">
+                                                    <%--<table style="width: 100%; background-color: #0D2240; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 10pt; color: #ffffff;">--%>
+                                                    <table style="width: 100%; background-color: #001c40; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 10pt; color: #ffffff;">
                                                         <tr class="tdrlr">
                                                             <td style="text-align: center; width: 60%" colspan="5">
                                                                 &nbsp;</td>
