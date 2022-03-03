@@ -248,6 +248,9 @@ namespace ClientesCasa.Views.Manttos
                                 if (txtImp2 != null)
                                     txtImp2.Text = dt.Rows[e.Row.RowIndex]["ImporteContGasto"].S();
 
+                                if (txtImp.Text.D() == 0)
+                                    txtImp2.Text = txtImp.Text;
+
                                 if (ddlPorc != null)
                                 {
                                     ddlPorc.DataSource = dtPorcentaje;
@@ -260,7 +263,12 @@ namespace ClientesCasa.Views.Manttos
                                 }
 
                                 decimal dRes = 0;
-                                dRes = ResPorcentaje(txtImp.Text.D(), ddlPorc.SelectedItem.Text.D());
+                                decimal dPor = 0;
+
+                                if (!string.IsNullOrEmpty(ddlPorc.SelectedValue))
+                                    dPor = ddlPorc.SelectedValue.S().D();
+
+                                dRes = ResPorcentaje(txtImp.Text.D(), dPor);
                                 txtImp2.Text = dRes.S();
                             }
 
@@ -1316,14 +1324,22 @@ namespace ClientesCasa.Views.Manttos
                     DataRow dr = dtPesos.NewRow();
                     dr["FechaVuelo"] = dtMXN.Rows[i]["FechaVuelo"].S();
                     dr["Referencia"] = dtMXN.Rows[i]["Referencia"].S();
+
                     dr["Importe"] = dtMXN.Rows[i]["ImporteModificado"].D().ToString("c");
                     dr["ImporteO"] = dtMXN.Rows[i]["Importe"].D().ToString("c");
+
                     dr["FijoVar"] = dtMXN.Rows[i]["TipoRubro"].S() == "1" ? "FIJO" : "VARIABLE";
                     dr["Rubro"] = dtMXN.Rows[i]["DescripcionRubro"].S();
                     dr["TipoGasto"] = dtMXN.Rows[i]["TipoGasto"].S();
                     dr["Comentarios"] = dtMXN.Rows[i]["Comentarios"].S();
                     dr["Porcentaje"] = dtMXN.Rows[i]["PorcParticipacion"].S();
-                    dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = dtMXN.Rows[i]["ImporteContGasto"].D().ToString("c");
+
+                    if (dtMXN.Rows[i]["Importe"].ToString() == "0.00" || dtMXN.Rows[i]["Importe"].ToString() == "0")
+                        dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = decimal.Parse(dtMXN.Rows[i]["ImporteModificado"].ToString()).ToString("c");
+
+                    
+                    dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = dtMXN.Rows[i]["ImporteModificado"].D().ToString("c");
+                    
                     dtPesos.Rows.Add(dr);
                 }
 
@@ -1756,6 +1772,9 @@ namespace ClientesCasa.Views.Manttos
                                 if (txtImp != null)
                                     txtImp.Text = dtGastosMEX.Rows[x]["ImporteModificado"].S();
 
+                                if (txtImp.Text.D() == 0)
+                                    txtImp2.Text = txtImp.Text;
+
                                 if (ddlFijoVar != null)
                                     ddlFijoVar.SelectedValue = dtGastosMEX.Rows[x]["TipoRubro"].S();
 
@@ -1808,7 +1827,12 @@ namespace ClientesCasa.Views.Manttos
                                     }
 
                                     decimal dRes = 0;
-                                    dRes = ResPorcentaje(txtImp.Text.D(), ddlPorc.SelectedItem.Text.D());
+                                    decimal dPor = 0;
+
+                                    if (!string.IsNullOrEmpty(ddlPorc.SelectedValue))
+                                        dPor = ddlPorc.SelectedValue.S().D();
+
+                                    dRes = ResPorcentaje(txtImp.Text.D(), dPor);
                                     txtImp2.Text = dRes.S();
 
                                 }
