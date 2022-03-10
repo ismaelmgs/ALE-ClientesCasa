@@ -1197,7 +1197,7 @@ namespace ClientesCasa.Views.Gastos
                     dImporte = txtImporte.Text.D();
 
                 dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
-                txtImporte2.Text = dResultado.S();
+                txtImporte2.Text = dResultado.ToString("N2");
                 upaGastosDolares.Update();
             }
             catch (Exception)

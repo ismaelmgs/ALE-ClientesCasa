@@ -1112,7 +1112,7 @@ namespace ClientesCasa.Views.Manttos
                     dImporte = txtImporte.Text.D();
 
                 dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
-                txtImporte2.Text = dResultado.S();
+                txtImporte2.Text = dResultado.ToString("N2");
                 upaGridGastosMXN.Update();
             }
             catch (Exception)
