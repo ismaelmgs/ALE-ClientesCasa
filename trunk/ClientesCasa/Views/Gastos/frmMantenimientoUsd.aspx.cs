@@ -253,7 +253,10 @@ namespace ClientesCasa.Views.Gastos
                                 ddlPorc = (DropDownList)e.Row.FindControl("ddlPorcentaje");
 
                                 if (txtImp2 != null)
-                                    txtImp2.Text = dt.Rows[e.Row.RowIndex]["ImporteContGasto"].S();
+                                    txtImp2.Text = dt.Rows[e.Row.RowIndex]["ImporteContGasto"].Db().ToString("N2");
+
+                                if (txtImp.Text.D() == 0)
+                                    txtImp2.Text = txtImp.Text.Db().ToString("N2");
 
                                 if (ddlPorc != null)
                                 {
@@ -265,9 +268,15 @@ namespace ClientesCasa.Views.Gastos
                                     if (dt.Rows[e.Row.RowIndex]["PorcParticipacion"].S() != "")
                                         ddlPorc.SelectedValue = dt.Rows[e.Row.RowIndex]["PorcParticipacion"].S();
                                 }
+
                                 decimal dRes = 0;
-                                dRes = ResPorcentaje(txtImp.Text.D(), ddlPorc.SelectedItem.Text.D());
-                                txtImp2.Text = dRes.S();
+                                decimal dPor = 0;
+
+                                if (!string.IsNullOrEmpty(ddlPorc.SelectedValue))
+                                    dPor = ddlPorc.SelectedValue.S().D();
+
+                                dRes = ResPorcentaje(txtImp.Text.D(), dPor);
+                                txtImp2.Text = dRes.Db().ToString("N2");
                             }
 
                             if (txtImp != null)
@@ -1407,7 +1416,15 @@ namespace ClientesCasa.Views.Gastos
                     dr["TipoGasto"] = dtUSD.Rows[i]["TipoGasto"].S();
                     dr["Comentarios"] = dtUSD.Rows[i]["Comentarios"].S();
                     dr["Porcentaje"] = dtUSD.Rows[i]["PorcParticipacion"].S();
-                    dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = dtUSD.Rows[i]["ImporteContGasto"].D().ToString("c");
+                    //dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = dtUSD.Rows[i]["ImporteContGasto"].D().ToString("c");
+                    //dtPesos.Rows.Add(dr);
+
+                    if (dtUSD.Rows[i]["Importe"].ToString() == "0.00" || dtUSD.Rows[i]["Importe"].ToString() == "0")
+                        dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = decimal.Parse(dtUSD.Rows[i]["ImporteModificado"].ToString()).ToString("c");
+
+
+                    dr[dtContratos.Rows[0]["ClaveContrato"].S() + "Importe"] = dtUSD.Rows[i]["ImporteModificado"].D().ToString("c");
+
                     dtPesos.Rows.Add(dr);
                 }
 
@@ -1825,7 +1842,10 @@ namespace ClientesCasa.Views.Gastos
                             if (iIdGasto == dtGastosUSA.Rows[x]["IdGasto"].S().I())
                             {
                                 if (txtImp != null)
-                                    txtImp.Text = dtGastosUSA.Rows[x]["ImporteModificado"].S();
+                                    txtImp.Text = dtGastosUSA.Rows[x]["ImporteModificado"].Db().ToString("N2");
+
+                                if (txtImp.Text.D() == 0)
+                                    txtImp2.Text = txtImp.Text.Db().ToString("N2");
 
                                 if (ddlFijoVar != null)
                                     ddlFijoVar.SelectedValue = dtGastosUSA.Rows[x]["TipoRubro"].S();
@@ -1865,7 +1885,7 @@ namespace ClientesCasa.Views.Gastos
                                 if (dtContratos.Rows.Count == 1)
                                 {
                                     if (dtGastosUSA != null)
-                                        txtImp2.Text = dtGastosUSA.Rows[x]["ImporteContGasto"].S();
+                                        txtImp2.Text = dtGastosUSA.Rows[x]["ImporteContGasto"].Db().ToString("N2");
 
                                     if (dtPorcentaje != null)
                                     {
@@ -1877,6 +1897,15 @@ namespace ClientesCasa.Views.Gastos
                                         if (dtGastosUSA.Rows[x]["PorcParticipacion"].S() != "")
                                             ddlPorc.SelectedValue = dtGastosUSA.Rows[x]["PorcParticipacion"].S();
                                     }
+
+                                    decimal dRes = 0;
+                                    decimal dPor = 0;
+
+                                    if (!string.IsNullOrEmpty(ddlPorc.SelectedValue))
+                                        dPor = ddlPorc.SelectedValue.S().D();
+
+                                    dRes = ResPorcentaje(txtImp.Text.D(), dPor);
+                                    txtImp2.Text = dRes.Db().ToString("N2");
                                 }
 
                                 if (btnGastoE != null)
