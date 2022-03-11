@@ -436,7 +436,7 @@
                                                                             </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Importe">
                                                                                 <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtImporte_2" runat="server" Style="display: block; text-align: right; width:100px !important;"></asp:TextBox>
+                                                                                    <asp:TextBox ID="txtImporte_2" runat="server" Style="display: block; text-align: right; width:100px !important;" ReadOnly="true"></asp:TextBox>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 
