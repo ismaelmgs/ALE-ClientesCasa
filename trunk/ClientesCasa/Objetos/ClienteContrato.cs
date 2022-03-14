@@ -49,6 +49,7 @@ namespace ClientesCasa.Objetos
         private int _iRepEdoCuenta = 0;
         private int _iTipoCosto = 0;
         private DataTable _dtDocumentos = new DataTable();
+        private int _iRequiereIVA = 0;
 
         //Intercambios
         private int _iIntercambioId = 0;
@@ -121,6 +122,7 @@ namespace ClientesCasa.Objetos
         public int iRepEdoCuenta { get { return _iRepEdoCuenta; } set { _iRepEdoCuenta = value; } }
         public int iTipoCosto { get { return _iTipoCosto; } set { _iTipoCosto = value; } }
         public DataTable dtDocumentos { get { return _dtDocumentos; } set { _dtDocumentos = value; } }
+        public int iRequiereIVA { get { return _iRequiereIVA; } set { _iRequiereIVA = value; } }
         public int iIntercambioId { get { return _iIntercambioId; } set { _iIntercambioId = value; } }
         public int iIntercambioGrupoModeloId { get { return _iIntercambioGrupoModeloId; } set { _iIntercambioGrupoModeloId = value; } }
         public decimal dContratoIntercambiosFactor { get { return _dContratoIntercambiosFactor; } set { _dContratoIntercambiosFactor = value; } }
