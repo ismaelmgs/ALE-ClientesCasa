@@ -160,6 +160,7 @@ namespace ClientesCasa.Views.Reportes
                 ds = dsEdoCuenta;
                 ds.Tables[0].TableName = "MXP";
                 ds.Tables[1].TableName = "USD";
+                ds.Tables[2].TableName = "RequerirIVA";
 
                 //lblNombreCliente.Text = sNombrecliente;
                 //lblMatricula.Text = sMatricula;
@@ -301,8 +302,9 @@ namespace ClientesCasa.Views.Reportes
                 //ds.Tables.Add(dtExtras);
                 rd.SetDataSource(dtExtras);
 
-                rd.Subreports["rptSubRepEdoCuenta.rpt"].SetDataSource(ds.Tables[0]);
-                rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds.Tables[1]);
+                rd.Subreports["rptSubRepEdoCuenta.rpt"].SetDataSource(ds);
+                rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds);
+                //rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds.Tables[2]);
 
                 rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "EstadoCuenta");
             }

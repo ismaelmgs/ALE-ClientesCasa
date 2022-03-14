@@ -161,6 +161,7 @@ namespace ClientesCasa.DomainModel
                     dtFechaFinSeg = r["FechaFinSeg"].S().Dt(),
                     vbPolizaSeguro = r["PolizaSeguri"].S() != string.Empty ? (byte[])r["PolizaSeguri"] : new byte[1],
                     sMonedaAnticipo = r["MonedaAnticipo"].S(),
+                    iRequiereIVA = r["RequiereIVA"].I(),
                     dtDocumentos = dsRes.Tables[1]
                 }).First();
             }
@@ -307,7 +308,8 @@ namespace ClientesCasa.DomainModel
                                                                                                 "@TiempoFacturar", oContrato.iTipoCosto,
                                                                                                 "@UsuarioModificacion", Utils.GetUser,
                                                                                                 "@IP", Utils.GetIPAddress,
-                                                                                                "@IdRepEdoC", oContrato.iRepEdoCuenta);
+                                                                                                "@IdRepEdoC", oContrato.iRepEdoCuenta,
+                                                                                                "@RequiereIVA", oContrato.iRequiereIVA);
 
                 int iRes = DBSetActualizaAdicionalesContratoCC(oContrato);
 

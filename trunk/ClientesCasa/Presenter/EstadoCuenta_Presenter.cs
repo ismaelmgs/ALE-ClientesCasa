@@ -74,25 +74,80 @@ namespace ClientesCasa.Presenter
                     }
                     sHTML += "</tr>";
                 }
+                decimal dTotalPesos = 0;
+                decimal dIVA = 0; 
+                decimal dTotal = 0;
 
-                decimal dTotalPesos = SumaColumnaTabla(ds.Tables[0], "Importe");
-                decimal dIVA = dTotalPesos * .16m;
-                decimal dTotal = dTotalPesos + dIVA;
+                if (ds.Tables.Count > 2)
+                {
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        if (ds.Tables[2].Rows[0][0].S() == "1")
+                        {
+                            dTotalPesos = SumaColumnaTabla(ds.Tables[0], "Importe");
+                            dIVA = dTotalPesos * .16m;
+                            dTotal = dTotalPesos + dIVA;
 
-                sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right;  border-top:2px solid #000000'>Total de cargos en $ para:</td>";
-                sHTML += "<td style='text-align: right;  border-top:2px solid #000000'>" + dTotalPesos.ToString("c") + "</td>";
-                sHTML += "</tr>";
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right;  border-top:2px solid #000000'>Total de cargos en $ para:</td>";
+                            sHTML += "<td style='text-align: right;  border-top:2px solid #000000'>" + dTotalPesos.ToString("c") + "</td>";
+                            sHTML += "</tr>";
 
-                sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
-                sHTML += "<td style='text-align: right; '>" + dIVA.ToString("c") + "</td>";
-                sHTML += "</tr>";
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
+                            sHTML += "<td style='text-align: right; '>" + dIVA.ToString("c") + "</td>";
+                            sHTML += "</tr>";
 
-                sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; '>Total:</td>";
-                sHTML += "<td style='text-align: right; '>" + dTotal.ToString("c") + "</td>";
-                sHTML += "</tr>";
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; '>Total:</td>";
+                            sHTML += "<td style='text-align: right; '>" + dTotal.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+                        }
+                        else if (ds.Tables[2].Rows[0][0].S() == "0" || string.IsNullOrEmpty(ds.Tables[2].Rows[0][0].S()))
+                        {
+                            dTotalPesos = SumaColumnaTabla(ds.Tables[0], "Importe");
+                            //dIVA = dTotalPesos * .16m;
+                            dTotal = dTotalPesos;
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right;  border-top:2px solid #000000'>Total de cargos en $ para:</td>";
+                            sHTML += "<td style='text-align: right;  border-top:2px solid #000000'>" + dTotalPesos.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; '>Total:</td>";
+                            sHTML += "<td style='text-align: right; '>" + dTotal.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+                        }
+                    }
+                }
+                else
+                {
+                    dTotalPesos = SumaColumnaTabla(ds.Tables[0], "Importe");
+                    dIVA = dTotalPesos * .16m;
+                    dTotal = dTotalPesos + dIVA;
+
+                    sHTML += "<tr>";
+                    sHTML += "<td colspan='7' style='text-align: right;  border-top:2px solid #000000'>Total de cargos en $ para:</td>";
+                    sHTML += "<td style='text-align: right;  border-top:2px solid #000000'>" + dTotalPesos.ToString("c") + "</td>";
+                    sHTML += "</tr>";
+
+                    sHTML += "<tr>";
+                    sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
+                    sHTML += "<td style='text-align: right; '>" + dIVA.ToString("c") + "</td>";
+                    sHTML += "</tr>";
+
+                    sHTML += "<tr>";
+                    sHTML += "<td colspan='7' style='text-align: right; '>Total:</td>";
+                    sHTML += "<td style='text-align: right; '>" + dTotal.ToString("c") + "</td>";
+                    sHTML += "</tr>";
+                }
+
+                
+
+                
+
+                
 
                 //sHTML += "<tr>";
                 //sHTML += "<td colspan='7' style='text-align: right; border-bottom:2px solid #000000; border-top:2px solid #000000'>Total de cargos en $ para:</td>";
@@ -135,23 +190,76 @@ namespace ClientesCasa.Presenter
                     sHTML += "</tr>";
                 }
 
-                decimal dTotalDlls = SumaColumnaTabla(ds.Tables[1], "Importe");
-                decimal dIVADlls = dTotalDlls * .16m;
-                decimal dTotalDls = dTotalDlls + dIVADlls;
-                sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; border-top:2px solid #000000'>Total de cargos en USD:</td>";
-                sHTML += "<td style='text-align: right; border-top:2px solid #000000'>" + dTotalDlls.ToString("c") + "</td>";
-                sHTML += "</tr>";
 
-                sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
-                sHTML += "<td style='text-align: right; '>" + dIVADlls.ToString("c") + "</td>";
-                sHTML += "</tr>";
+                decimal dTotalDlls = 0;
+                decimal dIVADlls = 0;
+                decimal dTotalDls = 0;
 
-                sHTML += "<tr>";
-                sHTML += "<td colspan='7' style='text-align: right; '>Total en USD:</td>";
-                sHTML += "<td style='text-align: right; '>" + dTotalDls.ToString("c") + "</td>";
-                sHTML += "</tr>";
+                if (ds.Tables.Count > 2)
+                {
+                    if (ds.Tables[2].Rows.Count > 0)
+                    {
+                        if (ds.Tables[2].Rows[0][0].S() == "1")
+                        {
+                            dTotalDlls = SumaColumnaTabla(ds.Tables[1], "Importe");
+                            dIVADlls = dTotalDlls * .16m;
+                            dTotalDls = dTotalDlls + dIVADlls;
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; border-top:2px solid #000000'>Total de cargos en USD:</td>";
+                            sHTML += "<td style='text-align: right; border-top:2px solid #000000'>" + dTotalDlls.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
+                            sHTML += "<td style='text-align: right; '>" + dIVADlls.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; '>Total en USD:</td>";
+                            sHTML += "<td style='text-align: right; '>" + dTotalDls.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+                        }
+                        else if (ds.Tables[2].Rows[0][0].S() == "0" || string.IsNullOrEmpty(ds.Tables[2].Rows[0][0].S()))
+                        {
+                            dTotalDlls = SumaColumnaTabla(ds.Tables[1], "Importe");
+                            //dIVADlls = dTotalDlls * .16m;
+                            dTotalDls = dTotalDlls + dIVADlls;
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; border-top:2px solid #000000'>Total de cargos en USD:</td>";
+                            sHTML += "<td style='text-align: right; border-top:2px solid #000000'>" + dTotalDlls.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+
+                            sHTML += "<tr>";
+                            sHTML += "<td colspan='7' style='text-align: right; '>Total en USD:</td>";
+                            sHTML += "<td style='text-align: right; '>" + dTotalDls.ToString("c") + "</td>";
+                            sHTML += "</tr>";
+                        }
+                    }
+                }
+                else
+                {
+                    dTotalDlls = SumaColumnaTabla(ds.Tables[1], "Importe");
+                    dIVADlls = dTotalDlls * .16m;
+                    dTotalDls = dTotalDlls + dIVADlls;
+
+                    sHTML += "<tr>";
+                    sHTML += "<td colspan='7' style='text-align: right; border-top:2px solid #000000'>Total de cargos en USD:</td>";
+                    sHTML += "<td style='text-align: right; border-top:2px solid #000000'>" + dTotalDlls.ToString("c") + "</td>";
+                    sHTML += "</tr>";
+
+                    sHTML += "<tr>";
+                    sHTML += "<td colspan='7' style='text-align: right; '>IVA:</td>";
+                    sHTML += "<td style='text-align: right; '>" + dIVADlls.ToString("c") + "</td>";
+                    sHTML += "</tr>";
+
+                    sHTML += "<tr>";
+                    sHTML += "<td colspan='7' style='text-align: right; '>Total en USD:</td>";
+                    sHTML += "<td style='text-align: right; '>" + dTotalDls.ToString("c") + "</td>";
+                    sHTML += "</tr>";
+                }
+
 
 
 

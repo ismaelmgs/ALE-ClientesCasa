@@ -699,6 +699,16 @@
                                 <div class="col span_1_of_4">
                                     <asp:DropDownList ID="ddlRepEdoCuenta" runat="server" CssClass=""></asp:DropDownList>
                                 </div>
+                                <div class="col span_1_of_4">
+                                    <asp:Label ID="lblRequiereIVA" runat="server" Text="Requerir IVA:"></asp:Label>
+                                </div>
+                                <div class="col span_1_of_4">
+                                    <asp:RadioButtonList ID="rdnLstIva" runat="server" RepeatDirection="Horizontal">
+                                        <asp:ListItem Value="1" Text="Si"></asp:ListItem>
+                                        <asp:ListItem Value="0" Text="No"></asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
+
 
                             </div>
                         </td>

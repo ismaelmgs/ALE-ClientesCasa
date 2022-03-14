@@ -950,6 +950,8 @@ namespace ClientesCasa.Views.Catalogos
                     dtFechaContrato = txtFechaContrato.Text.S() == string.Empty ? null : (DateTime?)txtFechaContrato.Text.S().Dt(),
                     iEstatusContrato = ddlEstatusContrato.SelectedValue.S().I(),
 
+                    iRequiereIVA = rdnLstIva.SelectedValue == "1" ? 1 : 0,
+
                     iTipoCosto = rbtnTRipoCosto.SelectedValue == "1" ? 1 : 0,
 
                     iIntercambioId = ViewState["VSIntercambio"] == null ? 0 : iIdIntercambio,
@@ -1055,6 +1057,7 @@ namespace ClientesCasa.Views.Catalogos
                     txtHorasContratadas.Text = oCat.iHorasContratadas.S();
                     rblAplcaIntercambios.SelectedValue = oCat.bAplicaIntercambios == true ? "1" : "0";
                     rblFactorIntercambio.SelectedValue = oCat.iFactorIntercambio.S() != "0" ? oCat.iFactorIntercambio.S() : "1";
+                    rdnLstIva.SelectedValue = oCat.iRequiereIVA.S() != "0" ? "1" : "0";
 
                     //txtFechaContrato.Text = oCat.dtFechaContrato.S().Substring(0,10);
                     txtFechaContrato.Text = string.Format("{0:yyyy-MM-dd}", oCat.dtFechaContrato.S().Dt());
