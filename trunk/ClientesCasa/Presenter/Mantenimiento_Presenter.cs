@@ -46,24 +46,23 @@ namespace ClientesCasa.Presenter
         }
         protected override void ObjSelected_Presenter(object sender, EventArgs e)
         {
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
             object[] oArr = oIView.oArrGastos;
             DataSet ds = ArmaTablasParaCargarMXN(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
             
             
             oIView.CargaGastosMEXUSA(ds);
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
         }
 
         protected void ObjSelectedUSD_Presenter(object sender, EventArgs e)
         {
-            Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
+            //Utils.GuardarBitacora("MANTTO_DATOS  --> INICIO CargaGastos ---");
             object[] oArr = oIView.oArrGastos;
             DataSet ds = ArmaTablasParaCargarUSD(oIGesCat.DBGetObtieneGastosMXNUSD(oArr[1].S().I(), oArr[3].S().I(), oArr[5].S()));
 
 
             oIView.CargaGastosMEXUSA(ds);
-            Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
+           // Utils.GuardarBitacora("MANTTO_DATOS  --> FIN CargaGastos --");
         }
 
         protected void eUpaGastos_Presenter(object sender, EventArgs e)

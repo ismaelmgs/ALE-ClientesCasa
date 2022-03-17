@@ -128,21 +128,19 @@ namespace ClientesCasa.Views.Reportes
 
         protected void btnGenerar_Click(object sender, EventArgs e)
         {
+            GeneraEstadoCuenta(sender,e, 1);
+        }
+
+        protected void btnGenerarXLS_Click(object sender, EventArgs e)
+        {
+            GeneraEstadoCuenta(sender, e, 2);
+        }
+
+        public void GeneraEstadoCuenta(object sender, EventArgs e, int iRep)
+        {
             try
             {
-                //Response.Clear();
-                //Response.Buffer = true;
-                //Response.ContentType = "application/vnd.ms-excel";
-                //Response.AddHeader("content-disposition", "attachment;filename=EstadoCuenta_" + sMatricula + ".xls");
-                //Response.Charset = "UTF-8";
-                //Response.ContentEncoding = Encoding.Default;
-                //this.EnableViewState = false;
-
-                //StringWriter stringWrite = new StringWriter();
-                //HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
-                //pnlReporte.RenderControl(htmlWrite);
-                //Response.Write(stringWrite.ToString());
-                //Response.End();
+                
                 DataSet ds;
                 DataSet dsMX = new DataSet();
                 DataTable dtMex;
@@ -162,11 +160,7 @@ namespace ClientesCasa.Views.Reportes
                 ds.Tables[1].TableName = "USD";
                 ds.Tables[2].TableName = "RequerirIVA";
 
-                //lblNombreCliente.Text = sNombrecliente;
-                //lblMatricula.Text = sMatricula;
-                //lblContrato.Text = sClaveContrato;
-                //lblElaboro.Text = Utils.GetUserName;
-                //lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                
                 string strSaldoAnterior = string.Empty;
                 string strPagosyCred = string.Empty;
                 string strNuevosCargos = string.Empty;
@@ -175,7 +169,7 @@ namespace ClientesCasa.Views.Reportes
                 string strPagosyCredUSD = string.Empty;
                 string strNuevosCargosUSD = string.Empty;
                 string strSaldoActualUSD = string.Empty;
-                //lblPeriodo.Text = "AL " + ObtieneUltimoDiaMes(iMes) + " DE " + ObtieneNombreMes(iMes) + " DE " + iAnio.S();
+                
 
                 if (eSearchTotales != null)
                     eSearchTotales(sender, e);
@@ -184,22 +178,20 @@ namespace ClientesCasa.Views.Reportes
                 {
                     strSaldoAnterior = dtTotal.Rows[0]["SaldoAnterior"].S().D().ToString("c");
                     strPagosyCred = dtTotal.Rows[0]["PagosCreditos"].S().D().ToString("c");
-                    //--
-                    //strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString("c");
+                    
                     strNuevosCargos = dtTotal.Rows[0]["NuevosCargos"].S().D().ToString();
                     dbNuevoCargo = double.Parse(strNuevosCargos);
-                    //dbNuevoCargo = dbNuevoCargo * 1.16;
+                    
                     strNuevosCargos = dbNuevoCargo.ToString("c");
                     //--
                     strSaldoActual = dtTotal.Rows[0]["SaldoActual"].S().D().ToString("c");
 
                     strSaldoAnteriorUSD = dtTotal.Rows[1]["SaldoAnterior"].S().D().ToString("c");
                     strPagosyCredUSD = dtTotal.Rows[1]["PagosCreditos"].S().D().ToString("c");
-                    //--
-                    //strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString("c");
+                    
                     strNuevosCargosUSD = dtTotal.Rows[1]["NuevosCargos"].S().D().ToString();
                     dbNuevoCargo = double.Parse(strNuevosCargosUSD);
-                    //dbNuevoCargo = dbNuevoCargo * 1.16;
+                   
                     strNuevosCargosUSD = dbNuevoCargo.ToString("c");
                     //--
                     strSaldoActualUSD = dtTotal.Rows[1]["SaldoActual"].S().D().ToString("c");
@@ -220,7 +212,7 @@ namespace ClientesCasa.Views.Reportes
                 //column.DataType = System.Type.GetType("System.Int32");
                 column.ColumnName = "Cliente";
                 dtExtras.Columns.Add(column);
-                
+
                 column = new DataColumn();
                 column.ColumnName = "Periodo";
                 dtExtras.Columns.Add(column);
@@ -295,40 +287,21 @@ namespace ClientesCasa.Views.Reportes
                 dtExtras.TableName = "Extras";
                 #endregion
 
-                //rd.SetParameterValue("Matricula", "XLT");
-                //dtMex = ds.Tables[0].Clone();
-                //dsMX.Tables.Add(dtMex);
-                //dsMX.Tables.Add(dtExtras);
-                //ds.Tables.Add(dtExtras);
                 rd.SetDataSource(dtExtras);
 
                 rd.Subreports["rptSubRepEdoCuenta.rpt"].SetDataSource(ds);
                 rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds);
-                //rd.Subreports["rptSubRepEdoCuenta_USD.rpt"].SetDataSource(ds.Tables[2]);
 
-                rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "EstadoCuenta");
+                if (iRep == 1)
+                    rd.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "EstadoCuenta");
+
+                if (iRep == 2)
+                    rd.ExportToHttpResponse(ExportFormatType.Excel, Response, true, "EstadoCuenta");
             }
             catch (Exception ex)
             {
                 string strError = ex.S();
             }
-        }
-
-        protected void btnGenerarXLS_Click(object sender, EventArgs e)
-        {
-            Response.Clear();
-            Response.Buffer = true;
-            Response.ContentType = "application/vnd.ms-excel";
-            Response.AddHeader("content-disposition", "attachment;filename=EstadoCuenta_" + sMatricula + ".xls");
-            Response.Charset = "UTF-8";
-            Response.ContentEncoding = Encoding.Default;
-            this.EnableViewState = false;
-
-            StringWriter stringWrite = new StringWriter();
-            HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
-            pnlReporte.RenderControl(htmlWrite);
-            Response.Write(stringWrite.ToString());
-            Response.End();
         }
 
 
