@@ -660,7 +660,7 @@
                                 <div class="col span_1_of_4" style="text-align:right;">
                                     <div class="controls" style="margin-left: -30%;">
                                         <asp:RadioButtonList ID="rblServicioConsultoria" runat="server" RepeatDirection="Horizontal" CssClass="radiorlr">
-                                            <asp:ListItem Text="Flight Fast" Value="1" Selected="True"></asp:ListItem>
+                                            <asp:ListItem Text="Flight Fast" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="AOC" Value="2"></asp:ListItem>
                                             <asp:ListItem Text="No Aplica" Value="0"></asp:ListItem>
                                         </asp:RadioButtonList>

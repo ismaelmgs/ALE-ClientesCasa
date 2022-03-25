@@ -942,7 +942,7 @@ namespace ClientesCasa.Views.Catalogos
                     sClaveContrato = txtClaveContrato.Text.S(),
                     sAeronaveMatricula = ReadMatricula.Text.S(),
                     sAeronaveSerie = txtAeronaveSerie.Text.S(),
-                    iPorcentajePart = txtPorcentPart.Text.S().I(),
+                    iPorcentajePart = txtPorcentPart.Text.S().D(),
                     iHorasContratadas = txtHorasContratadas.Text.S().I(),
                     bAplicaIntercambios = rblAplcaIntercambios.SelectedValue == "1" ? true : false,
                     iFactorIntercambio = rblFactorIntercambio.SelectedValue.S().I(),
@@ -969,7 +969,7 @@ namespace ClientesCasa.Views.Catalogos
                     dtFechaFinContrato = txtFechaFinContrato.Text.S().Dt(),
                     dAnticipoContrato = txtAnticipoContrato.Text.Replace(",", "").S().D(),
                     sMonedaAnticipo = ddlMonedaAnticipo.SelectedValue.S(),
-                    iTipoServicioConsultoria = rblServicioConsultoria.SelectedValue.S().I(),
+                    iTipoServicioConsultoria = rblServicioConsultoria.SelectedValue.I(),
                     iTipoTarifa = rblTarifas.SelectedValue.S().I(),
                     iDetalleTipoTarifa = rblDetalleTarifa.SelectedValue.S().I(),
                     sNoPoliza = txtNoPoliza.Text.S(),
@@ -1072,7 +1072,7 @@ namespace ClientesCasa.Views.Catalogos
 
                     rbtnTRipoCosto.SelectedValue = oCat.iTipoCosto.S();
 
-                    if (oCat.iTipoServicioConsultoria > 0)
+                    if (oCat.iTipoServicioConsultoria >= 0)
                         rblServicioConsultoria.SelectedValue = oCat.iTipoServicioConsultoria.S();
 
                     if (oCat.iTipoTarifa > 0)
