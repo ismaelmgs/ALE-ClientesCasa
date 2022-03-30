@@ -350,7 +350,19 @@
 
                                                                                 <asp:TemplateField HeaderText="Importe">
                                                                                     <ItemTemplate>
-                                                                                        <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;"></asp:TextBox>
+
+                                                                                        <asp:UpdatePanel ID="upaImporteGral" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                                                                                            <ContentTemplate>
+
+                                                                                                <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;" AutoPostBack="true" 
+                                                                                                    OnTextChanged="txtImporte_TextChanged"></asp:TextBox>
+
+                                                                                            </ContentTemplate>
+                                                                                            <Triggers>
+                                                                                                <asp:AsyncPostBackTrigger ControlID="txtImporte" EventName="TextChanged" />
+                                                                                            </Triggers>
+                                                                                        </asp:UpdatePanel>
+
                                                                                     </ItemTemplate>
                                                                                 </asp:TemplateField>
 
