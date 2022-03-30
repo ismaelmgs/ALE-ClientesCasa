@@ -280,17 +280,31 @@
                                 <div class="col span_1_of_4">&nbsp;</div>
                             </div>
                             <div class="section group">
-	                            <div class="col span_1_of_4">
-                                    <asp:Label ID="lblTieneRFC" runat="server" Text="Tiene RFC: " CssClass=""></asp:Label>
-                                </div>
-                                <div class="col span_1_of_4">
-                                    <asp:RadioButtonList ID="rblTieneRFC" runat="server" RepeatDirection="Horizontal">
-                                        <asp:ListItem Text="Si" Value="1" Selected="True"></asp:ListItem>
-                                        <asp:ListItem Text="No" Value="0"></asp:ListItem>
-                                        </asp:RadioButtonList>
-                                    </div>
-                                <div class="col span_1_of_4"><asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass=""></asp:Label></div>
-                                <div class="col span_1_of_4"><asp:TextBox ID="txtRFC" runat="server" CssClass="celda1" MaxLength="13" placeholder="RFC"></asp:TextBox></div>
+                                <asp:UpdatePanel ID="upaRFC" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <div class="col span_1_of_4">
+                                            <asp:Label ID="lblTieneRFC" runat="server" Text="Tiene RFC: " CssClass=""></asp:Label>
+                                        </div>
+                                        <div class="col span_1_of_4">
+
+                                            <asp:RadioButtonList ID="rblTieneRFC" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblTieneRFC_SelectedIndexChanged">
+                                                <asp:ListItem Text="Si" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="0"></asp:ListItem>
+                                                </asp:RadioButtonList>
+                                            </div>
+                                        <div class="col span_1_of_4"><asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass=""></asp:Label></div>
+                                        <div class="col span_1_of_4">
+                                            <asp:TextBox ID="txtRFC" runat="server" CssClass="celda1" MaxLength="13" placeholder="RFC" Enabled="false"></asp:TextBox>
+                                            <br />
+                                            <asp:RequiredFieldValidator ID="rvRFC" runat="server" ErrorMessage="Se requiere RFC" ControlToValidate="txtRFC" Enabled="false"
+                                                Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="rblTieneRFC" EventName="SelectedIndexChanged" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+	                            
                             </div>
                             <div class="section group">
 	                            <div class="col span_1_of_4">

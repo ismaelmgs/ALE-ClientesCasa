@@ -157,6 +157,15 @@ namespace ClientesCasa.Views.Catalogos {
         protected global::System.Web.UI.WebControls.TextBox txtRazonSocial;
         
         /// <summary>
+        /// Control upaRFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upaRFC;
+        
+        /// <summary>
         /// Control lblTieneRFC.
         /// </summary>
         /// <remarks>
@@ -191,6 +200,15 @@ namespace ClientesCasa.Views.Catalogos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRFC;
+        
+        /// <summary>
+        /// Control rvRFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvRFC;
         
         /// <summary>
         /// Control lblTipoContribuyente.

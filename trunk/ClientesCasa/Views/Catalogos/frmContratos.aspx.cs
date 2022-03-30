@@ -1211,5 +1211,26 @@ namespace ClientesCasa.Views.Catalogos
                 rblFactorIntercambio.Enabled = true;
             }
         }
+
+        protected void rblTieneRFC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(rblTieneRFC.SelectedValue == "1")
+                {
+                    txtRFC.Enabled = true;
+                    rvRFC.Enabled = true;
+                }
+                else if(rblTieneRFC.SelectedValue == "0")
+                {
+                    txtRFC.Enabled = false;
+                    rvRFC.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
