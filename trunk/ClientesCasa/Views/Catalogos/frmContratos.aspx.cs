@@ -66,6 +66,7 @@ namespace ClientesCasa.Views.Catalogos
                     txtFechaFinSeguro.Text = Request[txtFechaFinSeguro.UniqueID];
                 }
             }
+
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -376,15 +377,19 @@ namespace ClientesCasa.Views.Catalogos
         {
             try
             {
-                if (iIdContrato == 0)
+                Page.Validate("FechaValid");
+                if (Page.IsValid)
                 {
-                    if (eSaveContrato != null)
-                        eSaveContrato(sender, e);
-                }
-                else
-                {
-                    if (eUpaContrato != null)
-                        eUpaContrato(sender, e);
+                    if (iIdContrato == 0)
+                    {
+                        if (eSaveContrato != null)
+                            eSaveContrato(sender, e);
+                    }
+                    else
+                    {
+                        if (eUpaContrato != null)
+                            eUpaContrato(sender, e);
+                    }
                 }
             }
             catch (Exception ex)
@@ -919,6 +924,7 @@ namespace ClientesCasa.Views.Catalogos
                     sRazonSocial = txtRazonSocial.Text.S(),
                     bRFC = rblTieneRFC.SelectedValue == "1" ? true : false,
                     sRFC = rblTieneRFC.SelectedValue == "1" ? txtRFC.Text.S() : string.Empty,
+                    //sRFC = txtRFC.Text.S(),
                     sTipoContribuyente = ddlTipoContribuyente.SelectedValue.S(),
                     iActivo = chkActivo.Checked ? 1 : 0,
                     sTelefono = txtTelefonoCliente.Text.S(),
@@ -947,7 +953,10 @@ namespace ClientesCasa.Views.Catalogos
                     bAplicaIntercambios = rblAplcaIntercambios.SelectedValue == "1" ? true : false,
                     iFactorIntercambio = rblFactorIntercambio.SelectedValue.S().I(),
 
-                    dtFechaContrato = txtFechaContrato.Text.S() == string.Empty ? null : (DateTime?)txtFechaContrato.Text.S().Dt(),
+                    //dtFechaContrato = txtFechaContrato.Text.S() == string.Empty ? null : (DateTime?)txtFechaContrato.Text.S().Dt(),
+
+                    dtFechaContrato = txtFechaContrato.Text == "01/01/0001" ? DateTime.Now.ToShortDateString().S().Dt() : (DateTime?)txtFechaContrato.Text.S().Dt(),
+
                     iEstatusContrato = ddlEstatusContrato.SelectedValue.S().I(),
 
                     iRequiereIVA = rdnLstIva.SelectedValue == "1" ? 1 : 0,
@@ -966,7 +975,9 @@ namespace ClientesCasa.Views.Catalogos
                     dContratoIntercambiosFerry = txtIntercambioFerry.Text.S().D(),
                     bContratoIntercambiosAplicaFerry = rblAplicaFerry.SelectedValue == "1" ? true : false,
 
-                    dtFechaFinContrato = txtFechaFinContrato.Text.S().Dt(),
+                    //dtFechaFinContrato = txtFechaFinContrato.Text.S().Dt(),
+                    dtFechaFinContrato = txtFechaFinContrato.Text == "01/01/0001" ? DateTime.Now.ToShortDateString().S().Dt() : txtFechaFinContrato.Text.S().Dt(),
+
                     dAnticipoContrato = txtAnticipoContrato.Text.Replace(",", "").S().D(),
                     sMonedaAnticipo = ddlMonedaAnticipo.SelectedValue.S(),
                     iTipoServicioConsultoria = rblServicioConsultoria.SelectedValue.I(),
@@ -974,8 +985,12 @@ namespace ClientesCasa.Views.Catalogos
                     iDetalleTipoTarifa = rblDetalleTarifa.SelectedValue.S().I(),
                     sNoPoliza = txtNoPoliza.Text.S(),
                     sEmpresaAseguradora = txtEmpresaAseguradora.Text.S(),
-                    dtFechaInicioSeg = txtFechaInicioSeguro.Text.S().Dt(),
-                    dtFechaFinSeg = txtFechaFinSeguro.Text.S().Dt(),
+
+                    //dtFechaInicioSeg = txtFechaInicioSeguro.Text.S().Dt(),
+                    dtFechaInicioSeg = txtFechaInicioSeguro.Text == "01/01/0001" ? DateTime.Now.ToShortDateString().S().Dt() : txtFechaInicioSeguro.Text.S().Dt(),
+
+                    //dtFechaFinSeg = txtFechaFinSeguro.Text.S().Dt(),
+                    dtFechaFinSeg = txtFechaFinSeguro.Text == "01/01/0001" ? DateTime.Now.ToShortDateString().S().Dt() : txtFechaFinSeguro.Text.S().Dt(),
 
                     sUsuario = Utils.GetUser.S(),
                     iRepEdoCuenta = ddlRepEdoCuenta.SelectedValue.S().I()

@@ -297,9 +297,12 @@ namespace ClientesCasa.DomainModel
         {
             try
             {
+                string sFechaContrato = string.Empty;
+                sFechaContrato = oContrato.dtFechaContrato.S() == "01/01/0001 12:00:00 a.m." ? "01/01/1890" : oContrato.dtFechaContrato.S();
+
                 object oRes = oDB_SP.EjecutarValor("[ClientesCasa].[spU_CC_ActualizaContrato]", "@IdContrato", oContrato.sIdContrato,
                                                                                                 "@ClaveContrato", oContrato.sClaveContrato,
-                                                                                                "@FechaContrato", oContrato.dtFechaContrato,
+                                                                                                "@FechaContrato", sFechaContrato.Dt(),
                                                                                                 "@HorasContratadasTotal", oContrato.iHorasContratadas,
                                                                                                 "@Matricula", oContrato.sAeronaveMatricula,
                                                                                                 "@PorcParticipacion", oContrato.iPorcentajePart,
@@ -309,7 +312,8 @@ namespace ClientesCasa.DomainModel
                                                                                                 "@UsuarioModificacion", Utils.GetUser,
                                                                                                 "@IP", Utils.GetIPAddress,
                                                                                                 "@IdRepEdoC", oContrato.iRepEdoCuenta,
-                                                                                                "@RequiereIVA", oContrato.iRequiereIVA);
+                                                                                                "@RequiereIVA", oContrato.iRequiereIVA,
+                                                                                                "@Estatus", oContrato.iEstatusContrato);
 
                 int iRes = DBSetActualizaAdicionalesContratoCC(oContrato);
 
@@ -479,16 +483,24 @@ namespace ClientesCasa.DomainModel
         {
             try
             {
+                string sFechaFinContrato = string.Empty;
+                string sFechaInicioSeg = string.Empty;
+                string sFechaFinSeg = string.Empty;
+
+                sFechaFinContrato = oContrato.dtFechaFinContrato.S() == "01/01/0001 12:00:00 a.m." ? "01/01/1890" : oContrato.dtFechaFinContrato.S();
+                sFechaInicioSeg = oContrato.dtFechaInicioSeg.S() == "01/01/0001 12:00:00 a.m." ? "01/01/1890" : oContrato.dtFechaInicioSeg.S();
+                sFechaFinSeg = oContrato.dtFechaFinSeg.S() == "01/01/0001 12:00:00 a.m." ? "01/01/1890" : oContrato.dtFechaFinSeg.S();
+
                 return oDB_SP.EjecutarValor("[ClientesCasa].[spU_CC_ActualizaContratosCC]", "@IdContrato", oContrato.iIdContrato,
-                                                                                            "@FechaFinContrato", oContrato.dtFechaFinContrato,
+                                                                                            "@FechaFinContrato", sFechaFinContrato.Dt(),
                                                                                             "@AnticipoContrato", oContrato.dAnticipoContrato.S().D(),
                                                                                             "@TipoServicioConsultoria", oContrato.iTipoServicioConsultoria.I(),
                                                                                             "@TipoTarifa", oContrato.iTipoTarifa,
                                                                                             "@DetalleTipoTarifa", oContrato.iDetalleTipoTarifa,
                                                                                             "@NoPolizaSeguro", oContrato.sNoPoliza,
                                                                                             "@EmpresaAseguradora", oContrato.sEmpresaAseguradora,
-                                                                                            "@FechaInicioSeg", oContrato.dtFechaInicioSeg,
-                                                                                            "@FechaFinSeg", oContrato.dtFechaFinSeg,
+                                                                                            "@FechaInicioSeg", sFechaInicioSeg.Dt(),
+                                                                                            "@FechaFinSeg", sFechaFinSeg.Dt(),
                                                                                             "@PolizaSeguro", oContrato.vbPolizaSeguro,
                                                                                             "@MonedaAnticipo", oContrato.sMonedaAnticipo).S().I();
             }

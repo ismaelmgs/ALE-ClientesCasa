@@ -607,18 +607,37 @@
                                     <asp:Label ID="lblFechaContrato" runat="server"  Text="Fecha inicio contrato:"></asp:Label>
                                 </div>
                                 <div class="col span_1_of_4">
-                                    <asp:TextBox ID="txtFechaContrato" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtFechaContrato" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control" ValidationGroup="FechaValid"></asp:TextBox>
                                     <label for="txtFechaContrato" style="height:24px; width:24px" class="input-group-addon generic_btn">
                                     </label>
+
+                                    <br />
+                                    <%--<asp:RegularExpressionValidator ID="revDateContrato" runat="server" ErrorMessage="Formato de fecha incorrecta" ControlToValidate="txtFechaContrato" 
+                                        ValidationExpression="^([0]?[1-9]|[1-2][0-9]|[3][0-1])/([0]?[1-9]|[1][0-2])/([1-3][0-9][0-9][0-9])$" ValidationGroup="FechaValid" ForeColor="Red"
+                                        Display="" SetFocusOnError="true">
+                                    </asp:RegularExpressionValidator>--%>
+
+                                    <asp:CompareValidator id="dateValidator" runat="server" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtFechaContrato" 
+                                        ErrorMessage="Ingrese fecha valida." Display="Dynamic" ForeColor="Red"  ValidationGroup="FechaValid"></asp:CompareValidator>
+
                                 </div>
                                 <div class="col span_1_of_4">
 
                                     <asp:Label ID="lblFechaFinContrato" runat="server"  Text="Fecha fin contrato:"></asp:Label>
                                 </div>
                                 <div class="col span_1_of_4">
-                                    <asp:TextBox ID="txtFechaFinContrato" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtFechaFinContrato" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control" ValidationGroup="FechaValid"></asp:TextBox>
                                     <label for="txtFechaFinContrato" style="height:24px; width:24px" class="input-group-addon generic_btn">
                                     </label>
+
+                                    <br />
+                                    <%--<asp:RegularExpressionValidator ID="revDate" runat="server" ErrorMessage="Formato de fecha incorrecta" ControlToValidate="txtFechaFinContrato" 
+                                        ValidationExpression="^([0]?[1-9]|[1-2][0-9]|[3][0-1])/([0]?[1-9]|[1][0-2])/([1-3][0-9][0-9][0-9])$" ValidationGroup="FechaValid" ForeColor="Red"
+                                        Display="None" SetFocusOnError="true">
+                                    </asp:RegularExpressionValidator>--%>
+                                    <asp:CompareValidator id="CompareValidator1" runat="server" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtFechaFinContrato" 
+                                        ErrorMessage="Ingrese fecha valida." Display="Dynamic" ForeColor="Red"  ValidationGroup="FechaValid"></asp:CompareValidator>
+
                                 </div>
                             </div>
                             <div class="section group">
@@ -744,17 +763,31 @@
                                     <asp:Label ID="lblFechaInicioSeguro" runat="server" Text="Fecha inicio:"></asp:Label>
                                 </div>
                                 <div class="col span_1_of_4">
-                                    <asp:TextBox ID="txtFechaInicioSeguro" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtFechaInicioSeguro" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control" ValidationGroup="FechaValid"></asp:TextBox>
                                     <label for="txtFechaInicioSeguro" style="height:24px; width:24px" class="input-group-addon generic_btn">
                                     </label>
+                                    <br />
+                                   <%-- <asp:RegularExpressionValidator ID="revDateSeguro" runat="server" ErrorMessage="Formato de fecha incorrecta" ControlToValidate="txtFechaInicioSeguro" 
+                                        ValidationExpression="^([0]?[1-9]|[1-2][0-9]|[3][0-1])/([0]?[1-9]|[1][0-2])/([1-3][0-9][0-9][0-9])$" ValidationGroup="FechaValid" ForeColor="Red"
+                                        Display="None" SetFocusOnError="true">
+                                    </asp:RegularExpressionValidator>--%>
+                                    <asp:CompareValidator id="CompareValidator2" runat="server" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtFechaInicioSeguro" 
+                                        ErrorMessage="Ingrese fecha valida." Display="Dynamic" ForeColor="Red"  ValidationGroup="FechaValid"></asp:CompareValidator>
                                 </div>
                                 <div class="col span_1_of_4">
                                     <asp:Label ID="lblFechaFinSeguro" runat="server" Text="Fecha fin:"></asp:Label>
                                 </div>
                                 <div class="col span_1_of_4">
-                                    <asp:TextBox ID="txtFechaFinSeguro" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtFechaFinSeguro" type="date" runat="server" placeholder="dd/mm/aaaa" ClientIDMode="Static" CssClass="form-control" ValidationGroup="FechaValid"></asp:TextBox>
                                     <label for="txtFechaFinSeguro" style="height:24px; width:24px" class="input-group-addon generic_btn">
                                     </label>
+                                    <br />
+                                   <%-- <asp:RegularExpressionValidator ID="revDateFinSeguro" runat="server" ErrorMessage="Formato de fecha incorrecta" ControlToValidate="txtFechaFinSeguro" 
+                                        ValidationExpression="^([0]?[1-9]|[1-2][0-9]|[3][0-1])/([0]?[1-9]|[1][0-2])/([1-3][0-9][0-9][0-9])$" ValidationGroup="FechaValid" ForeColor="Red"
+                                        Display="None" SetFocusOnError="true">
+                                    </asp:RegularExpressionValidator>--%>
+                                    <asp:CompareValidator id="CompareValidator3" runat="server" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtFechaFinSeguro" 
+                                        ErrorMessage="Ingrese fecha valida." Display="Dynamic" ForeColor="Red"  ValidationGroup="FechaValid"></asp:CompareValidator>
                                 </div>
                             </div>
                             <div class="section group">
@@ -765,7 +798,7 @@
                                 <div class="col span_1_of_4">
                                 </div>
                                 <div class="col span_1_of_4" style="text-align:right">
-                                    <asp:Button ID="btnContratoAceptar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnContratoAceptar_Click"/>
+                                    <asp:Button ID="btnContratoAceptar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnContratoAceptar_Click" ValidationGroup="FechaValid" />
                                 </div>
                             </div>
                         </tr>
