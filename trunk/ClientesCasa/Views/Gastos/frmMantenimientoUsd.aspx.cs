@@ -1205,6 +1205,31 @@ namespace ClientesCasa.Views.Gastos
                 throw;
             }
         }
+        protected void txtImporteU_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextBox txt = (TextBox)sender;
+                GridViewRow gvr = (GridViewRow)txt.NamingContainer;
+                int index = gvr.RowIndex;
+                DropDownList ddlPorc = (DropDownList)gvMantenimientoUSA.Rows[index].FindControl("ddlPorcentaje");
+                TextBox txtImporte = (TextBox)gvMantenimientoUSA.Rows[index].FindControl("txtImporte");
+                TextBox txtImporte2 = (TextBox)gvMantenimientoUSA.Rows[index].FindControl("txtImporte_2");
+                decimal dImporte = 0;
+                decimal dResultado = 0;
+
+                if (txtImporte != null)
+                    dImporte = txtImporte.Text.D();
+
+                dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
+                txtImporte2.Text = dResultado.ToString("N2");
+                upaGastosDolares.Update();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
 
         #region METODOS
@@ -2243,6 +2268,8 @@ namespace ClientesCasa.Views.Gastos
             set { ViewState["VExport"] = value; }
         }
         #endregion
+
+        
 
     }
 }

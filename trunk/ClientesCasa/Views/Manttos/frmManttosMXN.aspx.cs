@@ -1120,6 +1120,32 @@ namespace ClientesCasa.Views.Manttos
                 throw;
             }
         }
+
+        protected void txtImporteP_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextBox txt = (TextBox)sender;
+                GridViewRow gvr = (GridViewRow)txt.NamingContainer;
+                int index = gvr.RowIndex;
+                DropDownList ddlPorc = (DropDownList)gvMantenimiento.Rows[index].FindControl("ddlPorcentaje");
+                TextBox txtImporte = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte");
+                TextBox txtImporte2 = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte_2");
+                decimal dImporte = 0;
+                decimal dResultado = 0;
+
+                if (txtImporte != null)
+                    dImporte = txtImporte.Text.D();
+
+                dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
+                txtImporte2.Text = dResultado.ToString("N2");
+                upaGridGastosMXN.Update();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         #endregion
 
         #region METODOS
@@ -2170,32 +2196,6 @@ namespace ClientesCasa.Views.Manttos
             set { ViewState["VExport"] = value; }
         }
         #endregion
-
-        protected void txtImporte_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                DropDownList ddl = (DropDownList)sender;
-                GridViewRow gvr = (GridViewRow)ddl.NamingContainer;
-                int index = gvr.RowIndex;
-                DropDownList ddlPorc = (DropDownList)gvMantenimiento.Rows[index].FindControl("ddlPorcentaje");
-                TextBox txtImporte = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte");
-                TextBox txtImporte2 = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte_2");
-                decimal dImporte = 0;
-                decimal dResultado = 0;
-
-                if (txtImporte != null)
-                    dImporte = txtImporte.Text.D();
-
-                dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
-                txtImporte2.Text = dResultado.ToString("N2");
-                upaGridGastosMXN.Update();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
     }
 }
