@@ -365,8 +365,7 @@
                                                                             <asp:TemplateField HeaderText="Importe">
                                                                                 <ItemTemplate>
 
-                                                                                    <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;" AutoPostBack="true" 
-                                                                                        OnTextChanged="txtImporteU_TextChanged"></asp:TextBox>
+                                                                                    <asp:TextBox ID="txtImporte" runat="server" Style="width: 70px !important; text-align: right;"></asp:TextBox>
 
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
