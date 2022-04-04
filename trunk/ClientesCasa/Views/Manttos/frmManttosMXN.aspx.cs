@@ -1125,21 +1125,21 @@ namespace ClientesCasa.Views.Manttos
         {
             try
             {
-                TextBox txt = (TextBox)sender;
-                GridViewRow gvr = (GridViewRow)txt.NamingContainer;
-                int index = gvr.RowIndex;
-                DropDownList ddlPorc = (DropDownList)gvMantenimiento.Rows[index].FindControl("ddlPorcentaje");
-                TextBox txtImporte = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte");
-                TextBox txtImporte2 = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte_2");
-                decimal dImporte = 0;
-                decimal dResultado = 0;
+                //TextBox txt = (TextBox)sender;
+                //GridViewRow gvr = (GridViewRow)txt.NamingContainer;
+                //int index = gvr.RowIndex;
+                //DropDownList ddlPorc = (DropDownList)gvMantenimiento.Rows[index].FindControl("ddlPorcentaje");
+                //TextBox txtImporte = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte");
+                //TextBox txtImporte2 = (TextBox)gvMantenimiento.Rows[index].FindControl("txtImporte_2");
+                //decimal dImporte = 0;
+                //decimal dResultado = 0;
 
-                if (txtImporte != null)
-                    dImporte = txtImporte.Text.D();
+                //if (txtImporte != null)
+                //    dImporte = txtImporte.Text.D();
 
-                dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
-                txtImporte2.Text = dResultado.ToString("N2");
-                upaGridGastosMXN.Update();
+                //dResultado = ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
+                //txtImporte2.Text = dResultado.ToString("N2");
+                //upaGridGastosMXN.Update();
             }
             catch (Exception)
             {
@@ -1470,6 +1470,7 @@ namespace ClientesCasa.Views.Manttos
                 for (int i = 0; i < ifilas; i++)
                 {
                     int iIdGasto = gvMantenimiento.DataKeys[i]["IdGasto"].S().I();
+                    TextBox txtMonto = (TextBox)gvMantenimiento.Rows[i].FindControl("txtImporte");
 
                     for (int j = 0; j < dtContratos.Rows.Count; j++)
                     {
@@ -1493,9 +1494,17 @@ namespace ClientesCasa.Views.Manttos
                             ddl = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlPorcentaje");
                         }
 
+                        decimal dRes = 0;
+                        decimal dImp = 0;
+
+                        if (txtMonto != null)
+                            dImp = txtMonto.Text.D();
+
+                        dRes = ResPorcentaje(dImp, ddl.SelectedItem.Text.D());
+
                         MantenimientoGastos oM = new MantenimientoGastos();
                         oM.iIdGasto = iIdGasto.S().I();
-                        oM.dImporte = txt.Text.S().D();
+                        oM.dImporte = dRes; //txt.Text.S().D();
                         oM.sContrato = sContrato;
                         oM.iPorcentaje = ddl.SelectedValue.S().I();
                         oM.sUsuario = Utils.GetUser;
@@ -1503,18 +1512,29 @@ namespace ClientesCasa.Views.Manttos
                         lista.Add(oM);
                     }
 
-                    TextBox txtMonto = (TextBox)gvMantenimiento.Rows[i].FindControl("txtImporte");
+                    
                     DropDownList ddlRubro = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlRubro");
                     DropDownList ddlTipoGasto = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlTipoGasto");
                     DropDownList ddlAmpliadoGasto = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlAcumulado1");
                     //TextBox txtReferencia = (TextBox)gvMantenimiento.Rows[i].FindControl("txtReferencia");
 
 
+                    TextBox txtImporte = (TextBox)gvMantenimiento.Rows[i].FindControl("txtImporte");
+                    DropDownList ddlPorc = (DropDownList)gvMantenimiento.Rows[i].FindControl("ddlPorcentaje");
+                    TextBox txtImporte2 = (TextBox)gvMantenimiento.Rows[i].FindControl("txtImporte_2");
+                    decimal dImporte = 0;
+                    decimal dResultado = 0;
+
+                    if (txtMonto != null)
+                        dImporte = txtImporte.Text.D();
+
+                    dResultado = dImporte;  //ResPorcentaje(dImporte, ddlPorc.SelectedItem.Text.D());
+
                     if (txtMonto != null && ddlRubro != null && ddlTipoGasto != null)
                     {
                         GastoEstimado oG = new GastoEstimado();
                         oG.iIdGasto = iIdGasto;
-                        oG.dImporte = txtMonto.Text.Replace(",", "").S().D();
+                        oG.dImporte = dResultado.S().Replace(",", "").S().D();
                         oG.iNumeroTrip = 0;
                         oG.sUsuario = Session["usuario"].S();
                         oG.iIdRubro = ddlRubro.SelectedValue.S().I();
