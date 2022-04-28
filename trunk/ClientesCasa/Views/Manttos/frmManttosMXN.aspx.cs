@@ -913,6 +913,10 @@ namespace ClientesCasa.Views.Manttos
                                 if (lblNoPierna != null)
                                     lblNoPierna.Text = iIdPierna.S();
 
+                                Label lblNumeroPierna = (Label)gvMantenimiento.Rows[iIdFila].FindControl("lblNumeroPierna");
+                                if (lblNumeroPierna != null)
+                                    lblNumeroPierna.Text = iIdPierna.S();
+
                                 upaFechaMXN.Update();
                             }
 
@@ -1552,9 +1556,14 @@ namespace ClientesCasa.Views.Manttos
 
                         if (oG.iNumeroPierna == 0)
                         {
-                            Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNoPierna");
+                            ////Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNoPierna");
+                            ////if (lblNoPierna.Text != null)
+                            ////    oG.iNumeroPierna = lblNoPierna.Text.S().I();
+                            ///
+                            Label lblNoPierna = (Label)gvMantenimiento.Rows[i].FindControl("lblNumeroPierna");
                             if (lblNoPierna.Text != null)
                                 oG.iNumeroPierna = lblNoPierna.Text.S().I();
+
                         }
 
                         Label lblFechaMXN = (Label)gvMantenimiento.Rows[i].FindControl("lblFechaMXN");

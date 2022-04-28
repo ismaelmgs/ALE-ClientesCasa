@@ -336,7 +336,11 @@
 
                                                                             <asp:TemplateField HeaderText="No. Pierna" ItemStyle-HorizontalAlign="Right">
                                                                                 <ItemTemplate>
-                                                                                    <asp:Label ID="lblNumeroPierna" Text='<%# Bind("NumeroPierna") %>' runat="server" Style="display: block; text-align: right;"></asp:Label>
+                                                                                    <asp:UpdatePanel ID="upaNumPiernaUSD" runat="server" UpdateMode="Conditional">
+                                                                                        <ContentTemplate>
+                                                                                            <asp:Label ID="lblNumeroPierna" Text='<%# Bind("NumeroPierna") %>' runat="server" Style="display: block; text-align: right;"></asp:Label>
+                                                                                        </ContentTemplate>
+                                                                                    </asp:UpdatePanel>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
 

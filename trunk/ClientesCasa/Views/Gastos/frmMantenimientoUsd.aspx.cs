@@ -1012,25 +1012,33 @@ namespace ClientesCasa.Views.Gastos
 
                             // MOGI 21/01/2022
                             //LlenaGridDetalle(gvMantenimientoUSA, iIdFila, dtGastosUSA, "gvDetalleGastoUSD", upa);
+                            //UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaDetGastosMXN");
+                            //if (upaGridDetalle != null)
+                            //    upaGridDetalle.Update();
 
-                            UpdatePanel upaFechaMXN = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaFechaUSD");
-                            if (upaFechaMXN != null)
+                            UpdatePanel upaFechaUSD = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaFechaUSD");
+                            if (upaFechaUSD != null)
                             {
-                                Label lblFechaMXN = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
-                                if (lblFechaMXN != null)
-                                    lblFechaMXN.Text = row[0]["FechaVuelo"].S().Dt().ToString("dd/MM/yyyy");
+                                Label lblFechaUSD = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblFechaUSD");
+                                if (lblFechaUSD != null)
+                                    lblFechaUSD.Text = row[0]["FechaVuelo"].S().Dt().ToString("dd/MM/yyyy");
 
+                                upaFechaUSD.Update();
+                            }
+
+                            UpdatePanel upaNumPiernaUSD = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaNumPiernaUSD");
+                            if (upaNumPiernaUSD != null)
+                            {
                                 Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblNoPierna");
                                 if (lblNoPierna != null)
                                     lblNoPierna.Text = iIdPierna.S();
 
-                                upaFechaMXN.Update();
+                                Label lblNumeroPierna = (Label)gvMantenimientoUSA.Rows[iIdFila].FindControl("lblNumeroPierna");
+                                if (lblNumeroPierna != null)
+                                    lblNumeroPierna.Text = iIdPierna.S();
+
+                                upaNumPiernaUSD.Update();
                             }
-
-                            UpdatePanel upaGridDetalle = (UpdatePanel)gvMantenimientoUSA.Rows[iIdFila].FindControl("upaDetGastosUSD");
-                            if (upaGridDetalle != null)
-                                upaGridDetalle.Update();
-
                         }
                     }
                 }
@@ -1630,9 +1638,14 @@ namespace ClientesCasa.Views.Gastos
 
                         if (oG.iNumeroPierna == 0)
                         {
-                            Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblNoPierna");
+                            //Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblNoPierna");
+                            //if (lblNoPierna.Text != null)
+                            //    oG.iNumeroPierna = lblNoPierna.Text.S().I();
+
+                            Label lblNoPierna = (Label)gvMantenimientoUSA.Rows[i].FindControl("lblNumeroPierna");
                             if (lblNoPierna.Text != null)
                                 oG.iNumeroPierna = lblNoPierna.Text.S().I();
+
                         }
 
                         TextBox txtComentarios = (TextBox)gvMantenimientoUSA.Rows[i].FindControl("txtComentarios");
