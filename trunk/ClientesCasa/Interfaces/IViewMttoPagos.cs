@@ -14,6 +14,7 @@ namespace ClientesCasa.Interfaces
         int iAnio { set; get; }
         int iMes { set; get; }
         string sClaveCliente { set; get; }
+        string sClaveContrato { set; get; }
         DataTable dtClientes { set; get; }
         DataSet dsPagos { set; get; }
         int iIdPago { set; get; }
