@@ -31,7 +31,7 @@ namespace ClientesCasa.Presenter
         protected void eSearchPagos_Presenter(object sender, EventArgs e)
         {
             DataSet dsPagos = new DataSet();
-            dsPagos.Tables.Add(oIGesCat.DBGetObtienePagosFacturante(oIView.sClaveCliente, oIView.iMes, oIView.iAnio));
+            dsPagos.Tables.Add(oIGesCat.DBGetObtienePagosFacturante(oIView.sClaveContrato, oIView.iMes, oIView.iAnio));
             dsPagos.Tables.Add(oIGesCat.DBGetObtieneFacturantesCliente(oIView.sClaveCliente));
             oIView.dsPagos = dsPagos;
         }

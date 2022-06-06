@@ -133,7 +133,21 @@ namespace ClientesCasa.Views.Reportes
 
         protected void btnGenerarXLS_Click(object sender, EventArgs e)
         {
-            GeneraEstadoCuenta(sender, e, 2);
+            //GeneraEstadoCuenta(sender, e, 2);
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("content-disposition", "attachment;filename=EstadoCuenta_" + sMatricula + ".xls");
+            Response.Charset = "UTF-8";
+            Response.ContentEncoding = Encoding.Default;
+            this.EnableViewState = false;
+
+            StringWriter stringWrite = new StringWriter();
+            HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+            pnlReporte.RenderControl(htmlWrite);
+            Response.Write(stringWrite.ToString());
+            Response.End();
         }
 
         public void GeneraEstadoCuenta(object sender, EventArgs e, int iRep)
