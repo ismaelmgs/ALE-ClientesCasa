@@ -66,14 +66,14 @@
                 font-size: 14px;
                 font-weight: bold;
                 color: #FFFFFF;
-                background-color: #0D2240;
+                background-color: #001C41;
             }
 
         .tdrlr {
-            background-color:#0D2240;
+            background-color:#001C41;
         }
         .tdrlr:hover {
-            background-color:#0D2240;
+            background-color:#001C41;
         }
 
         .LabelReporteHead {
